@@ -1,0 +1,14 @@
+<div id='forum'>
+  <div class='breadcrumb'>
+    <%= link_to t('forem.forum.forums'), forums_path %>
+    <span> | </span>
+    <%= link_to forum.category, forum.category %> 
+    <span> | </span>
+    <span class="last"><%= forum.title %></span>
+  </div>
+
+  <h2 class="title"><%= forum.title %></h2>
+  <p><%= forum.description %></p>
+
+  <%= render :partial => "/forem/forums/menu", :locals => { :forum => forum } %>
+</div>

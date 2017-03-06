@@ -1,0 +1,112 @@
+externalObject =
+  
+  local_index : 0
+  active_index: null
+  borderPoints: []
+  pathCoordinates : []
+  path: null
+  thinPath: null
+
+  # If the place was submitted then this line would close the loop
+  # It is drawn as a referrece to show people they don't have to close the loop themselves.
+  updateThinPlaceConnectingLine: ->
+    if @thinPath != null
+      @thinPath.setMap null
+    if @pathCoordinates.length > 2
+      @thinPath = new google.maps.Polyline {
+                                            path: [@pathCoordinates[0],@pathCoordinates[@pathCoordinates.length-1]]
+                                            strokeColor: '#00FF00'
+                                            strokeOpacity: 0.5
+                                            strokeWeight: 1
+                                            map: window.map }
+
+# This function is called when loading a pre-existing border point. This only happens when editing an
+  # existing place.
+  loadBorderPoint: (id) ->
+    @borderPoints[id] = new BorderPoint id, $("#place_border_points_attributes_" + id + "_latitude").val(), $("#place_border_points_attributes_" + id + "_longitude").val()
+    @pathCoordinates[id] = @borderPoints[id].latLon
+    @updateThinPlaceConnectingLine()
+    @local_index = @borderPoints.length
+    @active_index = @local_index - 1
+
+  # Adds the new border point to the form.
+  # Content is the hidden fields that get submitted with the page for the border point
+  # Window content is the content that shows up in the popup window that appears when you click on a border point marker.
+  # We expect to find values stored in the variables local_index, active_index and the Latitude/Longitude textboxes.
+  addNewBorderPoint: (button, association, content) ->
+    latitude = convertToDecimal $("#Latitude").val() # Convert if in a different system
+    longitude = convertToDecimal $("#Longitude").val() # Convert if in a different system
+    $("#Latitude").val latitude
+    $("#Longitude").val longitude
+    if latitude == "" or longitude == "" or isNaN latitude or isNaN longitude
+      alert "Latitude and Longitude must be numbers at most 500km away from the center of this place and no more than 100km away from the previous waypoint added."
+      return
+    content = content.replace new RegExp("new_" + association, "g"), @local_index
+    content = content.replace "type=\"hidden\" />", "type=\"hidden\" value=\"" + latitude + "\" />"
+    content = content.replace "type=\"hidden\" />", "type=\"hidden\" value=\"" + longitude + "\" />"
+    content = content.replace "type=\"hidden\" />", "type=\"hidden\" value=\"" + @local_index + "\" />"
+    $(button).after content
+    @borderPoints[@local_index] = new BorderPoint @local_index, latitude, longitude
+    @pathCoordinates.push @borderPoints[@local_index].latLon
+    if @active_index?
+      @borderPoints[@active_index].marker.setIcon() # Reset parent waypoint icon
+      @path.setMap null
+      @path = new google.maps.Polyline {
+                                          path: @pathCoordinates
+                                          strokeColor: '#FF0000'
+                                          strokeOpacity: 1.0
+                                          strokeWeight: 2
+                                          map: window.map }
+
+    @updateThinPlaceConnectingLine()
+    @active_index = @local_index
+    @local_index++
+
+  #Remove point at index
+  removeBorderPoint: (index) ->
+    @borderPoints[index].destroy()
+    
+    #Remove point from polyline
+    marker = @borderPoints[index].marker
+    i = 0
+    for i in [0..@pathCoordinates.length-1]
+      coord = @pathCoordinates[i]
+      break if marker.getPosition().lat() is coord.lat() and marker.getPosition().lng() is coord.lng()
+    @pathCoordinates.splice i, 1
+    @path.setMap null
+    @path = new google.maps.Polyline {
+                                        path: @pathCoordinates
+                                        strokeColor: '#FF0000'
+                                        strokeOpacity: 1.0
+                                        strokeWeight: 2
+                                        map: window.map }
+    @updateThinPlaceConnectingLine()
+
+    # Need to assign active index to next available point.
+    if @active_index == index
+      for i in [parseInt(index)-1..1]
+        point = @borderPoints[i]
+        if !point._destroy
+          point.marker.setIcon "<%= asset_path "markers/yellow-dot.png" %>"
+          @active_index = i
+          break
+   
+  moveBorderPoint: (index, latitude, longitude)->
+    @borderPoints[index].setPosition latitude, longitude
+    @redraw()
+
+  redraw: ->
+    @path.setMap null
+    @pathCoordinates = []
+    for point in @borderPoints
+      unless point._destroy
+        @pathCoordinates.push point.latLon
+    @path = new google.maps.Polyline {
+                                        path: @pathCoordinates
+                                        strokeColor: '#FF0000'
+                                        strokeOpacity: 1.0
+                                        strokeWeight: 2
+                                        map: window.map }
+    @updateThinPlaceConnectingLine()
+
+window.Place = externalObject

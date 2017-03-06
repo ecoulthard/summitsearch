@@ -1,0 +1,9 @@
+<td class="showHover colorOnHover clickable">
+  <% unless trip_report.nil? %>
+    <%= link_to truncate(trip_report.title, :length => 150), trip_report %><br>
+    <% if defined?(show_user) && show_user %>
+      <span class="text no-wrap">By: <%= truncate trip_report.user.display_name, :length => 25 %></span>
+    <% end %>
+    <%= render :partial => 'trip_reports/hover', :locals => {:trip_report => trip_report} %>
+  <% end %>
+</td>

@@ -1,0 +1,102 @@
+<div id="place_list">
+  <h1><%= @user.display_name %> 
+    <% if @show_edit_link %>
+      <%= link_to 'Edit Your Profile', edit_user_registration_path, :class => 'linkButton', data: { no_turbolink: true }  %>
+    <% end %>
+    <% if user_is_admin? %>
+      <%= link_to 'Site History', statistics_user_path(@user), :class => 'linkButton'  %>
+    <% end %>
+  </h1>
+  <div class="entries">
+
+     <% if @user.has_photo? %>
+      <div class="titlePhotoDiv" style="padding-left:10px; float:right">
+        <%= image_tag @user.photo.url(:medium), :alt => @user.has_caption? ? @user.photo_caption : @user.display_name %>
+        <% if @user.has_caption? %>
+          <p style="max-width:400px" class="photo_caption">
+            <%= @user.photo_caption %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <p>
+      <b>Currently Resides in:</b>
+      <%= @user.city %>, <%= @user.province %> <%= @user.country %>
+    </p>
+
+    <% if @user.home_page? %>
+      <p>
+        <b><%= @user.display_name %>s Personal Website:</b>
+        <span class='no-wrap'><%= link_to @homepage, "#{@homepage}" %></span>
+      </p>
+    <% end %>
+
+    <% ss_cache :part => "trip_report_groups_#{@user.id}" do %>
+      <% if @has_trip_reports %>
+	<b>Trip Reports</b><br>
+        <!--<ul class="left">-->
+          <!-- @trip_reports_by_sub_region.each do |region, trip_reports| -->
+            <!--<li><a href="#< region.name >Trips">< year > Trip Reports</a></li>-->
+	        <!-- end -->
+        <!--</ul>-->
+        <% @trip_year_groups.each do |year_group| %>
+          <ul class="left">
+            <% year_group.each do |year| %>
+              <li><a href="#<%= year %>Trips" class="linkButton"><%= year %> Trip Reports</a></li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+      <div class="clearLeft"><br />
+    <% end %>
+
+    <% if @user.description? %>
+      <p>
+        <b>More About <%= @user.display_name %>:</b>
+        <%= sanitize @user.description %>
+      </p>
+    <% end %>
+
+  </div>
+
+  <div class="entries">
+    <% ss_cache :part => "trip_reports_#{@user.id}" do %>
+    <% @trip_reports_by_year.each do |year, trip_reports| %>
+      <a name="<%= year %>Trips"></a>
+      <table class="subdued floatTable"  cellspacing='0'>
+        <thead>
+          <tr>
+             <th><%= year %> Trip Reports</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% trip_reports.each do |trip_report| %>
+            <% time = trip_report.start_time %>
+            <tr class="<%= cycle("odd", "even") %>">
+              <td class="showHover colorOnHover clickable">
+                <%= link_to truncate(trip_report.title, :length => 150), trip_report, :data_popup => "true" %>
+                <%= "- #{Date::MONTHNAMES[time.month]} #{time.day}" unless time.nil? %>
+                <%= render :partial => 'trip_reports/hover', :locals => {:trip_report => trip_report} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br clear="left"><br clear="left">
+    <% end %>
+    <% end #cache trip_reports %>
+    <!-- cache :part => "trip_reports_#{@user.id}" do -->
+      <!-- render :partial => 'trip_reports/insertable_list', :locals => {:place_tag => '', :place => ''} -->
+    <!-- end #cache trip_reports -->
+    <div class="clear"></div><br>
+    <% ss_cache :part => "albums_#{@user.id}" do %>
+      <%= render :partial => 'albums/insertable_list', :locals => {:album_type => '', :place_tag => '', :place => ''} %>
+    <% end #cache albums %>
+    <div class="clear"></div><br>
+    <!-- cache :part => "photos_#{@user.id}" do -->
+      <!-- render :partial => 'photos/insertable_list', :locals => {:photo_type => 'Recent', :place_tag => :user_id, :place => @user} -->
+    <!-- end #cache photos -->
+  </div>
+  <div class="entries" style="height:100px"></div>
+</div>

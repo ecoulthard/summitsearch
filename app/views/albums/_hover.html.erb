@@ -1,0 +1,9 @@
+<% #This is for the abstract summary to be displayed when mousing over thumbnails. %>
+<div class="hover">
+  <fieldset>
+    <legend>Description</legend>
+    <%= strip_tags album.description.gsub(/&nbsp;/i," ") %>
+    <%= render :partial => "articles/totals_thumb", :locals => {:article => album} %>
+  </fieldset>
+</div>
+

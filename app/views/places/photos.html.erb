@@ -1,0 +1,19 @@
+<% ss_cache :part => "photos_#{@place.id}" do %>
+  <%= render :partial => 'photos/insertable_list', :locals => {:photo_type => 'Title', :place_tag => :place_id, :place => @place} %>
+<% end #cache photos_place_id %>
+<div class="clear"></div><br>
+<% ss_cache({:part => "other_photos_#{@place.id}"}, :expires_in => 1.month)  do %>
+  <% if @has_photos_in_area %>
+    <div class="ArticleListDiv">
+      <h2 class="ui-state-default">Other Photos taken from <%= "the " if [Icefield,MountainRange,Region].include? @place.class %><%= @place.name %>
+        <%= link_to 'View Slideshow', slideshow_photos_path(:place_tag => :place_id, :type => 'InArea'), :rel => 'nofollow', :data_popup => "true", :class => 'linkButton' %>
+        &nbsp;
+        <%= link_to 'View Full Size Photos', show_full_photos_path(:place_tag => :place_id, :type => 'InArea'), :rel => 'nofollow', :data_popup => "true", :class => 'linkButton' %>
+      </h2>
+      <% @photos_in_area.each do |photo| %>
+        <%= render :partial => 'photos/thumb', :locals => {:photo => photo} %>
+      <% end %>
+      <div><%= will_paginate @photos_in_area if defined? @photos_in_area.total_pages %></div>
+    </div>
+  <% end %>
+<% end %>

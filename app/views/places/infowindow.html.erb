@@ -1,0 +1,46 @@
+<% cache :part => "infowindow_#{@place_id}" do %>
+<div id="place_info_div">
+  <div>
+    <b><%= link_to @place.name, @place, :data_popup => true %></b>
+  </div>
+  <div class="place_description">
+    <p>
+      <b>Height:</b>
+      <%= @place.height %>m (<%= @place.feet %> ft)&nbsp;&nbsp;
+      <b class="no-wrap">Name status:</b>
+      <%= @place.name_status %>&nbsp;&nbsp;
+    </p>
+      
+    <% if @place.alternate_names? %>
+      <p>
+        <b>Alternate names:</b>
+        <%= @place.alternate_names %>
+      </p>
+    <% end %>
+
+    <% if defined?(@place.parent_mountain) && @place.parent_mountain.present? %>
+      <p class="no-wrap">
+        The closest higher mountain is <%= link_to @place.parent_mountain.name, "#", :id => "parent_mountain_#{@place.parent_mountain.id}", :latitude => @place.parent_mountain.latitude, :longitude => @place.parent_mountain.longitude %>, <%= @place.dist_to_parent.round(2) %>km away.
+      </p>
+      <% #Go to parent mountain if link clicked %>
+      <script type="text/javascript">
+        $("<%= "#parent_mountain_#{@place.parent_mountain.id}" %>").click(function(){
+          map.panTo(new google.maps.LatLng(<%= @place.parent_mountain.latitude %>, <%= @place.parent_mountain.longitude %>));
+          google.maps.event.trigger(marker<%= @place.parent_mountain.id %>, 'mouseover');
+        }); 
+      </script>
+    <% end %>
+
+    <p>
+      <% if @place.description? %>
+        <%= sanitize truncate(@place.description, :length => 1000) %>
+      <% end %>
+    </p>
+
+  </div>
+
+  <% if @place.title_photo %>
+    <%= render :partial => 'photos/small', :locals => {:photo => @place.title_photo, :show_title => false} %>
+  <% end %>
+</div>
+<% end %>

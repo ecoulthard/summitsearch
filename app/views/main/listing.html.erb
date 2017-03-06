@@ -1,0 +1,107 @@
+<table cellspacing="10">
+  <tr>
+    <th><h2 style="font-size:24px">Main Links</h2></th>
+    <th colspan="5"><h2 style="font-size:24px">Mountain Regions</h2></th>
+  </tr>
+  <tr>
+    <td rowspan="3" valign="top">
+      <ul>
+        <li><%= link_to "Albums", albums_path %></li>
+        <% Place.each do |model_class| %>
+          <li><%= link_to model_class.to_s.titleize.pluralize, send("#{model_class.to_s.tableize}_path") %>
+            <ul>
+            <% model_class.subclasses.each do |subclass| %>
+              <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path") %></li>
+            <% end %>
+            </ul>
+          </li>
+        <% end %>
+        <li><%= link_to "Forums", forem.root_path %></li>
+        <li><%= link_to "Members", users_path %></li>
+        <li><%= link_to "Mountains", mountains_path %></li>
+        <li><%= link_to "People", people_path %></li>
+        <li><%= link_to "Photos", photos_path %></li>
+        <li><%= link_to "Routes", routes_path %>
+          <ul>
+            <% Route.subclasses.each do |subclass| %>
+              <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path") %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li><%= link_to "Trip Reports", trip_reports_path %></li>
+      </ul>  
+    </td>
+    <% Region.large_first.each_with_index do |region, index| %>
+      <td valign="top" width="200">
+        <h4><%= link_to truncate(region.name, :length => 60), region %></h4>
+        <ul>
+          <% Place.subclasses.each do |subclass| %>
+            <% if region.send(subclass.to_s.tableize).length > 0 %>
+              <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", :area_id => region.id) %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </td>
+      <% if index % 5 == 4 %>
+        </tr><tr>
+      <% end %> 
+    <% end %>
+  <tr>
+    <th colspan="6"><h2 style="font-size:24px">Official Parks</h2></th>
+  </tr>
+    <% Park.alphabetical.each_with_index do |area, index| %>
+      <td valign="top" width="200">
+        <h4><%= link_to truncate(area.name, :length => 60), area %></h4>
+        <ul>
+          <% Place.subclasses.each do |subclass| %>
+            <% if area.send(subclass.to_s.tableize).length > 0 %>
+              <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", :area_id => area.id) %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </td>
+      <% if index % 6 == 5 %>
+        </tr><tr>
+      <% end %> 
+    <% end %>
+  </tr>
+  <tr>
+    <th colspan="6"><h2 style="font-size:24px">Mountain Ranges</h2></th>
+  </tr>
+    <% MountainRange.alphabetical.each_with_index do |area, index| %>
+      <td valign="top" width="200">
+        <h4><%= link_to truncate(area.name, :length => 60), area %></h4>
+        <ul>
+          <% Place.subclasses.each do |subclass| %>
+            <% if area.send(subclass.to_s.tableize).length > 0 %>
+              <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", :area_id => area.id) %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </td>
+      <% if index % 6 == 5 %>
+        </tr><tr>
+      <% end %> 
+    <% end %>
+  </tr>
+  <tr>
+    <th colspan="6"><h2 style="font-size:24px">Icefields</h2></th>
+  </tr>
+    <% Icefield.alphabetical.each_with_index do |area, index| %>
+      <td valign="top" width="200">
+        <h4><%= link_to truncate(area.name, :length => 60), area %></h4>
+        <ul>
+          <% Place.subclasses.each do |subclass| %>
+            <% if area.send(subclass.to_s.tableize).length > 0 %>
+              <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", :area_id => area.id) %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </td>
+      <% if index % 6 == 5 %>
+        </tr><tr>
+      <% end %> 
+    <% end %>
+  </tr>
+
+</table>

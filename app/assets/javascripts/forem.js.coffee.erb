@@ -1,0 +1,10 @@
+if $('body.forem').length
+  #Initialize drop down menu if not ie7 or lower
+  #if (!$.browser.msie || $.browser.version.substr(0,1)>7)
+  unless $('body.ie7').length
+    $("#jMenu").jMenu
+      ulWidth:150
+      TimeBeforeOpening:100
+      TimeBeforeClosing:400
+      absoluteTop:24
+      absoluteLeft:-20

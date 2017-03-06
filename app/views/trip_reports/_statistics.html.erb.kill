@@ -1,0 +1,4 @@
+<% return if !defined?(@total_views) %>
+<%= "This trip report has been viewed #{pluralize(@total_views, 'time')} by #{pluralize(@num_viewers, 'signed in member')} of Summit Search." %>
+<span id="thumbs_up"><%= "#{@num_thumbs_up == 1 ? "1 person likes" : "#{@num_thumbs_up} people like"} this trip report." if @num_thumbs_up > 0 %></span>
+<span id="two_thumbs_up"><%= "#{@num_two_thumbs_up == 1 ? "1 person really likes" : "#{@num_two_thumbs_up} people really like"} this trip report." if @num_two_thumbs_up > 0 %></span>

@@ -1,0 +1,40 @@
+<div id="place_list">
+<h1>Listing Mountain People
+  <% if !@lower.nil? && !@upper.nil? %>
+    <%= "from (#{@lower} - #{@upper})" %>
+  <% end %>
+</h1>
+
+<%= render :partial => 'all/index_sort', :locals => {:record_class => Person, :selected_sort => @sort} %>
+<div class="clear"></div>
+
+<% if @people.length == 0 %>
+  <p class="notice"><%= "There are no people to list" %></p>
+<% end %>
+  
+<div><%= will_paginate @people, :inner_window => 10, :outer_window => 2 %></div>
+
+<table>
+<% @people.each do |person| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <%= render person.becomes(Person) %>
+    <% if user_is_editor? %>  
+      <td class="list_actions">
+        <%= link_to 'Show', person %><br/>
+      	<%= link_to 'Edit', edit_person_path(person) %><br/>
+      </td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />
+
+<!--<% if user_is_editor? %>
+  <%= link_to "New Person", new_person_path %>
+<% end %>-->
+<div><%= will_paginate @people, :inner_window => 10, :outer_window => 2 %></div>
+<br />
+
+<%= link_to 'New Person', new_person_path %>

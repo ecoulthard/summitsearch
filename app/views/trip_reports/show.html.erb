@@ -1,0 +1,111 @@
+<div id="place_list" data-no-turbolink>
+  <h1><%= @trip_report.title %> <span>by <%= link_to @trip_report.user.display_name, @trip_report.user %></span>
+    <br><br>
+    <%= link_to 'View Photo Slideshow', slideshow_photos_path(:trip_report_id => @trip_report.id, :type => 'Title'), :rel => 'nofollow', :data_popup => "true", :class => 'linkButton' %>
+    <%= link_to 'View Full Size Photos', show_full_photos_path(:trip_report_id => @trip_report.id, :type => 'Title'), :rel => 'nofollow', :data_popup => "true", :class => 'linkButton' %>
+    <%= link_to "Google Map View", gmap_path(:trip_report_id => @trip_report.id), :rel => 'nofollow', :class => 'linkButton' %>
+    <%= topo_map_link @trip_report.route.averageLatitude.round(6), @trip_report.route.averageLongitude.round(6), 10 %>
+    <% if @show_edit_link %>
+      <%= link_to "Edit This Trip Report", edit_trip_report_path(@trip_report), :class => 'linkButton' %>
+      <% if @can_edit_route %>
+        <%= link_to "Edit the Route", edit_route_path(@trip_report.route), :class => 'linkButton' %>
+      <% end %>
+    <% end %>
+  </h1>
+
+  <div class="titlePhotoDiv">
+    <%= render :partial => 'routes/route_draw' %>
+  </div>
+
+  <% ss_cache :part => "description_#{@trip_report.id}" do %>
+
+    <p>
+      <b>Abstract:</b>
+      <%= @trip_report.abstract %>
+    </p>
+
+    <%= render :partial => 'routes/route_place' %>
+
+
+    <% unless @start_time.nil? && @end_time.nil? %>
+      <p>
+        <b>Start-End Times:</b>
+        <%= @start_time %>, <%= @end_time %>
+      </p>
+    <% end %>
+
+    <% unless @trip_report.travel_time.blank? %>
+      <p>
+        <b>Travel Time:</b>
+        <%= @trip_report.travel_time %>
+      </p>
+    <% end %>
+
+    <% unless @trip_report.participants.blank? %>
+      <p>
+        <b>Participants:</b>
+        <%= @trip_report.participants %>
+      </p>
+    <% end %>
+
+    <% if @dist != 0 %>
+      <p>
+        <b>One way estimated distance:</b>
+        <%= @dist %>Km
+      </p>
+    <% end %>
+
+    <% if @gain != 0 %>
+      <p>
+        <b>One way estimated height gain:</b>
+        <%= @gain %>m
+      </p>
+    <% end %>
+
+    <% if @loss != 0 %>
+      <p>
+        <b>One way estimated height loss:</b>
+        <%= @loss %>m
+      </p>
+    <% end %>
+
+    <p>
+      <b>Route:</b>
+      <%= link_to @route.name, @route %>
+      <%= " By #{@route.user.display_name}" if @route.user != @trip_report.user %>
+    </p>
+
+    <p>
+      <b>Route Description</b>
+      <%= " By #{@route.user.display_name}" if @route.user != @trip_report.user %>
+      <%= sanitize @route.description %>
+    </p>
+
+    <div class="clear"></div>
+
+    <div>
+      <b>Trip Report:</b>
+      <%= render :partial => 'all/text_with_photos', :locals => {:text => @trip_report.description } %>
+    </div>
+  <% end #cache description_trip_report_id %>
+
+    <div class="clear"></div><br>
+
+    <%= render :partial => 'articles/vote' %>
+    <div id="recommendations" class="recommendations">
+      <%= render :partial => 'articles/recommendations' %>
+    </div>
+    <div class="clear"></div><br>
+    
+    <%= render :partial => 'articles/social' %>
+
+  </div>
+
+  <div id="photos_go_here" data-object_id="<%= @trip_report.to_param %>">
+    <% ss_cache :part => "photos_#{@trip_report.id}" do %>
+      <%= render :partial => 'photos/insertable_list', :locals => {:photo_type => 'Trip', :place_tag => :trip_report_id, :place => @trip_report, :text_only => true } %>
+    <% end %>
+  </div>
+
+  <div class="clear"></div> 
+  <%= render :partial => 'articles/comments' %>

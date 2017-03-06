@@ -1,0 +1,46 @@
+window.Main =
+  # show menu bar
+  showMenuBar: ->
+    #Always show the menu/search on the main pages.
+    $("#menuSearchBar").show()
+    $("#searchDiv").width(Math.max(150, $("body").width()-$("#menuDiv").width()))
+    ##Redirect www.summitsearch.org to summitsearch.org
+    #pathname = window.location.toString()
+    #if(pathname.indexOf("www.") != -1)
+    #  window.location.href = pathname.replace("www.", "")
+
+  #loads new photos for the user corresponding to the summary div
+  loadUserPhotos: (summaryDiv,type) ->
+    #May be a child element that triggered the click.
+    #Get the parent User Summary first before doing anything else.
+    if(!summaryDiv.hasClass('User_Photo_Summary'))
+      summaryDiv = summaryDiv.parents('.User_Photo_Summary')
+    user_id = summaryDiv.prop('id')
+    user_id = user_id.substring(user_id.indexOf(":")+1)
+    displayDivID = "#divUserPhotos" + user_id
+    return if busy or $(displayDivID).is(':visible')
+    busy = true
+    $('.User_Photo_Summary').css('background-color','white')
+    summaryDiv.css('background-color','#bbb')
+    getpath ="<%= r(photos_user_path) %>"
+    getpath = getpath.replace("{{id}}", user_id)
+    getpath += "?type=" + type
+    $('.User_Photos').html("<p style=\"font-size:larger\"><span class=\"ajax-loader\"></span> Loading member photos<p>")
+        
+    #Get users photos from the server
+    $.get getpath, (data) ->
+      $(".User_Photos").html(data)
+      busy = false   
+
+  #Init callbacks for user photo summaries
+  initPhotoSummaries: (type) ->
+    busy = false #If true then photos are sliding so don't start another one.
+    #mouseover to load photos for non touch browsers 
+    unless Modernizr.touch
+      $('.User_Photo_Summary').mouseenter (e) =>
+        @loadUserPhotos($(e.target),type)
+    #click to load photos for touch browsers 
+    if Modernizr.touch
+      $('.User_Photo_Summary').click (e) =>
+        @loadUserPhotos($(e.target),type)
+

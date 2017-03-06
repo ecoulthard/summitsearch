@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>markItUp! preview template</title>
+  <%= stylesheet_link_tag "application" %>
+</head>
+<body id="main" class="default <%= params[:controller] %> <%= params[:action] %>">
+  <div id="content">
+    <%= render :partial => 'all/text_with_photos', :locals => {:text => @content.html_safe } %>
+  </div>
+</body>
+</html>

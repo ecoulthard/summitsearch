@@ -1,0 +1,9 @@
+<td class="showHover colorOnHover clickable">
+  <% unless route.nil? %>
+    <%= link_to truncate(route.name, :length => 150), route %><br>
+    <span class="text"><%= route.distance %>km
+      Height: +<%= route.height_gain %>m<%= ", -" + route.height_loss.to_s + "m" unless route.height_loss.nil? || route.height_loss == 0 %>
+    </span>
+    <%= render :partial => 'routes/hover', :locals => {:route => route} %>
+  <% end %>
+</td>

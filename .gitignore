@@ -1,0 +1,14 @@
+.bundle
+.sass-cache/
+config/*.sphinx.conf
+db/*.sqlite3
+db/sphinx
+log/*.log
+tmp/**/*
+public/assets/*
+public/system/*
+*.swp
+*/*.swp
+*/*/*.swp
+rdoc/
+vendor/cache

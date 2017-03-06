@@ -1,0 +1,345 @@
+### Interactive waypoint system for creating routes
+# © 2012 Eric Coulthard ( ecoulthard@gmail.com ) 
+# 
+# Licensed under GNU GPL 3.0 or later.    
+#
+# This file contains functions for the waypoint object used in route forms.
+# The waypoints id is the same as its index in the Route.waypoints array.
+#
+###
+
+# Our constuctor for creating waypoints. This is used for both new and loaded waypoints.
+# @icon is the test saved indicating which icon to use for the waypoint.
+# @icon_src is the actual source image file to use. It can be different than @icon in 2 cases.
+# If the waypoint is the active waypoint then icon_src is the yellow marker icon
+# If waypoint.display? is true in the waypoint model class icon_src is set to be the green marker icon.
+# If a title or description is entered for the waypoint its icon_src is set to be the green marker icon.
+# @window_content is the content rendered from _waypoint_bubble_fields.html.erb
+# It is displayed in the info window for the marker. It is altered before it is used by the marker to have
+# the correct id for each field to enable the waypoint to load values into info window when it is loaded.
+class @Waypoint
+  constructor: (@id,@parent_index,@title,@latitude,@longitude,@height,@distance,@height_gain,@height_loss,@description,@icon,@icon_src,@window_content) ->
+    @_destroy = false
+    @latLon = new google.maps.LatLng @latitude, @longitude
+    @marker = new google.maps.Marker {
+                                        position: @latLon
+                                        map: window.map
+                                        title: "A waypoint"
+                                        draggable: true
+                                        icon: "<%= asset_path "markers/yellow-dot.png" %>" }
+    @infowindow = new google.maps.InfoWindow { content: Route.setUpWindowContent @id, @window_content }
+    @window_open = false #info window is closed by default
+    # Assign a path segment for this point if it isn't the first point
+    @path = null
+    
+    unless @isRoot()
+      @parent().resetIcon() # Reset parent waypoint icon
+      @path = new google.maps.Polyline {
+                                          path: [@parent().marker.getPosition(), @latLon]
+                                          strokeColor: '#FF0000'
+                                          strokeOpacity: 1.0
+                                          strokeWeight: 2
+                                          map: window.map }
+
+
+    # If height is 0 it is probably a new waypoint so look up elevation using Googles elevation service
+    # If successful we store the elevation in the object as well as on the page.
+    @getElevation() if @height == 0
+        
+    @setHeightChange()
+
+    # If not set yet compute the distance to the trailhead from this point.
+    if !@isRoot() and @distance == 0.0
+      @setDistance @parent().distance + (google.maps.geometry.spherical.computeDistanceBetween(@latLon, @parent().latLon)/1000.0)
+    
+    @addEvents()
+
+  #Ask google for the elevation
+  getElevation: ->
+    index = @id # Needs to be defined to be used by the callback function
+    Route.elevator.getElevationForLocations { 'locations': [@latLon] }, (results, status) ->
+      if status == google.maps.ElevationStatus.OK
+        # Retrieve the first result
+        if results[0] and results[0].elevation
+          Route.getWaypoint(index).setHeight Math.round(results[0].elevation)
+        else
+          Route.removeWaypoint index
+          alert "Couldn't retrieve elevation of waypoint from Google. You will need to re-enter the waypoint"
+      else
+        Route.removeWaypoint index
+        alert "Googles elevation service failed due to: " + status +  ". You will need to re-enter the waypoint."
+
+
+  # Add functions to handle events for the waypoint
+  addEvents: ->
+    index = @id # Needs to be defined to be used the google listeners.
+
+    # When the marker is clicked open the window and load the objects values to allow editing
+    # If a waypoints marker is clicked when its window is already open it becomes the active waypoint
+    @markerClickListener = google.maps.event.addListener @marker, 'click', ->
+      waypoint = Route.getWaypoint index
+      Route.activateWaypoint(index) if waypoint.window_open
+      waypoint.infowindow.open window.map, waypoint.marker
+
+    # When an info window is opened load the values into it.
+    @infoWindowOpenListener = google.maps.event.addListener @infowindow, 'domready', ->
+      Route.getWaypoint(index).openWindow()
+      $("#bubble_fieldset_" + index).children("BR").remove() #Removes extra <br> tags that chrome adds for some reason
+      $("#bubble_fieldset_" + index).children().children().children().children("textarea[class*=expand]").TextAreaExpander()
+
+    # When an info window is closed update its waypoints flag to let it know.
+    @infoWindowCloseListener = google.maps.event.addListener @infowindow, 'closeclick', ->
+      Route.getWaypoint(index).setWindowOpen(false)
+
+    # Close window, remove marker and assign child points to their grandparent when this objects marker is right clicked
+    @markerRightClickListener = google.maps.event.addListener @marker, 'rightclick', ->
+      Route.removeWaypoint index
+	  
+    #When someone clicks on the path to the parent a insert new point where they clicked
+    if @path?
+      @pathClickListener = google.maps.event.addListener @path, 'click', (event) ->
+        Route.insertWaypoint index, event.latLng.lat(), event.latLng.lng()
+
+    # Close window since the user is moving the marker
+    @dragstartListener = google.maps.event.addListener @marker, 'dragstart', ->
+      Route.getWaypoint(index).infowindow.close()
+
+    # Change the waypoints lat/lon/height to the new coordinate for the marker.
+    @dragendListener = google.maps.event.addListener @marker, 'dragend', (event) ->
+      waypoint = Route.getWaypoint index
+      if google.maps.geometry.spherical.computeDistanceBetween(event.latLng, new google.maps.LatLng(waypoint.latitude, waypoint.longitude)) > 100000
+        waypoint.marker.setPosition waypoint.latLon
+        alert "Waypoints cannot be moved by more than 100km."
+        return
+      waypoint.setLatitude event.latLng.lat()
+      waypoint.setLongitude event.latLng.lng()
+      waypoint.latLon = event.latLng
+      waypoint.redrawLines()
+      waypoint.getElevation() #Get elevation of new point
+      # A lot of distances could be affected so might as recompute them all.
+      # Wait half a second for the elevation lookup.
+      setTimeout((-> Route.computeDistances()), 500)
+
+  #Called when a waypoints id is changed so that we can reset the events to use the new id.
+  removeEvents: ->
+    google.maps.event.removeListener @markerClickListener
+    google.maps.event.removeListener @infoWindowOpenListener
+    google.maps.event.removeListener @infoWindowCloseListener
+    google.maps.event.removeListener @markerRightClickListener
+    google.maps.event.removeListener @pathClickListener if @path?
+    google.maps.event.removeListener @dragstartListener
+    google.maps.event.removeListener @dragendListener
+
+  #Loads the waypoints values into the info window fields.
+  openWindow: ->
+    @window_open = true
+    $("#title_" + @id).val @title
+    $("#latitude_" + @id).val @latitude
+    $("#longitude_" + @id).val @longitude
+    $("#height_" + @id).val @height
+    $("#distance_" + @id).text Math.round(@distance * 100)/100
+    $("#height_gain_" + @id).text @height_gain
+    $("#height_loss_" + @id).text @height_loss
+    $("#description_" + @id).val @description
+    $("#icon_" + @id + "_" + @icon).prop "checked", true
+
+  destroy: ->
+    # Cannot remove root if it has more than 1 child as this would disconnect the tree
+    return if @isRoot() && @numChildren() > 1
+    @infowindow.close()
+    @marker.setMap null
+    @path.setMap null if @path?
+    # Mark point for deletion in the database
+    @setDestroy true
+
+  isRoot: ->
+    @parent_index is null or isNaN(@parent_index) or @parent_index == @id or @parent_index < 0
+
+  parent: ->
+    unless @isRoot()
+      Route.getWaypoint @parent_index
+    else
+      null
+	
+  # returns latitude halfway to the parent waypoint. Only called from Route.insertWaypoint insert_index
+  midLatitude: ->
+    unless @isRoot()
+      (parseFloat(@latitude) + parseFloat(@parent().latitude)) / 2.0
+    else # No parent so make up a latitude nearby
+      parseFloat(@latitude) + 0.005
+	
+  # returns longitude halfway to the parent waypoint. Only called from Route.insertWaypoint insert_index
+  midLongitude: ->
+    unless @isRoot()
+      (parseFloat(@longitude) + parseFloat(@parent().longitude)) / 2.0
+    else # No parent so make up a longitude nearby
+      parseFloat(@longitude) + 0.005
+
+  # Changing the id is a little involved. The waypoint events have callback functions that use
+  # an index with the old id and will need to be regenerated. Also the info window content is
+  # setup to use the old id for accessing fields and for the button callbacks.
+  setID: (newID) ->
+    @id = newID
+    #Need to refresh the info_window with content for the new id.
+    @infowindow.setContent Route.setUpWindowContent(@id, @window_content)
+    #Need to readd all events when the id is changed so that they use the new id.
+    @removeEvents()
+    @addEvents()
+
+  setTitle: (newTitle) ->
+    @title = newTitle
+    # Set icon to green to indicate that it has content
+    if @icon_src == null or @icon_src == ""
+      @icon_src = "<%= asset_path("markers/green-dot.png") %>"
+      @marker.setIcon @icon_src
+    $("#route_waypoints_attributes_" + @id + "_title").val newTitle
+
+  # This function is called as a result of the user changing the latitude manually so we need to validate it first.
+  setLatitude: (newLatitude) ->
+    if typeof newLatitude == "string" # If manually entered
+      newLatitude = convertToDecimal newLatitude # Convert if in a different system
+      if newLatitude == "" or isNaN newLatitude
+        $("#latitude_" + @id).val @latitude
+        alert "Latitude must be a number."
+        return
+    latLng = new google.maps.LatLng newLatitude, @longitude
+    if google.maps.geometry.spherical.computeDistanceBetween(@marker.getPosition(), latLng) > 100000
+      $("#latitude_" + @id).val @latitude
+      alert "Waypoints cannot be moved by more than 100km apart."
+      return
+    @latitude = newLatitude
+    $("#route_waypoints_attributes_" + @id + "_latitude").val newLatitude
+    if @marker.getPosition().lat() != @latitude
+      @latLon = new google.maps.LatLng @latitude, @longitude
+      @marker.setPosition @latLon
+      @redrawLines()
+
+  # This function is called as a result of the user changing the longitude manually so we need to validate it first.
+  setLongitude: (newLongitude) ->
+    if typeof newLongitude == "string" # If manually entered
+      newLongitude = convertToDecimal newLongitude # Convert if in a different system
+      if newLongitude == "" or isNaN newLongitude
+        $("#longitude_" + this.id).val @longitude
+        alert "Longitude must be a number."
+        return
+    latLng = new google.maps.LatLng @latitude, newLongitude
+    if google.maps.geometry.spherical.computeDistanceBetween(@marker.getPosition(), latLng) > 100000
+      $("#longitude_" + @id).val @longitude
+      alert "Waypoints cannot be moved by more than 100km apart."
+      return
+    @longitude = newLongitude
+    $("#route_waypoints_attributes_" + @id + "_longitude").val newLongitude
+    if @marker.getPosition().lng() != @longitude
+      @latLon = new google.maps.LatLng @latitude, @longitude
+      @marker.setPosition @latLon
+      @redrawLines()
+
+  setParentIndex: (newParentIndex) ->
+    @parent_index = newParentIndex
+    $("#route_waypoints_attributes_" + @id + "_parent_index").val newParentIndex
+    @computeDistance() #distance has changed since the waypoint now has a new parent
+
+  setHeight: (newHeight) ->
+    @height = newHeight
+    $("#route_waypoints_attributes_" + @id + "_height").val newHeight
+    Route.computeDistances() #Need to update height_gain/loss of later waypoints.
+    # @setHeightChange()
+
+  #Returns the change in height from the parent to this waypoint
+  getHeightChangeToParent: ->
+    if @isRoot()
+      0
+    else
+      @height - @parent().height
+
+  setHeightChange: ->
+    if @isRoot()
+      @height_gain = 0
+      @height_loss = 0
+    else
+      heightChange = @getHeightChangeToParent()
+      @height_gain = @parent().height_gain
+      @height_loss = @parent().height_loss
+      @height_gain += heightChange if heightChange >= 0
+      @height_loss -= heightChange if heightChange < 0
+    $("#route_waypoints_attributes_" + @id + "_height_gain").val @height_gain
+    $("#route_waypoints_attributes_" + @id + "_height_loss").val @height_loss
+
+  #Asks google for the distance to parent. Returns answer in kms
+  distToParent: ->
+    if @isRoot()
+      0.0
+    else
+      google.maps.geometry.spherical.computeDistanceBetween(@latLon, @parent().latLon)/1000.0
+
+  # Calculate distance from the trailhead based on parent distance + distance to parent 
+  computeDistance: ->
+    if @isRoot()
+      @setDistance 0.0
+    else
+      @setDistance @parent().distance + @distToParent()
+
+  setDistance: (newDistance) ->
+    @distance = newDistance
+    $("#route_waypoints_attributes_" + @id + "_distance").val newDistance
+
+  setDescription: (newDescription) ->
+    @description = newDescription
+    # Set icon to green to indicate that it has content
+    if @icon_src == null or @icon_src == ""
+      @icon_src = "<%= asset_path("markers/green-dot.png") %>"
+      @marker.setIcon @icon_src
+    $("#route_waypoints_attributes_" + @id + "_description").val newDescription
+
+  # Called to set the marker icon back to the waypoints icon src.
+  # The marker icon might be set to yellow for example if this is the active waypoint
+  resetIcon: ->
+    @marker.setIcon @icon_src
+
+  setIcon: (newIcon, icon_src) ->
+    @icon = newIcon
+    @icon_src = icon_src
+    @marker.setIcon icon_src
+    $("#route_waypoints_attributes_" + @id + "_icon").val newIcon
+
+  setWindowOpen: (open) ->
+    @window_open = open
+
+  setDestroy: (newDestroy) ->
+    @_destroy = newDestroy
+    $("#route_waypoints_attributes_" + @id + "__destroy").val newDestroy
+
+  setPath: ->
+    unless @isRoot() # Redraw the line to this points parent if it isn't root
+      @path.setPath [@parent().latLon, @latLon]
+    else if @path? # It is root so null out its path
+      @path.setMap null
+      @path = null
+
+  # Redraws the lines connecting this point with the rest of the route. Called when the point is moved.
+  redrawLines: ->
+    @setPath()
+    for waypoint in Route.waypoints[@id+1..Route.local_index-1]
+      continue if waypoint._destroy
+      waypoint.setPath()
+
+  # Save values stored in the object into the html fields for this waypoint
+  save: () ->
+    $("#route_waypoints_attributes_" + @id + "_parent_index").val @parent_index
+    $("#route_waypoints_attributes_" + @id + "_title").val @title
+    $("#route_waypoints_attributes_" + @id + "_latitude").val @latitude
+    $("#route_waypoints_attributes_" + @id + "_longitude").val @longitude
+    $("#route_waypoints_attributes_" + @id + "_height").val @height
+    $("#route_waypoints_attributes_" + @id + "_distance").val @distance
+    $("#route_waypoints_attributes_" + @id + "_height_gain").val @height_gain
+    $("#route_waypoints_attributes_" + @id + "_height_loss").val @height_loss
+    $("#route_waypoints_attributes_" + @id + "_description").val @description
+    $("#route_waypoints_attributes_" + @id + "_icon").val @icon
+    $("#route_waypoints_attributes_" + @id + "__destroy").val @_destroy
+
+  # Return the number of children of this waypoint
+  numChildren: ->
+    count = 0
+    for waypoint in Route.waypoints[@id+1..Route.local_index-1]
+      count++ if(!waypoint._destroy and waypoint.parent_index == @id)
+    count

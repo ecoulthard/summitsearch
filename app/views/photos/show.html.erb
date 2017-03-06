@@ -1,0 +1,113 @@
+<div id="place_list" data-no-turbolink>
+  <h1><%= @photo.title %>
+    <br><br>
+    <% if @full_size %>
+      <%= link_to "Standard Size", @photo, :class => 'linkButton' %>
+    <% else %>
+      <%= link_to 'View Full Size', show_full_photos_path(:photo_id => @photo.id), :data_popup => "true", :class => 'linkButton' %>
+    <% end %>
+    <%= link_to "Google Map View", gmap_path(:photo_id => @photo.id), :rel => 'nofollow', :class => 'linkButton' %>
+    <%= topo_map_link @photo.lat_for_map, @photo.lon_for_map, 11 %>
+    <% if @show_edit_link %>
+      <%= link_to 'Edit This Photo', edit_photo_path(@photo), :class => 'linkButton' %>
+      <%= link_to "Add Another Photo from this Trip", new_photo_path(:photo_id => @photo.id), :class => 'linkButton' %>
+    <% end %>
+  </h1>
+  
+  <%= image_tag(@photo.photo.url(:medium), :alt => @photo.alt) %>
+
+  <% if !@photo.latitude.nil? && !@photo.longitude.nil? %>
+    <div id="map_div" class="map_div" style="float:right"></div>
+    <% content_for(:javascript) do %> 
+      <% ss_cache :part => "google_map_#{@photo.id}" do %>
+        <script type="text/javascript">
+          <%= render :layout => 'all/init_google_map', :locals => {:usetopomap => false, :mapdiv => 'map_div', :zoom => 10, :centerLatitude => @centerLatitude, :centerLongitude => @centerLongitude} do %>
+            var latlng = new google.maps.LatLng(<%= "#{@photo.latitude},#{@photo.longitude}" %>);
+            var marker = new google.maps.Marker({
+	      position: latlng,
+	      map: map,
+	      icon: "<%= asset_path("markers/camera.png") %>",
+	      shadow: "<%= asset_path("markers/camera.shadow.png") %>",
+	      title: "Vantage point"
+            });
+            <%= render :partial => 'places/clickable_places' %>
+          <% end %>
+        </script>
+      <% end #cache %>
+    <% end %>
+  <% end %>
+  
+  <% ss_cache :part => "description_#{@photo.id}" do %>
+    <div class="photo_caption">
+      <%= sanitize @caption %>
+    </div>
+    <br>
+
+    <% if !@time.nil? %>
+      <div>
+        <b>Time:</b>
+        <%= @time %>
+      </div>
+    <% end %>
+
+    <div>
+      <b>Photographer:</b>
+      <%= link_to @photo.user.display_name, @photo.user %>
+    </div>
+
+    <% subject = @photo.place if @photo.place_id? %>
+    <% subject = @photo.route if @photo.route_id? %>
+    <% if defined?(subject) && subject.present? %>
+      <div>
+        <b>Title <%= subject.type.titleize %>:</b>
+        <%= link_to subject.name, subject %>
+      </div>
+    <% end %>
+
+    <% if @photo.trip_report_id? %>
+      <div>
+        <b>Trip Report:</b>
+        <%= link_to @photo.trip_report.title, @photo.trip_report %>
+      </div>
+    <% end %>
+  
+    <% if @photo.album.present? %>
+      <div>
+        <b>Album:</b>
+        <%= link_to @photo.album.title, @photo.album %>
+      </div>
+    <% end %>
+
+    <% if @photo.place_id? || @photo.vantage? %>
+      <div>
+        <b>Vantage Point:</b>
+        <% if @photo.vantage? %>
+          <%= @photo.vantage %>
+        <% end %>
+        <% if @photo.place_id? && @photo.latitude? && @photo.longitude? %>
+          <%= @distance %>km <%= @direction %> of <%= @photo.place.name %>.
+        <% end %>
+      </div>
+    <% end %>
+
+    <br>  
+    <% if @photo.description? %>
+      <div>
+        <b>Description:</b>
+        <%= sanitize @photo.description %>
+      </div>
+    <% end %>
+
+  <% end # cache %>
+
+  <div class="clear"></div>
+  <%= render :partial => 'articles/vote' %>
+  <div id="recommendations" class="recommendations">
+    <%= render :partial => 'articles/recommendations' %>
+  </div><br>
+
+</div>
+
+<%= render :partial => 'articles/social' %>
+<%= render :partial => 'articles/comments' %>
+

@@ -1,0 +1,68 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  time: 2010-07-11
+  latitude: 9.99
+  longitude: 9.99
+  height: 10
+  ref_latitude: 20.99
+  ref_longitude: 20.99
+  ref_title: MyString
+  ref_content: MyText
+  photo_file_name: MyFile
+  vantage: MyString
+  caption: MyText
+  description: MyText
+  user: vador
+
+two:
+  title: MyString
+  time: 2010-07-11
+  latitude: 9.99
+  longitude: 9.99
+  height: 10
+  ref_latitude: 20.99
+  ref_longitude: 20.99
+  ref_title: MyString
+  ref_content: MyText
+  photo_file_name: MyFile
+  vantage: MyString
+  caption: MyText
+  description: MyText
+  user: vador
+  
+columbia:
+  id: 100
+  title: Mount Columbia
+  time: 2009-05-10
+  latitude: 52.159107
+  longitude: -117.332268
+  height: 3000
+  ref_latitude: 20.99
+  ref_longitude: 20.99
+  ref_title: Mount Columbia
+  ref_content: Photo Inserted for Mount Columbia
+  photo_file_name: MyFile
+  photo_file_size: 10000
+  vantage: From nearby the trench
+  caption: Mount Columbia East Face.
+  description: MyText
+  user: vador
+  
+north_west_columbia_view:
+  title: View North West of Mount Columbia
+  time: 2009-05-11
+  latitude: 52.159107
+  longitude: -117.332268
+  height: 3000
+  ref_latitude: 20.99
+  ref_longitude: 20.99
+  ref_title: Mount Columbia
+  ref_content: Photo Inserted for Mount Columbia
+  photo_file_name: MyFile
+  vantage: From nearby the trench
+  caption: Peaks near the Wales Glacier and North of the Wales Glacier. Zoomed in from the Columbia Icefield. Wales Peak, Wales Glacier, Chaba Peak, Mount Clemenceau, False Chaba Peak, Listening Mountain, Sundial Mountain, Sundial E4, Mount Hooker, Serenity Mountain, Warwick Mountain, Dais Mountain
+  description: MyText
+  user: vador
+  

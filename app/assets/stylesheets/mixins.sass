@@ -1,0 +1,22 @@
+@import "constants"
+
+//This mixin is used for all elements rounded corners
+@mixin rounded-corners($top: 8px, $right: 8px, $bottom: 8px, $left: 8px)
+  border-radius: $top $right $bottom $left
+  -webkit-border-radius: $top $right $bottom $left
+  -moz-border-radius: $top $right $bottom $left
+
+@mixin background-image
+  border: 1px solid $dark
+  background: url(/assets/forem/bg_list.gif) repeat-x scroll 0 0 $medium
+
+@mixin background-gradient($bgcolor, $bgstart, $bgend)
+  /* Background color and gradients */
+  background: $bgcolor  
+  background: -moz-linear-gradient(top, $bgstart, $bgend)  
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($bgstart), to($bgend))  
+
+@mixin box-shadow($spread, $color)
+  -moz-box-shadow: inset 0px 0px $spread $color  
+  -webkit-box-shadow: inset 0px 0px $spread $color  
+  box-shadow: inset 0px 0px $spread $color

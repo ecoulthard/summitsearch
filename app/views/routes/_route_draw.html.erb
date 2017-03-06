@@ -1,0 +1,98 @@
+<% if @google_map %>
+    <div id="map_div" class="map_div"></div>
+  <% content_for(:javascript) do %> 
+  <% ss_cache :part => "google_map_#{@route.id}" do %>
+    <script type="text/javascript">
+      var map = null;
+      var maxLat = -100; var minLat = 100; var maxLon=-200; var minLon = 200;
+      var waypoints = [];
+      <%= render :layout => 'all/init_google_map', :locals => {:usetopomap => false, :mapdiv => 'map_div', :zoom => 12, :centerLatitude => @centerLatitude, :centerLongitude => @centerLongitude} do %>
+	    //Iterate over all points adding markers and info windows to the map as well as a path.
+	    //Also record max and min coordinates for bounds
+	    <% @route.waypoints.each_with_index do |waypoint, i| %>
+	      <%= raw "waypoints[#{i}] = new Waypoint(#{waypoint.local_index},#{waypoint.parent_index}, #{waypoint.latitude}, #{waypoint.longitude}, \"#{waypoint.icon? ? asset_path("markers/#{waypoint.icon}.png") : ''}\", \"#{waypoint.icon? ? asset_path("markers/#{waypoint.icon}.shadow.png") : ''}\", #{waypoint.display? ? '"' + escape_javascript(render(:partial => 'routes/waypoint_show', :locals => {:waypoint => waypoint})) + '"' : 'null'});" %>
+	    <% end %>
+	    //Use max and min bounds to set the zoom of the map properly
+	    var sw = new google.maps.LatLng(minLat,minLon);
+	    var ne = new google.maps.LatLng(maxLat,maxLon);
+	    map.fitBounds(new google.maps.LatLngBounds(sw,ne));
+      <% end %>
+	  
+	  //Our waypoint constructor.
+	  function Waypoint(id, parent_index, latitude, longitude, icon, icon_shadow, window_content){
+		this.latLon = new google.maps.LatLng(latitude,longitude);
+		this.keep_open = false;
+		this.window_open = false;//info window is closed by default
+		this.path = null;
+        //Assign a path segment for this point if it isn't the first point
+		if(parent_index != null && parent_index != id && parent_index >= 0){
+		  this.path = new google.maps.Polyline({
+			path: [waypoints[parent_index].latLon, this.latLon],
+			strokeColor: '#FF0000',
+			strokeOpacity: 1.0,
+			strokeWeight: 2,
+			map: map
+		  });
+		}
+		this.marker = null;
+		this.infowindow = null;
+		if(window_content != null){
+		  if(icon != '')
+		    this.marker = new google.maps.Marker({
+				  position: this.latLon,
+				  map: map,
+				  title: "Click to keep open",
+				  icon: icon,
+				  shadow: icon_shadow
+		    });
+		  else
+		    this.marker = new google.maps.Marker({
+				  position: this.latLon,
+				  map: map,
+				  title: "Click to keep open"
+		    });
+		  this.infowindow = new google.maps.InfoWindow({content: window_content, maxWidth: 300});
+		  var index = id;//Needs to be defined to be used the google listeners.
+
+		  //Open info windows on click
+		  google.maps.event.addListener(this.marker, 'click', function(){
+			waypoints[index].keep_open = true;
+			waypoints[index].window_open = true;
+			waypoints[index].infowindow.open(map,waypoints[index].marker);
+		  });
+		  
+		  //Open info windows on mouseover
+		  google.maps.event.addListener(this.marker, 'mouseover', function(){
+		    if(!waypoints[index].window_open){//Don't open if already open
+			  waypoints[index].window_open = true;
+			  waypoints[index].infowindow.open(map,waypoints[index].marker);
+			}
+		  });
+		  
+		  //Close window on mouseout unless marker was clicked.
+		  google.maps.event.addListener(this.marker, 'mouseout', function(){
+		    if(!waypoints[index].keep_open){
+			  waypoints[index].window_open = false;
+			  waypoints[index].infowindow.close();
+			}
+		  });
+		  
+		  //When window is closed by clicking on the 'x' set keep_open to false
+		  google.maps.event.addListener(this.infowindow, 'closeclick', function(){
+		    waypoints[index].keep_open = false;
+		  });
+		}
+  
+	    //Update bounds so we can properly place the map.
+	    maxLat = latitude > maxLat ? latitude : maxLat;
+	    maxLon = longitude > maxLon ? longitude : maxLon;
+	    minLat = latitude < minLat ? latitude : minLat;
+	    minLon = longitude < minLon ? longitude : minLon;
+
+         }
+    </script>
+  <% end #cache %>
+  <% end %>
+<% else %>
+  <h3>This route is incomplete. Trip reports cannot be added until the route is completed. Please add waypoints to complete the route.</h3>
+<% end %>

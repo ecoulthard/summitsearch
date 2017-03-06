@@ -1,0 +1,66 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+<% SALT = "NaCl" unless defined?(SALT) %>
+
+vador:
+  email: darth@vador.com
+  encrypted_password: random_string(30)
+  password_salt: <%= SALT %>
+  confirmed_at: 2010-06-21 17:22:26.767688
+  confirmation_sent_at: 2010-06-21 17:15:01.314628
+  created_at: 2010-06-21 17:15:01.314852
+  realname: Anakin Skywalker
+  country: Canada
+  province: Alberta
+  city: Cadomin
+  role_index: <%= User::ROLES.index("Admin") %>
+  forem_admin: true
+  forem_state: Approved
+
+akbar: 
+  email: akbar@akbar.com
+  encrypted_password: random_string(30)
+  password_salt: <%= SALT %>
+  confirmed_at: 2010-06-21 17:22:26.767688
+  confirmation_sent_at: 2010-06-21 17:15:01.314628
+  created_at: 2010-06-21 17:15:01.314852
+  realname: General Akbar
+  country: Canada
+  province: Alberta
+  city: Nordegg
+  role_index: <%= User::ROLES.index("Editor") %>
+  forem_state: Approved
+ 
+author:
+  email: author@author.com
+  encrypted_password: random_string(30)
+  password_salt: <%= SALT %>
+  confirmed_at: 2010-06-21 18:51:21.817421
+  confirmation_sent_at: 2010-06-21 09:23:44.843231
+  created_at: 2010-06-21 08:37:12.224538
+  realname: Author Authorson
+  country: United Authors
+  province: Authorio
+  city: Authorton
+  role_index: <%= User::ROLES.index("Author") %>
+  forem_state: Approved
+  slug: author-authorson
+
+forem_user:
+  id: 100
+  email: forem@forem.com
+  encrypted_password: random_string(30)
+  password_salt: <%= SALT %>
+  confirmed_at: 2010-06-21 18:51:21.817421
+  confirmation_sent_at: 2010-06-21 09:23:44.843231
+  created_at: 2010-06-21 08:37:12.224538
+  realname: Forem Authorson
+  country: United Forems
+  province: Foremio
+  city: Foremton
+  role_index: <%= User::ROLES.index("Author") %>
+  forem_state: Approved

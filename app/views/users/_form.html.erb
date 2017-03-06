@@ -1,0 +1,61 @@
+<%= form_for @user, :html => { :multipart => :true } do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :username, "User Name:" %>
+    <%= f.text_field :username %>
+  </div><div class="clear">
+  <div>
+    <%= f.label :realname, "Real Name:" %>
+    <%= f.text_field :realname %>
+  </div><div class="clear">
+
+  <div>
+    <%= f.label :country, "Country:" %>
+    <%= f.text_field :country %>
+  </div><div class="clear">
+
+  <div>
+    <%= f.label :province, "Province:" %>
+    <%= f.text_field :province %>
+  </div><div class="clear">
+
+  <div>
+    <%= f.label :city, "City:" %>
+    <%= f.text_field :city %>
+  </div><div class="clear">
+
+  <div>
+    <%= f.label :description, "Describe Yourself:" %>
+    <%= f.text_area :description, :class => "mceEditor" %>
+  </div><div class="clear">
+
+  <div>
+    <%= f.label :home_page, "Home Page:" %>
+    <%= f.text_field :home_page, :value => "http://", :placeholder => 'http://www.example.com' %>
+  </div><div class="clear">
+
+  <div>
+    <%= f.label :photo, "Profile Photo:" %>  
+    <%= f.file_field :photo %>
+  </div><div class="clear">
+
+  <div>
+    <%= f.label :photo_caption, "Photo Caption:" %>
+    <%= f.text_area :photo_caption, :class => 'expand', :rows => 2, :cols => 60 %>
+  </div><div class="clear">
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

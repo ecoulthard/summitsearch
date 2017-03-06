@@ -1,0 +1,61 @@
+<%= form_for @person, :html => { :multipart => :true } do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br>
+  <div class="actions">
+    <%= f.submit @submit %>
+  </div>
+
+  <div>
+    <%= f.label :name, "Name:#{mark_required(@person, :name)}" %>
+    <%= f.text_field :name %>
+  </div><div class="clear"></div> <br>
+
+  <div>
+    <%= f.label :photo %>  
+    <%= f.file_field :photo %>
+  </div><div class="clear">
+
+  <div>
+    <%= f.label :photo_caption, "Photo Caption:" %>
+    <%= f.text_area :photo_caption, :class => 'expand', :rows => 2, :cols => 60 %>
+  </div><div class="clear"><br>
+
+  <div>
+    <%= f.label :guide, "Is this person a guide?" %>
+    <%= f.check_box :guide %>
+  </div><div class="clear"></div>
+
+  <div>
+    <%= f.label :birthdate %>
+    <%= f.text_field :birthdate, :class => 'time_field' %>
+  </div><div class="clear"></div>
+
+  <div>
+    <%= f.label :deathdate %>
+    <%= f.text_field :deathdate, :class => 'time_field' %>
+  </div><div class="clear"></div><br>
+  <div>
+    <p>Tell us about this person.<%= mark_required(@person, :name) %></p><br>
+    <%= f.text_area :description, :class => "editor", :rows => 20, :cols => 80 %>
+  </div><div class="clear"></div>
+  <div>
+  </div><div class="clear"></div><br>
+    <p>Describe the sources of the content you added. Please include links whenever possible<%= mark_required(@person, :references) %></p>
+    <%= f.text_area :references, :class => "editor", :rows => 20, :cols => 80 %>
+  </div>
+  <div class="clear"></div><br><br>
+  <div class="actions">
+    <%= f.submit @submit %>
+  </div>
+<% end %>

@@ -1,0 +1,62 @@
+<% unless user_signed_in? %>
+  <div id="dlgSignup" title="Enter your details to Sign up">
+    <%= form_for("user", :url => main_app.user_registration_path) do |f| %>
+      <div>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
+      </div>
+      <div class="clear"></div><br>
+      <div>
+        <%= f.label :password, 'Password' %><br>
+        <%= f.password_field :password %>
+      </div>
+      <div class="clear"></div><br>
+
+      <div>
+        <%= f.label :password_confirmation, 'Confirm' %><br>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="clear"></div><br>
+      
+      <div>
+        <%= f.label :username %><br>
+        <%= f.text_field :username %>
+      </div>
+      <div class="clear"></div><br>
+
+      <div>
+        <%= f.label :realname %><br>
+        <%= f.text_field :realname %>
+      </div>
+      <div class="clear"></div><br>
+      
+      <div>
+        <%= f.label :country %><br>
+        <%= f.text_field :country %>
+      </div>
+      <div class="clear"></div><br>
+      
+      <div>
+        <%= f.label :province, "Province/State" %><br>
+        <%= f.text_field :province %>
+      </div>
+      <div class="clear"></div><br>
+      
+      <div>
+        <%= f.label :city %><br>
+        <%= f.text_field :city %>
+      </div>
+      <div class="clear"></div><br>
+      
+      <div class="clear"></div><br>
+      <div>
+        <%= f.submit "Sign up" %>
+      </div>
+      <div class="clear"></div><br>
+    <% end %>
+    <div class="clear"></div><br>
+    <%= link_to "Forgot your password?", main_app.new_user_password_path %><br />
+    <%= link_to "Didn't receive confirmation instructions?", main_app.new_user_confirmation_path %><br />
+  </div>
+  <div class="clear"></div><br>
+<% end %>

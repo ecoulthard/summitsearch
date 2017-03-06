@@ -1,0 +1,28 @@
+<% unless user_signed_in? %>
+  <div id="dlgSignin" title="Please Sign in">
+    <%= form_for("user", :url => main_app.user_session_path) do |f| %>
+      <div>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
+      </div>
+      <div class="clear"></div><br>
+      <div>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+      </div>
+      <div class="clear"></div><br>
+      <div>
+        <%= f.label :remember_me %>
+        <%= f.check_box :remember_me %>
+      </div>
+      <div class="clear"></div><br>
+      <div>
+        <%= f.submit "Sign in" %>
+      </div>
+    <% end %>
+    <div class="clear"></div><br>
+    <%= link_to "Forgot your password?", main_app.new_user_password_path %><br />
+    <%= link_to "Didn't receive confirmation instructions?", main_app.new_user_confirmation_path %><br />
+  </div>
+  <div class="clear"></div><br>
+<% end %>

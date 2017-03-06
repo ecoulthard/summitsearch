@@ -1,0 +1,45 @@
+<div id="bubble_div">
+
+  <% if waypoint.title? %>
+    <h2><%= waypoint.title %></h2>
+  <% end %>
+
+  <% if waypoint.height? %>
+    <div class="distance">
+      <b>Height:</b>
+      <%= waypoint.height.to_s + " m" %>
+    </div>
+  <% end %>
+
+  <% if waypoint.distance? %>
+    <div class="distance">
+      <b>Distance:</b>
+      <%= waypoint.distance.round(2).to_s + " km" %>
+    </div>
+  <% end %>
+
+  <div class="clear"></div>
+
+  <% if waypoint.height_gain? %>
+    <div class="distance">
+      <b>Gain:</b>
+      <%= waypoint.height_gain.to_s + " m" %>
+    </div>
+  <% end %>
+
+  <% if waypoint.height_loss? %>
+    <div class="distance">
+      <b>Loss:</b>
+      <%= waypoint.height_loss.to_s + " m" %>
+    </div>
+  <% end %>
+
+  <div class="clear"></div>
+
+  <% if waypoint.description? %>
+    <p class="description">
+      <%= waypoint.description %>
+    </p>
+  <% end %>
+
+</div>

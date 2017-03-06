@@ -1,0 +1,55 @@
+<!-- render :partial => 'layouts/application', :locals => {:body_id => "forem"} -->
+<!DOCTYPE HTML>
+<html itemscope itemtype="http://schema.org/Article">
+<%= render :partial => 'layouts/header', :locals => {:default_title => "Mountain Fanatics Forum", :app => "forem"} %>
+<body id="forem" class="forem <%= params[:controller] %> <%= params[:action] %> <%= "ie7" if ie7 %>" <%= raw "onload=\"initialize()\"" if defined?(@google_map) %>>
+
+
+  <div id="banner" title="Click here to go to home">
+    <%= image_tag "fanatics_forum_logo.png", :usemap => "#bannermap" %>
+    <map name="bannermap">
+      <area shape="rect" coords="210,90,550,120" href="<%= main_app.root_path %>" title="Click here to go to Summitsearch" alt="Summitsearch Home" />
+      <area shape="rect" coords="0,0,740,120" href="<%= root_path %>" title="Click here to return to the Fanatics Forum Home" alt="Fanatics Forum Home" />
+    </map>
+  </div>
+  <div class="clear"></div>
+  <div id="menuSearchBar">
+    <div id="searchDiv">
+      <%= form_tag main_app.forem_search_path, :method => 'get' do %>
+        <%= search_field_tag :search, '', :placeholder => "Search ...", :size => 18 %><br>
+      <% end %>
+    </div>
+    <div id="menuDiv">
+      <%= forem_menu %>
+        <% if user_signed_in? %>  
+          <li><%= link_to current_user.display_name, main_app.user_path(current_user), :class => 'fNiv' %>
+            <ul>
+              <li class="arrow"></li> <!-- Only for illustration : arrow_down.png -->
+              <li><%= link_to "Edit Profile", main_app.edit_user_registration_path %></li>
+              <li><%= link_to "Sign out", main_app.destroy_user_session_path %></li>
+            </ul>
+          </li>
+        <% else %>  
+          <li><a class="signup">Sign up</a></li>
+          <li>or</li>
+          <li><a class="signin">Sign in</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div id="content">
+    <% if notice %>
+      <p id="notice" class="notice"><%= raw notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id="alert" class="notice"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </div>
+  <%= render :partial => "layouts/signup" %>
+  <%= render :partial => "layouts/signin" %>
+  <%= render :partial => 'layouts/javascript', :locals => {:app => "forem"}  %>
+  <%= render :partial => 'layouts/include_facebook' %>
+</body>
+</html>

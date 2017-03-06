@@ -1,0 +1,15 @@
+<% if record.has_photo? %>
+  <td class="list_image">
+    <%= link_to (image_tag record.photo.url(:thumb), :class => 'list_image', :alt => record.has_caption? ? record.photo_caption : record.name), record %>
+  </td>
+<% else %>
+  <td></td>
+<% end %>
+<td class="list_description">
+  <dl>
+    <dt><%= link_to record.name, record%></dt>
+    <% if !record.description.blank? %>
+      <dd>Description: <%= truncate(strip_tags(record.description).gsub("&nbsp;"," "), :length => 200) %></dd>
+    <% end %>
+  </dl>
+</td>

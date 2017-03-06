@@ -1,0 +1,48 @@
+<% if @topic.present? %>
+  <div id="forem">
+    <div id="comments">
+      <div id='topic' class='<%= 'un' unless @topic.locked? %>locked'>
+        <% if @posts.count > 0 %>
+          <h2>Comments</h2>
+
+          <menu>
+            <% if forem_user %>
+              <% if !@topic.subscriber?(forem_user.id) %>
+                <%= link_to "subscribe", forem.subscribe_forum_topic_path(@forum, @topic), :method => :post %>
+              <% else %>
+                <%= link_to "unsubscribe", forem.unsubscribe_forum_topic_path(@forum, @topic), :method => :post %>
+              <% end %>
+            <% end %>
+          </menu>
+
+          <%= will_paginate @posts %>
+
+          <div id='posts'>
+            <%= render :partial => "forem/posts/post", :collection => @posts %>
+          </div>
+        <% else %>
+          <h2>No Comments Yet</h2>
+        <% end %>
+
+        <div class="clear"></div><br>
+        <% if user_signed_in? %>
+          <h2>Post a Comment</h2>
+          <%= form_tag comments_path, :method => 'post'  do |f| %>
+            <%= text_area_tag :text, "", :class => "editor", :rows => 20, :cols => 80 %>
+            <div class="clear"></div><br>
+
+            <% if params[:reply_to_id] %>
+              <%= hidden_field_tag :reply_to_id, :value => params[:reply_to_id] %>
+            <% end %>
+            <%= submit_tag "Post Comment" %>
+          <% end %>
+        <% else %>
+          <h3><a class="signin">Sign in</a>
+            or <a class="signup">Sign up</a>
+            to Post a Comment
+    </h3>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<div id="place_list" data-no-turbolink>
+  <h1><%= @person.name %> 
+    <% if user_is_editor? %>  
+      <br /><br />
+      <%= link_to "Edit This Person", edit_person_path(@person), :class => 'linkButton' %>
+      <%= link_to "Insert New Person", new_person_path, :class => 'linkButton' %>
+    <% end %>
+  </h1>
+  <div class="entries">
+    <% if @person.has_photo? %>
+      <div class="titlePhotoDiv" style="padding-left:10px;float:right">
+        <%= image_tag @person.photo.url(:medium), :alt => @person.has_caption? ? @person.photo_caption : @person.name %>
+        <% if @person.has_caption? %>
+          <p style="max-width:400px" class="photo_caption">
+            <%= @person.photo_caption %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+ 
+    <% if @person.birthdate? %>
+      <p>
+        <span class="no-wrap"><%= @person.birthdate.year %><%= "-#{@person.deathdate.year}" if @person.deathdate? %></span>
+      </p>
+    <% end %>
+
+    <% if @person.description? %>
+      <p>
+        <%= sanitize @person.description %>
+      </p>
+    <% end %>
+
+    <%= render :partial => 'ascents' %>
+
+ </div>
+
+  <div class="clear"></div><br>
+  <%= render :partial => 'all/versions_references', :locals => {:subject => @person} %>
+  <div class="entries" style="height:100px"></div>

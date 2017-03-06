@@ -1,0 +1,4 @@
+<% @photos.each do |photo| %>
+  <%= render :partial => 'photos/thumb', :locals => {:photo => photo, :no_link => true} %>
+<% end %>
+<%= "No photos found" if @photos.length == 0 %>

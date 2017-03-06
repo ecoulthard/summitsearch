@@ -1,0 +1,8 @@
+<% #This is for the abstract summary to be displayed when mousing over thumbnails. %>
+<div class="hover">
+  <fieldset>
+  <legend>Description</legend>
+    <span class="text no-wrap">By: <%= truncate(route.user.display_name, :length => 25) %></span><br>
+    <%= truncate(strip_tags(route.description), :length => 300) %><br>
+  </fieldset>
+</div>

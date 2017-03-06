@@ -1,0 +1,20 @@
+<% if !photo.nil? %>
+  <div class="editThumbDiv" style="width:<%= photo.thumb_div_width %>px">
+    <input type="hidden" value="<%= photo.id %>">
+    <div class="editLabel"></div>
+    <%= text_field_tag 'Title', photo.title, :placeholder => "Enter Title" %>
+    <%= raw "<br>" if photo.thumb_div_width < 300 %>
+    <div class="editLabel"></div>
+    <%= text_field_tag 'Time', photo.time, :placeholder => "Enter Date and Time" %><br>
+    <%= link_to image_tag(photo.photo.url(:long_thumb), :class => 'thumb'), main_app.edit_photos_path(:id => photo.id), :data_popup => "true" %><br>
+    <div class="editLabel"></div>
+    <%= text_area_tag 'Caption', photo.caption, :placeholder => "Enter Caption", :class => 'editTextAreaCaption', :rows => 5 + (photo.long_thumb_width > 300 ? 1 : 0) + (photo.long_thumb_height < 90 ? 1 : 0) + (photo.long_thumb_height < 70 ? 1 : 0), :cols => photo.thumb_div_width < 200 ? 18 : (photo.thumb_div_width/7-3) %>
+    <div class="editSmallPhotoDiv">
+      <fieldset>
+        <%= image_tag(photo.photo.url(:small)) %>
+      </fieldset>
+    </div>
+  </div>
+<% else %>
+  <div class="editThumbDiv" style="width:<%= photo.thumb_div_width %>px">There was a problem with the photo</div>
+<% end %>

@@ -1,0 +1,23 @@
+<td class="list_description">
+  <dl>
+    <dt><%= link_to record.name, record %> by <%= record.user.display_name %></dt>
+    <dd><%= record.class::DIFFICULTY_OPTIONS[record.difficulty] unless record.difficulty.nil? %>
+    <%= record.type.titleize %>
+    , Length: <%= record.distance %>km
+    <% if record.height_gain != 0 %>
+      , Height Gain: <%= record.height_gain %>m
+    <% end %>
+    <% if record.height_loss != 0 %>
+      , Height Loss: <%= record.height_loss %>m</dd>
+    <% end %>
+    <% if record.areas.length > 0 %>
+       <dd>Located in these areas:
+         <% record.areas.each do |area| %>
+           <%= raw "&nbsp;" if record.areas.first != area %><%= link_to area.name, area %>
+         <% end %>
+       </dd>
+    <% end %>
+    <dd><%= truncate(strip_tags(record.description),
+           :length => 200) %></dd>
+  </dl>
+</td>

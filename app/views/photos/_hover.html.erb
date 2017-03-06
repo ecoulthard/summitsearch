@@ -1,0 +1,14 @@
+<div class="hover">
+  <fieldset>
+    <%= truncate(strip_tags(photo.caption), :length => 300) %><br>
+    <span class="text no-wrap">By: <%= truncate(photo.user.display_name, :length => 25) %></span>
+    <% subject = photo.place if photo.place_id? %>
+    <% subject = photo.route if photo.route_id? %>
+    <% if defined?(subject) && subject.present? %>
+      <span class="text no-wrap">
+        Title <%= subject.type.titleize %>: <%= subject.name %>
+      </span>
+    <% end %>
+    <%= render :partial => "articles/totals_thumb", :locals => {:article => photo} %>
+  </fieldset>
+</div>

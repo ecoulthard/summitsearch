@@ -1,0 +1,219 @@
+#Add a progress bar for turbo links.
+Turbolinks.enableProgressBar()
+#Turbolinks.enableTransitionCache()
+
+# Google Analytics Code
+unless doNotTrack
+  window._gaq = window._gaq || []
+  window._gaq.push(['_setAccount', 'UA-26814612-1'])
+  window._gaq.push(['_trackPageview'])
+
+  (->
+    ga = document.createElement("script")
+    ga.type = "text/javascript"
+    ga.async = true
+    ga.src = (if "https:" == document.location.protocol then "https://" else "http://") + "stats.g.doubleclick.net/dc.js"
+    s = document.getElementsByTagName("script")[0]
+    s.parentNode.insertBefore(ga, s)
+  )()
+
+#Code that is not for touch browsers
+unless Modernizr.touch
+  #If banner clicked and not any child element then open the link
+  $("#banner").click (e) ->
+    if $(event.target).is("#banner") or $(event.target).is("#BannerLogo")
+      $("html").css({'cursor':'wait'})
+      Turbolinks.visit($("#BannerLink").prop("href"))
+
+#Code that is for touch browsers
+if Modernizr.touch
+  #Anything clickable should have firstClick class applied to the first click.
+  $(".clickable, #menu li > a").click (e) ->
+    firstclick = $(this).hasClass("firstClick")
+    $(".clickable, #menu li > a").removeClass("firstClick")
+    unless firstclick
+      $(this).addClass("firstClick")
+      e.preventDefault()
+      return false
+  #Make sure menu stays visible after one click on mobile browsers
+  $("#banner").click (e) ->
+    $("#menu").css("left","0px")
+
+# Load the login dialog
+$("#dlgSignin").dialog
+                        autoOpen: false
+                        modal: true
+                        width: 350
+
+$(".signin").click (e) ->
+  $("#dlgSignin").dialog("open")
+  e.preventDefault()
+  false
+
+# Load the signup dialog
+$("#dlgSignup").dialog
+                        autoOpen: false
+                        modal: true
+                        width: 350
+
+$(".signup").click (e) ->
+  $("#dlgSignup").dialog("open")
+  e.preventDefault()
+  false
+
+#Make the placeholder work in browsers <= ie8
+$("#search").placeholder()
+
+#Make the placeholder work in browsers <= ie8
+$("INPUT[placeholder], TEXTAREA[placeholder]").placeholder()
+
+#Make the thumbnail captions show on mouseover for non touch browsers
+unless Modernizr.touch
+  $(document).on 'mouseenter', '.entry, .thumbDiv', ->
+    $(this).children('.captionDiv, .abstractDiv').show()
+  $(document).on 'mouseleave', '.entry, .thumbDiv', ->
+    $(this).children('.captionDiv, .abstractDiv').hide()
+
+#Make the thumbnail captions show on click for touch browsers
+if Modernizr.touch
+  $(document).on 'click', '.entry, .thumbDiv', ->
+    #Hide all other captions first
+    $(".entry, .thumbDiv").children('.captionDiv, .abstractDiv').hide()
+    $(this).children('.captionDiv, .abstractDiv').show()
+
+#Make the thumbnail captions show on mouseover.
+$(document).tooltip(
+                        items: ".showHover"
+                        show: false
+                        hide: false
+                        close: false
+                        position:
+                                  my: "center top"
+                                  at: "center bottom"
+			classes: {
+			  "ui-tooltip": "ui-tooltip"
+			},
+                        content: ->
+                          element = $(this)
+                          #if element.is("[title]")
+                          #  return element.prop("title")
+                          if element.is(".showHover")
+                            return element.children(".hover:first").html()
+                          else
+                            return ""
+                     )
+
+#Goto first link on clickable items.
+#If a link was clicked then return and let that link open.
+$(document).on 'click', '.clickable', (e) ->
+  if $(event.target).is("a") or $(event.target).parent().is("a")
+    return true
+  if !Modernizr.touch or $(this).hasClass("firstClick")
+    Turbolinks.visit($(this).find("a:first")[0].href)
+
+#Need to spin the cursor when turbolinks is loading a page.
+$(document).on "page:fetch", ->
+  $("html").css({'cursor':'wait'})
+
+#Need to unspin the cursor when the next page is done loading.
+$(document).on "page:load", ->
+  $("html").css({'cursor':'default'})
+
+# All children links of clickable must open in different windows.
+#$(document).on 'click','.clickable a', (e) ->
+#  window.open $(this)[0].href
+#  e.preventDefault()
+
+# This adds the ability to make links popup in different windows.
+#$(document).on 'click','a[data_popup]', (e) ->
+#  window.open $(this)[0].href
+#  e.preventDefault()
+
+#Hide notices after 10 seconds
+setTimeout(->
+  $("#notice").slideUp('slow')
+, 10000)
+
+$("input:submit, input:button, input:button, button, .linkButton").button()
+$(document).on 'nested:fieldAdded', (event) ->
+  event.field.find("input:submit, input:button, button, .linkButton").button()
+
+#Hide toggle buttons if they are not needed.
+#If all the text in toggleText is visible then they are not needed.
+$('.toggleButton').each ->
+  toggleText = $(this).prevAll().find('.place_description')
+  if(toggleText.length == 0 or (toggleText.prop("scrollHeight") <= toggleText.prop("offsetHeight")))
+    $(this).hide()
+  else
+    $(this).button()
+
+#Block pressing enter when we don't want it to submit a form.
+$(document).on "keypress",'.noenter', (e) ->
+  if e.keyCode == 13 or e.which == 13 #Block enter key
+    e.preventDefault()
+    false
+
+mySettings.previewParserPath = r(markitup_preview_path)
+mySettings.onEnter =
+                      keepDefault: false
+                      replaceWith: "<br />\n"
+$(".editor").markItUp(mySettings)
+
+$(document).on "click",'.toggleButton', (e) ->
+  e.stopPropagation()
+  toggleText = $(this).prevAll().find('.place_description')
+  buttonText = $(this).text()
+  if (buttonText.indexOf("Read more") == 0)
+    h = toggleText.prop("scrollHeight")
+    toggleText.animate({'maxHeight': h})
+    $(this).text("Read less" + buttonText.substring(9))
+  else
+    toggleText.animate({'maxHeight': '600px'})
+    $(this).text("Read more" + buttonText.substring(9))
+
+# Converts the string coord to decimal if in deg:min:sec or deg:min else returns string as is
+window.convertToDecimal = (coord) ->
+  dec = parseInt coord[0..coord.indexOf(":")-1]
+  sign = if dec >= 0 then 1 else -1
+  # If deg:min:sec
+  if coord.match /^-*\d{1,3}:\d{1,2}:\d{1,2}$/
+    dec += sign * coord[coord.indexOf(":")+1..coord.lastIndexOf(":")-1] / 60
+    dec += sign * coord[coord.lastIndexOf(":")+1..]/3600
+  # If deg:min
+  else if coord.match /^-*\d{1,3}:\d{1,2}(\.\d*)?$/
+    dec += sign * coord[coord.indexOf(":")+1..] / 60
+  else # Already in decimal?
+    coord
+
+#Called on load in the show page for something that has photos
+window.loadPhotos = (getpath) ->
+  object_id = $('#photos_go_here').data('object_id')
+  $('#photos_go_here').html("<p style=\"font-size:larger\"><span class=\"ajax-loader\"></span> Loading photos<p>")
+  getpath = getpath.replace("{{id}}", object_id)
+  #Get place photos from the server
+  $.get getpath, (data) ->
+    $("#photos_go_here").replaceWith(data)
+    $("input:submit, input:button, input:button, button, .linkButton").button()
+
+jQuery.fn.extend
+		insertAtCaret: (myValue) ->
+  		  this.each (i) ->
+    		    if (document.selection)
+                      #For browsers like Internet Explorer
+                      this.focus()
+                      sel = document.selection.createRange()
+                      sel.text = myValue
+                      this.focus()
+                    else if (this.selectionStart || this.selectionStart == '0')
+                      #For browsers like Firefox and Webkit based
+                      startPos = this.selectionStart
+                      endPos = this.selectionEnd
+                      scrollTop = this.scrollTop
+                      this.value = this.value.substring(0, startPos)+myValue+this.value.substring(endPos,this.value.length)
+                      this.focus()
+                      this.selectionStart = startPos + myValue.length
+                      this.selectionEnd = startPos + myValue.length
+                      this.scrollTop = scrollTop
+                    else
+                      this.value += myValue
+                      this.focus()

@@ -1,0 +1,20 @@
+<div class="form">
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <fieldset>
+    <legend>Resend confirmation instructions</legend>
+    
+      <div>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+      </div>
+
+      <div>
+	<%= f.submit "Resend confirmation instructions" %>
+      </div>
+    </fieldset>
+<% end %>
+</div>
+
+<%= render :partial => "devise/shared/links" %>

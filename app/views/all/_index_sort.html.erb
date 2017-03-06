@@ -1,0 +1,6 @@
+<!-- Creates a list of buttons for sorting records on index pages -->
+<% place_id = nil unless defined? place_id %>
+Order by:
+<% (record_class::SORT_OPTIONS.keys-[selected_sort]).sort.each do |sort| %>
+  <%= link_to sort.titleize, send("#{record_class.to_s.tableize}_path", :sort => sort, :place_id => place_id), :class => 'linkButton' %></li>
+<% end %>

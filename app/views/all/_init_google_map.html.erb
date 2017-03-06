@@ -1,0 +1,39 @@
+function initialize() {
+   <%= "var centerLatLng = new google.maps.LatLng(#{centerLatitude},#{centerLongitude});" %>
+   var options = {
+     mapTypeControlOptions: {
+       mapTypeIds: [
+         google.maps.MapTypeId.SATELLITE,
+         google.maps.MapTypeId.HYBRID,
+         google.maps.MapTypeId.TERRAIN
+       ],
+       style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+     },
+     zoom: <%= zoom %>,
+     zoomControlOptions: {
+       position: google.maps.ControlPosition.TOP_LEFT
+     },
+     center: centerLatLng,
+     MapTypeId: google.maps.MapTypeId.TERRAIN
+   }
+   delete map;
+   map = new google.maps.Map(document.getElementById("<%= mapdiv %>"), options);
+   // Required: add the MyTopo layer to the map type database   
+   //  for Google Maps, also adds it to the control.  
+   trimble.myTopo.init(map);
+   // Optional: set MyTopo maps as the current map type  
+   
+   //Set it to use a topo map if topo is true
+   <% if defined?(usetopomap) && usetopomap %>
+     map.setMapTypeId(trimble.myTopo.MapTypeId.Topo);
+   <% elsif defined?(useterrain) && useterrain %>
+     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+   <% else %>
+     map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+   <% end %>
+   <%= yield %>
+}
+
+$(function(){
+  initialize();
+});

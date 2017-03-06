@@ -1,0 +1,36 @@
+<div id="place_list">
+
+<% if @records.length == 0 %>
+  <p class="notice"><%= "There are no #{pluralize '', @type} to list" %></p>
+<% end %>
+  
+
+<h1>
+  Listing <%= @type.to_s.pluralize.downcase %> by <%= @sort.humanize.downcase %>
+  <% if defined? @place %>
+    <%= "in #{@place.name}" %>
+  <% end %>
+  <% if !@lower.nil? && !@upper.nil? %>
+    <%= "from (#{@lower} - #{@upper})" %>
+  <% end %>
+  <br \><br>
+  <%= render :partial => 'all/index_sort', :locals => {:record_class => @record_class,:record_class_path => @record_class_path,  :selected_sort => @sort, :place_id => (defined?(@place) ? @place : nil) } %>
+  <br \><br>
+  <%= will_paginate @records, :inner_window => 10, :outer_window => 2 %>
+</h1>
+<div class="clear"></div>
+<% table = @parent_class.to_s.tableize %>
+  <table class="subdued">
+    <% @records.each do |record| %>
+      <tr class="clickable colorOnHover <%= cycle("odd", "even") %>">
+        <!-- render record.becomes(@parent_class) -->
+        <%= render :partial => "#{table}/#{table.singularize}", :locals => {:record => record} %>
+      </tr>
+    <% end %>
+  </table>
+<div class="clear"></div>
+  <h2>
+    <%= will_paginate @records, :inner_window => 10, :outer_window => 2 %>
+  </h2>
+</div>
+<div class="clear"></div>

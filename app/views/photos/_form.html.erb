@@ -1,0 +1,146 @@
+<%= form_for @photo, :html => { :multipart => :true } do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :ref_latitude %>
+  <%= f.hidden_field :ref_longitude %>
+  <%= f.hidden_field :ref_title %>
+  <%= f.hidden_field :ref_content %>
+  <%= f.hidden_field :trip_report_id %>
+
+  <div class="actions">
+    <%= f.submit :style => 'left:40%' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title, "Title#{mark_required(@photo, :title)}:" %>
+    <%= f.text_field :title, :maxlength => 128, :size => 80 %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :photo, "Photo#{mark_required(@photo, :photo)}:" %>  
+    <%= f.file_field :photo %>
+  </div><div class="clear"></div>
+
+  <br>
+  <div class="field">
+    <p>You can leave the date and time field blank if your photo is from a digital camera and the time will be extracted from the photo. If the photo is from a film camera then enter the date and time below in english. For example "October 3 2010 2:30pm" or "Feb 23rd 2011 at 8am". The system can understand nearly all the different ways to say the date and time, but writing it in english makes it less likely that you will make a mistake. The photo time is used to link your photos to your trip reports, so it is important that the time is entered correctly.</p>
+    <%= f.label :time, "Date and Time Taken#{mark_required(@photo, :time)}:" %>  
+    <%= f.text_field :time, :class => 'time_field' %>
+  </div><div class="clear"></div>
+  <div class="field">
+    <p>Click on the map below to indicate where the photo was taken. The latitude-longitude and height fields will be updated each time you click. If you like you can enter the latitude and longitude manually. The system will convert from Degrees:Minutes:Seconds as soon as you enter a latitude and longitude. The height will be recomputed each time you enter a latitude or longitude. <p>
+    <%= f.label :latitude, "Latitude-Longitude#{mark_required(@photo, :latitude)}:" %>  
+    <%= f.text_field :latitude, :size => 10 %>,<%= f.text_field :longitude, :size => 11 %>
+    <div class="clear"></div>
+    <%= f.label :height, "Height of the vantage point#{mark_required(@photo, :height)}:" %>  
+    <%= f.text_field :height, :size => 4 %> meters
+    <div class="clear"></div><br>
+    <div id="map_div" class="map_div"></div>
+    <%= mytopo_data %>
+  <% content_for(:javascript) do %> 
+    <script type="text/javascript">
+      <%= render :layout => 'all/init_google_map', :locals => {:usetopomap => false, :mapdiv => 'map_div', :zoom => 11, :centerLatitude => @photo.ref_latitude, :centerLongitude => @photo.ref_longitude} do %>
+	//Put a marker in the center with info about the center coordinates
+	var centerContentString = "<div class=\"reference_window\">" + <%= raw "\"#{h @photo.ref_content}\"" %> + "</div>";
+	var centerInfowindow = new google.maps.InfoWindow({
+    		content: centerContentString
+	});
+	var centerMarker = new google.maps.Marker({
+    		position: centerLatLng,
+		clickable: false,
+		zIndex: -100,
+    		map: map,
+    		icon: "<%= asset_path "markers/center-dot.png" %>",
+		shape: {coord: [15,18,6], type: 'circle'},
+		title: <%= raw "\"#{h @photo.ref_title }\"" %>
+	});
+	centerInfowindow.open(map,centerMarker);
+	<% if @photo.latitude.nil? %>
+	  lastMarker = null;
+	<% else %>
+	  var marker = new google.maps.Marker({
+	    position: new google.maps.LatLng(<%= @photo.latitude %>, <%= @photo.longitude %>),
+	    title: "Current Photo Position",
+	    map: map
+	  });
+	  lastMarker = marker;
+	<% end %>
+
+        elevator = new google.maps.ElevationService();
+	//Add click listener to add waypoints when the map is clicked.
+	google.maps.event.addListener(map, "click", function(event) {
+	  placeMarker(event.latLng);
+	});
+      <% end %>
+
+      //Place marker at the current coordinates and get the height from Google
+      function placeMarker(latLng){
+	  var marker = new google.maps.Marker({
+	    position: latLng,
+	    title: "Current Photo Position",
+	    map: map
+	  });
+	  if(lastMarker != null)
+	    lastMarker.setMap(null);
+	  document.getElementById("photo_latitude").value=latLng.lat();
+	  document.getElementById("photo_longitude").value=latLng.lng();
+	  lastMarker = marker;
+	  //Get elevation
+	  elevator.getElevationForLocations({'locations': [latLng]}, function(results, status) {
+	    if (status == google.maps.ElevationStatus.OK)
+	      if (results[0]) 
+		document.getElementById("photo_height").value = Math.round(results[0].elevation);
+	  });
+      }      
+
+      $(document).ready(function() {
+	$("#photo_latitude").change(function(){
+	  $(this).val($(this).val().replace(/[^0-9:;\.-]/g, ""));
+	  $(this).val($(this).val().replace(/;/g, ":"));
+	  $(this).val(convertToDecimal($(this).val()));
+	  if($("#photo_longitude").val() != "")
+	    placeMarker(new google.maps.LatLng($(this).val(), $("#photo_longitude").val()));
+	});
+	$("#photo_longitude").change(function(){
+	  $(this).val($(this).val().replace(/[^0-9:;\.-]/g, ""));
+	  $(this).val($(this).val().replace(/;/g, ":"));
+	  $(this).val(convertToDecimal($(this).val()));	  
+	  if($("#photo_latitude").val() != "")
+	    placeMarker(new google.maps.LatLng($("#photo_latitude").val(), $(this).val()));
+	});
+      });
+    </script>
+  <% end %>
+  </div>
+
+  <% if @photo.id? %>
+    <div class="clear"></div><br>
+    <%= image_tag @photo.photo.url(:medium), :style => "float:left;margin-left:10px" %>
+    <div class="clear"></div><br>
+  <% end %>
+  <div class="field">
+    <%= f.label :caption, "Describe the photo. Try to include all the visible named places in your description. The names will be used to link to the photo.#{mark_required(@photo, :caption)}" %> 
+    <%= f.text_area :caption, :maxlength => 30720, :class => 'expand', :rows => 5, :cols => 80 %>
+  </div><div class="clear"></div>
+  <div class="field">
+    <%= f.label :vantage, "What view point was this photo taken from? Eg: \"From Peyto Lake Lookout\"#{mark_required(@photo, :vantage)}" %> 
+    <%= f.text_area :vantage, :maxlength => 30720, :class => 'expand', :rows => 2, :cols => 80 %>
+  </div><div class="clear"></div>
+  <div class="field">
+    <p>Write anything else that you want to in this field. A story of the circumstances behind the photo. A history of something in the photo. Whatever you like. Go nuts.<%=mark_required(@photo, :description) %></p>
+    <%= f.text_area :description, :maxlength => 30720, :class => "editor", :rows => 20, :cols => 80 %>
+  </div>
+  <div class="clear"></div><br><br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <br>
+<% end %>

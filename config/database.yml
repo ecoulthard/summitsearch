@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+#I recommend storing username and password to local dbs in a .pgpass file
+development:
+  <<: *default
+  database: summitsearch  
+
+test:
+  <<: *default
+  database: summitsearch_test
+
+production:
+  <<: *default
+  database: summitsearch

@@ -1,0 +1,13 @@
+<h1>Editing Album
+  &nbsp&nbsp
+  <%= link_to 'Album Page', @album %><br>
+</h1>
+
+<div class="form">
+  <fieldset>
+     <legend>Enter in the Album Data</legend>
+     <%= render 'form' %>
+  </fieldset>
+</div>
+
+<%= render :partial => 'all/multi_photo_upload', :locals => {:tag_name => 'album_id', :class_name => 'Album'} %>

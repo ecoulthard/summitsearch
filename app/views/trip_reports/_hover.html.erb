@@ -1,0 +1,16 @@
+<% #This is for the abstract summary to be displayed when mousing over thumbnails. %>
+<div class="hover">
+  <fieldset>
+    <legend>Abstract</legend>
+    <%= trip_report.abstract %>
+    <div class="text">
+      <span class="no-wrap">Distance: <%= trip_report.route.distance? ? trip_report.route.distance.round : trip_report.route.distance %>km</span>&nbsp;&nbsp;
+      <span class="no-wrap">Height Gain: <%= trip_report.route.height_gain %>m</span>
+      <% if !trip_report.route.height_loss.nil? && trip_report.route.height_loss > 0 %>
+        &nbsp;&nbsp;<span class="no-wrap">Loss: <%= trip_report.route.height_loss %>m </span>
+      <% end %>
+    </div>
+    <%= render :partial => "articles/totals_thumb", :locals => {:article => trip_report} %>
+  </fieldset>
+</div>
+

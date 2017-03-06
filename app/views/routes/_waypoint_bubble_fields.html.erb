@@ -1,0 +1,49 @@
+<div id='bubble_div'>
+<fieldset id="bubble_fieldset">
+  <legend>Enter in the Waypoint Data</legend>
+  <div class='bubble'>
+    <div class="no-wrap">
+      <%= label_tag :title, 'Title:' %>
+      <%= text_field_tag :title, '', :size => 60, :class => 'noenter', :onchange => "title" %>
+    </div>
+    <div>
+      <div><%= label_tag :coordinates, 'Coordinates:' %></div>
+      <div class="no-wrap"><%= text_field_tag :latitude, '', :size => 14, :class => 'noenter', :onchange => "latitude" %>,
+          <%= text_field_tag :longitude, '', :size => 14, :class => 'noenter',  :onchange => "longitude" %>
+      </div>
+    </div>
+    <div>
+      <div><%= label_tag :height, 'Height:' %></div>
+      <div><%= text_field_tag :height, '', :size => 4, :class => 'noenter', :onchange => "height" %> meters</div>
+    </div>
+    <div>
+      <div><label>Distances:</label></div>
+      <div><span id="distance"></span> km from the start. Elevation +<span id="height_gain"></span>m -<span id="height_loss"></span>m</div>
+    </div>
+    <div>
+      <div  class="no-wrap"><%= label_tag :description, "Describe this location or the next section of the #{@type}." %></div>
+      <div class="clear"></div>
+      <div ><%= text_area_tag :description, '', :rows => 4, :cols => 60, :onchange => "description", :class => 'expand50-200' %></div>
+    </div>
+    <div>
+      <div  class="no-wrap"><%= label_tag :icon, "Select a marker to use to display this waypoint" %></div>
+      <div class="clear"></div>
+      <fieldset class="no-wrap">
+        <%= image_tag('markers/red-dot.png', :title => 'Default icon') %>
+        <%= radio_button_tag(:icon, '', true, :onchange => "icon") %>
+      </fieldset>
+      <% Waypoint::MARKER_TYPES.each do |icon| %>
+        <fieldset class="no-wrap">
+          <%= image_tag("markers/#{icon}.png", :title => icon.titleize) %>
+          <%= radio_button_tag(:icon, icon, false, :onchange => "icon") %>
+        </fieldset>
+      <% end %>
+    </div><br>
+    <div  class="no-wrap">
+      <input onclick=";" type="button" value="Make this the active waypoint">
+      <input onclick=";" type="button" value="Insert a new waypoint">
+      <input onclick=";" type="button" value="Remove this waypoint">
+    </div>
+  </div>
+</fieldset>
+</div>

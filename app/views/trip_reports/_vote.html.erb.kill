@@ -1,0 +1,8 @@
+<% if @trip_report.user != current_user && !@trip_report.has_rated(current_user) %>
+  <b>Please rate this trip report:</b>
+  <span class="no-wrap">
+    <%= link_to image_tag("thumbs_up.png"), thumbs_up_trip_report_path(@trip_report, :format => :js), :remote => true %>
+    <%= link_to image_tag("two_thumbs_up.png"), two_thumbs_up_trip_report_path(@trip_report, :format => :js), :remote => true %>
+  </span>
+<% end %>
+

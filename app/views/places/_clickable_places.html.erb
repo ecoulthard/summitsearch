@@ -1,0 +1,87 @@
+  var openinfowindow = null;
+<% @places.each do |place| %>
+  <% id = place.id %>
+  latlng<%= id %> = new google.maps.LatLng(<%= "#{place.centerLatitude},#{place.centerLongitude}" %>);
+  contentString<%= id %> = "";
+  infowindow<%= id %> = new google.maps.InfoWindow({
+	  content: contentString<%= id %>,
+	  maxWidth: 600
+  });
+  marker<%= id %> = new google.maps.Marker({
+	  position: latlng<%= id %>,
+	  map: map,
+          <% #Use small icon for unnamed mountains %>
+	  <% if place.name_status == "Unnamed" and defined?(place.class::MARKER_ICON_SMALL) %>
+	    <%= raw "icon: \"#{asset_path("markers/#{place.class::MARKER_ICON_SMALL}")}\"," %>
+	    <%= raw "shadow: \"#{asset_path("markers/#{place.class::MARKER_SHADOW_SMALL}")}\"," %>
+          <% #Use icon with camera for mountains with photos %>
+	  <% elsif (place.photos.count != 0 or place.photo_appearances.count != 0) and defined?(place.class::MARKER_ICON_CAMERA) %>
+	    <%= raw "icon: \"#{asset_path("markers/" + place.class::MARKER_ICON_CAMERA)}\"," %>
+	    <%= raw "shadow: \"#{asset_path("markers/" + place.class::MARKER_SHADOW)}\"," %>
+
+          <% #Use icon with quote for mountains with governent name reference and google height. %>
+	  <% elsif (place.height_reference == Place::HEIGHT_SOURCE_TYPES[:Google] and (place.name_reference == Place::NAME_SOURCE_TYPES[:Canada] or place.name_reference == Place::NAME_SOURCE_TYPES[:States]) and defined?(place.class::MARKER_ICON_GOV_GOOGLE)) %>
+	    <%= raw "icon: \"#{asset_path("markers/" + place.class::MARKER_ICON_GOV_GOOGLE)}\"," %>
+	    <%= raw "shadow: \"#{asset_path("markers/" + place.class::MARKER_SHADOW)}\"," %>
+          <% #Use the default icon. %>
+	  <% elsif defined?(place.class::MARKER_ICON) %>
+	    <%= raw "icon: \"#{asset_path("markers/" + place.class::MARKER_ICON)}\"," %>
+	    <%= raw "shadow: \"#{asset_path("markers/" + place.class::MARKER_SHADOW)}\"," %>
+	  <% end %>
+	  title: <%= raw "'#{escape_javascript place.name}'" %>
+  });
+  <% #To speed up the initial rendering we grab infowindow content on the fly when needed. %>
+  <% #When the user mouses over a place it display information about the place. %>
+  <% #If the content string has already been loaded then just display it.%>
+  <% #We try only to have one window open at a time. So to do this we keep track of the open %>
+  <% #window in openinfowindow. When we open a new window we close the open one first and %>
+  <% #update the variable. %>
+  google.maps.event.addListener(marker<%= id %>, 'click', function() {
+
+    <% #The infowindow has not been loaded so call the server to get the content %>
+    if(contentString<%= id %> === ""){
+      map.setOptions({draggableCursor:'wait'});
+      marker<%= id %>.setOptions({cursor:'wait'});
+      contentString<%= id %> = "Loading <span class=\"qq-upload-spinner\"></span>";
+      infowindow<%= id %>.setContent(contentString<%= id %>);
+      infowindow<%= id %>.open(map,marker<%= id %>);
+      var getpath = "<%= infowindow_place_url(place) %>";
+      if(openinfowindow != null)
+	openinfowindow.close();
+      openinfowindow = infowindow<%= id %>;
+      
+      <% #Get infowindow content from the server %>
+      $.get(getpath, function(data) {
+        map.setOptions({draggableCursor:null});
+	marker<%= id %>.setOptions({cursor:null});
+        contentString<%= id %> = data;
+        infowindow<%= id %>.setContent(contentString<%= id %>);
+      });
+    }
+    <% #The infowindow has already been loaded so just open it. %>
+    else if(infowindow<%= id %> !== openinfowindow){
+      infowindow<%= id %>.open(map,marker<%= id %>);
+      if(openinfowindow != null)
+	      openinfowindow.close();
+      openinfowindow = infowindow<%= id %>;
+    }
+  });
+//  google.maps.event.addListener(marker<%= id %>, 'mouseout', function() {
+//    infowindow<%= id %>.close();
+//  });
+  google.maps.event.addListener(marker<%= id %>, 'dblclick', function() {
+      window.open(<%= raw "\"#{url_for place }\"" %>);
+  });
+  google.maps.event.addListener(marker<%= id %>, 'rightclick', function() {
+      window.open(<%= raw "\"#{url_for([:edit, place]) }\"" %>);
+  });
+<% end %>
+<% #Go to parent mountain if link clicked %>
+$(document).on("click","[id^=parent_mountain]", function(e){
+  map.panTo(new google.maps.LatLng($(this).attr("latitude"), $(this).attr("longitude")));  
+  var id = $(this).prop("id");
+  id = id.substring(id.lastIndexOf("_")+1);
+  if (typeof window["marker" + id] !== 'undefined')
+    google.maps.event.trigger(window["marker" + id], 'mouseover');
+  e.preventDefault();
+}); 

@@ -1,0 +1,84 @@
+<div class="form">
+  <fieldset>
+     <legend>Update your Profile</legend>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div><div class="clear"></div>
+
+  <div>
+    <%= f.label :username, "User Name:" %>
+    <%= f.text_field :username %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :realname, "Real Name:" %>
+    <%= f.text_field :realname %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :country, "Country:" %>
+    <%= f.text_field :country %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :province, "Province:" %>
+    <%= f.text_field :province %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :city, "City:" %>
+    <%= f.text_field :city %>
+  </div><div class="clear"></div><br>
+  <div>
+    <p>Describe Yourself:</p>
+    <%= f.text_area :description, :class => "editor" %>
+  </div><div class="clear"></div><br>
+  <div>
+    <%= f.label :home_page, "Home Page:" %>
+    <%= f.url_field :home_page, :placeholder => 'http://www.example.com' %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :photo, "Profile Photo:" %>  
+    <%= f.file_field :photo %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :photo_caption, "Photo Caption:" %>
+    <%= f.text_area :photo_caption, :class => 'expand', :rows => 2, :cols => 60 %>
+  </div><div class="clear"></div>
+  <div>
+    <p>Write a signature that will appear on the bottom of all of your forum posts.</p>
+    <%= f.text_area :signature, :class => "editor" %>
+  </div><div class="clear"></div><br>
+
+  <i>(leave your password blank if you don't want to change it)</i>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div><div class="clear"></div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div><div class="clear"></div>
+
+  <i>(we need your current password to confirm your changes)</i>
+  <div> 
+    <%= f.label :current_password %>
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div class="clear"></div><br><br>
+  <div class="actions">
+    <%= f.submit "Update My Profile" %>
+  </div>
+  <br>
+<% end %>
+
+<!--<h3>Cancel my account</h3>
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>-->
+
+  </fieldset>
+</div>
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,47 @@
+# Our constuctor for creating border points. This is used for both new and loaded border points.
+class @BorderPoint
+  constructor: (@id, @latitude, @longitude) ->
+    @_destroy = false
+    @latLon = new google.maps.LatLng @latitude, @longitude
+    @marker = new google.maps.Marker {
+                                        position: @latLon
+                                        map: map
+                                        title: "A border point"
+                                        draggable: true
+                                        icon: "<%= asset_path "markers/yellow-dot.png" %>"}
+
+    #set parent icon to red.
+    Place.borderPoints[@id-1].marker.setIcon() if @id > 0
+
+    #Make sure local_index value is equal to the index used by Place.
+    $("#place_border_points_attributes_" + @id + "_local_index").val @id
+    index = @id # Needs to be defined to be used by the google listeners.
+
+    # Remove marker when right clicked. Connect previous and next point together.
+    google.maps.event.addListener @marker, 'rightclick', ->
+      Place.removeBorderPoint index
+
+    # Change the border point lat/lon to the new coordinate for the marker.
+    google.maps.event.addListener @marker, 'dragend', (event) ->
+      Place.moveBorderPoint index, event.latLng.lat(), event.latLng.lng()
+
+  destroy: ->
+    @marker.setMap null
+    # Mark point for deletion in the database
+    @setDestroy true
+
+  setPosition: (newLatitude, newLongitude) ->
+    latLng = new google.maps.LatLng newLatitude, newLongitude
+    if google.maps.geometry.spherical.computeDistanceBetween @marker.getPosition(), latLng > 100000
+      alert "Border points cannot be moved by more than 100km apart."
+      return
+    @latitude = newLatitude
+    @longitude = newLongitude
+    $("#place_border_points_attributes_" + @id + "_latitude").val newLatitude
+    $("#place_border_points_attributes_" + @id + "_longitude").val newLongitude
+    @latLon = latLng
+    @marker.setPosition @latLon
+  
+  setDestroy: (newDestroy) ->
+    @_destroy = newDestroy
+    $("#place_border_points_attributes_" + @id + "__destroy").val newDestroy

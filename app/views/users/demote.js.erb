@@ -1,0 +1,2 @@
+$(<%= "user_#{@user.id}" %>).html("<%= escape_javascript(render(@user)) %>");
+$(<%= "role_#{@user.id}" %>).css({'background-color':'#ff0000'}).animate({'background-color':'#ffffff'}, 2000);

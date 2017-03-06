@@ -1,0 +1,12 @@
+<div id="views">
+  <h3>Who Is Online</h3>
+  <hr>
+  <p>Users browsing this forum:
+    <% recent_users.each do |user| %>
+      <%= link_to user.display_name, main_app.user_path(user), :style => user.forem_admin ? "color:red" : "color:black"  %>
+      <%= ", " unless user == recent_users.last %>
+    <% end %>
+    <%= "No registered users " if recent_users.count == 0 %>
+    and <%= pluralize recent_guest.count, "guest" %>
+  </p>
+</div>

@@ -1,0 +1,49 @@
+#Coffeescript for the default layout.
+if $('body.default').length
+  #Initialize drop down menu if not ie7 or lower
+  #if (!$.browser.msie || $.browser.version.substr(0,1)>7)
+  #unless $('body.ie7').length
+  #  $("#jMenu").jMenu
+  #    ulWidth: 120
+  #    TimeBeforeOpening: 100
+  #    TimeBeforeClosing: 400
+  #    absoluteTop: 24
+
+  #Make the search bar take up the remaining width left over from the dropdown menu
+  #$("#searchDiv").width(Math.max(150, $("body").width()-$("#menuDiv").width()))
+  #$(window).resize ->
+  #  $("#searchDiv").width(Math.max(150, $("body").width()-$("#menuDiv").width()))
+
+  $('#search').autocomplete
+    minLength: 4,
+    position:
+      my: "right top"
+      at: "right bottom"
+    source: (request, response) ->
+      $.ajax
+        url: r(search_path) + ".json"
+        dataType: "json"
+        data:
+          search: request.term
+          open_best_result: "off"
+        async: true
+        success: (data) ->
+          response(data)
+        error: (XMLHttpRequest, textStatus, error) -> {}
+          #alert(error)
+    #When a search result is selected redirect to the page.
+    select: (event,ui) ->
+      $("*").css({'cursor':'wait'})
+      if ui.item.album
+        Turbolinks.visit(r(album_path,ui.item.id))
+      else if ui.item.place
+        Turbolinks.visit(r(place_path,ui.item.id))
+      else if(ui.item.photo)
+        Turbolinks.visit(r(photo_path,ui.item.id))
+      else if(ui.item.route)
+        Turbolinks.visit(r(route_path,ui.item.id))
+      else if(ui.item.trip_report)
+        Turbolinks.visit(r(trip_report_path,ui.item.id))
+      else if(ui.item.user)
+        Turbolinks.visit(r(user_path,ui.item.id))
+

@@ -1,0 +1,8 @@
+<h1>Insert/Edit Photos for Trip Report <%= @trip_report.title %>
+  &nbsp&nbsp
+  <%= link_to "Home", root_path %>
+  &nbsp&nbsp
+  <%= link_to 'Trip Report Page', @trip_report %><br>
+</h1>
+
+<%= render :partial => 'all/multi_photo_upload', :locals => {:tag_name => 'trip_report_id', :class_name => 'Trip Report'} %>

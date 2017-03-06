@@ -1,0 +1,34 @@
+<%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
+<%= forem_pages_widget(@topics) %>
+
+<table class='topics subdued' cellspacing='0'>
+  <thead>
+    <tr>
+      <th class="icon"></th>
+      <th class="byline"><%= t('forem.topic.headings.topic') -%></th>
+      <th class="latest-post"><%= t('forem.topic.headings.latest') -%></th>
+      <th class="posts-count"><%= t('forem.topic.headings.posts') -%></th>
+      <th class="views-count"><%= t('forem.topic.headings.views') -%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @topics.empty? %>
+      <tr><td colspan='5' align='center'><%= t('forem.topic.none') %></td></tr>
+    <% end %>
+    <%= render @topics %>
+  </tbody>
+</table>
+
+<div class="clear"></div>
+<%= render :partial => "sort", :locals => { :forum => @forum, :hours => "", :sort => "last_post_at", :direction => "desc" } %>
+
+<%= forem_pages_widget(@topics) %>
+
+<%= render :partial => "menu", :locals => { :forum => @forum } %>
+<div class="clear"></div><br>
+
+<%= link_to "Return to index", root_path %>
+
+<div class="clear"></div><br>
+<%= render :partial => "/forem/all/views" %>
+

@@ -1,0 +1,248 @@
+<% content_for(:javascript) do %>
+  <script type="text/javascript">
+    var uploader=null;
+    var uploadedPhotos = "";//List of uploaded photos in [[photo=1234]] format.
+    var upPhotosMinTime = null;//Used to set start/end dates in trip reports.
+    var upPhotosMaxTime = null;
+
+    var initUploader = function(ref_title,ref_latitude, ref_longitude){
+      var uploader = new qq.FileUploader({
+        // pass the dom node (ex. $(selector)[0] for jQuery users)
+        element: document.getElementById('file-uploader'),
+        // path to server-side upload script
+	      //Sends qqfile
+        action: '<%= "#{main_app.xhr_create_photos_path}" %>',
+	      params: {
+                'photo[ref_title]': ref_title,
+                'photo[ref_content]': '<%= "Referrence Coordinate" %>',
+                'photo[ref_latitude]': ref_latitude,
+                'photo[ref_longitude]': ref_longitude,
+	        '<%= "photo[#{tag_name}]" %>': '<%= "#{@id}" %>',
+	        'authenticity_token': $('meta[name=csrf-token]').prop('content')
+  	    },
+	      // validation    
+	      // ex. ['jpg', 'jpeg', 'png', 'gif'] or []
+	      allowedExtensions: ['jpg', 'jpeg', 'gif', 'png'],        
+	      // each file size limit in bytes
+	      // this option isn't supported in all browsers
+	      sizeLimit: 50000000, // max size 50M  
+	      minSizeLimit: 500, // min size
+	      maxConnections: 1,
+	      onComplete: function(id, filename, responseJSON){
+          if (responseJSON.success){
+            //Append edit thumb html to the page.
+	    $("#editable-list").append(responseJSON.html);
+	    //Insert photo id into edit_textfield and photo_ids field
+            var textfield_id = $("#edit_textfield").val();
+	    if(textfield_id != ""){
+	      uploadedPhotos += "[[photo=" + responseJSON.id + "]]";
+	      $("#photo_ids").val($("#photo_ids").val() + responseJSON.id + ",");
+            }
+
+            //Set min max photo times for setting the trip start end time.
+            if(responseJSON.time != null){
+	      var time = new Date(responseJSON.time);
+	      upPhotosMinTime = upPhotosMinTime == null || time < upPhotosMinTime ? time : upPhotosMinTime ;
+	      upPhotosMaxTime = upPhotosMaxTime == null || time > upPhotosMaxTime ? time : upPhotosMaxTime ;
+	    }
+
+
+            //Get html for edit thumb and append it to the page.
+	          /*var getPath = "<!-- main_app.thumb_edit_photos_path(tag_name => @id, :filename => "photo_filename") -->";
+	          getPath = getPath.replace("photo_filename", filename);
+	          $.get(getPath, function(photo_html){
+	            $("#editable-list").append(photo_html);
+	            //Insert photo id into edit_textfield
+              var textfield_id = $("#edit_textfield").val();
+	            if(textfield_id != ""){
+	              var photo_id = $("#editable-list").children(".editThumbDiv:last").children("input:hidden:first").val();
+	              tinyMCE.execInstanceCommand(textfield_id,"mceInsertContent",false,"[[photo=" + photo_id + "]]");
+		            //Record photo ids for new records that haven't been created yet.
+		            $("#photo_ids").val($("#photo_ids").val() + photo_id + ",");
+              }
+  	        });*/
+	        }
+	      }
+      });
+    }
+
+    var photosLoaded = false;
+
+    //Call this to load the previously uploaded photo for editing.
+    var loadPrevUploadedPhotos = function(){
+      //Return if photos already loaded.
+      if(photosLoaded)
+        return;
+      //If we have an existing article then load photos.
+      <% if (defined?(@trip_report) && !@trip_report.id.nil?) || (defined?(@topic) && !@topic.id.nil?) || (defined?(@album) && !@album.id.nil?) %>
+        var getpath = "<%= main_app.editable_list_photos_path :trip_report_id => "photos_trip_report_id", :topic_id => "photos_topic_id", :album_id => "photos_album_id" %>";
+        <% if !defined?(@trip_report) || @trip_report.id.nil? %>
+          getpath = getpath.replace("photos_trip_report_id", "");
+        <% else %>
+          getpath = getpath.replace("photos_trip_report_id", <%= @trip_report.id %>);
+        <% end %>
+        <% if !defined?(@topic) || @topic.id.nil? %>
+          getpath = getpath.replace("photos_topic_id", "");
+        <% else %>
+          getpath = getpath.replace("photos_topic_id", <%= @topic.id %>);
+        <% end %>
+        <% if !defined?(@album) || @album.id.nil? %>
+          getpath = getpath.replace("photos_album_id", "");
+        <% else %>
+          getpath = getpath.replace("photos_album_id", <%= @album.id %>);
+        <% end %>
+        $('#editable-list').prepend("<p id=\"loading\"><span class=\"qq-upload-spinner\"></span> Loading previously uploaded photos<p>");
+        $.get(getpath, function(photo_html) {
+	  $("#editable-list #loading").remove();
+	  $("#editable-list").prepend(photo_html);
+	  photosLoaded = true;//Photos have been loaded
+        });
+      <% end %>
+    }
+
+    $(document).ready(function() {
+      // Load the dialog
+      $("#dlgMultiPhotoUpload").dialog({
+        open: function(event, ui) {//Allow mouse scroll
+          window.setTimeout(function() {
+            jQuery(document).unbind('mousedown.dialog-overlay')
+                            .unbind('mouseup.dialog-overlay');
+          }, 100);
+        },
+	autoOpen: false, modal: true, position: ['center',50], minWidth: ($(window).width()-50)
+      });
+
+      //When the dialog is closed add the photo ids to the text area.
+      $(document).on( "dialogclose","#dlgMultiPhotoUpload", function( event, ui ) {
+	var textfield_id = $("#edit_textfield").val();
+	if(textfield_id != "")
+	  $("#" + textfield_id).insertAtCaret(uploadedPhotos);
+          //tinyMCE.execInstanceCommand(textfield_id,"mceInsertContent",false,uploadedPhotos);
+
+	//Set start_time if we have an earlier time from the uploaded photos
+	var start_time = $("input[id$='start_time']");
+        if(start_time.size() != 0 && upPhotosMinTime != null){
+	  if (start_time.val() === "")
+            start_time.val(upPhotosMinTime.toUTCString());
+	  //If start_date is parsable
+	  else if(Date.parse(start_time.val()) != NaN){
+            var time = new Date(start_time.val());
+	    //If photo min time is less then set start_time.
+            if(upPhotosMinTime < time)
+	      start_time.val(upPhotosMinTime.toUTCString());
+	  }
+	}
+
+	//Set end_time if we have a later time from the uploaded photos
+	var end_time = $("input[id$='end_time']");
+        if(end_time.size() != 0 && upPhotosMaxTime != null){
+	  if (end_time.val() === "")
+            end_time.val(upPhotosMaxTime.toUTCString());
+	  //If end_date is parsable
+	  else if(Date.parse(end_time.val()) != NaN){
+            var time = new Date(end_time.val());
+	    //If photo max time is later then set end_time.
+            if(upPhotosMaxTime > time)
+	      end_time.val(upPhotosMaxTime.toUTCString());
+	  }
+	}
+      });
+
+      //If no dialog then just start loading the previously uploaded photos
+      <% if !defined?(dialog) || !dialog %>
+        loadPrevUploadedPhotos();
+      <% end %>
+
+      //Button was clicked so bring up dialog
+      $(".uploadPhotoButton").click(function(e) {
+        //Cancel the link behavior
+        e.preventDefault();
+        //set which field to insert the selected photo id into
+        $("#edit_textfield").val($(this).nextAll(".mceEditor").prop("id"));
+        $("#dlgMultiPhotoUpload").dialog("open");
+	uploadedPhotos = "";
+	if(!photosLoaded)//Load the photos if they haven't already been loaded.
+	  loadPrevUploadedPhotos();
+      });
+
+      initUploader('<%= "#{escape_javascript @ref_title}" %>','<%= "#{@ref_latitude}" %>','<%= "#{@ref_longitude}" %>');
+
+      //When you mouse over the edit thumb photo show the small photo to help with place identification
+      $(document).on('mouseenter','.editThumbDiv, a', function() {
+	var smallPhoto = $(this).siblings('.editSmallPhotoDiv');
+	//Display medium thumbs on right side of page so that end at the end of the small thumb
+	//This way they are not cutoff
+	if(($(this).position().left + smallPhoto.width()) > ($(window).width()-50))
+	  smallPhoto.css({position: 'absolute', left: $(this).position().left - (smallPhoto.width() - $(this).width())});
+        smallPhoto.show();
+      });
+      $(document).on('mouseleave','.editThumbDiv, a', function() {
+        $(this).siblings('.editSmallPhotoDiv').hide();
+      });
+
+      //If the input loses focus then save the entered changes
+      //Currently saves title, time and caption
+      $(document).on('change',".editThumbDiv textarea, .editThumbDiv input:text", function(event) {
+	//Get field values
+	var newTitle = $(this).parent().children("input:text:first").val();
+	var newTime = $(this).parent().children("input:text:last").val();
+	var newCaption = $(this).parent().children("textarea").val();
+	//Create postback path string
+	var updatepath = "<%= main_app.thumb_update_photos_path :id => "photo_id", :title => "photo_title", :time => "photo_time", :caption => "photo_caption", :authenticity_token => "photo_authenticity_token" %>";
+	updatepath = updatepath.replace("photo_id", $(this).siblings("input:hidden").val());
+	updatepath = updatepath.replace("photo_title", escape(newTitle));
+	updatepath = updatepath.replace("photo_time", escape(newTime));
+	updatepath = updatepath.replace("photo_caption", escape(newCaption));
+	updatepath = updatepath.replace("photo_authenticity_token", escape($('meta[name=csrf-token]').prop('content')));
+
+	//Show a message saying it is saving.
+	var label = $(this).prev(".editLabel");
+        $(this).hide();
+	var el = $(this);
+        label.show();
+	label.html("<span class=\"qq-upload-spinner\"></span> Saving " + $(this).prop('id'));
+	//Execute the postback
+	$.post(updatepath, function(data) {
+	  if(data == "success"){//If successful pass the message along and redisplay the field
+	    label.html("Saved Successfully");
+	    label.delay(1000).fadeOut(0);
+	    el.delay(1000).fadeIn(0);
+	  }
+	  else
+	    label.text("An error occured. Could not update photo " + el.prop('id'));
+	});
+      });
+    });
+  </script>
+<% end %>
+
+<% if defined?(dialog) && dialog %>
+<div id="dlgMultiPhotoUpload" title="Upload/Edit Photos">
+<% end %>
+  <div>
+    <p>Use the 'Upload Photos' button to add photos to this <%= class_name %>. <%= "You can drag and drop photos onto the page. You can also highlight many photo files at once to upload multiple photos in one go. " if @multiupload %>Once uploaded you can enter a title, time and caption for each photo. Clicking on a thumbnail will take you to a page that allows you to enter more detail about the photo such as the coordinates, height and vantage point. <%= "When each photo is uploaded it will be added to your text using a placeholder such as [[photo=1234]]. You can delete these placeholders at any time to remove the photo from your text. Click on the x in the top right corner to continue editing your text." if defined?(dialog) && dialog %></p>
+  </div>
+
+  <div id="file-uploader" style="float:left;width:200px;height:auto;">    
+    <noscript>          
+      <p>Please enable JavaScript to submit multiple photos at once.</p>
+      <!-- or put a simple form for upload here -->
+    </noscript>         
+  </div>
+
+  <div id="editable-list">
+    <!-- render :partial => 'photos/editable_list' --><!-- This is now loaded via javascript -->
+  </div>
+  <div class="clear" style="height:300px"></div>
+
+  <%= hidden_field_tag :edit_textfield %>
+
+  <% form_for main_app.thumb_update_photos_path, :method => 'post' do %>
+    <%= hidden_field_tag :id, '' %>
+    <%= hidden_field_tag :title, '' %>
+    <%= hidden_field_tag :time, '' %>
+    <%= hidden_field_tag :caption, '' %>
+  <% end %>
+<% if defined?(dialog) && dialog %>
+</div>
+<% end %>

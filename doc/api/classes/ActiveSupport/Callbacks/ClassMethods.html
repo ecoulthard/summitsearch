@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: ActiveSupport::Callbacks::ClassMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">ActiveSupport::Callbacks::ClassMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/usr/lib/ruby/gems/1_8/gems/activesupport-3_0_0_beta4/lib/active_support/callbacks_rb.html">
+                /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000294">define_callbacks</a>&nbsp;&nbsp;
+      <a href="#M000293">reset_callbacks</a>&nbsp;&nbsp;
+      <a href="#M000291">set_callback</a>&nbsp;&nbsp;
+      <a href="#M000292">skip_callback</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000294" class="method-detail">
+        <a name="M000294"></a>
+
+        <div class="method-heading">
+          <a href="#M000294" class="method-signature">
+          <span class="method-name">define_callbacks</span><span class="method-args">(*callbacks)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Define callbacks types.
+</p>
+<h4>Example</h4>
+<pre>
+  define_callbacks :validate
+</pre>
+<h4>Options</h4>
+<ul>
+<li><tt>:terminator</tt> - Indicates when a before filter is considered
+
+</li>
+</ul>
+<p>
+to be halted.
+</p>
+<pre>
+  define_callbacks :validate, :terminator =&gt; &quot;result == false&quot;
+</pre>
+<p>
+In the example above, if any before validate callbacks returns false, other
+callbacks are not executed. Defaults to &quot;false&quot;.
+</p>
+<ul>
+<li><tt>:rescuable</tt> - By default, after filters are not executed if
+
+</li>
+</ul>
+<p>
+the given block or an before_filter raises an error. Supply :rescuable
+=&gt; true to change this behavior.
+</p>
+<ul>
+<li><tt>:scope</tt> - Show which methods should be executed when a class
+
+</li>
+</ul>
+<p>
+is given as callback:
+</p>
+<pre>
+  define_callbacks :filters, :scope =&gt; [ :kind ]
+</pre>
+<p>
+When a class is given:
+</p>
+<pre>
+  before_filter MyFilter
+</pre>
+<p>
+It will call the type of the filter in the given class, which in this case,
+is &quot;before&quot;.
+</p>
+<p>
+If, for instance, you supply the given scope:
+</p>
+<pre>
+  define_callbacks :validate, :scope =&gt; [ :kind, :name ]
+</pre>
+<p>
+It will call &quot;#{kind}_#{name}&quot; in the given class. So
+&quot;before_validate&quot; will be called in the class below:
+</p>
+<pre>
+  before_validate MyValidation
+</pre>
+<p>
+Defaults to :kind.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000294-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000294-source">
+<pre>
+     <span class="ruby-comment cmt"># File /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb, line 562</span>
+562:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_callbacks</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">callbacks</span>)
+563:         <span class="ruby-identifier">config</span> = <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+564:         <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">callback</span><span class="ruby-operator">|</span>
+565:           <span class="ruby-identifier">extlib_inheritable_reader</span>(<span class="ruby-node">&quot;_#{callback}_callbacks&quot;</span>) <span class="ruby-keyword kw">do</span>
+566:             <span class="ruby-constant">CallbackChain</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">callback</span>, <span class="ruby-identifier">config</span>)
+567:           <span class="ruby-keyword kw">end</span>
+568: 
+569:           <span class="ruby-identifier">extlib_inheritable_reader</span>(<span class="ruby-node">&quot;_removed_#{callback}_callbacks&quot;</span>) <span class="ruby-keyword kw">do</span>
+570:             []
+571:           <span class="ruby-keyword kw">end</span>
+572: 
+573:           <span class="ruby-identifier">class_eval</span> <span class="ruby-value str">&quot;def self._\#{callback}_superclass_callbacks\nif superclass.respond_to?(:_\#{callback}_callbacks)\nsuperclass._\#{callback}_callbacks + superclass._\#{callback}_superclass_callbacks\nelse\n[]\nend\nend\n\ndef self._update_\#{callback}_superclass_callbacks\nchanged, index = false, 0\n\ncallbacks  = (_\#{callback}_superclass_callbacks -\n_\#{callback}_callbacks) - _removed_\#{callback}_callbacks\n\ncallbacks.each do |callback|\nif new_index = _\#{callback}_callbacks.index(callback)\nindex = new_index + 1\nelse\nchanged = true\n_\#{callback}_callbacks.insert(index, callback)\nindex = index + 1\nend\nend\nchanged\nend\n&quot;</span>, <span class="ruby-keyword kw">__FILE__</span>, <span class="ruby-keyword kw">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+574: 
+575:           <span class="ruby-identifier">__define_runner</span>(<span class="ruby-identifier">callback</span>)
+576:         <span class="ruby-keyword kw">end</span>
+577:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000293" class="method-detail">
+        <a name="M000293"></a>
+
+        <div class="method-heading">
+          <a href="#M000293" class="method-signature">
+          <span class="method-name">reset_callbacks</span><span class="method-args">(symbol)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Reset callbacks for a given type.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000293-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000293-source">
+<pre>
+     <span class="ruby-comment cmt"># File /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb, line 512</span>
+512:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reset_callbacks</span>(<span class="ruby-identifier">symbol</span>)
+513:         <span class="ruby-identifier">callbacks</span> = <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;_#{symbol}_callbacks&quot;</span>)
+514:         <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">clear</span>
+515:         <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;_removed_#{symbol}_callbacks&quot;</span>).<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">callbacks</span>)
+516:         <span class="ruby-identifier">__define_runner</span>(<span class="ruby-identifier">symbol</span>)
+517:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000291" class="method-detail">
+        <a name="M000291"></a>
+
+        <div class="method-heading">
+          <a href="#M000291" class="method-signature">
+          <span class="method-name">set_callback</span><span class="method-args">(name, *filter_list, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set callbacks for a previously defined callback.
+</p>
+<p>
+Syntax:
+</p>
+<pre>
+  set_callback :save, :before, :before_meth
+  set_callback :save, :after,  :after_meth, :if =&gt; :condition
+  set_callback :save, :around, lambda { |r| stuff; yield; stuff }
+</pre>
+<p>
+Use <a href="ClassMethods.html#M000292">skip_callback</a> to skip any
+defined one.
+</p>
+<p>
+When creating or skipping callbacks, you can specify conditions that are
+always the same for a given key. For instance, in ActionPack, we convert
+:only and :except conditions into per-key conditions.
+</p>
+<pre>
+  before_filter :authenticate, :except =&gt; &quot;index&quot;
+</pre>
+<p>
+becomes
+</p>
+<pre>
+  dispatch_callback :before, :authenticate, :per_key =&gt; {:unless =&gt; proc {|c| c.action_name == &quot;index&quot;}}
+</pre>
+<p>
+Per-Key conditions are evaluated only once per use of a given key. In the
+case of the above example, you would do:
+</p>
+<pre>
+  run_callbacks(:dispatch, action_name) { ... dispatch stuff ... }
+</pre>
+<p>
+In that case, each action_name would get its own compiled callback method
+that took into consideration the per_key conditions. This is a speed
+improvement for ActionPack.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000291-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000291-source">
+<pre>
+     <span class="ruby-comment cmt"># File /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb, line 479</span>
+479:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_callback</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">filter_list</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+480:         <span class="ruby-identifier">__update_callbacks</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">filter_list</span>, <span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">chain</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">filters</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+481:           <span class="ruby-identifier">filters</span>.<span class="ruby-identifier">map!</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+482:             <span class="ruby-identifier">removed</span> = <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">delete_if</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">filter</span>) } 
+483:             <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;_removed_#{name}_callbacks&quot;</span>).<span class="ruby-identifier">push</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">removed</span>)
+484:             <span class="ruby-constant">Callback</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">chain</span>, <span class="ruby-identifier">filter</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-keyword kw">self</span>)
+485:           <span class="ruby-keyword kw">end</span>
+486: 
+487:           <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:prepend</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">filters</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">push</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">filters</span>)
+488:         <span class="ruby-keyword kw">end</span>
+489:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000292" class="method-detail">
+        <a name="M000292"></a>
+
+        <div class="method-heading">
+          <a href="#M000292" class="method-signature">
+          <span class="method-name">skip_callback</span><span class="method-args">(name, *filter_list, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Skip a previously defined callback for a given type.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000292-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000292-source">
+<pre>
+     <span class="ruby-comment cmt"># File /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb, line 493</span>
+493:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">skip_callback</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">filter_list</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+494:         <span class="ruby-identifier">__update_callbacks</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">filter_list</span>, <span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">chain</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">filters</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+495:           <span class="ruby-identifier">filters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+496:             <span class="ruby-identifier">filter</span> = <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">filter</span>) }
+497: 
+498:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">filter</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">any?</span>
+499:               <span class="ruby-identifier">new_filter</span> = <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">clone</span>(<span class="ruby-identifier">chain</span>, <span class="ruby-keyword kw">self</span>)
+500:               <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">chain</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">filter</span>), <span class="ruby-identifier">new_filter</span>)
+501:               <span class="ruby-identifier">new_filter</span>.<span class="ruby-identifier">recompile!</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:per_key</span>] <span class="ruby-operator">||</span> {})
+502:             <span class="ruby-keyword kw">end</span>
+503: 
+504:             <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">filter</span>)
+505:             <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;_removed_#{name}_callbacks&quot;</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">filter</span>
+506:           <span class="ruby-keyword kw">end</span>
+507:         <span class="ruby-keyword kw">end</span>
+508:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

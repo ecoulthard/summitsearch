@@ -1,0 +1,599 @@
+@import "mixins"
+@import "jMenu"
+@import "menu"
+
+/* Size of text in the blue title bars. */
+$title-size: 1.5em
+$title-button-size: 1.0em
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td
+  margin: 0
+  padding: 0
+
+body
+  background-color: white
+  color: #333
+
+body, p, ol, ul, td
+  font-family: verdana, arial, helvetica, sans-serif
+  font-size:   13px
+  line-height: 18px
+
+pre
+  background-color: #eee
+  padding: 10px
+  font-size: 11px
+
+div
+  .field, .actions
+    margin-bottom: 10px
+    max-width: 1024px
+
+.notice
+  color: black
+  border: 2px solid red
+  padding: 1em
+  margin-bottom: 2em
+  background-color: #f0f0f0
+  font: bold smaller sans-serif
+
+.ajax-loader
+  display: inline-block
+  background: image-url("ajax-loader.gif")
+  width: 48px
+  height: 48px
+  vertical-align: text-bottom
+
+// Get rid of border surrounding images so that it looks fine as a link
+img
+  border: 0px
+  &:hover
+    border: 0px
+
+fieldset
+  background: #efe
+  padding: 2px 2px 2px 5px
+  @include rounded-corners
+  fieldset.indent
+    background: #dfd
+    width: auto
+    margin-left: 80px
+    fieldset.indent
+      background: #efe
+      
+
+legend
+  @include background-image
+  color: white
+  font-family: sans-serif
+  padding: 0.2em 1em
+  @include rounded-corners
+
+.clear
+  clear: both
+
+.clearLeft
+  clear: left
+
+.no-wrap
+  white-space: nowrap
+  display: inline
+
+.left
+  float: left
+.right
+  float: right
+
+#main
+  @include background-gradient(#F4F4F4, #F4F4F4, #D4D4D4)
+  color: $default-text
+
+  #banner, #short_banner
+    cursor: pointer
+    max-width: $full-width
+    text-align: center
+  #banner
+    height: 150px
+    background-repeat: no-repeat
+    background-position: center
+    background-size: auto 150px
+    img
+      padding-left: 350px 
+    @include menu
+    @media screen and (min-device-width: 700px)
+      &:hover #menu
+        left: 0px
+    // Commented out code needs to be indented.
+    // @media screen and (max-device-width: 700px)
+    //   &:focus #menu
+    //     left: 0px*/
+
+  #short_banner
+    color: white
+    @include background-image
+    a
+      color: white
+
+  #nomenu
+    background: transparent
+    h1
+      font:  100% sans-serif
+      color: #226
+      border-bottom: 1px dotted #77d
+      a
+        font-size: 80%
+      span
+        font-size: 80%
+        a
+          font-size: 90%
+
+  #bottom
+    width: $full-width
+    color: white
+    @include background-image
+    text-align: center
+    padding: 10px 0 10px 0
+    a
+      color: white
+      font-size: 1.1em
+      min-width: 200px
+
+  #content
+    background: transparent
+    a
+      color: $lighter-text
+      text-decoration: none
+      &:visited
+        color: $lighter-text
+      &:hover
+        color: black
+        /*background: transparent*/
+        text-decoration: underline
+    h1
+      font-size: $title-size
+      span
+        font-size: $title-button-size
+        a:not(.linkButton)
+          color: white
+          font-size: $title-button-size
+          &:visited
+            color: white
+      a:not(.linkButton)
+        font-size: $title-button-size
+    h2
+      font-size: $title-size
+      a
+        font-size: $title-button-size
+    h1,h2
+      width: $full-width
+      display: block
+      padding: .5em 0 .5em 0
+    .attention
+      padding: 0 2em 0em 2em
+      td
+        font-size: 1.2em
+        vertical-align: middle
+    h1,h2,.attention
+      color: white
+      font-weight: bold
+      text-align: center
+      @include background-image
+      @include rounded-corners
+      a:not(.linkButton)
+        color: white
+        &:visited
+          color: white
+    p
+      margin: 4px 0px 4px 0px
+    ul
+      margin: 0 20px 0 20px
+    table.subdued
+      &:not(.floatTable)
+        width: $full-width
+      @include background-image
+      border-right-style: none
+      border-collapse: collapse
+      border-spacing: 0
+      float: left
+      /*width: auto*/
+      thead tr th, tfoot tr td
+        color: white
+        font-size: $title-size
+        font-weight: bold
+        &.title
+          font-size: $title-size
+        a:not(.linkButton)
+          color: inherit
+          font-weight: normal
+        a
+          font-size: $title-button-size
+        span
+          font-size: $title-button-size
+      tfoot
+        background-image: url(/assets/forem/bg_list.gif)
+      td, th
+        padding: .5em
+        border-right: 1px solid $dark
+      td
+        border-top: 1px solid $dark
+      tr.odd
+        background-color: $light
+      tr.even
+        background-color: $light
+      tr.even.colorOnHover:hover, tr.odd.colorOnHover:hover
+        background-color: $hover
+      tbody
+        color: $default-text
+        a
+          color: #000
+          font-size: 1em
+          font-weight: bold
+          color: #2D4357
+          text-decoration: none
+          &:hover
+            text-decoration: underline
+
+  .field_with_errors
+    padding: 2px
+    background-color: red
+    display: table
+
+  #error_explanation
+    width: 450px
+    border: 2px solid red
+    padding: 7px
+    padding-bottom: 0px
+    margin-bottom: 20px
+    background-color: #f0f0f0
+    h2
+      border-bottom: 2px solid red
+      text-align: left
+      font-weight: bold
+      padding: 5px 5px 5px 15px
+      font-size: 12px
+      margin: -7px
+      margin-bottom: 0px
+      color: #fff
+      background-color: #c00
+    ul li
+      font-size: 12px
+      list-style: square
+
+  .title
+    font-size: 120%
+    font-family: sans-serif
+
+.markItUp
+  width: $full-width - 2
+  max-width: 1000px
+
+.markItUpButton a:hover
+  background-color: transparent
+
+.markItUpEditor
+  width: $full-width - 4
+  max-width: 990px
+  height: 300px
+
+.editor
+  width: $full-width - 6
+
+.markItUpPreviewFrame
+  height: 500px
+ 
+.entry, .thumbDiv
+  margin: 1px
+  float: left
+  background: transparent
+  padding: 0.1em 0.8em
+  border-style: solid
+  border-color: grey
+  border-width: 1px
+  @include rounded-corners
+  h3
+    margin-top: 0px
+    margin-bottom: 2px
+    color: #227
+    display: inline
+    a
+      color: #227
+      &:hover
+        color: #449
+        background-color: #aad
+        text-decoration: none
+  .text
+    color: #44a
+    font-weight: bold
+    margin-right: 2em
+
+.entry
+  width: 280px
+  height: 55px
+  img
+    width: 80px
+    margin-right: 5px
+    margin-bottom: 5px
+    float: left
+  p
+    margin-top: 0.5em 
+    margin-bottom: 0.8em 
+  .text_line
+    clear: both
+    margin-bottom: 0.5em
+  .created_at_line
+    clear: both
+    margin-bottom: 0.5em
+  .created_at
+    color: #55b
+    font-weight: normal
+    margin-right: 2em
+
+.entries
+  min-width: 90%
+  display: table
+
+.thumbDiv
+  height: 145px
+
+.hiddenThumbs
+  position: absolute
+  top: 100px
+  left: 180px
+  width: 80%
+  display: table
+  overflow: scroll
+  background: black
+  @include rounded-corners
+
+.thumbTitleDiv
+  height: 40px
+  overflow: hidden
+
+.thumbTitle
+  font-weight: bold
+  margin-top: 0px
+  margin-bottom: 2px
+  color: #227
+  &:hover
+    color: #449
+    background-color: #aad
+    text-decoration: none
+
+.thumb
+  @include rounded-corners
+
+.colorOnHover:hover
+  background-color: $hover
+
+.clickable:hover
+  cursor: pointer
+
+.ui-tooltip
+  @include box-shadow(0px, transparent)
+  padding: 0px
+  opacity: 1
+
+.captionDiv, .abstractDiv, .captionDiv_ie, .hover
+  height: auto
+  text-align: left
+  font-weight: normal
+  font-family: sans-serif
+  position: relative /*absolute*/
+  left: -30px
+  z-index: 100
+
+.captionDiv, .abstractDiv, .hover
+  display: none
+  padding: 2px
+  @include rounded-corners
+
+.ui-tooltip.ui-widget-content
+  max-width: 30%
+  background: transparent
+  border-style: none
+  border-width: 0
+  fieldset
+    margin: 1px
+    text-align: left
+    font: normal 11px "Helvetica Neue", Sans-Serif
+    .text
+      color: #44a
+      font-weight: bold
+      margin-right: 2em
+
+
+.abstractDiv
+  width: 340px
+
+.captionDiv_ie
+  max-width: 200px
+  visibility: hidden
+  display: block
+  top: auto
+
+.smallDiv
+  margin: 0px
+  height: auto
+  float: left
+  background: transparent
+  padding: 0px
+
+#place_list
+  height: auto
+  .option_div
+    /*display: table*/
+    /*width: $full-width*/
+    .option_list
+      display: table-cell
+      list-style-type: none
+      margin: 0
+      padding: 0
+      li
+        margin: 3px
+        padding: 1px
+        float: left
+        min-width: 170px
+        text-align: center
+        cursor: pointer
+        font-size: 1.2em
+        font-weight: bold
+        a:hover
+          color: #2e6e9e
+          background: #dfeffc
+    .option_title
+      display: table-cell
+      vertical-align: middle
+      margin: 3px
+      padding: 1px
+      text-align: left
+      cursor: auto
+      width: 100px
+      color: white
+  table.subdued
+    .list_image
+      min-width: 150px
+    .list_description
+      min-width: 750px
+      dl
+        margin: 0
+        max-height: 150px
+        overflow: auto
+      dt a
+        color: #244
+        font-weight: bold
+        font-size: larger
+      dd
+        margin: 0
+    .list_actions
+      font-size: x-small
+      text-align: right
+      padding-left: 1em
+      float: right
+    .photo_caption
+      font-size: small
+      font-family: sans-serif
+      text-align: left 
+  #recommendations
+    font-family: serif
+    font-size: 15px
+  #bubble_div
+    overflow: auto
+    h2
+      margin: 0px
+      width: 98%
+    .distance
+      font-size: 80% 
+      float: left
+      margin: 0px 3px 0px 3px
+
+.social
+  width: $full-width
+  white-space: nowrap
+
+#place_info_div
+  overflow-y: auto
+
+.form
+  label
+    width: 20em
+    float: left
+    text-align: right
+    padding-top: 0.2em
+    margin-right: 0.1em
+    display: block
+  select, textarea, input
+    margin-left: 0.5em
+  .time_field
+    background-image: image-url("clock.png")
+    background-position: right
+    background-repeat: no-repeat
+  .submit
+    margin-left: 4em
+  .hidden_waypoints
+    display: none
+    visibility: hidden
+  input
+    &[type="submit"]
+      font-size: 24px
+  #bubble_div
+    overflow-y: auto
+    width: 550px
+    .bubble
+      margin-left: 0em
+      margin-right: 0em
+      label
+        width: 8em
+        text-align: left
+        padding-top: 0.0em
+        margin-right: 0.0em
+      select, textarea, input
+        margin-left: 0em
+
+.top_images_small
+  max-height: 320px
+  width: $full-width
+
+.top_content_small
+  min-height: 360px
+  width: $full-width
+  display: table
+
+.top_images
+  max-height: 510px
+  width: $full-width
+
+.top_content
+  min-height: 510px
+  width: $full-width
+  display: table
+
+.toggleButton
+  position: relative
+  top: -4px
+  left: 100px
+
+// max-height is height for the toggle button
+// You also need to set it in the share.js.coffee
+.place_description
+  overflow: hidden
+  border-bottom: 1px solid white
+  background: #EEEEEE
+  max-height: 600px
+
+.map_div, .map_div_small
+  display: block
+  margin-left: 5px
+
+.map_div
+  width: 600px
+  height: 500px
+
+.map_div_small
+  width: 500px
+  height: 300px
+
+.map_div_big
+  min-width: 800px
+  min-height: 800px
+  width: $full-width
+  height: 100%
+  overflow: auto
+
+.info_window
+  width: 300px
+  height: 100px
+
+.reference_window
+  width: 250px
+
+.ArticleListDiv
+  float: left
+  min-width: 300px
+
+.titlePhotoDiv
+  float: right
+
+.TaskList
+  float: left
+  width: 47%
+  margin: 10px

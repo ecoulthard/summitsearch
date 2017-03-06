@@ -1,0 +1,106 @@
+<div>
+  <p>If you plan on adding photos, a nearby mountain or place is needed as a reference for searching or auto linking photos for this topic</p>
+  <%= search_field_tag :search, @topic.place.nil? ? "" : @topic.place.autocomplete_summary, :class => 'auto_search_complete', :placeholder => "Search places", :size => 120 %><br>
+  <%= hidden_field_tag :area_id, @topic.forum.place.id unless @topic.forum.place.nil? %>
+  <%= hidden_field_tag :place_id, @topic.place.nil? ? "" : @topic.place.id %>
+</div>
+<div class="clear"></div><br>
+
+<% content_for(:javascript) do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.auto_search_complete').autocomplete({
+        minLength: 4,
+        source: function(request, response) {
+          $.ajax({
+            url: "<%= main_app.place_search_places_path(:json) %>",
+            dataType: "json",
+            data: { area_id: $("#area_id").val(), search: request.term },
+            async: true,
+            success: function( data ) {
+              response( data );
+            },
+            error: function(XMLHttpRequest, textStatus, error){
+              alert(error);
+            }
+          });
+        },
+        //When a place is selected set the place id, photo_start_latitude, photo_start_logitude
+        //Also call an action to save the place_id for future posts for this topic.
+        select: function(event,ui){
+          $("#place_id").val(ui.item.id);
+          $("#photo_start_latitude").val(ui.item.latitude);
+          $("#photo_start_longitude").val(ui.item.longitude);
+          //Enable the select photo button if it isn't already enabled
+          $(".selectPhotoButton,.uploadPhotoButton").button('enable');
+          $(".selectPhotoButton,.uploadPhotoButton").prop('title', '');
+          //Reinitialize the multi photo uploader
+	  initUploader(ui.item.name,ui.item.latitude,ui.item.longitude);
+          //If the topic is new then set the topic_place_id field
+          <% if @topic.id.nil? %>
+            $("#topic_place_id").val(ui.item.id);
+          //Else update the topic to use this place by calling an action.
+          <% else %>
+            var setplaceidpath = "<%= main_app.forem_topics_set_place_id_path :forum_id => @topic.forum.id, :id => @topic.id, :place_id => "topic_place_id" %>";
+            setplaceidpath = setplaceidpath.replace("topic_place_id", ui.item.id);
+            //Execute the postback
+            $.get(setplaceidpath, function(data) {
+              if(data != "success")//Alert user if unsuccessful
+                alert("Sorry an error occured. We couldn't save the reference place for this topic.");
+            });
+          <% end %>
+        }
+      });
+	    /* # This function displays the data with html. Copied from work. Written in coffeescript.
+        ).each ->
+          $(this).data("autocomplete")._renderItem = (ul, item) ->
+            companyName = if item.CompanyName? then item.CompanyName else ""
+            firstName = if item.FirstName? then item.FirstName else ""
+            lastName = if item.LastName? then item.LastName else ""
+            email = if item.Email? then item.Email else ""
+            address = if item.Address? then item.Address else ""
+            primaryPhone = if item.PrimaryPhone? then item.PrimaryPhone else ""
+            secondaryPhone = if item.SecondaryPhone? then item.SecondaryPhone else ""
+            $("<li></li>")
+              .data("item.autocomplete", item)
+              .append("<a style='font-size:12px'>" + companyName + " - " + firstName + " - " + lastName +
+                  " - " + email + " - " + address + " - " + primaryPhone +
+                  " - " + secondaryPhone + "</a>")
+              .appendTo(ul)
+      */
+
+    });
+  </script>
+<% end %>
+
+<input class="uploadPhotoButton" type="button" value="Upload/Edit Photos" <%= "disabled=\"disabled\"" if @topic.place.nil? %> title="<%= "You need to enter a nearby place using the previous textfield to enable this button." if @topic.place.nil? %>">
+<input class="selectPhotoButton" type="button" value="Select photos from Summitsearch" <%= "disabled=\"disabled\"" if @topic.place.nil? %> title="<%= "You need to enter a nearby place using the previous textfield to enable this button." if @topic.place.nil? %>" use_field="<%= @topic.id.nil? ? "topic_posts_attributes_0_text" : "post_text" %>" />
+<div class="clear"></div>
+
+<%= f.text_area :text, :class => "editor", :rows => 20, :cols => 120 %>
+<div class="clear"></div><br>
+
+<% if params[:reply_to_id] %>
+  <%= f.hidden_field :reply_to_id, :value => params[:reply_to_id] %>
+<% end %>
+
+<%= render :partial => 'all/multi_photo_upload', :locals => {:dialog => true, :tag_name => 'topic_id', :class_name => 'topic'} %>
+<%= render :partial => 'all/photo_select', :locals => {:topic => @topic, :latitude => @topic.place.nil? ? "" : @topic.place.centerLatitude, :longitude => @topic.place.nil? ? "" : @topic.place.centerLongitude} %>
+
+<% unless @topic.id.nil? %>
+  <div class="clear"></div><br>
+  <h2 class="title">First Post</h2>
+  <div class="clear"></div>
+
+  <div id='posts'>
+    <%= render :partial => "forem/posts/post", :collection => [@topic.posts.first] %>
+  </div>
+
+  <div class="clear"></div><br>
+  <h2 class="title">20 Latest Replies</h2>
+  <div class="clear"></div>
+
+  <div id='posts'>
+    <%= render :partial => "forem/posts/post", :collection => @topic.last_posts(20) %>
+  </div>
+<% end %>

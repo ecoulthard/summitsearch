@@ -1,0 +1,8 @@
+<div class="form">
+  <fieldset>
+     <legend>Enter in the <%= @type %> Data</legend>
+     <%= render 'form' %>
+  </fieldset>
+</div>
+
+<%= link_to 'Back', places_path(:type => @place.class.to_s) %>

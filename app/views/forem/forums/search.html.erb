@@ -1,0 +1,32 @@
+<div class="clear"></div><br>
+
+<h2 class="title"><%= @title %></h2>
+
+<div class="clear"></div><br>
+<% @topics.each_with_index do |topic, index| %>
+  <% if index == 0 || topic.forum != @topics[index-1].forum %>
+    <h3 class="title"><%= link_to topic.forum.title, topic.forum %></h3>
+    <table class='topics subdued' cellspacing='0'>
+      <thead>
+        <tr>
+          <th class="icon"></th>
+          <th class="byline"><%= t('forem.topic.headings.topic') -%></th>
+          <th class="latest-post"><%= t('forem.topic.headings.latest') -%></th>
+          <th class="posts-count"><%= t('forem.topic.headings.posts') -%></th>
+          <th class="views-count"><%= t('forem.topic.headings.views') -%></th>
+        </tr>
+      </thead>
+      <tbody>
+  <% end %>
+  <%= render :partial => 'forem/topics/topic', :locals => {:topic => topic}%>
+  <% if index == @topics.length-1 || topic.forum != @topics[index+1].forum %>
+      </tbody>
+    </table>
+    <div class="clear"></div><br>
+  <% end %>
+<% end %>
+<% if defined? @forum %>
+  <div class="clear"></div>
+  <%= render :partial => "sort", :locals => { :forum => @forum, :hours => @hours, :sort => @sort, :direction => @direction } %>
+  <div class="clear"></div><br>
+<% end %>

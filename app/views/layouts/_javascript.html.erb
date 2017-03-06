@@ -1,0 +1,20 @@
+<% # Javascript that doesn't need to call document.write should go in this partial. This makes the page display before the javascript is downloaded. %>
+
+<!--[if lt IE 9]>
+  <script src="https://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+  
+<%= mytopo_data %>
+
+<script type="text/javascript">
+  <% if defined? @DoNotTrack %>
+    var doNotTrack = <%= @DoNotTrack %>;
+  <% else %>
+    var doNotTrack = false;
+  <% end %>
+</script>
+<div id="fb-root"></div>
+<%= javascript_include_tag "application" %>
+
+<%= yield(:javascript) %>
+<%= render :partial => 'layouts/include_facebook' %>

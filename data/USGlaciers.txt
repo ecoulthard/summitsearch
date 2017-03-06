@@ -1,0 +1,421 @@
+Huscroft Glacier|1669443|Glacier|Hoonah-Angoon (CA)|AK|58.6166667|-137.3958333|1483|Mount Fairweather C-5||08-NOV-1995
+Field Glacier|1699845|Glacier|Haines|AK|58.9930556|-134.6377778|2195|Juneau D-2|01-JAN-1996|20-AUG-1996
+Bering Canyon|1729784|Glacier|Valdez-Cordova (CA)|AK|60.3750000|-143.8750000|531|Bering Glacier B-8|01-JAN-1997|08-APR-1997
+Bering Lobe|1729786|Glacier|Valdez-Cordova (CA)|AK|60.2250000|-143.3958333|951|Bering Glacier A-7|01-JAN-1997|08-APR-1997
+Griddlecake Glacier|1729788|Glacier|Valdez-Cordova (CA)|AK|60.4469444|-143.4030556|1995|Bering Glacier B-7|01-JAN-1997|08-APR-1997
+Kaliakh Lobe|1729791|Glacier|Valdez-Cordova (CA)|AK|60.3027778|-143.1694444|1388|Bering Glacier B-6|01-JAN-1997|08-APR-1997
+Steller Lobe|1729795|Glacier|Valdez-Cordova (CA)|AK|60.3347222|-143.7513889|1207|Bering Glacier B-8|01-JAN-1997|08-APR-1997
+Waxell Glacier|1729798|Glacier|Valdez-Cordova (CA)|AK|60.6013889|-143.0013889|4573|Bering Glacier C-6|01-JAN-1997|08-APR-1997
+Central Valley Reach|1759745|Glacier|Valdez-Cordova (CA)|AK|60.3694444|-143.0013889|2310|Bering Glacier B-6|01-JAN-1997|27-AUG-1997
+Hesselberg Glacier|1759746|Glacier|Valdez-Cordova (CA)|AK|60.5222222|-143.3669444|3694|Bering Glacier C-7|01-JAN-1997|27-AUG-1997
+Kuleska Glacier|1759749|Glacier|Valdez-Cordova (CA)|AK|60.3736111|-142.5319444|2625|Bering Glacier B-5|01-JAN-1997|27-AUG-1997
+Ovtsyn Glacier|1759751|Glacier|Valdez-Cordova (CA)|AK|60.4583333|-142.8916667|2605|Bering Glacier B-6|01-JAN-1997|27-AUG-1997
+Sarokin Glacier|1759753|Glacier|Valdez-Cordova (CA)|AK|60.4752778|-142.3963889|4003|Bering Glacier B-4|01-JAN-1997|27-AUG-1997
+Betge Glacier|1759761|Glacier|Valdez-Cordova (CA)|AK|60.4680556|-143.0013889|2680|Bering Glacier B-6|01-JAN-1997|27-AUG-1997
+Yushin Glacier|1759762|Glacier|Valdez-Cordova (CA)|AK|60.4347222|-143.2180556|2579|Bering Glacier B-6|01-JAN-1997|27-AUG-1997
+Crater Glacier|1841446|Glacier|Kenai Peninsula|AK|61.2483333|-152.2566667|3839|Tyonek A-7|01-JAN-1999|19-MAY-1999
+Sargent Icefield|1847245|Glacier|Valdez-Cordova (CA)|AK|60.3850000|-148.4344444|2001|Seward B-4|01-JAN-1953|13-JUL-1999
+Icicle Glacier|1847258|Glacier|Anchorage|AK|61.2005152|-149.0971318|5423|Anchorage A-6||13-JUL-1999
+Milton Glacier|1868028|Glacier|Kenai Peninsula|AK|60.6833333|-148.7333333|1568|Seward C-5|01-JAN-1930|12-JUN-2000
+Pangnik Glacier|1875757|Glacier|North Slope|AK|69.1901522|-144.8676292|6302|Mount Michelson A-2|01-JAN-1992|22-JUN-2000
+Truuli Glacier|1877269|Glacier|Kenai Peninsula|AK|59.9652778|-150.5055556|1942|Seldovia D-2|01-JAN-1969|18-JUL-2000
+Spurr Ice Plateau|1888884|Glacier|Kenai Peninsula|AK|61.3194444|-152.2411111|8806|Tyonek B-6|01-JAN-2000|03-NOV-2000
+Andrews Glacier|1893321|Glacier|Hoonah-Angoon (CA)|AK|58.9125000|-136.3416667|2306|Mount Fairweather D-2||23-MAR-2001
+Aneegulgit|1893324|Glacier|Nome (CA)|AK|63.5333333|-170.4333333|833|Saint Lawrence C-3||23-MAR-2001
+Arthur Glacier|1893384|Glacier|Haines|AK|59.2333333|-135.8333333|282|Skagway A-3||23-MAR-2001
+Aurel Glacier|1893417|Glacier|Haines|AK|59.2375000|-135.9500000|1444|Skagway A-3||23-MAR-2001
+Baldwin Glacier|1893474|Glacier|Hoonah-Angoon (CA)|AK|58.9250000|-136.3833333|1798|Mount Fairweather D-2||23-MAR-2001
+Bremner Glacier|1893724|Glacier|Valdez-Cordova (CA)|AK|60.8416667|-143.9583333|3789|Bering Glacier D-8||23-MAR-2001
+Cushing Glacier|1894037|Glacier|Hoonah-Angoon (CA)|AK|59.0166667|-136.4000000|413|Skagway A-4||23-MAR-2001
+Dagelet Glacier|1894041|Glacier|Hoonah-Angoon (CA)|AK|58.5666667|-137.2000000|4977|Mount Fairweather C-4||23-MAR-2001
+Dall Glacier|1894046|Glacier|Matanuska-Susitna|AK|62.5500000|-151.9333333|607|Talkeetna C-4||23-MAR-2001
+Death Valley Branch Norris Glacier|1894080|Glacier|Juneau|AK|58.4833333|-134.2500000|2723|Juneau B-1||23-MAR-2001
+Dying Glacier (historical)|1894170|Glacier|Hoonah-Angoon (CA)|AK|58.8305556|-136.2527778|220|Mount Fairweather D-1||23-MAR-2001
+Fels Glacier|1894333|Glacier|Southeast Fairbanks (CA)|AK|63.3861111|-145.6666667|2992|Mount Hayes B-4||23-MAR-2001
+Great Glacier|1894594|Glacier|Wrangell|AK|56.8333333|-131.7833333|187|Bradfield Canal D-6||23-MAR-2001
+Hayes Glacier|1894680|Glacier|Southeast Fairbanks (CA)|AK|63.7250000|-146.5500000|3150|Mount Hayes C-6|01-JAN-1949|23-MAR-2001
+Johnson Glacier|1894948|Glacier|Southeast Fairbanks (CA)|AK|63.4666667|-144.8500000|2461|Mount Hayes B-2||23-MAR-2001
+Jones Glacier|1894952|Glacier|Hoonah-Angoon (CA)|AK|58.9291667|-137.1472222|4819|Mount Fairweather D-4||23-MAR-2001
+Juneau Icefield|1894967|Glacier|Juneau|AK|58.6166667|-134.5000000|5151|Juneau C-2||23-MAR-2001
+Klooch Glacier|1895174|Glacier|Hoonah-Angoon (CA)|AK|58.5847222|-137.3541667|476|Mount Fairweather C-5||23-MAR-2001
+The Knife Creek Glaciers|1895184|Glacier|Lake and Peninsula|AK|58.3000000|-155.0833333|2146|Mount Katmai B-4||23-MAR-2001
+Konamoxt Glacier|1895217|Glacier|Hoonah-Angoon (CA)|AK|59.3361111|-137.6308333|2218|Skagway B-8||23-MAR-2001
+Krisha Glacier|1895234|Glacier|Haines|AK|59.2083333|-135.8250000|4081|Skagway A-3||23-MAR-2001
+Leaking Glacier|1895364|Glacier|Juneau|AK|58.4388889|-134.4250000|3986|Juneau B-2||23-MAR-2001
+Leffingwell Glacier|1895376|Glacier|North Slope|AK|69.3000000|-144.1333333|6939|Mount Michelson B-1||23-MAR-2001
+Lookout Glacier|1895483|Glacier|Hoonah-Angoon (CA)|AK|58.6000000|-137.3500000|1532|Mount Fairweather C-5||23-MAR-2001
+Loomis Glacier|1895484|Glacier|Hoonah-Angoon (CA)|AK|58.9416667|-136.4250000|1877|Mount Fairweather D-2||23-MAR-2001
+Middle Branch Norris Glacier|1895679|Glacier|Juneau|AK|58.4666667|-134.2500000|2864|Juneau B-1||23-MAR-2001
+Netland Glacier|1895859|Glacier|Yakutat|AK|59.4166667|-137.8833333|1499|Skagway B-8||23-MAR-2001
+North Dawes Glacier|1895930|Glacier|Hoonah-Angoon|AK|57.5820505|-133.0431604|5190|Sumdum C-4||23-MAR-2001
+Patterson Glacier|1896134|Glacier|Petersburg (CA)|AK|56.9500000|-132.6902778|187|Petersburg D-3||23-MAR-2001
+Patton Glacier|1896135|Glacier|Hoonah-Angoon (CA)|AK|58.9000000|-136.3000000|2966|Mount Fairweather D-1||23-MAR-2001
+Red Glacier|1896340|Glacier|Kenai Peninsula|AK|59.9666667|-152.8000000|272|Seldovia D-8||23-MAR-2001
+Split Creek|1896776|Glacier|North Slope|AK|69.2500000|-144.1166667|5010|Mount Michelson B-1||23-MAR-2001
+Split Glacier|1896777|Glacier|North Slope|AK|69.2500000|-144.1166667|5010|Mount Michelson B-1||23-MAR-2001
+Van Cleve Glacier|1897185|Glacier|Valdez-Cordova (CA)|AK|60.7000000|-144.2833333|1165|Cordova C-1||23-MAR-2001
+Villard Glacier|1897204|Glacier|Haines|AK|59.2895381|-135.2490735|3707|Skagway B-1||23-MAR-2001
+West Fork Glacier|1897258|Glacier|Southeast Fairbanks (CA)|AK|63.5163889|-147.3550000|4354|Healy C-1||23-MAR-2001
+West Fork Ruth Clacier|1897264|Glacier|Matanuska-Susitna|AK|62.9916667|-150.8250000|5945|Talkeetna D-2||23-MAR-2001
+Woodworth Glacier|1897350|Glacier|Valdez-Cordova (CA)|AK|61.0333333|-145.2583333|404|Valdez A-4||23-MAR-2001
+Carroll Glacier|2056356|Glacier|Kenai Peninsula|AK|60.7019444|-148.7230556|1880|Seward C-5||08-DEC-2004
+Klawasi Glacier|2572530|Glacier|Valdez-Cordova (CA)|AK|62.0876550|-144.7170640|6424|Gulkana A-2||17-OCT-2009
+Ch'atanalch'elt Li'a|2635570|Glacier|Kenai Peninsula|AK|61.2741667|-152.0994444|2697|Tyonek B-6||31-AUG-2010
+Ted Stevens Icefield|2650153|Glacier|Valdez-Cordova (CA)|AK|61.3333333|-146.8333333|4892|Valdez B-8|18-OCT-2010|19-OCT-2010
+Middle Palisade Glacier|228609|Glacier|Inyo|CA|37.0710448|-118.4645479|12762|Split Mountain||19-JAN-1981
+Lilliput Glacier|251965|Glacier|Tulare|CA|36.5813282|-118.5520391|10417|Triple Divide Peak||14-JUN-2000
+Maclure Glacier|251984|Glacier|Tuolumne|CA|37.7467304|-119.2826554|12060|Mount Lyell|01-JAN-1932|01-AUG-1989
+Bolam Glacier|257326|Glacier|Siskiyou|CA|41.4153364|-122.2004210|12523|Mount Shasta|01-JAN-1897|19-JAN-1981
+Conness Glacier|258644|Glacier|Mono|CA|37.9702013|-119.3184905|11548|Tioga Pass||19-JAN-1981
+Darwin Glacier|259068|Glacier|Fresno|CA|37.1716021|-118.6720550|12700|Mount Darwin||19-JAN-1981
+Goethe Glacier|260633|Glacier|Fresno|CA|37.2079912|-118.7084459|12287|Mount Darwin|01-JAN-1949|19-JAN-1981
+Hotlum Glacier|261559|Glacier|Siskiyou|CA|41.4202105|-122.1878719|11680|Mount Shasta||19-JAN-1981
+Konwakiton Glacier|262238|Glacier|Siskiyou|CA|41.3997380|-122.1953779|12565|Mount Shasta|01-JAN-1897|19-JAN-1981
+Lyell Glacier|263078|Glacier|Tuolumne|CA|37.7429862|-119.2690360|12424|Mount Lyell|01-JAN-1932|19-JAN-1981
+Matthes Glaciers|263269|Glacier|Fresno|CA|37.2277143|-118.7592806|12264|Mount Henry|01-JAN-1972|19-JAN-1981
+Palisade Glacier|264458|Glacier|Inyo|CA|37.0999334|-118.5103832|12697|North Palisade||19-JAN-1981
+Whitney Glacier|269049|Glacier|Siskiyou|CA|41.4140150|-122.2113340|11457|Mount Shasta||19-JAN-1981
+Wintun Glacier|269256|Glacier|Siskiyou|CA|41.4077607|-122.1823323|11758|Mount Shasta||19-JAN-1981
+Mud Creek Glacier|1657873|Glacier|Siskiyou|CA|41.3878852|-122.1941791|10902|Mount Shasta||01-JAN-1995
+Watkins Glacier|1657882|Glacier|Siskiyou|CA|41.3991093|-122.1772625|10925|Mount Shasta||01-JAN-1995
+Norman Clyde Glacier|1664802|Glacier|Inyo|CA|37.0791003|-118.4787151|12080|Split Mountain|01-JAN-1973|19-JAN-1981
+Powell Glacier|1667284|Glacier|Inyo|CA|37.1404906|-118.6295532|12523|Mount Darwin||01-JUN-1995
+Mount Fiske Glacier|1667357|Glacier|Fresno|CA|37.1388248|-118.6662203|12559|Mount Darwin||01-JUN-1995
+Mount Warlow Glacier|1667358|Glacier|Fresno|CA|37.1307695|-118.6773312|12316|Mount Darwin||01-JUN-1995
+Rowe Glacier|177614|Glacier|Larimer|CO|40.4883197|-105.6461298|13136|Trail Ridge|01-JAN-1932|13-OCT-1978
+Sprague Glacier|177803|Glacier|Larimer|CO|40.3422067|-105.7333407|11896|McHenrys Peak|01-JAN-1932|13-OCT-1978
+Tyndall Glacier|177837|Glacier|Larimer|CO|40.3047068|-105.6894503|12280|McHenrys Peak|01-JAN-1932|13-OCT-1978
+Andrews Glacier|177848|Glacier|Larimer|CO|40.2874847|-105.6838945|11781|McHenrys Peak|01-JAN-1932|13-OCT-1978
+Taylor Glacier|177861|Glacier|Larimer|CO|40.2708181|-105.6769500|11837|McHenrys Peak|01-JAN-1932|13-OCT-1978
+The Dove|177932|Glacier|Boulder|CO|40.2588736|-105.6180588|13153|Longs Peak||13-OCT-1978
+Mills Glacier|177934|Glacier|Boulder|CO|40.2556882|-105.6105737|12290|Longs Peak||13-OCT-1978
+Saint Vrain Glaciers|178159|Glacier|Boulder|CO|40.1594300|-105.6644490|12037|Isolation Peak||13-OCT-1978
+Fair Glacier|178448|Glacier|Grand|CO|40.0600823|-105.6571550|11758|Monarch Lake||13-OCT-1978
+Peck Glacier|178449|Glacier|Grand|CO|40.0652522|-105.6655021|11689|Monarch Lake||13-OCT-1978
+Arapaho Glacier|178461|Glacier|Boulder|CO|40.0232768|-105.6477984|12421|Monarch Lake||13-OCT-1978
+Isabelle Glacier|178462|Glacier|Boulder|CO|40.0632808|-105.6449814|12100|Monarch Lake||13-OCT-1978
+Saint Marys Glacier|181377|Glacier|Clear Creek|CO|39.8358206|-105.6469467|10958|Empire||13-OCT-1978
+Moomaw Glacier|205000|Glacier|Boulder|CO|40.2119607|-105.6694500|12188|Isolation Peak||13-OCT-1978
+Arikaree Glacier|2519196|Glacier|Boulder|CO|40.0500000|-105.6416667|12431|Monarch Lake||05-FEB-2009
+Navajo Glacier|2519197|Glacier|Boulder|CO|40.0558333|-105.6463889|12549|Monarch Lake||05-FEB-2009
+Pumpelly Glacier|767972|Glacier|Flathead|MT|48.5833038|-113.6592766|8445|Mount Jackson|01-JAN-1929|01-APR-1991
+Agassiz Glacier|768130|Glacier|Flathead|MT|48.9338961|-114.1578449|7664|Kintla Peak|01-JAN-1929|04-APR-1980
+Ahern Glacier|768137|Glacier|Glacier|MT|48.8428147|-113.7837936|8163|Ahern Pass|01-JAN-1929|04-APR-1980
+Baby Glacier|768418|Glacier|Flathead|MT|48.9056651|-114.1541429|6775|Kintla Peak|01-JAN-1929|04-APR-1980
+Blackfoot Glacier|768994|Glacier|Glacier|MT|48.5902361|-113.6651188|8107|Mount Jackson|01-JAN-1911|04-APR-1980
+Boulder Glacier|769122|Glacier|Flathead|MT|48.9574225|-114.0878425|7772|Mount Carter|01-JAN-1929|04-APR-1980
+Carter Glaciers|769629|Glacier|Glacier|MT|48.8858086|-114.0415172|7605|Mount Carter|01-JAN-1970|04-APR-1980
+Chaney Glacier|769754|Glacier|Glacier|MT|48.8518053|-113.8299143|7382|Ahern Pass|01-JAN-1929|04-APR-1980
+Dixon Glacier|770678|Glacier|Glacier|MT|48.9289555|-114.0155832|7431|Mount Carter|06-MAR-1929|04-APR-1980
+Gem Glacier|771735|Glacier|Glacier|MT|48.7466428|-113.7278936|8179|Logan Pass||04-APR-1980
+Grinnell Glacier|772003|Glacier|Glacier|MT|48.7523949|-113.7270172|6644|Many Glacier|01-JAN-1929|04-APR-1980
+Harris Glacier|772170|Glacier|Flathead|MT|48.9500975|-114.2289673|6289|Kintla Peak|01-JAN-1929|04-APR-1980
+Harrison Glacier|772178|Glacier|Flathead|MT|48.5927486|-113.7303910|8484|Mount Jackson|01-JAN-1929|04-APR-1980
+Herbst Glacier|772348|Glacier|Glacier|MT|48.9860119|-114.0501042|7178|Mount Carter|01-JAN-1929|04-APR-1980
+Hudson Glacier|772601|Glacier|Glacier|MT|48.9648307|-114.0448061|7064|Mount Carter|01-JAN-1929|04-APR-1980
+Ipasha Glacier|772712|Glacier|Glacier|MT|48.8428644|-113.8133612|7526|Ahern Pass|01-JAN-1940|04-APR-1980
+Jackson Glacier|772778|Glacier|Glacier|MT|48.5988461|-113.6989702|7142|Mount Jackson|01-JAN-1940|04-APR-1980
+Kintla Glacier|773069|Glacier|Flathead|MT|48.9299871|-114.1966692|7592|Kintla Peak|01-JAN-1929|04-APR-1980
+Logan Glacier|773553|Glacier|Glacier|MT|48.6018435|-113.6324960|7152|Mount Jackson|01-JAN-1940|04-APR-1980
+Lupfer Glacier|773763|Glacier|Flathead|MT|48.4771884|-113.5123261|6217|Mount Saint Nicholas|01-JAN-1929|04-APR-1980
+Miche Wabun Glacier|774127|Glacier|Glacier|MT|48.9474802|-113.8342842|6995|Mount Cleveland|01-JAN-1940|04-APR-1980
+North Swiftcurrent Glacier|774861|Glacier|Glacier|MT|48.7881551|-113.7676983|7146|Ahern Pass|01-JAN-1929|04-APR-1980
+Old Sun Glacier|774942|Glacier|Glacier|MT|48.8717520|-113.7794347|8760|Ahern Pass|01-JAN-1932|04-APR-1980
+Piegan Glacier|775210|Glacier|Glacier|MT|48.7078107|-113.6844415|8235|Logan Pass|01-JAN-1929|04-APR-1980
+Pumpkin Glacier|775490|Glacier|Flathead|MT|48.5841372|-113.6576100|8232|Mount Jackson||04-APR-1980
+Rainbow Glacier|775535|Glacier|Flathead|MT|48.8796936|-114.0858680|8179|Mount Carter|01-JAN-1929|04-APR-1980
+Red Eagle Glacier|775634|Glacier|Glacier|MT|48.5925534|-113.6191644|7060|Mount Stimson|23-JUL-1940|04-APR-1980
+Sexton Glacier|776387|Glacier|Glacier|MT|48.7016002|-113.6336490|7192|Logan Pass|01-JAN-1929|04-APR-1980
+Shepard Glacier|776470|Glacier|Glacier|MT|48.8654207|-113.8588715|7523|Ahern Pass|01-JAN-1929|04-APR-1980
+Siyeh Glacier|776599|Glacier|Glacier|MT|48.7328868|-113.6547345|6811|Logan Pass|01-JAN-1929|04-APR-1980
+Swiftcurrent Glacier|777377|Glacier|Glacier|MT|48.7686045|-113.7471024|7264|Many Glacier|01-JAN-1929|04-APR-1980
+The Salamander Glacier|777542|Glacier|Glacier|MT|48.7573737|-113.7381582|7201|Many Glacier||04-APR-1980
+Thunderbird Glacier|777626|Glacier|Flathead|MT|48.9341430|-114.0398508|7516|Mount Carter|01-JAN-1940|04-APR-1980
+Two Ocean Glacier|777884|Glacier|Flathead|MT|48.8368055|-114.0170443|8356|Vulture Peak|01-JAN-1929|04-APR-1980
+Vulture Glacier|778045|Glacier|Flathead|MT|48.8248559|-114.0261836|8409|Vulture Peak|01-JAN-1929|04-APR-1980
+Weasel Collar Glacier|778161|Glacier|Flathead|MT|48.8947260|-114.0648349|7165|Mount Carter|01-JAN-1940|04-APR-1980
+Whitecrow Glacier|778413|Glacier|Glacier|MT|48.9219239|-113.8356735|6952|Mount Cleveland|01-JAN-1940|04-APR-1980
+Beartooth Glacier|779572|Glacier|Carbon|MT|45.0652219|-109.5590556|10499|Silver Run Peak||04-APR-1980
+Blackwell Glacier|780080|Glacier|Lincoln|MT|48.2296699|-115.6851618|6867|Snowshoe Peak|01-JAN-1917|04-APR-1980
+Castle Rock Glacier|781035|Glacier|Carbon|MT|45.0909540|-109.6571939|11434|Castle Mountain||04-APR-1980
+Fissure Glacier|783473|Glacier|Missoula|MT|47.3124324|-113.8864874|7913|Saint Marys Lake||04-APR-1980
+Granite Glacier|784168|Glacier|Park|MT|45.1699421|-109.8060099|10551|Granite Peak||04-APR-1980
+Grant Glacier|784185|Glacier|Flathead|MT|48.3232971|-113.7517746|7940|Mount Grant||04-APR-1980
+Grasshopper Glacier|784207|Glacier|Carbon|MT|45.0513331|-109.5615557|10046|Silver Run Peak||04-APR-1980
+Grasshopper Glacier|784208|Glacier|Park|MT|45.1343033|-109.8838386|10581|Little Park Mountain|01-JAN-1937|04-APR-1980
+Grasshopper Glacier|784209|Glacier|Park|MT|46.0349394|-110.3324193|9665|Crazy Peak||04-APR-1980
+Gray Wolf Glacier|784241|Glacier|Missoula|MT|47.2910434|-113.8664863|7907|Gray Wolf Lake||04-APR-1980
+Hidden Glacier|784825|Glacier|Park|MT|45.1524380|-109.8398132|10344|Granite Peak||04-APR-1980
+Hopper Glacier|785009|Glacier|Carbon|MT|45.0812139|-109.6135709|10745|Silver Run Peak||04-APR-1980
+McDonald Glacier|787032|Glacier|Lake|MT|47.3868774|-113.9173228|8458|Mount Calowahcan||04-APR-1980
+Mountaineer Glacier|787772|Glacier|Missoula|MT|47.3424328|-113.8798206|8067|Saint Marys Lake||04-APR-1980
+Phantom Glacier|788808|Glacier|Carbon|MT|45.1544603|-109.7441511|10295|Alpine||04-APR-1980
+Sky Top Glacier|790620|Glacier|Park|MT|45.1610567|-109.8158919|11289|Granite Peak||04-APR-1980
+Snowbank Glacier|790782|Glacier|Carbon|MT|45.0931350|-109.6823040|11033|Castle Mountain||04-APR-1980
+Sperry Glacier|791148|Glacier|Flathead|MT|48.6230273|-113.7623373|8022|Lake McDonald East|01-JAN-1929|04-APR-1980
+Stanton Glacier|791433|Glacier|Flathead|MT|48.3369085|-113.7748312|8294|Mount Grant||04-APR-1980
+Sundance Glacier|791682|Glacier|Carbon|MT|45.0995773|-109.6439287|11102|Castle Mountain||04-APR-1980
+Sunrise Glacier|791703|Glacier|Missoula|MT|47.3571551|-113.8878766|8471|Saint Marys Lake||04-APR-1980
+Swan Glaciers|791783|Glacier|Flathead|MT|47.7252186|-113.6412010|8031|Swan Peak||04-APR-1980
+Wolf Glacier|806028|Glacier|Park|MT|45.1515494|-109.9064712|10794|Little Park Mountain||01-JAN-1995
+Newton Clark Glacier|1124673|Glacier|Hood River|OR|45.3667845|-121.6867426|8930|Mount Hood South||28-NOV-1980
+Bend Glacier|1137916|Glacier|Deschutes|OR|44.0862264|-121.6942042|7825|Broken Top||28-NOV-1980
+Carver Glacier|1139409|Glacier|Deschutes|OR|44.1255077|-121.7680092|7342|North Sister||28-NOV-1980
+Clark Glacier|1139756|Glacier|Lane|OR|44.0951628|-121.7774202|9032|South Sister||28-NOV-1980
+Coe Glacier|1139886|Glacier|Hood River|OR|45.3834511|-121.6945204|8353|Mount Hood North||28-NOV-1980
+Collier Glacier|1139993|Glacier|Lane|OR|44.1649913|-121.7849868|8405|North Sister||28-NOV-1980
+Crook Glacier|1140459|Glacier|Deschutes|OR|44.0801153|-121.6997594|8455|Broken Top||28-NOV-1980
+Diller Glacier|1141028|Glacier|Deschutes|OR|44.1431716|-121.7739306|8386|North Sister||28-NOV-1980
+Eliot Glacier|1141737|Glacier|Hood River|OR|45.3812289|-121.6803536|7733|Mount Hood North||28-NOV-1980
+Eugene Glacier|1141911|Glacier|Lane|OR|44.1101867|-121.7804533|8264|South Sister||28-NOV-1980
+Glisan Glacier|1142776|Glacier|Hood River|OR|45.3909512|-121.7195208|6591|Mount Hood North|01-JAN-1938|28-NOV-1980
+Hayden Glacier|1143402|Glacier|Deschutes|OR|44.1503940|-121.7761533|8668|North Sister||28-NOV-1980
+Irving Glacier|1144130|Glacier|Lane|OR|44.1340050|-121.7778191|7641|North Sister||28-NOV-1980
+Jefferson Park Glacier|1144243|Glacier|Marion|OR|44.6845237|-121.8065143|8277|Mount Jefferson||28-NOV-1980
+Ladd Glacier|1144736|Glacier|Hood River|OR|45.3923400|-121.7061873|7175|Mount Hood North||28-NOV-1980
+Langille Glacier|1144819|Glacier|Hood River|OR|45.3923399|-121.6800758|6877|Mount Hood North|01-JAN-1938|28-NOV-1980
+Lewis Glacier|1144970|Glacier|Deschutes|OR|44.0949991|-121.7667437|9098|South Sister||28-NOV-1980
+Linn Glacier|1145051|Glacier|Deschutes|OR|44.1749242|-121.7747786|8133|North Sister||28-NOV-1980
+Lost Creek Glacier|1145529|Glacier|Lane|OR|44.1074655|-121.7836600|8428|South Sister||28-NOV-1980
+Palmer Glacier|1147370|Glacier|Clackamas|OR|45.3526180|-121.7075764|7736|Mount Hood South|01-JAN-1925|28-NOV-1980
+Prouty Glacier|1148020|Glacier|Deschutes|OR|44.1067529|-121.7592581|8619|South Sister||28-NOV-1980
+Reid Glacier|1148369|Glacier|Clackamas|OR|45.3709512|-121.7189654|7739|Mount Hood South||28-NOV-1980
+Renfrew Glacier|1148374|Glacier|Lane|OR|44.1550905|-121.7921039|8494|North Sister||28-NOV-1980
+Russell Glacier|1148858|Glacier|Marion|OR|44.6852497|-121.8167699|7641|Mount Jefferson||28-NOV-1980
+Sandy Glacier|1149056|Glacier|Clackamas|OR|45.3808810|-121.7188332|7356|Mount Hood North||28-NOV-1980
+Skinner Glacier|1149596|Glacier|Lane|OR|44.1163788|-121.7730889|7854|South Sister||28-NOV-1980
+Thayer Glacier|1150996|Glacier|Deschutes|OR|44.1636470|-121.7638125|7930|North Sister||28-NOV-1980
+Villard Glacier|1151768|Glacier|Deschutes|OR|44.1696627|-121.7701578|9114|North Sister||28-NOV-1980
+Waldo Glacier|1151816|Glacier|Jefferson|OR|44.6627210|-121.7959992|7831|Mount Jefferson||28-NOV-1980
+White River Glacier|1152242|Glacier|Hood River|OR|45.3573401|-121.6986873|8113|Mount Hood South||28-NOV-1980
+Whitewater Glacier|1152272|Glacier|Jefferson|OR|44.6812866|-121.7908020|8448|Mount Jefferson||28-NOV-1980
+Zigzag Glacier|1152775|Glacier|Clackamas|OR|45.3634513|-121.7122986|8494|Mount Hood South|01-JAN-1917|28-NOV-1980
+Lathrop Glacier|1154253|Glacier|Douglas|OR|43.1542945|-122.0672508|8192|Mount Thielsen|01-JAN-1981|22-MAY-1986
+Benson Glacier|1154268|Glacier|Wallowa|OR|45.1561111|-117.2952778|9193|Eagle Cap|09-SEP-2009|22-MAY-1986
+Coalman Glacier|1154283|Glacier|Hood River|OR|45.3720623|-121.6984094|10659|Mount Hood South|01-JAN-1971|22-MAY-1986
+Milk Creek Glacier|1156484|Glacier|Linn|OR|44.6740457|-121.8021925|9924|Mount Jefferson||01-OCT-1992
+Timpanogos Glacier|1449105|Glacier|Utah|UT|40.3663432|-111.6201977|10449|Bridal Veil Falls||25-FEB-1989
+Ice Beds|1461741|Glacier|Rutland|VT|43.4434044|-72.9501036|1289|Wallingford||01-FEB-1991
+Redoubt Glacier|1507762|Glacier|Whatcom|WA|48.9550138|-121.2760018|7231|Mount Redoubt||10-SEP-1979
+Adams Glacier|1515724|Glacier|Yakima|WA|46.2173430|-121.5117501|8661|Mount Adams West||10-SEP-1979
+Anderson Glacier|1515874|Glacier|Jefferson|WA|47.7132557|-123.3349283|5407|Mount Steel||10-SEP-1979
+Ape Glacier|1515927|Glacier|Skamania|WA|46.2014181|-122.1692383|7152|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Avalanche Glacier|1515991|Glacier|Yakima|WA|46.1845652|-121.5100832|8304|Mount Adams West||10-SEP-1979
+Banded Glacier|1516114|Glacier|Skagit|WA|48.5445743|-120.9523343|7237|Mount Logan|01-JAN-1969|10-SEP-1979
+Bastile Glacier|1516183|Glacier|Whatcom|WA|48.8070654|-121.8315342|6683|Mount Baker|01-JAN-1973|10-SEP-1979
+Big Lizard (historical)|1516530|Glacier|Skamania|WA|46.2098326|-122.1853742|5646|Mount Saint Helens||10-SEP-1979
+Blue Glacier|1516676|Glacier|Jefferson|WA|47.8023805|-123.6866219|5968|Mount Olympus||10-SEP-1979
+Blue Glacier|1516677|Glacier|Chelan|WA|48.3087374|-120.9906603|7267|Agnes Mountain||10-SEP-1979
+Borealis Glacier|1516803|Glacier|Skagit|WA|48.5929050|-121.0945614|6798|Forbidden Peak|01-JAN-1969|10-SEP-1979
+Boston Glacier|1516810|Glacier|Skagit|WA|48.5062386|-121.0337242|6808|Forbidden Peak||10-SEP-1979
+Boulder Glacier|1516844|Glacier|Whatcom|WA|48.7678981|-121.7979228|7802|Mount Baker|01-JAN-1913|10-SEP-1979
+Buckner Glacier|1517062|Glacier|Chelan|WA|48.4865172|-120.9937226|6991|Goode Mountain||10-SEP-1979
+Butterfly Glacier|1517165|Glacier|Chelan|WA|48.0678975|-120.9948230|7464|Clark Mountain|01-JAN-1969|10-SEP-1979
+Cameron Glaciers|1517242|Glacier|Jefferson|WA|47.8276264|-123.3237244|6217|Wellesley Peak||10-SEP-1979
+Carbon Glacier|1517384|Glacier|Pierce|WA|46.9417733|-121.7750994|5256|Mowich Lake|01-JAN-1913|10-SEP-1979
+Challenger Glacier|1517613|Glacier|Whatcom|WA|48.8456827|-121.3473544|6526|Mount Challenger||10-SEP-1979
+Chickamin Glacier|1517689|Glacier|Skagit|WA|48.3109585|-121.0192722|7218|Dome Peak||10-SEP-1979
+Chocolate Glacier|1517738|Glacier|Snohomish|WA|48.1170620|-121.0845473|7208|Glacier Peak East|01-JAN-1971|10-SEP-1979
+Clark Glacier|1517808|Glacier|Chelan|WA|48.0490093|-120.9589891|8008|Clark Mountain|01-JAN-1975|10-SEP-1979
+Coleman Glacier|1517953|Glacier|Whatcom|WA|48.7809533|-121.8476463|7382|Mount Baker|01-JAN-1907|10-SEP-1979
+Colonial Glacier|1517968|Glacier|Whatcom|WA|48.6620718|-121.1390092|6079|Diablo Dam||10-SEP-1979
+Columbia Glacier|1517975|Glacier|Snohomish|WA|47.9624813|-121.3484735|5272|Blanca Lake||10-SEP-1979
+Company Glacier|1517998|Glacier|Chelan|WA|48.2462410|-120.8642676|6860|Holden|01-JAN-1963|10-SEP-1979
+Conrad Glacier|1518024|Glacier|Yakima|WA|46.4936440|-121.4062881|6854|Walupt Lake||10-SEP-1979
+Cool Glacier|1518045|Glacier|Snohomish|WA|48.1078944|-121.1020475|8989|Glacier Peak East|01-JAN-1963|10-SEP-1979
+Crescent Glacier|1518312|Glacier|Yakima|WA|46.1670356|-121.4872064|7884|Mount Adams East||10-SEP-1979
+Crystal Glacier|1518374|Glacier|Whatcom|WA|48.8267911|-121.5918058|7746|Mount Shuksan||10-SEP-1979
+Dana Glacier|1518475|Glacier|Chelan|WA|48.3192906|-121.0514954|6735|Dome Peak||10-SEP-1979
+Dark Glacier|1518484|Glacier|Snohomish|WA|48.2590183|-120.8839904|7005|Agnes Mountain||10-SEP-1979
+Davenport Glacier|1518493|Glacier|Chelan|WA|48.4929052|-121.0295570|7461|Cascade Pass|01-JAN-1969|10-SEP-1979
+Deming Glacier|1518671|Glacier|Whatcom|WA|48.7631750|-121.8387575|7910|Mount Baker|01-JAN-1913|10-SEP-1979
+Dome Glacier|1518851|Glacier|Skagit|WA|48.3056798|-121.0389946|7700|Dome Peak||10-SEP-1979
+Douglas Glacier|1518898|Glacier|Chelan|WA|48.5312413|-120.9342780|6824|Mount Logan||10-SEP-1979
+Dryer Glacier|1518981|Glacier|Skamania|WA|46.1876104|-122.1939852|7687|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Dusty Glacier|1519022|Glacier|Snohomish|WA|48.1273395|-121.0981588|7792|Gamma Peak|01-JAN-1971|10-SEP-1979
+East Nooksack Glacier|1519135|Glacier|Whatcom|WA|48.8285645|-121.5644583|5141|Mount Shuksan|01-JAN-1988|10-SEP-1979
+Easton Glacier|1519152|Glacier|Whatcom|WA|48.7437301|-121.8348686|6394|Baker Pass|01-JAN-1973|10-SEP-1979
+Edmunds Glacier|1519192|Glacier|Pierce|WA|46.8678852|-121.8128772|8530|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Eel Glacier|1519198|Glacier|Jefferson|WA|47.7270467|-123.3389352|5971|Mount Steel||10-SEP-1979
+Eldorado Glacier|1519241|Glacier|Skagit|WA|48.5262366|-121.1256713|7251|Forbidden Peak|01-JAN-1980|10-SEP-1979
+Entiat Glacier|1519359|Glacier|Chelan|WA|48.1412400|-120.7970436|7264|Holden||10-SEP-1979
+Ermine Glacier|1519374|Glacier|Snohomish|WA|48.1356727|-121.1059368|7175|Gamma Peak|01-JAN-1971|10-SEP-1979
+Flett Glacier|1519649|Glacier|Pierce|WA|46.9062180|-121.8023220|7506|Mowich Lake|25-JUN-1913|10-SEP-1979
+Forbidden Glacier|1519682|Glacier|Skagit|WA|48.5176269|-121.0623363|6735|Forbidden Peak|01-JAN-1980|10-SEP-1979
+Forsyth Glacier|1519701|Glacier|Skamania|WA|46.2101639|-122.1736324|6457|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Fremont Glacier|1519785|Glacier|Skagit|WA|48.5298518|-120.9573340|8002|Mount Logan||10-SEP-1979
+Goode Glacier|1520127|Glacier|Chelan|WA|48.4884640|-120.9048316|6230|Goode Mountain||10-SEP-1979
+Gotchen Glacier|1520169|Glacier|Yakima|WA|46.1637322|-121.4734154|7575|Mount Adams East||10-SEP-1979
+Grant Glacier|1520242|Glacier|Chelan|WA|48.2262392|-120.8976012|7277|Suiattle Pass||10-SEP-1979
+Hadley Glacier|1520434|Glacier|Whatcom|WA|48.8201327|-121.8262218|6204|Mount Baker|01-JAN-1973|10-SEP-1979
+Hanging Glacier|1520501|Glacier|Whatcom|WA|48.8354024|-121.6018060|8150|Mount Shuksan|01-JAN-1913|10-SEP-1979
+Hanging Glacier|1520502|Glacier|Jefferson|WA|47.7305183|-123.3237432|5348|Mount Steel||10-SEP-1979
+Hinman Glacier|1520819|Glacier|King|WA|47.5746815|-121.2287526|6260|Mount Daniel||10-SEP-1979
+Hoh Glacier|1520842|Glacier|Jefferson|WA|47.7984210|-123.6701875|5226|Mount Olympus||10-SEP-1979
+Honeycomb Glacier|1520883|Glacier|Snohomish|WA|48.0745618|-121.0606574|6926|Glacier Peak East||10-SEP-1979
+Hubert Glacier|1521017|Glacier|Jefferson|WA|47.7851853|-123.7027297|5548|Mount Olympus||10-SEP-1979
+Humes Glacier|1521055|Glacier|Jefferson|WA|47.7894415|-123.6504246|5436|Mount Olympus||10-SEP-1979
+Ice River Glacier|1521118|Glacier|Jefferson|WA|47.8241743|-123.6686332|5741|Mount Olympus||10-SEP-1979
+Isella Glacier|1521262|Glacier|Chelan|WA|48.2331848|-120.8698231|8133|Holden||10-SEP-1979
+Jeffers Glacier|1521344|Glacier|Jefferson|WA|47.7785399|-123.6744521|5446|Mount Olympus|01-JAN-1924|10-SEP-1979
+Jerry Glacier|1521355|Glacier|Whatcom|WA|48.7434654|-120.9162267|6926|Crater Mountain||10-SEP-1979
+Katsuk Glacier|1521574|Glacier|Skagit|WA|48.5826315|-120.8965003|7005|Mount Logan|01-JAN-1969|10-SEP-1979
+Kautz Glacier|1521579|Glacier|Pierce|WA|46.8245525|-121.7734298|8865|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Kennedy Glacier|1521614|Glacier|Snohomish|WA|48.1251162|-121.1228815|7963|Gamma Peak|01-JAN-1963|10-SEP-1979
+Kimtah Glacier|1521670|Glacier|Skagit|WA|48.5887422|-120.9176121|7313|Mount Logan|01-JAN-1969|10-SEP-1979
+Klawatti Glacier|1521717|Glacier|Skagit|WA|48.5609603|-121.0845603|5613|Forbidden Peak|01-JAN-1969|10-SEP-1979
+Klickitat Glacier|1521725|Glacier|Yakima|WA|46.1892877|-121.4661932|8235|Mount Adams East||10-SEP-1979
+Lava Glacier|1521949|Glacier|Yakima|WA|46.2278988|-121.4928610|8399|Mount Adams East||10-SEP-1979
+LeConte Glacier|1521964|Glacier|Chelan|WA|48.3637364|-121.0356633|7434|Dome Peak||10-SEP-1979
+Leschi Glacier (historical)|1522032|Glacier|Skamania|WA|46.2078882|-122.1817629|5896|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Lewis Glacier|1522042|Glacier|Skagit|WA|48.5117845|-120.7970894|6765|Mount Arriva||10-SEP-1979
+Liberty Gap Glacier|1522057|Glacier|Pierce|WA|46.8687186|-121.7806534|12674|Mount Rainier West||10-SEP-1979
+Lillian Glacier|1522079|Glacier|Jefferson|WA|47.8526074|-123.3773590|6115|McCartney Peak||10-SEP-1979
+Loowit Glacier (historical)|1522451|Glacier|Skamania|WA|46.2117769|-122.1864854|5600|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Lower Curtis Glacier|1522535|Glacier|Whatcom|WA|48.8234574|-121.6212509|5659|Mount Shuksan|01-JAN-1988|10-SEP-1979
+Lyall Glacier|1522587|Glacier|Chelan|WA|48.4879128|-120.7473277|6781|McAlester Mountain||10-SEP-1979
+Lyman Glacier|1522596|Glacier|Yakima|WA|46.2162321|-121.4842495|9901|Mount Adams East||10-SEP-1979
+Lyman Glacier|1522597|Glacier|Chelan|WA|48.1704042|-120.8967674|6526|Suiattle Pass||10-SEP-1979
+Lynch Glacier|1522605|Glacier|King|WA|47.5721590|-121.1804725|6739|Mount Daniel||10-SEP-1979
+Mary Green Glacier|1522781|Glacier|Chelan|WA|48.2390189|-120.8542674|7618|Holden|01-JAN-1932|10-SEP-1979
+Mazama Glacier|1522832|Glacier|Yakima|WA|46.1803989|-121.4700821|8793|Mount Adams East||10-SEP-1979
+Mazama Glacier|1522833|Glacier|Whatcom|WA|48.8037324|-121.8009778|6125|Mount Baker|01-JAN-1973|10-SEP-1979
+McAllister Glacier|1522842|Glacier|Skagit|WA|48.5567925|-121.1303947|6922|Eldorado Peak|01-JAN-1969|10-SEP-1979
+McCall Glacier|1522850|Glacier|Yakima|WA|46.5056420|-121.4436298|6942|Old Snowy Mountain||10-SEP-1979
+Meade Glacier|1522944|Glacier|Yakima|WA|46.4855941|-121.4007840|6867|Walupt Lake||10-SEP-1979
+Mesahchie Glacier|1523017|Glacier|Skagit|WA|48.5823544|-120.8656661|7073|Mount Arriva|01-JAN-1969|10-SEP-1979
+Middle Cascade Glacier|1523052|Glacier|Skagit|WA|48.4198477|-121.0545548|5748|Cascade Pass||10-SEP-1979
+Milk Lake Glacier|1523139|Glacier|Snohomish|WA|48.1512529|-121.1550914|6069|Lime Mountain|01-JAN-1971|10-SEP-1979
+Nelson Glacier|1523617|Glacier|Skamania|WA|46.2044961|-122.1705545|7178|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Neve Glacier|1523630|Glacier|Whatcom|WA|48.6462382|-121.1412310|6676|Diablo Dam||10-SEP-1979
+Nohokomeen Glacier|1523702|Glacier|Whatcom|WA|48.7798538|-120.9681738|7231|Jack Mountain|01-JAN-1973|10-SEP-1979
+North Guardian Glacier|1523888|Glacier|Snohomish|WA|48.1008540|-121.0993884|8451|Glacier Peak East|01-JAN-1971|10-SEP-1979
+North Klawatti Glacier|1523891|Glacier|Skagit|WA|48.5654050|-121.0776158|5640|Forbidden Peak|01-JAN-1969|10-SEP-1979
+North Mowich Glacier|1523895|Glacier|Pierce|WA|46.8806628|-121.8045437|8048|Mowich Lake|01-JAN-1913|10-SEP-1979
+Packwood Glacier|1524133|Glacier|Lewis|WA|46.5165046|-121.4603610|6909|Old Snowy Mountain||10-SEP-1979
+Park Glacier|1524207|Glacier|Whatcom|WA|48.7867875|-121.7965335|7651|Mount Baker|01-JAN-1913|10-SEP-1979
+Pinnacle Glacier|1524461|Glacier|Skamania|WA|46.2070648|-121.5286945|7999|Mount Adams West||10-SEP-1979
+Pit Glacier|1524488|Glacier|Chelan|WA|48.0695649|-120.9748228|6713|Clark Mountain||10-SEP-1979
+Price Glacier|1524639|Glacier|Whatcom|WA|48.8436699|-121.5900694|5630|Mount Shuksan||10-SEP-1979
+Ptarmigan Glacier|1524673|Glacier|Snohomish|WA|48.1356717|-121.1273261|7608|Lime Mountain|01-JAN-1963|10-SEP-1979
+Puyallup Glacier|1524709|Glacier|Pierce|WA|46.8489964|-121.8242662|7999|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Pyramid Glaciers|1524716|Glacier|Pierce|WA|46.8209414|-121.7909306|7808|Mount Rainier West||10-SEP-1979
+Queets Glacier|1524762|Glacier|Jefferson|WA|47.7672425|-123.6008108|5564|Mount Queets||10-SEP-1979
+Quien Sabe Glacier|1524766|Glacier|Skagit|WA|48.4948492|-121.0451130|7438|Cascade Pass|01-JAN-1969|10-SEP-1979
+Rainbow Glacier|1524819|Glacier|Whatcom|WA|48.7976215|-121.7754217|5528|Mount Baker|01-JAN-1913|10-SEP-1979
+Richardson Glacier|1525028|Glacier|Chelan|WA|48.0565092|-120.9698226|7054|Clark Mountain|01-JAN-1969|10-SEP-1979
+Roosevelt Glacier|1525202|Glacier|Whatcom|WA|48.7903983|-121.8284788|7474|Mount Baker||10-SEP-1979
+Rusk Glacier|1525289|Glacier|Yakima|WA|46.2048433|-121.4678600|8661|Mount Adams East||10-SEP-1979
+Russell Glacier|1525292|Glacier|Pierce|WA|46.8976072|-121.7862100|7638|Mowich Lake|01-JAN-1913|10-SEP-1979
+Sahale Glacier|1525344|Glacier|Chelan|WA|48.4876270|-121.0417794|7936|Cascade Pass|01-JAN-1969|10-SEP-1979
+Sandalee Glacier|1525423|Glacier|Chelan|WA|48.4087446|-120.7884377|7201|McGregor Mountain||10-SEP-1979
+Scimitar Glacier|1525511|Glacier|Snohomish|WA|48.1162268|-121.1292704|8195|Glacier Peak West|01-JAN-1963|10-SEP-1979
+Shoestring Glacier|1525696|Glacier|Skamania|WA|46.1889996|-122.1678731|6060|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Sholes Glacier|1525699|Glacier|Whatcom|WA|48.8128998|-121.7726436|6158|Mount Baker|01-JAN-1973|10-SEP-1979
+Sitkum Glacier|1525831|Glacier|Snohomish|WA|48.1081187|-121.1301541|8419|Glacier Peak West|01-JAN-1963|10-SEP-1979
+Snow Creek Glacier|1526030|Glacier|Chelan|WA|47.4734526|-120.8209206|8094|Enchantment Lakes||10-SEP-1979
+South Cascade Glacier|1526140|Glacier|Skagit|WA|48.3601244|-121.0576082|6138|Dome Peak||10-SEP-1979
+South Glacier|1526287|Glacier|Chelan|WA|48.4379043|-121.0314995|5837|Cascade Pass||10-SEP-1979
+South Mowich Glacier|1526294|Glacier|Pierce|WA|46.8601074|-121.8259332|7244|Mount Rainier West|01-JAN-1913|10-SEP-1979
+South Tahoma Glacier|1526319|Glacier|Pierce|WA|46.8253858|-121.8009312|8192|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Spider Glacier|1526359|Glacier|Chelan|WA|48.4137373|-121.0317764|6601|Cascade Pass||10-SEP-1979
+Spider Glacier|1526360|Glacier|Chelan|WA|48.1642934|-120.8809337|6591|Suiattle Pass|01-JAN-1963|10-SEP-1979
+Spire Glacier|1526371|Glacier|Skagit|WA|48.3209561|-121.0801072|6696|Dome Peak||10-SEP-1979
+Squak Glacier|1526445|Glacier|Whatcom|WA|48.7467861|-121.8093123|6555|Baker Pass|01-JAN-1973|10-SEP-1979
+Success Glacier|1526660|Glacier|Pierce|WA|46.8289969|-121.7809303|9262|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Suiattle Glacier|1526673|Glacier|Snohomish|WA|48.0717825|-121.0962136|7316|Glacier Peak East|01-JAN-1918|10-SEP-1979
+Sulphide Glacier|1526688|Glacier|Whatcom|WA|48.8131795|-121.6062505|6975|Mount Shuksan||10-SEP-1979
+Swift Glacier|1526864|Glacier|Skamania|WA|46.1856244|-122.1859503|7411|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Tahoma Glacier|1526899|Glacier|Pierce|WA|46.8376078|-121.8070429|8546|Mount Rainier West|25-JUN-1913|10-SEP-1979
+Talum Glaciers|1526914|Glacier|Whatcom|WA|48.7531754|-121.7957006|6306|Mount Baker|01-JAN-1973|10-SEP-1979
+Talus Glacier|1526915|Glacier|Skamania|WA|46.2029571|-122.2089158|6709|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+The Island (historical)|1527041|Glacier|Skamania|WA|46.2034437|-122.1848184|6020|Mount Saint Helens||10-SEP-1979
+Thunder Glacier|1527184|Glacier|Skagit|WA|48.5042951|-120.9901121|6555|Mount Logan||10-SEP-1979
+Thunder Glacier|1527185|Glacier|Whatcom|WA|48.7737306|-121.8629247|6945|Mount Baker|01-JAN-1913|10-SEP-1979
+Toutle Glacier|1527323|Glacier|Skamania|WA|46.2056657|-122.2045414|6972|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Unicorn Glacier|1527605|Glacier|Lewis|WA|46.7453875|-121.7073144|6266|Tatoosh Lakes|01-JAN-1932|10-SEP-1979
+Upper Curtis Glacier|1527621|Glacier|Whatcom|WA|48.8295687|-121.6106950|7562|Mount Shuksan||10-SEP-1979
+Van Trump Glacier|1527677|Glacier|Pierce|WA|46.8184415|-121.7639848|7953|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Vista Glacier|1527727|Glacier|Snohomish|WA|48.1398392|-121.1123259|6775|Gamma Peak|01-JAN-1971|10-SEP-1979
+West Nooksack Glacier|1527991|Glacier|Whatcom|WA|48.8420159|-121.5749209|5905|Mount Shuksan||10-SEP-1979
+White Chuck Glacier|1528051|Glacier|Snohomish|WA|48.0648371|-121.1159360|6965|Glacier Peak East|01-JAN-1918|10-SEP-1979
+White Glacier|1528059|Glacier|Jefferson|WA|47.8022000|-123.7427707|5656|Mount Olympus||10-SEP-1979
+White River Glacier|1528082|Glacier|Chelan|WA|48.0576155|-121.0967690|7303|Glacier Peak East|01-JAN-1918|10-SEP-1979
+White Salmon Glacier|1528088|Glacier|Yakima|WA|46.1998432|-121.5028611|10951|Mount Adams West||10-SEP-1979
+White Salmon Glacier|1528089|Glacier|Whatcom|WA|48.8345687|-121.6223620|6161|Mount Shuksan||10-SEP-1979
+Wilson Glacier|1528205|Glacier|Yakima|WA|46.2126211|-121.4667489|8432|Mount Adams East||10-SEP-1979
+Wishbone Glacier (historical)|1528267|Glacier|Skamania|WA|46.2117768|-122.1978747|6152|Mount Saint Helens|01-JAN-1967|10-SEP-1979
+Wyeth Glacier|1528330|Glacier|Chelan|WA|48.4945742|-120.9392772|7116|Goode Mountain||10-SEP-1979
+Yawning Glacier|1528350|Glacier|Chelan|WA|48.4498487|-121.0392779|5994|Cascade Pass|01-JAN-1969|10-SEP-1979
+Colchuck Glacier|1528401|Glacier|Chelan|WA|47.4801189|-120.8400878|7031|Enchantment Lakes|01-JAN-1987|31-DEC-1992
+Sherpa Glacier|1528413|Glacier|Chelan|WA|47.4753959|-120.8900886|7123|Mount Stuart|01-JAN-1987|31-DEC-1992
+Ice Cliff Glacier|1528414|Glacier|Chelan|WA|47.4770624|-120.8959221|7326|Mount Stuart|01-JAN-1987|31-DEC-1992
+Stuart Glacier|1528415|Glacier|Chelan|WA|47.4792845|-120.9017556|7566|Mount Stuart|01-JAN-1987|31-DEC-1992
+So-Bahli-Alhi Glacier|1528530|Glacier|Snohomish|WA|48.2134405|-121.6823495|6234|Whitehorse Mountain||01-JUL-1989
+Queest-alb Glacier (not official)|1528533|Glacier|Snohomish|WA|48.1701062|-121.6990154|5351|Whitehorse Mountain|14-APR-1988|01-JUL-1989
+Terror Glacier|1528560|Glacier|Whatcom|WA|48.7665158|-121.2887395|6614|Mount Challenger||01-JUL-1989
+Whatcom Glacier|1528562|Glacier|Whatcom|WA|48.8645717|-121.3673553|5505|Mount Challenger||01-JUL-1989
+Table Mountain Glacier|1528597|Glacier|Whatcom|WA|48.8499127|-121.7072955|5407|Shuksan Arm|01-JAN-1913|01-JUL-1990
+Pyramid Glacier|1528607|Glacier|Pierce|WA|46.8109415|-121.7970418|6640|Mount Rainier West|01-JAN-1913|01-JUL-1990
+Stevens Glacier|1528617|Glacier|Pierce|WA|46.8120533|-121.7095383|6936|Mount Rainier East|01-JAN-1913|01-JUL-1990
+S Glacier|1528618|Glacier|Chelan|WA|48.4412379|-121.0234438|4550|Cascade Pass|01-JAN-1969|01-JUL-1990
+Fairchild Glacier|1529151|Glacier|Clallam|WA|47.9065705|-123.6289715|6092|Mount Carrie|01-JAN-1990|01-JAN-1991
+The Turtle|1529486|Glacier|Pierce|WA|46.8289970|-121.7595403|9990|Mount Rainier West|01-JAN-1978|01-APR-1991
+Nisqually Icefall|1529488|Glacier|Pierce|WA|46.8373303|-121.7539848|11611|Mount Rainier West|01-JAN-1978|01-APR-1991
+Carrie Glacier|1531450|Glacier|Clallam|WA|47.8910297|-123.6364014|6135|Mount Carrie|01-JAN-1990|31-DEC-1992
+Inspiration Glacier|1533044|Glacier|Skagit|WA|48.5348480|-121.1173381|7024|Forbidden Peak|01-JAN-1980|10-SEP-1979
+Cowlitz Glacier|1533554|Glacier|Pierce|WA|46.8306641|-121.7173168|8419|Mount Rainier East|01-JAN-1913|10-SEP-1979
+Emmons Glacier|1533561|Glacier|Pierce|WA|46.8623305|-121.7170398|8658|Mount Rainier East|01-JAN-1913|10-SEP-1979
+Fryingpan Glacier|1533566|Glacier|Pierce|WA|46.8528867|-121.6856497|8386|Mount Rainier East|01-JAN-1913|10-SEP-1979
+Ingraham Glacier|1533573|Glacier|Pierce|WA|46.8384419|-121.7120390|8684|Mount Rainier East|25-JUN-1913|10-SEP-1979
+Inter Glacier|1533575|Glacier|Pierce|WA|46.8787192|-121.7223181|8117|Sunrise|01-JAN-1913|10-SEP-1979
+Muir Snowfield|1533593|Glacier|Pierce|WA|46.8270529|-121.7312060|9114|Mount Rainier East||10-SEP-1979
+Nisqually Glacier|1533597|Glacier|Pierce|WA|46.8289972|-121.7431508|9144|Mount Rainier East|01-JAN-1898|10-SEP-1979
+Ohanapecosh Glacier|1533600|Glacier|Pierce|WA|46.8363150|-121.6706589|7395|Mount Rainier East|01-JAN-1913|10-SEP-1979
+Pinnacle Glacier|1533611|Glacier|Lewis|WA|46.7576092|-121.7306486|6115|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Sarvant Glaciers|1533616|Glacier|Pierce|WA|46.8545542|-121.6189812|6355|Chinook Pass|01-JAN-1988|10-SEP-1979
+Whitman Glacier|1533640|Glacier|Pierce|WA|46.8414978|-121.6939831|8455|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Williwakas Glacier|1533642|Glacier|Pierce|WA|46.8091587|-121.7073547|6594|Mount Rainier East|01-JAN-1913|10-SEP-1979
+Wilson Glacier|1533643|Glacier|Pierce|WA|46.8201083|-121.7495396|8028|Mount Rainier East|01-JAN-1913|10-SEP-1979
+Winthrop Glacier|1533644|Glacier|Pierce|WA|46.8851078|-121.7375966|7792|Sunrise|01-JAN-1913|10-SEP-1979
+Pilz Glacier|1534443|Glacier|Chelan|WA|48.0698428|-120.9720449|6562|Clark Mountain|01-JAN-1969|01-JUL-1990
+Paradise Glacier|1534465|Glacier|Pierce|WA|46.8159421|-121.7164831|7342|Mount Rainier East|01-JAN-1913|10-SEP-1979
+No Name Glacier|1848452|Glacier|Whatcom|WA|48.8053989|-121.8262563|7421|Mount Baker|01-JAN-1913|23-AUG-1999
+Crater Glacier|2090268|Glacier|Skamania|WA|46.1970992|-122.1920228|6309|Mount Saint Helens|06-JUN-2006|28-JUN-2006
+Connie Glacier|1586933|Glacier|Sublette|WY|43.2685617|-109.6934864|12021|Downs Mountain||05-JUN-1979
+Continental Glacier|1586939|Glacier|Fremont|WY|43.3340989|-109.6914930|12424|Downs Mountain||05-JUN-1979
+Downs Glacier|1587761|Glacier|Fremont|WY|43.2947650|-109.6635453|11995|Downs Mountain|01-JAN-1971|05-JUN-1979
+Baby Glacier|1597853|Glacier|Sublette|WY|43.1710612|-109.6834846|11696|Gannett Peak||05-JUN-1979
+Bull Lake Glacier|1598494|Glacier|Fremont|WY|43.1243968|-109.5987583|12306|Fremont Peak South|01-JAN-1972|05-JUN-1979
+Dinwoody Glacier|1599256|Glacier|Fremont|WY|43.1732847|-109.6384828|11585|Gannett Peak||05-JUN-1979
+Dinwoody Glaciers|1599257|Glacier|Fremont|WY|43.2127289|-109.6548729|12027|Gannett Peak||05-JUN-1979
+DuNoir Glacier|1599387|Glacier|Fremont|WY|43.7960863|-109.8693979|11142|Shoshone Pass||05-JUN-1979
+Falling Ice Glacier|1599665|Glacier|Teton|WY|43.8333235|-110.7702775|10991|Mount Moran|01-JAN-1931|05-JUN-1979
+Fishhawk Glacier|1599738|Glacier|Park|WY|44.2610902|-109.8661041|10646|Sheep Mesa||05-JUN-1979
+Gannett Glacier|1599901|Glacier|Fremont|WY|43.1957846|-109.6454278|11817|Gannett Peak||05-JUN-1979
+Gooseneck Glacier|1599985|Glacier|Fremont|WY|43.1818955|-109.6482055|12375|Gannett Peak||05-JUN-1979
+Grasshopper Glacier|1600044|Glacier|Fremont|WY|43.2366122|-109.6653416|12257|Gannett Peak|01-JAN-1971|05-JUN-1979
+Heap Steep Glacier|1600272|Glacier|Fremont|WY|43.1750989|-109.6175541|11785|Fremont Peak North||05-JUN-1979
+Helen Glacier|1600285|Glacier|Fremont|WY|43.1557852|-109.6168150|11909|Fremont Peak North||05-JUN-1979
+Hooker Glacier|1600382|Glacier|Fremont|WY|42.8567496|-109.3112081|11197|Mount Bonneville||05-JUN-1979
+J Glacier|1600553|Glacier|Sublette|WY|43.2380058|-109.6987639|11876|Gannett Peak||05-JUN-1979
+Knife Point Glacier|1600749|Glacier|Fremont|WY|43.1113420|-109.5773684|11552|Fremont Peak South|01-JAN-1972|05-JUN-1979
+Lower Fremont Glacier|1601174|Glacier|Fremont|WY|43.1321747|-109.5968139|12090|Fremont Peak North||05-JUN-1979
+Mammoth Glacier|1601237|Glacier|Sublette|WY|43.1680061|-109.6662616|11886|Gannett Peak||05-JUN-1979
+Middle Teton Glacier|1601432|Glacier|Teton|WY|43.7325888|-110.8040757|10869|Grand Teton||05-JUN-1979
+Petersen Glacier|1602105|Glacier|Teton|WY|43.7792836|-110.8483196|9813|Mount Moran|07-JUN-1938|05-JUN-1979
+Sacagawea Glacier|1602665|Glacier|Fremont|WY|43.1435632|-109.6115368|11985|Fremont Peak North||05-JUN-1979
+Schoolroom Glacier|1602776|Glacier|Teton|WY|43.7258966|-110.8489441|10203|Grand Teton||05-JUN-1979
+Skillet Glacier|1602946|Glacier|Teton|WY|43.8371208|-110.7640080|10006|Mount Moran|01-JAN-1931|05-JUN-1979
+Sourdough Glacier|1603086|Glacier|Sublette|WY|43.2466172|-109.6873747|11794|Gannett Peak|01-JAN-1971|05-JUN-1979
+Stroud Glacier|1603411|Glacier|Sublette|WY|43.1471722|-109.6793174|11663|Gannett Peak||05-JUN-1979
+Teepe Glacier|1603544|Glacier|Teton|WY|43.7363528|-110.7986287|11480|Grand Teton|07-JUN-1938|05-JUN-1979
+Teton Glacier|1603583|Glacier|Teton|WY|43.7416608|-110.7922404|10600|Grand Teton|01-JAN-1931|05-JUN-1979
+Tiny Glacier|1603683|Glacier|Sublette|WY|43.0535646|-109.5654226|11591|Fremont Peak South||05-JUN-1979
+Triple Glaciers|1603770|Glacier|Teton|WY|43.8381478|-110.7845584|10518|Mount Moran|03-JUN-1931|05-JUN-1979
+Twins Glacier|1603836|Glacier|Sublette|WY|43.1496730|-109.6540386|11539|Gannett Peak|01-JAN-1971|05-JUN-1979
+Upper Fremont Glacier|1603871|Glacier|Fremont|WY|43.1310630|-109.6159813|13028|Fremont Peak North||05-JUN-1979
+Washakie Glacier|1603996|Glacier|Fremont|WY|42.8085351|-109.2465269|11335|Lizard Head Peak||05-JUN-1979
+Fremont Glaciers|1604333|Glacier|Fremont|WY|43.1435630|-109.6170926|12064|Fremont Peak North||05-JUN-1979
+Minor Glacier|1604809|Glacier|Sublette|WY|43.1866175|-109.6623729|12047|Gannett Peak||01-FEB-1991
+Harrower Glacier|1605092|Glacier|Sublette|WY|43.1005000|-109.5882036|12014|Fremont Peak South|01-JAN-1968|05-JUN-1979

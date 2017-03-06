@@ -1,0 +1,1572 @@
+Madrid Falls|1374774|Falls|Presidio|TX|29.3797907|-103.8840260|3681|Sauceda Ranch||30-NOV-1979
+Roos Falls|1375820|Falls|Gillespie|TX|30.3413090|-98.8703187|1755|Fredericksburg East||30-NOV-1979
+The Falls|1376430|Falls|Kimble|TX|30.4082476|-99.3064404|1883|The Falls||30-NOV-1979
+Butman Falls|1889844|Falls|Taylor|TX|32.2654069|-100.0895400|2313|Mountain Pass||31-DEC-2003
+Lower Calf Creek Falls|1429974|Falls|Garfield|UT|37.8291296|-111.4199241|5545|Calf Creek||31-DEC-1979
+Merkley Drop|1430231|Falls|Uintah|UT|40.4832892|-109.8998721|6204|Whiterocks||31-DEC-1979
+Smooth Rock Falls|1432580|Falls|Wasatch|UT|40.6030009|-110.9640575|8448|Iron Mine Mountain||31-DEC-1979
+The Falls|1433306|Falls|Kane|UT|37.2911709|-112.4924308|6204|Bald Knoll||31-DEC-1979
+Upper Calf Creek Falls|1433800|Falls|Garfield|UT|37.8550469|-111.4519815|5942|Calf Creek||31-DEC-1979
+Chandler Falls|1435293|Falls|Carbon|UT|39.4705213|-110.0220921|4373|Chandler Falls||25-FEB-1989
+Double Falls|1435441|Falls|Washington|UT|37.2805370|-113.0246647|4790|The Guardian Angels||25-FEB-1989
+Funnel Falls|1435569|Falls|Grand|UT|38.9935983|-109.1478900|4219|Big Triangle||25-FEB-1989
+Lisa Falls|1435866|Falls|Salt Lake|UT|40.5727270|-111.7277069|6529|Dromedary Peak||25-FEB-1989
+The Thumb Pour Off|1436493|Falls|San Juan|UT|37.4572195|-110.0201299|5554|Pollys Pasture||25-FEB-1989
+Bridal Veil Falls|1439092|Falls|Utah|UT|40.3378499|-111.6007427|5899|Bridal Veil Falls||31-DEC-1979
+Cascade Falls|1439505|Falls|Kane|UT|37.5021002|-112.7570002|8750|Navajo Lake||31-DEC-1979
+Doughnut Falls|1440533|Falls|Salt Lake|UT|40.6297447|-111.6547357|7894|Mount Aire||31-DEC-1979
+Hidden Falls|1441738|Falls|Salt Lake|UT|40.6354007|-111.7236301|6329|Mount Aire||31-DEC-1979
+Milky Falls|1443395|Falls|Sanpete|UT|39.2432659|-111.5215712|8422|Black Mountain||31-DEC-1979
+Provo River Falls|1444669|Falls|Summit|UT|40.6566128|-110.9454480|9308|Mirror Lake||31-DEC-1979
+Scout Falls|1445389|Falls|Utah|UT|40.4171755|-111.6399217|8150|Timpanogos Cave||31-DEC-1979
+Stewarts Cascades|1446145|Falls|Utah|UT|40.3863433|-111.6038077|6863|Aspen Grove||31-DEC-1979
+Upper Falls|1446860|Falls|Utah|UT|40.3439711|-111.5906471|5623|Bridal Veil Falls||31-DEC-1979
+Ashley Falls|1448090|Falls|Daggett|UT|40.9166264|-109.5004166|6047|Flaming Gorge||25-FEB-1989
+Lower Jump|1454625|Falls|San Juan|UT|38.1938761|-109.7917888|4606|The Loop||25-FEB-1989
+Upper Jump|1454631|Falls|San Juan|UT|38.0416548|-109.7645685|5620|Druid Arch||25-FEB-1989
+Abrams Falls|1462340|Falls|Washington|VA|36.6756596|-82.2562489|1650|Mendota||28-SEP-1979
+Big Falls|1463348|Falls|Russell|VA|36.9623315|-82.0531849|1654|Lebanon||28-SEP-1979
+Big Rock Falls|1463397|Falls|Madison|VA|38.4954032|-78.4227844|2674|Fletcher||28-SEP-1979
+Cedar Falls|1464606|Falls|Rockingham|VA|38.3948494|-78.5414013|2011|Elkton East|01-JAN-1933|28-SEP-1979
+Dark Hollow Falls|1465614|Falls|Madison|VA|38.5190135|-78.4233399|2959|Big Meadows||28-SEP-1979
+Dry Run Falls|1466013|Falls|Rockingham|VA|38.3987383|-78.5277894|2336|Elkton East|01-JAN-1933|28-SEP-1979
+Gibbs Falls|1467059|Falls|Rockbridge|VA|37.9481874|-79.2689225|1581|Brownsburg||28-SEP-1979
+Lewis Spring Falls|1469345|Falls|Page|VA|38.5204023|-78.4494517|2825|Big Meadows||28-SEP-1979
+Rose River Falls|1473539|Falls|Madison|VA|38.5315131|-78.4083395|2369|Big Meadows||28-SEP-1979
+Smith River Falls|1474774|Falls|Patrick|VA|36.7243024|-80.3392248|2621|Stuart||28-SEP-1979
+South River Falls|1474891|Falls|Greene|VA|38.3795721|-78.5011216|2136|Elkton East|01-JAN-1933|28-SEP-1979
+Styles Falls|1475274|Falls|Floyd|VA|37.0815359|-80.2659190|1808|Pilot||28-SEP-1979
+Tank Hollow Falls|1475449|Falls|Russell|VA|36.9401073|-82.1543013|1545|Carbo||28-SEP-1979
+Jones Run Falls|1477034|Falls|Albemarle|VA|38.2295752|-78.7044657|1877|Browns Cove|01-JAN-1965|01-APR-1991
+Apple Orchard Falls|1481332|Falls|Botetourt|VA|37.5163099|-79.5327625|2464|Arnold Valley||28-SEP-1979
+Beaverdam Falls|1481572|Falls|Alleghany|VA|37.6706795|-80.2408962|1798|Alleghany||28-SEP-1979
+Big Falls|1481725|Falls|Montgomery|VA|37.2442917|-80.6061721|1640|Radford North||28-SEP-1979
+Blue Suck Falls|1481871|Falls|Bath|VA|37.9047362|-79.8212873|2014|Healing Springs||28-SEP-1979
+Crabtree Falls|1482794|Falls|Nelson|VA|37.8431931|-79.0744717|2684|Massies Mill||28-SEP-1979
+Falls of Dismal|1483369|Falls|Giles|VA|37.1884535|-80.9003564|2231|Mechanicsburg||28-SEP-1979
+Greasy Falls|1483780|Falls|Warren|VA|38.7740059|-78.2675020|1670|Bentonville||28-SEP-1979
+Meadow Creek Falls|1485336|Falls|Craig|VA|37.4850793|-80.1251896|1736|Looney||28-SEP-1979
+Statons Creek Falls|1488517|Falls|Amherst|VA|37.7687454|-79.2469767|1821|Montebello||01-FEB-1991
+Cascades|1488699|Falls|Giles|VA|37.3673470|-80.5758962|2831|Eggleston||01-JUL-1992
+Upper Falls|1488700|Falls|Giles|VA|37.3717915|-80.5745074|2986|Eggleston||01-JUL-1992
+Falling Spring Falls|1492929|Falls|Alleghany|VA|37.8677410|-79.9478174|2054|Covington||28-SEP-1979
+Great Falls of Dan|1497966|Falls|Patrick|VA|36.6854141|-80.4367296|1995|Meadows of Dan||01-FEB-1995
+The Falls|1501182|Falls|Grayson|VA|36.7567896|-81.0911996|2972|Cripple Creek||01-JUN-1995
+Big Falls|1675191|Falls|Albemarle|VA|38.2298530|-78.7047435|1929|Browns Cove||13-NOV-1995
+Bailey Falls|1460538|Falls|Addison|VT|43.9258968|-72.9431671|1673|Bread Loaf||29-OCT-1980
+Bingham Falls|1918292|Falls|Lamoille|VT|44.5506072|-72.7965122|1873|Mount Mansfield||08-MAY-2001
+Little Cascade Falls|1922440|Falls|Windsor|VT|43.4314611|-72.4570351|1785|Windsor||11-MAY-2001
+Delzer Falls|1504437|Falls|Lincoln|WA|47.4001790|-118.7551470|1542|Sullivan Lake||10-SEP-1979
+Dry Creek Falls|1504561|Falls|Yakima|WA|46.1629038|-120.7589563|2956|Camas Patch||10-SEP-1979
+Granite Falls|1505221|Falls|Pend Oreille|WA|48.7678660|-117.0651651|3461|Helmer Mountain||10-SEP-1979
+Hompegg Falls|1505586|Falls|Columbia|WA|46.1649663|-117.8110928|3031|Eckler Mountain|01-JAN-1970|10-SEP-1979
+Kalispell Falls|1505901|Falls|Pend Oreille|WA|48.6146937|-117.1112370|3399|Gleason Mountain|01-JAN-1942|10-SEP-1979
+Little Chamokane Falls|1506193|Falls|Stevens|WA|47.8842816|-117.8771876|1644|Wellpinit||10-SEP-1979
+Logy Creek Falls|1506257|Falls|Yakima|WA|46.1362378|-120.6386743|2287|Logy Creek Falls||10-SEP-1979
+Nine Mile Falls|1506986|Falls|Spokane|WA|47.7751672|-117.5441126|1542|Nine Mile Falls||10-SEP-1979
+Outlet Falls|1507227|Falls|Klickitat|WA|46.0179006|-121.1736860|1562|Outlet Falls||10-SEP-1979
+Reiser Falls|1507777|Falls|Lincoln|WA|47.4936577|-118.8601490|1654|Sullivan Lake||10-SEP-1979
+Rock Creek Falls|1507852|Falls|Whitman|WA|47.1088710|-117.7662392|1699|Texas Lake||10-SEP-1979
+Spokane Falls|1508599|Falls|Spokane|WA|47.6587803|-117.4254910|1877|Spokane NW|05-MAY-1891|10-SEP-1979
+Spray Falls|1508617|Falls|Okanogan|WA|48.1329948|-119.0063169|1529|Armstrong Creek||10-SEP-1979
+Wilson Creek Falls|1509578|Falls|Lincoln|WA|47.6503875|-118.9133654|1693|Almira||10-SEP-1979
+LaSota Falls|1509704|Falls|Pend Oreille|WA|48.7721446|-117.0685645|3524|Helmer Mountain|01-JAN-1983|31-DEC-1992
+Martin Falls|1513286|Falls|Grant|WA|47.8454936|-119.1169374|1890|Steamboat Rock SE||10-SEP-1979
+Affi Falls|1515746|Falls|Pierce|WA|46.9398302|-121.6870408|5423|Sunrise|01-JAN-1932|10-SEP-1979
+Alice Falls|1515803|Falls|Pierce|WA|46.9606619|-121.7887116|3307|Mowich Lake|01-JAN-1932|10-SEP-1979
+Bridal Veil Falls|1516944|Falls|Snohomish|WA|47.7892713|-121.5678859|1657|Index||10-SEP-1979
+Carter Falls|1517432|Falls|Lewis|WA|46.7648310|-121.7687059|3684|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Castile Falls|1517463|Falls|Yakima|WA|46.2551217|-121.2411859|2654|Castile Falls||10-SEP-1979
+Cataract Falls|1517491|Falls|Pierce|WA|46.9420508|-121.8112121|4009|Mowich Lake|01-JAN-1932|10-SEP-1979
+Cedar Falls|1517560|Falls|Okanogan|WA|48.5585148|-120.4804038|3510|Mazama|01-JAN-1964|10-SEP-1979
+Chenuis Falls|1517658|Falls|Pierce|WA|46.9931610|-121.8414922|2247|Mowich Lake|01-JAN-1932|10-SEP-1979
+Chewack Falls|1517673|Falls|Okanogan|WA|48.8590118|-120.0253388|3947|Coleman Peak||10-SEP-1979
+Christine Falls|1517755|Falls|Pierce|WA|46.7809419|-121.7798180|3727|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Comet Falls|1517992|Falls|Pierce|WA|46.7959417|-121.7800961|4987|Mount Rainier West|01-JAN-1932|10-SEP-1979
+Cress Falls|1518327|Falls|Pierce|WA|46.9559399|-121.7734330|5128|Mowich Lake|01-JAN-1932|10-SEP-1979
+Crooked Creek Falls|1518338|Falls|Yakima|WA|46.1470656|-121.4545259|6135|Mount Adams East||10-SEP-1979
+Crown Point Falls|1518360|Falls|Chelan|WA|48.1983622|-120.8959853|5167|Suiattle Pass||10-SEP-1979
+Crystal Falls|1518373|Falls|Stevens|WA|48.5121898|-117.6567875|2795|Park Rapids||10-SEP-1979
+Deception Falls|1518564|Falls|King|WA|47.7145543|-121.1934336|1890|Scenic||10-SEP-1979
+Denman Falls|1518673|Falls|Pierce|WA|46.8356628|-121.9078811|3547|Mount Wow|01-JAN-1932|10-SEP-1979
+Devil Creek Falls|1518691|Falls|Yakima|WA|46.9569237|-121.1050315|2930|Cliffdell||10-SEP-1979
+Douglass Falls|1518900|Falls|Stevens|WA|48.6137331|-117.8993291|1804|Colville||10-SEP-1979
+Drury Falls|1518932|Falls|Chelan|WA|47.6367791|-120.7466003|4626|Winton||10-SEP-1979
+Entiat Falls|1519358|Falls|Chelan|WA|47.9854081|-120.5750951|2661|Silver Falls||10-SEP-1979
+Ethania Falls|1519384|Falls|Pierce|WA|46.8351073|-121.9167705|2972|Mount Wow|01-JAN-1932|10-SEP-1979
+Fish Ladder Falls|1519585|Falls|Lewis|WA|46.7073348|-121.5114755|2779|Ohanapecosh Hot Springs||10-SEP-1979
+Foggy Dew Falls|1519670|Falls|Okanogan|WA|48.1693115|-120.2786500|4249|Martin Peak||10-SEP-1979
+Franklin Falls|1519768|Falls|King|WA|47.4248344|-121.4328721|2589|Snoqualmie Pass||10-SEP-1979
+Garda Falls|1519891|Falls|Pierce|WA|46.9222973|-121.7260295|4862|Sunrise|01-JAN-1932|10-SEP-1979
+Giant Falls|1519936|Falls|Pierce|WA|46.9031621|-121.8526019|4534|Mowich Lake|01-JAN-1932|10-SEP-1979
+Harmony Falls|1520554|Falls|Skamania|WA|46.2823333|-122.1028722|3848|Spirit Lake East||10-SEP-1979
+Hatana Falls|1520596|Falls|Jefferson|WA|47.7637015|-123.2537831|2674|Wellesley Peak||10-SEP-1979
+Horsetail Falls|1520973|Falls|Kittitas|WA|46.9964479|-121.1084828|2644|Cliffdell||10-SEP-1979
+Ipsut Falls|1521224|Falls|Pierce|WA|46.9706614|-121.8309357|2634|Mowich Lake||10-SEP-1979
+John Pierce Waterfall|1521406|Falls|Whatcom|WA|48.7212405|-121.0706755|1581|Ross Dam|01-JAN-1972|10-SEP-1979
+Keekwulee Falls|1521588|Falls|King|WA|47.4306675|-121.4531498|3071|Snoqualmie Pass|01-JAN-1916|10-SEP-1979
+Langfield Falls|1521890|Falls|Skamania|WA|46.0965055|-121.7150828|3445|Sleeping Beauty|01-JAN-1972|10-SEP-1979
+Larrupin Falls|1521910|Falls|Pierce|WA|46.8353851|-121.9148259|3045|Mount Wow|01-JAN-1932|10-SEP-1979
+Little Niagara Falls|1522277|Falls|Skamania|WA|46.1581707|-121.7995291|2943|Quartz Creek Butte||10-SEP-1979
+Madcap Falls|1522627|Falls|Lewis|WA|46.7662199|-121.7634278|3806|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Mazama Falls|1522831|Falls|Whatcom|WA|48.8497948|-121.7406464|3842|Shuksan Arm|01-JAN-1913|10-SEP-1979
+Middle Falls|1523058|Falls|Skamania|WA|46.1670589|-121.8628639|1575|Quartz Creek Butte||10-SEP-1979
+Nahunta Falls|1523560|Falls|Pierce|WA|46.7826086|-121.7670395|3993|Mount Rainier West|01-JAN-1913|10-SEP-1979
+North Fork Falls|1523774|Falls|Snohomish|WA|48.0976090|-121.3692772|1529|Sloan Peak||10-SEP-1979
+Otter Falls|1524099|Falls|King|WA|47.5878878|-121.4670418|1804|Snoqualmie Lake||10-SEP-1979
+Paradise Falls|1524189|Falls|Skamania|WA|46.2328901|-122.0106458|1975|Smith Creek Butte||10-SEP-1979
+Pearl Falls|1524280|Falls|Pierce|WA|46.8014972|-121.7992640|5384|Mount Rainier West|01-JAN-1913|10-SEP-1979
+Pewee Falls|1524374|Falls|Pend Oreille|WA|48.9709287|-117.3550295|2152|Boundary Dam|01-JAN-1970|10-SEP-1979
+Preston Falls|1524635|Falls|Chelan|WA|47.8826070|-120.4313673|1870|Brief||10-SEP-1979
+Rainbow Falls|1524817|Falls|Whatcom|WA|48.7709554|-121.6768081|1703|Shuksan Arm||10-SEP-1979
+Rainbow Falls|1524818|Falls|Chelan|WA|48.3435918|-120.6989327|1647|Stehekin||10-SEP-1979
+Ranger Falls|1524870|Falls|Pierce|WA|46.9839944|-121.8539925|2723|Mowich Lake||10-SEP-1979
+Saint Johns Falls|1525364|Falls|Lewis|WA|46.7828742|-121.6217503|3714|Chinook Pass|01-JAN-1932|10-SEP-1979
+Salmon Falls|1525392|Falls|Okanogan|WA|48.5543143|-119.8475717|3173|Conconully West||10-SEP-1979
+Service Falls|1525581|Falls|Jefferson|WA|47.7575253|-123.6587346|2001|Mount Olympus||10-SEP-1979
+Silver Falls|1525772|Falls|Lewis|WA|46.7523091|-121.5595025|1991|Chinook Pass|01-JAN-1932|10-SEP-1979
+Silver Falls|1525773|Falls|Chelan|WA|47.9616968|-120.5326098|2982|Silver Falls||10-SEP-1979
+Snowshoe Falls|1526054|Falls|King|WA|47.4342786|-121.4550943|3592|Snoqualmie Pass|01-JAN-1916|10-SEP-1979
+Sol Duc Falls|1526098|Falls|Clallam|WA|47.9506422|-123.8151970|1952|Bogachiel Peak|01-JAN-1992|31-DEC-1992
+Spray Falls|1526397|Falls|Pierce|WA|46.9156620|-121.8417684|5151|Mowich Lake|01-JAN-1913|10-SEP-1979
+Stafford Falls|1526475|Falls|Pierce|WA|46.8204453|-121.5517273|2736|Chinook Pass||10-SEP-1979
+Tato Falls|1526947|Falls|Pierce|WA|46.7859419|-121.7598170|4295|Mount Rainier West|01-JAN-1932|10-SEP-1979
+Twin Falls|1527527|Falls|Skamania|WA|46.2148397|-121.6678621|2641|Steamboat Mountain||10-SEP-1979
+Union Creek Falls|1527610|Falls|Yakima|WA|46.9364879|-121.3608616|3530|Goose Prairie||10-SEP-1979
+Upper Falls|1527625|Falls|Skamania|WA|46.1756701|-121.8523082|1634|Quartz Creek Butte||10-SEP-1979
+Upper Falls|1527626|Falls|Stevens|WA|48.9547561|-117.7989498|1660|Northport||10-SEP-1979
+Van Horn Falls|1527671|Falls|Pierce|WA|46.9738230|-121.7209952|3232|Sunrise||10-SEP-1979
+West Quartz Creek Falls|1527997|Falls|Yakima|WA|47.0073386|-121.1550850|3025|Mount Clifty||10-SEP-1979
+White River Falls|1528081|Falls|Chelan|WA|47.9523407|-120.9409324|2178|Mount David||10-SEP-1979
+Sunday Falls|1528483|Falls|Snohomish|WA|47.9817736|-121.3914974|3015|Monte Cristo|01-JAN-1988|31-DEC-1992
+Washington Cascades|1528586|Falls|Lewis|WA|46.7776089|-121.7428717|4662|Mount Rainier East|01-JAN-1913|01-JUL-1990
+Twin Falls|1529330|Falls|Snohomish|WA|48.0295476|-121.7406786|2342|Mallardy Ridge||01-OCT-1989
+Falls Creek Falls|1529516|Falls|Skamania|WA|45.9101151|-121.9134163|2178|Termination Point||01-OCT-1991
+Falls Creek Falls|1529719|Falls|Okanogan|WA|48.6368452|-120.1623782|2457|Doe Mountain||01-OCT-1991
+Florence Falls|1530307|Falls|King|WA|47.6101100|-121.3912094|2070|Snoqualmie Lake||01-JUN-1992
+Jennings Falls|1530317|Falls|Lewis|WA|46.5562244|-121.6331420|2205|Packwood||01-JUN-1992
+Sherman Creek Falls|1530415|Falls|Ferry|WA|48.6031341|-118.3594961|3012|South Huckleberry Mountain||01-NOV-1992
+Malachite Falls|1530539|Falls|King|WA|47.6073328|-121.3289871|3966|Big Snow Mountain||01-MAR-1993
+Hawk Creek Falls|1531338|Falls|Lincoln|WA|47.8004349|-118.3227638|1946|Olsen Canyon||01-AUG-1993
+Basaltic Falls|1533538|Falls|Pierce|WA|46.8095542|-121.6481476|5420|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Cougar Falls|1533552|Falls|Lewis|WA|46.7598327|-121.6284238|2844|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Fairy Falls|1533562|Falls|Pierce|WA|46.7945537|-121.6998154|5669|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Maple Falls|1533581|Falls|Lewis|WA|46.7564990|-121.6628691|3018|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Margaret Falls|1533582|Falls|Pierce|WA|46.8156651|-121.6598148|6053|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Marie Falls|1533583|Falls|Pierce|WA|46.8089990|-121.6264804|4698|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Martha Falls|1533585|Falls|Lewis|WA|46.7673318|-121.6942591|3674|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Mary Belle Falls|1533586|Falls|Pierce|WA|46.8139989|-121.6309251|5233|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Narada Falls|1533594|Falls|Lewis|WA|46.7751088|-121.7464829|4573|Mount Rainier East|01-JAN-1913|10-SEP-1979
+Sluiskin Falls|1533618|Falls|Pierce|WA|46.7931645|-121.7173158|5948|Mount Rainier East|01-JAN-1913|10-SEP-1979
+Sunbeam Falls|1533627|Falls|Lewis|WA|46.7745537|-121.7112041|4452|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Sylvia Falls|1533628|Falls|Lewis|WA|46.7651099|-121.6764808|3084|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Trixie Falls|1533634|Falls|Pierce|WA|46.8151098|-121.6478701|5945|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Twin Falls|1533635|Falls|Pierce|WA|46.8042766|-121.6403696|5246|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Wauhaukaupauken Falls|1533638|Falls|Pierce|WA|46.8262209|-121.6389812|5066|Mount Rainier East|01-JAN-1932|10-SEP-1979
+Loowit Falls|1998946|Falls|Skamania|WA|46.2236195|-122.1836007|4954|Mount Saint Helens||23-SEP-2003
+Hn(wa'(we'elshn (historical)|2082023|Falls|Spokane|WA|47.6791825|-117.3620900|1913|Spokane NE||10-FEB-2006
+Rainbow Rapids|1572043|Falls|Oneida|WI|45.8105088|-89.5418074|1572|Lake Tomahawk||29-AUG-1980
+Spring Camp Falls|1574607|Falls|Iron|WI|46.3477258|-90.2393423|1552|Pine Lake|01-JAN-1975|29-AUG-1980
+Tecumseh Falls|1547952|Falls|Webster|WV|38.6775132|-80.3497396|2208|Goshen||27-JUN-1980
+Tenskwatawa Falls|1547980|Falls|Webster|WV|38.6551266|-80.3381824|2313|Goshen||27-JUN-1980
+Blackwater Falls|1550380|Falls|Tucker|WV|39.1138480|-79.4832213|3022|Blackwater Falls||27-JUN-1980
+Falls of Hills Creek|1551095|Falls|Pocahontas|WV|38.1737285|-80.3350763|3222|Lobelia||27-JUN-1980
+Falls of Seneca|1551096|Falls|Pendleton|WV|38.8184451|-79.4906061|2477|Onego||27-JUN-1980
+High Falls|1551426|Falls|Randolph|WV|38.7724878|-79.7773175|2884|Beverly East||27-JUN-1980
+Whitaker Falls|1553418|Falls|Webster|WV|38.5251111|-80.1839619|2159|Samp||27-JUN-1980
+Bechler Falls|1585335|Falls|Teton|WY|44.1490914|-111.0099402|6342|Bechler Falls|01-JAN-1922|05-JUN-1979
+Big Creek Falls|1585440|Falls|Park|WY|44.5829214|-109.5994954|9754|Dead Indian Peak||05-JUN-1979
+Bucking Mule Falls|1586032|Falls|Big Horn|WY|44.8974424|-107.9249767|7582|Mexican Hill||05-JUN-1979
+Bull Lake Falls|1586107|Falls|Fremont|WY|43.1767449|-109.2020427|5863|Bull Lake West||05-JUN-1979
+Cascades of the Firehole|1586417|Falls|Teton|WY|44.6163214|-110.8554898|7103|Lower Geyser Basin|07-MAY-1930|05-JUN-1979
+Cave Falls|1586468|Falls|Teton|WY|44.1446473|-110.9971620|6283|Cave Falls|01-JAN-1922|05-JUN-1979
+Colonnade Falls|1586906|Falls|Teton|WY|44.2385389|-110.9479933|6542|Cave Falls|01-JAN-1930|05-JUN-1979
+Columbine Cascade|1586911|Falls|Teton|WY|43.9166015|-110.7493798|8428|Colter Bay|01-JAN-1937|05-JUN-1979
+Cottonwood Falls|1587068|Falls|Platte|WY|42.3125289|-105.2440741|5495|Cottonwood Falls||05-JUN-1979
+Crystal Falls|1587274|Falls|Park|WY|44.7179937|-110.5007594|7710|Crystal Falls|01-JAN-1930|05-JUN-1979
+Duck Creek Falls|1587890|Falls|Albany|WY|42.0021919|-105.4080431|6526|Davidson Flats||05-JUN-1979
+Dunanda Falls|1587915|Falls|Teton|WY|44.2477029|-111.0241064|6585|Bechler Falls|01-JAN-1922|05-JUN-1979
+Fairy Falls|1588372|Falls|Teton|WY|44.5243765|-110.8710451|7657|Lower Geyser Basin|01-JAN-1930|05-JUN-1979
+Fern Cascades|1588425|Falls|Teton|WY|44.4460437|-110.8441004|7552|Old Faithful|01-JAN-1962|05-JUN-1979
+Firehole Falls|1588482|Falls|Teton|WY|44.6307656|-110.8643789|6890|Madison Junction|01-JAN-1937|05-JUN-1979
+Garden Creek Waterfall|1588801|Falls|Natrona|WY|42.7658888|-106.3334254|6493|Casper||05-JUN-1979
+Gibbon Falls|1588881|Falls|Teton|WY|44.6543788|-110.7707659|7083|Madison Junction|01-JAN-1930|05-JUN-1979
+Gwinna Falls|1589202|Falls|Teton|WY|44.2818749|-110.8802136|7503|Trischman Knob|01-JAN-1922|05-JUN-1979
+Iris Falls|1589943|Falls|Teton|WY|44.2415946|-110.9435488|6667|Cave Falls|01-JAN-1930|05-JUN-1979
+Kepler Cascades|1590331|Falls|Teton|WY|44.4457670|-110.8071554|7559|Old Faithful|01-JAN-1930|05-JUN-1979
+Le Vasseur Falls|1590607|Falls|Converse|WY|42.6519111|-105.7322209|6299|Hermit Rock||05-JUN-1979
+Lewis Falls|1590661|Falls|Teton|WY|44.2675160|-110.6368458|7726|Lewis Falls|01-JAN-1930|05-JUN-1979
+Lost Creek Falls|1591034|Falls|Park|WY|44.9091435|-110.4200551|6640|Tower Junction||05-JUN-1979
+Melody Falls|1591465|Falls|Big Horn|WY|44.8662143|-108.0500442|5774|Cottonwood Canyon||05-JUN-1979
+North Fork Falls|1592177|Falls|Teton|WY|43.9802264|-110.1199094|8218|Crater Lake||05-JUN-1979
+Ouzel Falls|1592510|Falls|Teton|WY|44.2349267|-110.9757718|6653|Cave Falls|01-JAN-1922|05-JUN-1979
+Popo Agie Falls|1592955|Falls|Fremont|WY|42.7217224|-108.8824833|7733|Cony Mountain||05-JUN-1979
+Porcupine Falls|1592962|Falls|Big Horn|WY|44.8554171|-107.9153581|8022|Medicine Wheel||05-JUN-1979
+Quiver Cascade|1593107|Falls|Teton|WY|44.3049306|-110.8813246|7844|Trischman Knob|01-JAN-1922|05-JUN-1979
+Ragged Falls|1593124|Falls|Teton|WY|44.2879858|-110.8899360|7356|Trischman Knob|01-JAN-1922|05-JUN-1979
+Rainbow Falls|1593131|Falls|Teton|WY|44.1421522|-110.8802149|6755|Cave Falls|01-JAN-1930|05-JUN-1979
+Ribbon Cascade|1593420|Falls|Teton|WY|43.7746552|-110.7482684|7575|Jenny Lake|01-JAN-1931|05-JUN-1979
+Shoal Falls|1594271|Falls|Teton|WY|43.3407713|-110.3482385|8264|Doubletop Peak||05-JUN-1979
+Silver Scarf Falls|1594346|Falls|Teton|WY|44.2463141|-111.0221620|6630|Bechler Falls|01-JAN-1922|05-JUN-1979
+Sluiceway Falls|1594462|Falls|Teton|WY|44.2790972|-110.8796581|7569|Trischman Knob|01-JAN-1922|05-JUN-1979
+Tendoy Falls|1595355|Falls|Teton|WY|44.2846528|-110.8785469|7444|Trischman Knob|01-JAN-1922|05-JUN-1979
+Tower Fall|1595650|Falls|Park|WY|44.8936643|-110.3872186|6329|Tower Junction|01-JAN-1971|05-JUN-1979
+Twister Falls|1595814|Falls|Teton|WY|44.2974312|-110.8618797|8054|Shoshone Geyser Basin|01-JAN-1922|05-JUN-1979
+Upper Falls|1595858|Falls|Teton|WY|43.4238302|-110.2537935|8753|Darwin Peak||05-JUN-1979
+Upper Falls of the Yellowstone River|1595859|Falls|Park|WY|44.7128083|-110.4998466|7618|Canyon Village|01-JAN-1930|05-JUN-1979
+Wagon Hound Falls|1595971|Falls|Converse|WY|42.5586623|-105.6485914|6660|Blue Nose Creek||05-JUN-1979
+West Dell Falls|1596167|Falls|Sublette|WY|43.3310498|-110.3135147|8648|Doubletop Peak||05-JUN-1979
+Wraith Falls|1596631|Falls|Park|WY|44.9371583|-110.6235405|6758|Blacktail Deer Creek|01-JAN-1930|05-JUN-1979
+Albright Falls|1597088|Falls|Teton|WY|44.2777075|-110.9035475|7467|Trischman Knob|01-JAN-1988|31-AUG-1992
+Hidden Falls|1597141|Falls|Teton|WY|43.7665993|-110.7563242|7474|Mount Moran|01-JAN-1931|01-APR-1991
+Slide Falls|1597153|Falls|Sublette|WY|43.2832813|-109.8173806|9101|Green River Lakes|01-JAN-1918|01-APR-1991
+Clear Creek Falls|1597154|Falls|Sublette|WY|43.2947222|-109.8291667|8035|Green River Lakes|02-OCT-1918|01-APR-1991
+Bannock Falls|1597912|Falls|Teton|WY|43.7200705|-110.7673163|7785|Grand Teton|01-JAN-1931|05-JUN-1979
+Beartooth Falls|1598036|Falls|Park|WY|44.9371323|-109.6032825|8760|Beartooth Butte||05-JUN-1979
+Bomber Falls|1598287|Falls|Fremont|WY|43.3810030|-109.5988049|9012|Torrey Lake||05-JUN-1979
+Bridal Veil Falls|1598367|Falls|Park|WY|44.8448119|-109.3412537|5358|Bald Peak||05-JUN-1979
+Broken Falls|1598383|Falls|Teton|WY|43.7446546|-110.7549351|7985|Grand Teton|03-JUN-1931|05-JUN-1979
+Brooks Lake Creek Falls|1598390|Falls|Fremont|WY|43.7036691|-109.9676123|8274|Kisinger Lakes||05-JUN-1979
+Cascade Acres|1598648|Falls|Teton|WY|44.1449310|-110.8563255|6965|Grassy Lake Reservoir|01-JAN-1922|05-JUN-1979
+Cleft Falls|1598797|Falls|Teton|WY|43.7240291|-110.7780701|8612|Grand Teton|01-JAN-1937|05-JUN-1979
+Cliff Creek Falls|1598803|Falls|Sublette|WY|43.1113139|-110.5817755|8277|Hoback Peak||05-JUN-1979
+Glacier Falls|1599945|Falls|Teton|WY|43.7291078|-110.7592980|7661|Grand Teton|01-JAN-1937|05-JUN-1979
+Granite Falls|1600027|Falls|Teton|WY|43.3652138|-110.4435209|6886|Granite Falls||05-JUN-1979
+Lake Fork Falls|1600798|Falls|Fremont|WY|43.9318946|-109.9626801|9209|Ferry Lake||05-JUN-1979
+Menace Falls|1601351|Falls|Sublette|WY|42.7429865|-110.6143485|9403|Mount Schidler||05-JUN-1979
+Moose Falls|1601539|Falls|Teton|WY|44.1518293|-110.6726923|6975|Lewis Canyon|01-JAN-1930|05-JUN-1979
+North Fork Falls|1601767|Falls|Sublette|WY|42.8735424|-109.5287461|8606|Scab Creek||05-JUN-1979
+Ouzel Falls|1601956|Falls|Teton|WY|43.4138309|-110.2132355|8458|Ouzel Falls||05-JUN-1979
+Plateau Falls|1602205|Falls|Teton|WY|44.1591187|-110.2360389|8957|Badger Creek||05-JUN-1979
+Porcupine Creek Falls|1602269|Falls|Sublette|WY|43.2763364|-109.8384924|8274|Green River Lakes||05-JUN-1979
+Shell Falls|1602873|Falls|Big Horn|WY|44.5864615|-107.6124205|6263|Shell Falls||05-JUN-1979
+Shoshoko Falls|1602905|Falls|Teton|WY|43.7081482|-110.8024948|8976|Grand Teton|01-JAN-1931|05-JUN-1979
+Slide Creek Falls|1602981|Falls|Sublette|WY|43.2888372|-109.8079358|8829|Green River Lakes||05-JUN-1979
+South Fork Falls|1603136|Falls|Teton|WY|43.8613383|-110.0643500|7730|Togwotee Pass||05-JUN-1979
+Spalding Falls|1603215|Falls|Teton|WY|43.7285417|-110.7968802|10003|Grand Teton|01-JAN-1937|05-JUN-1979
+Sweetwater Creek Falls|1603482|Falls|Park|WY|44.5921478|-109.7452652|8337|Jaggar Peak||05-JUN-1979
+Terraced Falls|1603577|Falls|Teton|WY|44.1471529|-110.8641034|6896|Grassy Lake Reservoir|01-JAN-1922|05-JUN-1979
+Twilight Falls|1603820|Falls|Fremont|WY|43.7819791|-109.6643170|8953|Five Pockets||05-JUN-1979
+Union Falls|1603858|Falls|Teton|WY|44.1927083|-110.8707698|6791|Grassy Lake Reservoir|01-JAN-1922|05-JUN-1979
+Wilderness Falls|1604178|Falls|Teton|WY|43.9162197|-110.7587013|9370|Ranger Peak|01-JAN-1937|05-JUN-1979
+Wohelo Falls|1604256|Falls|Lincoln|WY|42.5913222|-110.6032342|9193|Wyoming Peak||31-AUG-1992
+Little Medicine Falls|1604415|Falls|Converse|WY|42.4387643|-105.9943538|7762|Rock Creek||05-JUN-1979
+Lewis Falls|1604628|Falls|Lincoln|WY|42.6160443|-110.5918452|9055|Wyoming Peak|01-JAN-1987|31-AUG-1992
+Spring Creek Falls|1604778|Falls|Lincoln|WY|42.6337224|-110.7411284|8409|Box Canyon Creek||01-DEC-1991
+Lower Falls of the Yellowstone River|1609116|Falls|Park|WY|44.7179755|-110.4964252|7447|Canyon Village|01-JAN-1930|05-JUN-1979
+Mystic Falls|1609277|Falls|Teton|WY|44.4840987|-110.8738229|7480|Old Faithful|01-JAN-1930|05-JUN-1979
+Rustic Falls|1609294|Falls|Park|WY|44.9341019|-110.7257663|7211|Mammoth|01-JAN-1937|05-JUN-1979
+Silver Cord Cascade|1609299|Falls|Park|WY|44.7260496|-110.4515907|7861|Canyon Village|01-JAN-1930|05-JUN-1979
+Tempe Cascade|1609309|Falls|Teton|WY|44.3015977|-110.8704910|7920|Shoshone Geyser Basin|15-JUN-1937|05-JUN-1979
+Undine Falls|1609318|Falls|Park|WY|44.9439839|-110.6385881|6496|Mammoth|01-JAN-1930|05-JUN-1979
+Virginia Cascade|1609319|Falls|Park|WY|44.7129917|-110.6460407|7815|Norris Junction|01-JAN-1930|05-JUN-1979
+Wahhi Falls|1609320|Falls|Teton|WY|44.2752084|-110.8777136|7680|Trischman Knob|01-JAN-1922|05-JUN-1979
+Osprey Falls|1609327|Falls|Park|WY|44.9285629|-110.6809959|6565|Mammoth|01-JAN-1930|05-JUN-1979
+Brooks Falls|1399475|Falls|Lake and Peninsula|AK|58.5549995|-155.7914766|95|Mount Katmai C-6|01-JAN-1925|31-MAR-1981
+Ebner Falls|1401644|Falls|Juneau|AK|58.3119444|-134.3758333|873|Juneau B-2||31-MAR-1981
+Golden Gate Falls|1402746|Falls|Bethel|AK|60.5004081|-160.1735073|764|Bethel C-4||31-MAR-1981
+Liberty Falls|1405319|Falls|Valdez-Cordova|AK|61.6206237|-144.5478849|1161|Valdez C-2||31-MAR-1981
+Lower Falls|1405754|Falls|Bethel|AK|60.4344657|-160.0945687|846|Bethel B-3||31-MAR-1981
+Suicide Falls|1410316|Falls|Juneau|AK|58.2755556|-134.3536111|351|Juneau B-2||31-MAR-1981
+The Falls|1410799|Falls|Southeast Fairbanks (CA)|AK|64.9294444|-141.8258333|1325|Eagle D-2||31-MAR-1981
+Upper Falls|1411561|Falls|Bethel|AK|60.3622984|-159.9436964|1050|Bethel B-3||31-MAR-1981
+Cynthia Falls|1412879|Falls|Kenai Peninsula|AK|59.7861111|-153.2086111|614|Iliamna D-1|01-JAN-1947|01-JAN-2000
+Sahlin Falls|1414404|Falls|Valdez-Cordova (CA)|AK|60.6944444|-145.9669444|256|Cordova C-6|01-JAN-1933|01-JAN-2000
+Silver Falls|1414713|Falls|Prince of Wales-Hyder (CA)|AK|55.9791667|-130.0530556|459|Ketchikan D-1||31-MAR-1981
+Silver Salmon Falls|1414717|Falls|Prince of Wales-Hyder (CA)|AK|55.7913889|-133.0947222|108|Craig D-4|01-JAN-1957|01-JAN-2000
+Sweetheart Falls|1415133|Falls|Juneau|AK|57.9452778|-133.6766667|525|Sumdum D-6||31-MAR-1981
+The Falls|1415239|Falls|Hoonah-Angoon (CA)|AK|57.5577778|-134.3541667|26|Sitka C-2||31-MAR-1981
+Whiting Falls|1415750|Falls|Valdez-Cordova|AK|60.9902591|-144.8423846|745|Cordova D-3||31-MAR-1981
+Thunder Bird Falls|1416869|Falls|Anchorage|AK|61.4403495|-149.3576063|367|Anchorage B-7||01-JAN-2000
+Rudleston Falls|1417163|Falls|Valdez-Cordova (CA)|AK|61.0841667|-145.8911111|774|Valdez A-6||01-JAN-2000
+Bridal Veil Falls|1417164|Falls|Valdez-Cordova (CA)|AK|61.0702778|-145.8936111|1165|Valdez A-6||01-JAN-2000
+Horsetail Falls|1417165|Falls|Valdez-Cordova (CA)|AK|61.0680556|-145.9055556|466|Valdez A-6||01-JAN-2000
+White Falls|1419716|Falls|Aleutians West (CA)|AK|51.7861111|-176.7986111|0|Adak C-3||01-OCT-1992
+Beaver Falls|1420335|Falls|Ketchikan Gateway|AK|55.3816667|-131.5227778|1237|Ketchikan B-5||31-MAR-1981
+Fish Ladder|1421940|Falls|Ketchikan Gateway|AK|55.2930556|-130.6519444|138|Ketchikan B-2||31-MAR-1981
+Hidden Falls|1422574|Falls|Sitka|AK|57.2163889|-134.8741667|39|Sitka A-3|01-JAN-1923|01-JAN-2000
+Kasnyku Falls|1422971|Falls|Sitka|AK|57.1911111|-134.8325000|92|Sitka A-3|01-JAN-1923|01-JAN-2000
+Nutkwa Falls|1424029|Falls|Prince of Wales-Hyder (CA)|AK|55.1186111|-132.5394444|36|Craig A-2||31-MAR-1981
+Ohman Falls|1424051|Falls|Valdez-Cordova|AK|60.5909264|-145.5873922|318|Cordova C-5||31-MAR-1981
+Rainbow Falls|1424726|Falls|Wrangell|AK|56.4227778|-132.3327778|604|Petersburg B-1||31-MAR-1981
+Reid Falls|1424799|Falls|Skagway|AK|59.4733333|-135.2847222|440|Skagway B-1||31-MAR-1981
+Fultons Falls|1866426|Falls|Kodiak Island|AK|58.1416667|-154.9902778|738|Mount Katmai A-3|01-JAN-1925|05-MAY-2000
+Sockeye Falls|1877213|Falls|Petersburg (CA)|AK|55.9166667|-133.0000000|223|Craig D-4||12-JUL-2000
+Alaska Chief Falls|1893245|Falls|Juneau|AK|58.3050000|-134.3400000|1129|Juneau B-2||23-MAR-2001
+Grindstone Falls|1894606|Falls|Juneau|AK|58.2166667|-134.2500000|0|Juneau A-1||23-MAR-2001
+Kolevokharit Koygut Falls|1895213|Falls|Dillingham (CA)|AK|59.7833333|-158.5666667|659|Dillingham D-7||23-MAR-2001
+Lost Rocker Falls|1895495|Falls|Juneau|AK|58.2666667|-134.3166667|656|Juneau B-1||23-MAR-2001
+Petrof Falls|1896178|Falls|Lake and Peninsula|AK|59.8000000|-154.9500000|203|Iliamna D-6||23-MAR-2001
+Tikchik Falls|1896967|Falls|Dillingham (CA)|AK|59.9000000|-158.1333333|358|Dillingham D-6||23-MAR-2001
+White Falls|1897293|Falls|Aleutians West (CA)|AK|51.7847222|-175.7680556|0|Atka B-6||23-MAR-2001
+Wolverine Falls|1897338|Falls|Lake and Peninsula|AK|58.5477824|-154.7255053|499|Mount Katmai C-3||23-MAR-2001
+Cedar Creek Falls|115766|Falls|Mobile|AL|31.0565678|-88.0741676|16|Mount Vernon||04-SEP-1980
+Davis Falls|117127|Falls|Shelby|AL|33.1176186|-86.8972121|469|Aldrich||04-SEP-1980
+High Falls|120054|Falls|Jackson|AL|34.8373022|-85.6416353|1224|Flat Rock||04-SEP-1980
+High Shoals Falls|120069|Falls|Randolph|AL|33.2371463|-85.3328280|879|Roanoke East||04-SEP-1980
+Little Falls|121788|Falls|Jackson|AL|34.8465042|-85.6410014|1230|Flat Rock||04-SEP-1980
+Peavine Falls|124557|Falls|Shelby|AL|33.3056678|-86.7569318|843|Helena||04-SEP-1980
+Piney Branch Falls|124866|Falls|Marshall|AL|34.4802751|-86.2623833|1037|Mount Carmel||04-SEP-1980
+Ragsdale Falls|125411|Falls|Marshall|AL|34.3345375|-86.4091523|804|Arab||04-SEP-1980
+Seven Falls|126557|Falls|Morgan|AL|34.3231531|-86.9547287|663|Falkville||04-SEP-1980
+Short Creek Falls|126815|Falls|Marshall|AL|34.3224147|-86.2042980|781|Albertville||04-SEP-1980
+The Fall Off|127810|Falls|Lawrence|AL|34.6106474|-87.4319681|709|Hatton||04-SEP-1980
+Thompson Falls|127906|Falls|Marshall|AL|34.3145380|-86.4222082|843|Arab||04-SEP-1980
+Weaver Falls|128671|Falls|Shelby|AL|33.1212297|-86.9291574|568|Aldrich||04-SEP-1980
+Welcome Falls|128725|Falls|Morgan|AL|34.3159285|-86.6647176|856|Lawrence Cove||04-SEP-1980
+Rock Falls|132382|Falls|Houston|AL|31.2343446|-85.1007630|121|Gordon||01-DEC-2003
+Great Falls|138184|Falls|Lee|AL|32.5087145|-85.1842222|351|Bleecker||01-DEC-2003
+Village Falls|140370|Falls|Jefferson|AL|33.5562173|-86.9699945|505|Adamsville||01-DEC-2003
+Rendalia Water Falls|144950|Falls|Talladega|AL|33.3015013|-86.1713615|528|Winterboro||01-DEC-2003
+University Falls (historical)|148684|Falls|Tuscaloosa|AL|33.2198404|-87.5511174|128|Tuscaloosa||01-DEC-2003
+Griffin Falls|150266|Falls|DeKalb|AL|34.2873599|-85.9303794|837|Crossville||04-SEP-1980
+High Falls|150289|Falls|DeKalb|AL|34.4000933|-86.0680011|883|Grove Oak||04-SEP-1980
+Swindell Falls|150544|Falls|DeKalb|AL|34.2773226|-85.9384722|745|Crossville||04-SEP-1980
+Little River Falls|150711|Falls|DeKalb|AL|34.3950890|-85.6269085|1148|Fort Payne||01-DEC-2003
+Tallapoosa Falls (historical)|154145|Falls|Elmore|AL|32.5359683|-85.8857921|289|Tallassee||01-DEC-2003
+Wetumpka Falls|154146|Falls|Elmore|AL|32.5465225|-86.1991346|128|Wetumpka||01-DEC-2003
+Ditto Falls|155551|Falls|Morgan|AL|34.4903696|-86.5647134|1037|Newsome Sinks||01-JUL-1989
+Noccalula Falls|158172|Falls|Etowah|AL|34.0414858|-86.0210835|597|Gadsden West||04-SEP-1980
+Butler Falls|159284|Falls|Franklin|AL|34.3059314|-87.5566906|846|Kinlock Spring||04-SEP-1980
+Great Falls|162443|Falls|Talladega|AL|33.2506698|-86.0183015|958|Porter Gap||01-DEC-2003
+Salt Creek Falls|162524|Falls|Talladega|AL|33.5014961|-85.9046880|699|Munford||01-DEC-2003
+Kinlock Falls|1700521|Falls|Lawrence|AL|34.3084317|-87.5028001|643|Kinlock Spring||22-NOV-1996
+Parker Cascades|1700524|Falls|Lawrence|AL|34.3084319|-87.4811329|659|Bee Branch||22-NOV-1996
+Parker Falls|1700530|Falls|Winston|AL|34.3034319|-87.4839107|659|Bee Branch||22-NOV-1996
+Quarter Creek Falls|1729884|Falls|Winston|AL|34.2831536|-87.6194698|787|Kinlock Spring||13-MAY-1997
+Bailey Falls|46016|Falls|Independence|AR|35.6675781|-91.7706977|745|Concord||30-APR-1980
+Bear Pen Falls|46232|Falls|Stone|AR|35.8183085|-92.3102607|1138|Fox||30-APR-1980
+Bridal Veil Falls|46937|Falls|Cleburne|AR|35.4695236|-92.0384821|535|Heber Springs||30-APR-1980
+Cedar Falls|47601|Falls|Conway|AR|35.1214748|-92.9337812|748|Adona||30-APR-1980
+Cottonwood Falls|48073|Falls|Fulton|AR|36.4222104|-91.5283816|420|Mammoth Spring||30-APR-1980
+Lay Falls|51015|Falls|Marion|AR|36.0792077|-92.7119504|781|Maumee||30-APR-1980
+Saddler Falls|54301|Falls|Fulton|AR|36.4183973|-91.5306962|417|Mammoth Spring||30-APR-1980
+Spainhour Falls|59156|Falls|Johnson|AR|35.6203596|-93.4651838|1027|Ludwig||01-SEP-1991
+Falling Water Falls|59197|Falls|Pope|AR|35.7217458|-92.9493383|1365|Smyrna||01-SEP-1991
+Marble Falls|72551|Falls|Newton|AR|36.1029904|-93.1296032|961|Jasper||30-APR-1980
+Sausmann Falls|73486|Falls|Perry|AR|34.8973115|-92.7823895|459|Thornburg||30-APR-1980
+Falling Water Falls|74471|Falls|Pope|AR|35.7219539|-92.9492711|1362|Smyrna||01-JUL-1992
+Eden Falls|81819|Falls|Newton|AR|36.0175767|-93.3874049|1335|Osage SW||01-FEB-1994
+Logoua Fall|1388954|Falls|Western|AS|-14.3336111|-170.8236111|0|Tutuila Island||06-FEB-1981
+Sina Fall|1389192|Falls|Western|AS|-14.3416667|-170.7763889|118|Tutuila Island||06-FEB-1981
+Tiaiu Falls|1389272|Falls|Eastern|AS|-14.2627778|-170.6600000|1348|Tutuila Island||01-JAN-2000
+Leone Falls|1966549|Falls|Western|AS|-14.3297222|-170.7822222|23|Tutuila Island West||25-NOV-2002
+Virgin Falls|1966606|Falls|Eastern|AS|-14.2927778|-170.6950000|751|Tutuila Island West||25-NOV-2002
+Columbine Falls|3135|Falls|Mohave|AZ|36.0926731|-113.9218087|1217|Columbine Falls|01-JAN-1948|08-FEB-1980
+Glynns Falls|5072|Falls|Yuma|AZ|32.5881064|-113.6535306|1496|Mohawk Mountains SW||08-FEB-1980
+Tinajas Altas|12489|Falls|Yuma|AZ|32.3117273|-114.0516046|1424|Tinajas Altas||08-FEB-1980
+Travertine Falls|12694|Falls|Mohave|AZ|35.7559079|-113.4479644|1358|Travertine Rapids||08-FEB-1980
+Two Hundred and Fivemile Rapids|12985|Falls|Coconino|AZ|36.0055408|-113.3421545|1483|Whitmore Point SE||08-FEB-1980
+Berry Creek Falls|219077|Falls|Santa Cruz|CA|37.1696679|-122.2646917|417|Franklin Point||19-JAN-1981
+Butano Falls|220267|Falls|San Mateo|CA|37.2421663|-122.3180265|404|Franklin Point||19-JAN-1981
+Green Valley Falls|224577|Falls|Solano|CA|38.2768588|-122.1805259|459|Mount George||19-JAN-1981
+Haraszthy Falls|224912|Falls|Sonoma|CA|38.2926924|-122.4188676|213|Sonoma||19-JAN-1981
+Linda Falls|227156|Falls|Napa|CA|38.5557387|-122.4422916|1371|Saint Helena||19-JAN-1981
+Mill Creek Falls|228705|Falls|Mendocino|CA|39.8812776|-123.7452562|850|Noble Butte||19-JAN-1981
+Pepperwood Falls|230515|Falls|Humboldt|CA|40.4640281|-123.8558749|440|Bridgeville||19-JAN-1981
+Alamere Falls|233406|Falls|Marin|CA|37.9542459|-122.7834103|59|Double Point||14-JUN-2000
+Tehan Falls|236075|Falls|Alameda|CA|37.6732644|-121.9399587|830|Dublin||19-JAN-1981
+The Falls|236166|Falls|Sutter|CA|39.2282234|-121.8327500|564|Sutter Buttes||19-JAN-1981
+Bear Canyon Falls|239086|Falls|Imperial|CA|33.0158733|-114.6705119|338|Picacho SW||19-JAN-1981
+Carrizo Falls|240274|Falls|Imperial|CA|33.0208733|-114.6888460|318|Picacho SW||19-JAN-1981
+Cedar Creek Falls|240388|Falls|San Diego|CA|32.9894915|-116.7303002|997|Tule Springs||19-JAN-1981
+Nojoqui Falls|246575|Falls|Santa Barbara|CA|34.5282747|-120.1722155|1014|Solvang||19-JAN-1981
+Red Rock Falls|248074|Falls|San Bernardino|CA|34.6597264|-114.4770225|702|Topock||19-JAN-1981
+Drop One|254049|Falls|Imperial|CA|32.7122707|-114.9432996|161|Grays Well||19-JAN-1981
+Drop One|254050|Falls|Imperial|CA|32.7803245|-114.9891354|148|Cactus||19-JAN-1981
+Ishi Pishi Falls|254825|Falls|Siskiyou|CA|41.3817925|-123.4997814|482|Somes Bar|01-JAN-1979|19-JAN-1981
+Burnt Ranch Falls|257730|Falls|Trinity|CA|40.8262486|-123.4761536|1132|Ironside Mountain||19-JAN-1981
+Codfish Falls|258504|Falls|Placer|CA|38.9971197|-120.9546631|876|Greenwood||19-JAN-1981
+Potem Falls|264998|Falls|Shasta|CA|40.8387659|-122.0283326|1178|Devils Rock||19-JAN-1981
+Pfeiffer Falls|272939|Falls|Monterey|CA|36.2569075|-121.7816207|594|Big Sur||19-JAN-1981
+Tahquitz Falls|274027|Falls|Riverside|CA|33.8035569|-116.5620248|840|Palm Springs||19-JAN-1981
+Curtain Falls|275944|Falls|Butte|CA|39.6629422|-121.3041297|1201|Brush Creek||01-SEP-1992
+Huntington Falls|1655417|Falls|San Francisco|CA|37.7685411|-122.4741383|338|San Francisco North||01-NOV-1994
+Rainbow Falls|1655503|Falls|San Francisco|CA|37.7713189|-122.4783050|262|San Francisco North||01-NOV-1994
+Clover Creek Falls|1661789|Falls|Shasta|CA|40.6559878|-122.0177753|1125|Oak Run||01-FEB-1995
+Finnegan Falls|1662129|Falls|Stanislaus|CA|37.6582631|-121.2302171|23|Ripon||01-FEB-1995
+Gray Falls|1665358|Falls|Trinity|CA|40.8546672|-123.4837435|630|Ironside Mountain||01-JUN-1995
+Salmon Falls|1670539|Falls|El Dorado|CA|38.7590682|-121.0699446|469|Pilot Hill||13-NOV-1995
+Kent Falls|1800599|Falls|Marin|CA|37.8846486|-122.5783112|108|San Rafael||20-JUL-1998
+Dawn Falls|1800649|Falls|Marin|CA|37.9385358|-122.5624777|413|San Rafael||20-JUL-1998
+Islay Falls|1872389|Falls|San Luis Obispo|CA|35.2705308|-120.8646243|171|Morro Bay South||13-JUN-2000
+Golden Falls|1872653|Falls|Santa Cruz|CA|37.1791122|-122.2721919|761|Franklin Point||13-JUN-2000
+Silver Falls|1872675|Falls|Santa Cruz|CA|37.1777233|-122.2705251|676|Franklin Point||13-JUN-2000
+Maple Falls|1872759|Falls|Santa Cruz|CA|37.0510599|-121.8907897|988|Laurel||13-JUN-2000
+Fiver Finger Falls|1872819|Falls|Santa Cruz|CA|37.0493933|-121.8618995|804|Loma Prieta||13-JUN-2000
+McWay Falls|1873510|Falls|Monterey|CA|36.1585738|-121.6716148|16|Partington Ridge||13-JUN-2000
+Black Rock Falls|2548019|Falls|Santa Clara|CA|37.0822222|-121.8008333|1421|Loma Prieta||06-APR-2009
+Three Troughs Falls|2559802|Falls|San Luis Obispo|CA|35.6736300|-121.1488600|1119|San Simeon||07-JUL-2009
+Buttermilk Falls|205896|Falls|Litchfield|CT|41.6441518|-73.0055172|705|Thomaston||12-SEP-1979
+Chapman Falls|206185|Falls|Middlesex|CT|41.4834319|-72.3406388|197|Hamburg||12-SEP-1979
+Great Falls|207438|Falls|Litchfield|CT|41.9628710|-73.3709525|643|South Canaan||12-SEP-1979
+Silver Falls|210859|Falls|New London|CT|41.4124819|-72.2188033|115|Palmertown||12-SEP-1979
+Wadsworth Falls|211758|Falls|Middlesex|CT|41.5256538|-72.6964840|141|Middletown||12-SEP-1979
+Westfield Falls|212016|Falls|Middlesex|CT|41.5805289|-72.7152515|138|Middletown||12-SEP-1979
+Quinebaug Falls|1931436|Falls|New London|CT|41.5550982|-72.0420208|43|Norwich||07-AUG-2001
+Shetucket Falls|1931530|Falls|New London|CT|41.5725983|-72.0456318|39|Norwich||07-AUG-2001
+Yantic Falls|1931735|Falls|New London|CT|41.5337093|-72.0900774|72|Norwich||07-AUG-2001
+Roxbury Falls|1932329|Falls|Litchfield|CT|41.5106508|-73.3153952|239|Roxbury||07-AUG-2001
+Rippowan Falls|1942751|Falls|Fairfield|CT|41.0506526|-73.5459566|7|Stamford||24-OCT-2001
+Little Falls|528636|Falls|District of Columbia|DC|38.9334443|-77.1180342|0|Washington West||18-DEC-1979
+Falling Water|282368|Falls|Washington|FL|30.7243601|-85.5296513|177|Wausau||19-OCT-1979
+Hightower Falls|315403|Falls|Polk|GA|33.9342688|-85.1441155|951|Felton||25-SEP-1979
+Lula Falls|317480|Falls|Walker|GA|34.9328542|-85.3719033|1175|Fort Oglethorpe||25-SEP-1979
+Padgett Falls|320152|Falls|Pickens|GA|34.4523132|-84.4677045|1368|Jasper||25-SEP-1979
+Rock Falls|321730|Falls|Coffee|GA|31.7324088|-82.8534776|197|Broxton NE||25-SEP-1979
+Cane Creek Falls|327353|Falls|Lumpkin|GA|34.5564820|-84.0088000|1230|Campbell Mountain||25-SEP-1979
+Clay Creek Falls|327465|Falls|Lumpkin|GA|34.5375933|-84.0221334|1260|Campbell Mountain||25-SEP-1979
+Keown Falls|328388|Falls|Walker|GA|34.6134167|-85.0943930|1467|Sugar Valley||25-SEP-1979
+Toccoa Falls|330008|Falls|Stephens|GA|34.5962089|-83.3598863|1024|Toccoa||25-SEP-1979
+Cascade Falls|346847|Falls|Meriwether|GA|32.8701308|-84.6952050|1043|Shiloh||01-JUN-1994
+Inarajan Falls|1389739|Falls|Guam|GU|13.2886111|144.7177778|348|Inarajan||06-FEB-1981
+Malojloj Falls|1389846|Falls|Guam|GU|13.2958333|144.7505556|174|Talofofo||06-FEB-1981
+Sigua Falls|1390041|Falls|Guam|GU|13.4263889|144.7100000|755|Hagatna||06-FEB-1981
+Sigua Falls|1390042|Falls|Guam|GU|13.4286111|144.7247222|449|Hagatna||06-FEB-1981
+Talofofo Falls|1390087|Falls|Guam|GU|13.3216667|144.7344444|190|Talofofo||06-FEB-1981
+Tarzan Falls|1390102|Falls|Guam|GU|13.3947222|144.7177778|325|Talofofo||06-FEB-1981
+Cetti Falls|1934169|Falls|Guam|GU|13.3222222|144.6650000|253|Agat||07-AUG-2001
+‘Akaka Falls|358488|Falls|Hawaii|HI|19.8532496|-155.1562333|1217|Akaka Falls|01-JAN-2001|30-SEP-2003
+Ha‘ipua‘ena|358875|Falls|Maui|HI|20.8655090|-156.1761992|512|Keanae|01-JAN-2002|30-SEP-2003
+Hāli‘i Falls|358985|Falls|Kauai|HI|22.0058616|-159.4544562|689|Waialeale|01-JAN-2002|30-SEP-2003
+Hāloku Falls|358993|Falls|Maui|HI|21.1607133|-156.8592894|1378|Kamalo|01-JAN-2003|30-SEP-2003
+Halulu Falls|358999|Falls|Kauai|HI|22.0072876|-159.5290299|968|Waialeale|01-JAN-2002|30-SEP-2003
+Hiilawe Falls|359174|Falls|Hawaii|HI|20.0947914|-155.5963735|1358|Kukuihaele|01-JAN-1954|06-FEB-1981
+Hikiau Falls|359179|Falls|Hawaii|HI|20.0197881|-155.2939428|210|Kukaiau||06-FEB-1981
+Hīpuapua Falls|359209|Falls|Maui|HI|21.1552820|-156.7678121|745|Halawa|01-JAN-2003|30-SEP-2003
+Hoopii Falls|359428|Falls|Kauai|HI|22.1052975|-159.3390491|75|Kapaa||06-FEB-1981
+Hoopouli Falls|359429|Falls|Kauai|HI|22.1489634|-159.4468701|614|Hanalei||06-FEB-1981
+Kāhili Falls|359761|Falls|Kauai|HI|21.9955922|-159.5218153|1496|Waialeale|01-JAN-2002|30-SEP-2003
+Kaholalele Falls|359791|Falls|Kauai|HI|22.0553854|-159.3940573|259|Kapaa||06-FEB-1981
+Kahūnā Falls|359848|Falls|Hawaii|HI|19.8573949|-155.1534805|1027|Akaka Falls|01-JAN-2001|30-SEP-2003
+Kaimukanaka Falls|359910|Falls|Hawaii|HI|19.7207597|-155.1188333|541|Hilo|01-JAN-2001|30-SEP-2003
+Kaluahine Falls|360187|Falls|Hawaii|HI|20.1181848|-155.5851000|669|Kukuihaele||06-FEB-1981
+Kanahuali‘i Falls|360346|Falls|Maui|HI|20.6930556|-156.0375000|1125|Kipahulu|01-JAN-2002|30-SEP-2003
+Kapakaiki Falls|360493|Falls|Kauai|HI|22.1011946|-159.4350207|1138|Waialeale||06-FEB-1981
+Kapakanui Falls|360494|Falls|Kauai|HI|22.1025832|-159.4381881|1293|Waialeale|01-JAN-2002|30-SEP-2003
+Kaukiuki Falls|360665|Falls|Kauai|HI|21.9528450|-159.5345312|1230|Koloa||06-FEB-1981
+Kauwehu Falls|360770|Falls|Hawaii|HI|19.7117117|-155.1562482|1243|Piihonua||06-FEB-1981
+Ke‘ākū|360926|Falls|Maui|HI|20.8442064|-156.1471049|390|Keanae|01-JAN-2002|30-SEP-2003
+Keanapakulua Falls|360997|Falls|Hawaii|HI|20.0947915|-155.8436299|902|Kawaihae||06-FEB-1981
+Kemole Falls|361106|Falls|Hawaii|HI|20.0278248|-155.7819013|994|Kawaihae||06-FEB-1981
+Koakanini Falls|361332|Falls|Hawaii|HI|19.7085689|-155.1645036|1453|Piihonua||06-FEB-1981
+Kopiliula Falls|361428|Falls|Maui|HI|20.8146523|-156.1338510|1362|Nahiku|01-JAN-2002|30-SEP-2003
+Kulaniapia Falls|361571|Falls|Hawaii|HI|19.7233855|-155.1364736|869|Piihonua||06-FEB-1981
+Lauiole Falls|361738|Falls|Hawaii|HI|19.7097519|-155.1572252|1325|Piihonua||06-FEB-1981
+Lelekaae Falls|361824|Falls|Hawaii|HI|19.7287938|-155.1462225|1112|Piihonua||06-FEB-1981
+Manawaiopuna Falls|362184|Falls|Kauai|HI|21.9883535|-159.5255580|906|Koloa|01-JAN-1965|06-FEB-1981
+Mānoa Falls|362197|Falls|Honolulu|HI|21.3431855|-157.7987161|1197|Honolulu|01-JAN-2000|30-SEP-2003
+Moa‘ula|362362|Falls|Maui|HI|21.1535615|-156.7663875|692|Halawa|01-JAN-2003|30-SEP-2003
+Naalapa Falls|362518|Falls|Hawaii|HI|20.1124542|-155.6096806|1073|Kukuihaele||06-FEB-1981
+Nanaue Falls|362579|Falls|Hawaii|HI|20.1062777|-155.6136634|1263|Kukuihaele||06-FEB-1981
+‘Olo‘upena Falls|362798|Falls|Maui|HI|21.1606553|-156.8564104|1289|Kamalo|01-JAN-2003|30-SEP-2003
+Ooiki Falls|362841|Falls|Kauai|HI|21.9590009|-159.5422062|610|Hanapepe||06-FEB-1981
+Opae Kalaole Falls|362854|Falls|Kauai|HI|22.1254319|-159.3758417|640|Anahola||06-FEB-1981
+Opaekaa Falls|362855|Falls|Kauai|HI|22.0482142|-159.3620120|95|Kapaa|01-JAN-1964|06-FEB-1981
+Peepee Falls|363236|Falls|Hawaii|HI|19.7152257|-155.1342316|823|Piihonua||06-FEB-1981
+Pukamaui Falls|363513|Falls|Hawaii|HI|19.7112494|-155.1573470|1316|Piihonua||06-FEB-1981
+Puohokamoa Falls|363598|Falls|Maui|HI|20.8663119|-156.1789450|571|Keanae|01-JAN-2002|30-SEP-2003
+Pu‘uka‘ōkū Falls|364146|Falls|Maui|HI|21.1606024|-156.8515509|1457|Kamalo|01-JAN-2003|30-SEP-2003
+Pūwainui Falls|364196|Falls|Kauai|HI|22.1357820|-159.5577931|984|Haena|01-JAN-2002|30-SEP-2003
+Rainbow Falls|364204|Falls|Hawaii|HI|19.7195681|-155.1097923|371|Hilo||06-FEB-1981
+Uhau‘iole Falls|364322|Falls|Kauai|HI|22.0861488|-159.4355274|823|Waialeale|01-JAN-2002|30-SEP-2003
+Waiokuna Falls|364439|Falls|Maui|HI|20.8498681|-156.1450094|259|Keanae|01-JAN-2002|30-SEP-2003
+Waialae Falls|364517|Falls|Hawaii|HI|19.7634416|-155.1147921|479|Papaikou||06-FEB-1981
+Waiale Falls|364527|Falls|Hawaii|HI|19.7153648|-155.1404057|955|Piihonua||06-FEB-1981
+Waiamoa Falls|364548|Falls|Hawaii|HI|20.1225000|-155.6058333|1381|Kukuihaele||06-FEB-1981
+Wai‘ilikahi Falls|364634|Falls|Hawaii|HI|20.1327765|-155.6468611|295|Honokane|01-JAN-2001|30-SEP-2003
+Waikani Falls|364662|Falls|Maui|HI|20.8346212|-156.1370558|302|Keanae|01-JAN-2002|30-SEP-2003
+Wailele Falls|364725|Falls|Maui|HI|21.1663889|-156.8522222|0|Kamalo|01-JAN-2003|30-SEP-2003
+Wailua Falls|364743|Falls|Maui|HI|20.6836095|-156.0307225|285|Kipahulu|01-JAN-2002|30-SEP-2003
+Wailua Falls|364744|Falls|Kauai|HI|22.0345763|-159.3786161|184|Kapaa||06-FEB-1981
+Waimea Falls|364800|Falls|Honolulu|HI|21.6307666|-158.0438322|167|Waimea||06-FEB-1981
+Waiokanalopaka Falls|364844|Falls|Hawaii|HI|20.0778642|-155.8478828|394|Kawaihae||06-FEB-1981
+Waiokilo Falls|364849|Falls|Maui|HI|20.8485190|-156.1289013|49|Keanae|01-JAN-2002|30-SEP-2003
+Waiolue Falls|364857|Falls|Kauai|HI|21.9479647|-159.5369852|1099|Koloa||06-FEB-1981
+Makahiku Falls|1847282|Falls|Maui|HI|20.6686111|-156.0525000|466|Kipahulu|01-JAN-1999|13-JUL-1999
+Kilauea Falls|1853031|Falls|Kauai|HI|22.2111111|-159.4033333|335|Anahola|01-JAN-1971|01-FEB-2000
+Hanakoa Falls|1925004|Falls|Kauai|HI|22.1894444|-159.6183333|587|Haena|01-JAN-2002|15-JUN-2001
+Ho‘ole‘a Falls|1925017|Falls|Kauai|HI|22.1741667|-159.6622222|0|Haena||15-JUN-2001
+Paaiki Falls|1934250|Falls|Kauai|HI|22.1466667|-159.7197222|138|Makaha Point||07-AUG-2001
+Black Falls|454653|Falls|Winneshiek|IA|43.4177452|-92.0129401|1073|Cresco NE||30-APR-1979
+Homan Falls|410454|Falls|Adams|IL|39.9983794|-91.4054281|518|Quincy West||15-JAN-1980
+Burden Falls|424690|Falls|Pope|IL|37.5636609|-88.6419980|531|Stonefort||15-JAN-1980
+Cedar Falls|424729|Falls|Johnson|IL|37.5181062|-88.7383917|443|Stonefort||15-JAN-1980
+Great Falls of the Illinois River|1816061|Falls|LaSalle|IL|41.3278112|-88.7250741|463|Marseilles||25-MAR-1999
+Butler Falls|431903|Falls|Jefferson|IN|38.7033931|-85.4735707|653|Madison West||14-FEB-1979
+Chain Mill Falls|432381|Falls|Jefferson|IN|38.6945044|-85.4719039|650|Madison West||14-FEB-1979
+Clifty Falls|432661|Falls|Jefferson|IN|38.7664479|-85.4363480|751|Clifty Falls||14-FEB-1979
+Crowe Falls|433204|Falls|Jefferson|IN|38.7111709|-85.4641261|558|Madison West||14-FEB-1979
+Deadman Falls|433389|Falls|Jefferson|IN|38.7231152|-85.4591260|682|Madison West||14-FEB-1979
+Derbyshire Falls|433490|Falls|Franklin|IN|39.4717160|-85.2207968|955|Metamora||14-FEB-1979
+Elkhorn Falls|434086|Falls|Wayne|IN|39.7786597|-84.8646818|1020|New Paris||14-FEB-1979
+Fremont Falls|434826|Falls|Jefferson|IN|38.6939489|-85.4691262|623|Madison West||14-FEB-1979
+Groundhog Falls|435525|Falls|Parke|IN|39.6672658|-87.0272348|715|Mansfield||14-FEB-1979
+Harts Falls|435836|Falls|Jefferson|IN|38.6770048|-85.4582925|607|Madison West||14-FEB-1979
+Hoffman Falls|436279|Falls|Jefferson|IN|38.7525593|-85.4224586|696|Clifty Falls||14-FEB-1979
+Horseshoe Falls|436494|Falls|Jefferson|IN|38.7231152|-85.4569037|689|Madison West||14-FEB-1979
+Little Clifty Falls|438015|Falls|Jefferson|IN|38.7667257|-85.4341258|712|Clifty Falls||14-FEB-1979
+Lower Cataract Falls|438364|Falls|Owen|IN|39.4423693|-86.8193613|656|Cataract||14-FEB-1979
+Shanty Falls|443290|Falls|Wabash|IN|40.7883763|-85.8622089|718|Wabash||14-FEB-1979
+Tunnel Falls|444951|Falls|Jefferson|IN|38.7611702|-85.4282922|689|Clifty Falls||14-FEB-1979
+Upper Cataract Falls|445161|Falls|Owen|IN|39.4344468|-86.8130885|699|Cataract||14-FEB-1979
+Wallace Falls|445392|Falls|Jefferson|IN|38.7575592|-85.4335700|571|Clifty Falls||14-FEB-1979
+Hindostan Falls|451045|Falls|Martin|IN|38.6225514|-86.8491664|420|Rusk||14-FEB-1979
+Vermillion Falls|452240|Falls|Putnam|IN|39.7009441|-86.9070843|817|Clinton Falls||14-FEB-1979
+Falls of the Ohio|1940187|Falls|Clark|IN|38.2720148|-85.7521848|446|New Albany||11-OCT-2001
+Osro Falls|469090|Falls|Chautauqua|KS|37.0561527|-96.4438958|840|Cedar Vale East||13-OCT-1978
+Butcher Falls|469503|Falls|Chautauqua|KS|37.1472694|-96.2680511|850|Elgin NE||13-OCT-1978
+Kansas Falls|476692|Falls|Geary|KS|38.9608328|-96.9111222|1066|Kansas Falls||13-OCT-1978
+Caney Falls|488850|Falls|Lawrence|KY|38.1623073|-82.8437749|728|Webbville||20-SEP-1979
+Falls of the Ohio|491963|Falls|Jefferson|KY|38.2714592|-85.7644073|381|New Albany||20-SEP-1979
+Jock Falls|495287|Falls|Wayne|KY|36.8139596|-84.8852249|850|Parnell||20-SEP-1979
+Lick Falls|496491|Falls|Carter|KY|38.1978607|-83.0462820|702|Bruin||20-SEP-1979
+Seventy Six Falls|503189|Falls|Clinton|KY|36.7800661|-85.1263444|745|Wolf Creek Dam||20-SEP-1979
+Stacy Falls|507320|Falls|Casey|KY|37.4139605|-85.0352351|981|Bradfordsville NE|01-JAN-1988|01-JAN-2000
+Amos Falls|510259|Falls|Whitley|KY|36.8239719|-84.2591028|1079|Cumberland Falls||20-SEP-1979
+Cumberland Falls|511676|Falls|McCreary|KY|36.8389703|-84.3452148|801|Cumberland Falls||20-SEP-1979
+Eagle Falls|511978|Falls|McCreary|KY|36.8428592|-84.3441037|827|Cumberland Falls||20-SEP-1979
+Broken Leg Falls|516727|Falls|Menifee|KY|37.9111957|-83.4896296|1053|Ezel||01-NOV-1991
+Dog Slaughter Falls|516829|Falls|Whitley|KY|36.8581378|-84.3113254|860|Cumberland Falls||01-JUN-1992
+Rock Bridge Falls|2364826|Falls|Wolfe|KY|37.7683636|-83.5614145|922|Pomeroyton||30-NOV-2007
+Falls of Buffalo|2416573|Falls|Owsley|KY|37.3497379|-83.5453601|1217|Mistletoe||25-MAR-2008
+Drennon Falls|2568588|Falls|Henry|KY|38.4390400|-85.1102500|561|Franklinton||24-AUG-2009
+Woodriff Falls|540530|Falls|West Feliciana|LA|30.7676830|-91.4101135|30|Saint Francisville||04-JUN-1980
+Kisatchie Fall|548199|Falls|Natchitoches|LA|31.4076760|-93.1309974|184|Kisatchie||01-NOV-1991
+Odum Falls|548890|Falls|Natchitoches|LA|31.3851777|-93.1973881|246|Kisatchie||01-FEB-1993
+Umpachene Falls|605995|Falls|Berkshire|MA|42.0923470|-73.2695491|827|Ashley Falls||27-AUG-2002
+Royalston Falls|606518|Falls|Worcester|MA|42.7145290|-72.2453617|856|Royalston||01-MAR-1990
+Bash Bish Falls|607293|Falls|Berkshire|MA|42.1148127|-73.4928966|1132|Bash Bish Falls|01-JAN-1983|24-FEB-1974
+Campbell Falls|607338|Falls|Berkshire|MA|42.0459216|-73.2329374|1017|South Sandisfield||24-FEB-1974
+Lulu Cascade|607532|Falls|Berkshire|MA|42.4948056|-73.2995502|1306|Pittsfield West||24-FEB-1974
+Race Brook Falls|607656|Falls|Berkshire|MA|42.0896771|-73.4221854|1165|Bash Bish Falls||24-FEB-1974
+Tannery Falls|607759|Falls|Berkshire|MA|42.6245283|-73.0034333|1378|Windsor||24-FEB-1974
+Twin Cascade|607780|Falls|Berkshire|MA|42.6764721|-73.0023226|1056|North Adams||24-FEB-1974
+Wahconah Falls|607978|Falls|Berkshire|MA|42.4885339|-73.1109138|1394|Peru||24-FEB-1974
+Windsor Jambs|607996|Falls|Berkshire|MA|42.5223075|-72.9925987|1463|Plainfield||24-FEB-1974
+Otis Falls|608080|Falls|Berkshire|MA|42.1598129|-73.0592714|1325|Otis||24-FEB-1974
+Glendale Falls|608309|Falls|Hampshire|MA|42.3501693|-72.9669129|1066|Chester||24-FEB-1974
+Chapel Falls|608554|Falls|Franklin|MA|42.4820307|-72.7598139|1155|Goshen||24-FEB-1974
+The Cascades|608839|Falls|Franklin|MA|42.6203631|-72.5453665|256|Greenfield||27-AUG-2002
+Turners Falls|608955|Falls|Franklin|MA|42.6111966|-72.5528665|118|Greenfield||24-FEB-1974
+Doane Falls|609654|Falls|Worcester|MA|42.6486972|-72.2017494|764|Royalston||24-FEB-1974
+Spirit Falls|609715|Falls|Worcester|MA|42.6689746|-72.2050830|781|Royalston||24-FEB-1974
+The Cascade|610451|Falls|Worcester|MA|42.2859258|-71.8634059|705|Worcester North||24-FEB-1974
+Sutton Falls|610707|Falls|Worcester|MA|42.1098181|-71.7822925|531|Oxford||24-FEB-1974
+Danforth Falls|611214|Falls|Middlesex|MA|42.4068181|-71.5795137|285|Hudson||24-FEB-1974
+Pawtucket Falls|611851|Falls|Middlesex|MA|42.6514800|-71.3256167|69|Lowell||24-FEB-1974
+South Hadley Falls|617445|Falls|Hampden|MA|42.2125919|-72.6023116|59|Springfield North||24-FEB-1974
+Wallamanumps Falls|617839|Falls|Hampden|MA|42.1564826|-72.4842525|200|Ludlow||24-FEB-1974
+Wicassic Falls|617861|Falls|Middlesex|MA|42.6500907|-71.3883961|95|Nashua South||24-FEB-1974
+Cunningham Falls|583992|Falls|Frederick|MD|39.6314865|-77.4713769|1247|Blue Ridge Summit||12-SEP-1979
+Great Falls|584725|Falls|Montgomery|MD|38.9987208|-77.2538699|138|Vienna||12-SEP-1979
+Stubblefield Falls|587606|Falls|Montgomery|MD|38.9681659|-77.1980357|49|Falls Church||12-SEP-1979
+The Cascade|587739|Falls|Frederick|MD|39.5174432|-77.5247856|981|Myersville||12-SEP-1979
+Yellow Falls|588366|Falls|Montgomery|MD|38.9706659|-77.2099804|56|Falls Church||12-SEP-1979
+Amos Falls|589061|Falls|Cecil|MD|39.6584412|-76.1663418|20|Conowingo Dam||01-FEB-1993
+Gilpins Falls|589258|Falls|Cecil|MD|39.6476121|-75.9521665|207|Bay View||01-FEB-1993
+Kilgores Rocks|590600|Falls|Harford|MD|39.6912238|-76.4267215|394|Fawn Grove||12-SEP-1979
+The Spout|1952376|Falls|Montgomery|MD|38.9995541|-77.2494253|141|Falls Church||12-MAR-2002
+Wiley Falls|2680020|Falls|Harford|MD|39.6830020|-76.5188720|509|Norrisville|12-MAY-2011|12-MAY-2011
+Abol Falls|561061|Falls|Piscataquis|ME|45.8267128|-68.9683790|551|Abol Pond||30-SEP-1980
+Allagash Falls|561169|Falls|Aroostook|ME|46.9500360|-69.1330979|679|Allagash Falls||30-SEP-1980
+Ambajejus Falls|561224|Falls|Piscataquis|ME|45.7364361|-68.8989318|492|Pemadumcook Lake||30-SEP-1980
+Attean Falls|561342|Falls|Somerset|ME|45.5453260|-70.2461776|1178|Catheart Mountain||30-SEP-1980
+Basin Falls|561686|Falls|Oxford|ME|44.2931245|-70.4008921|417|West Sumner||30-SEP-1980
+Big Ambejackmockamus Falls|562122|Falls|Piscataquis|ME|45.8658781|-69.0919925|640|Rainbow Lake East||30-SEP-1980
+Big Falls|562164|Falls|Washington|ME|45.1736826|-67.7691679|269|Grand Lake Stream||30-SEP-1980
+Big Niagara Falls|562216|Falls|Piscataquis|ME|45.8703231|-69.0372695|958|Rainbow Lake East||30-SEP-1980
+Bisco Falls|562372|Falls|Oxford|ME|44.2850688|-70.5361722|377|West Paris||30-SEP-1980
+Boars Head Falls|562632|Falls|Aroostook|ME|46.4067092|-68.7639351|666|Middle Brook Mountain||30-SEP-1980
+Bowlin Falls|562809|Falls|Penobscot|ME|46.0386582|-68.7233744|492|Bowlin Brook||30-SEP-1980
+Caratunk Falls|563499|Falls|Somerset|ME|44.9586685|-69.8697803|276|Solon||30-SEP-1980
+Debsconeag Falls|564935|Falls|Piscataquis|ME|45.7822687|-68.9383779|525|Abol Pond||30-SEP-1980
+Dog Falls|565166|Falls|Washington|ME|45.3714593|-67.4302754|210|Kelleyland||30-SEP-1980
+Dundee Falls|565399|Falls|Cumberland|ME|43.7759111|-70.4486641|125|North Windham||30-SEP-1980
+Ellis Falls|565855|Falls|Oxford|ME|44.6442276|-70.7056249|751|Ellis Pond||30-SEP-1980
+Fish River Falls|566221|Falls|Aroostook|ME|46.8505961|-68.7333791|718|Carr Pond||30-SEP-1980
+Fish River Falls|566222|Falls|Aroostook|ME|47.2053170|-68.5861572|574|Fort Kent South||30-SEP-1980
+Gauntlet Falls|566724|Falls|Piscataquis|ME|45.5386592|-69.0353220|768|Jo-Mary Mountain||30-SEP-1980
+Gordon Falls|566968|Falls|Penobscot|ME|45.5039492|-68.3016873|210|Mattawamkeag||30-SEP-1980
+Grand Falls|567023|Falls|Hancock|ME|45.1697860|-68.2900181|246|Saponac||30-SEP-1980
+Grand Falls|567024|Falls|Washington|ME|45.2742387|-67.4766642|161|Kelleyland||30-SEP-1980
+Grand Falls|567025|Falls|Somerset|ME|45.2975531|-70.2222887|1001|Basin Mountain||30-SEP-1980
+Grand Falls|567026|Falls|Penobscot|ME|45.6122730|-68.7042016|394|Nollesemic Lake||30-SEP-1980
+Grand Falls|567027|Falls|Piscataquis|ME|46.0075461|-68.8714331|1060|The Traveler||30-SEP-1980
+Great Falls|567139|Falls|Oxford|ME|43.8525743|-70.7967288|315|Cornish||30-SEP-1980
+Great Falls|567140|Falls|Androscoggin|ME|44.0997953|-70.2225543|118|Lewiston|01-JAN-1980|30-SEP-1980
+Great Falls|567141|Falls|Washington|ME|44.7778539|-67.5841617|72|Bog Lake||30-SEP-1980
+Grindstone Falls|567338|Falls|Penobscot|ME|45.7283843|-68.5916989|364|East Millinocket||30-SEP-1980
+Hatch Falls|567747|Falls|Piscataquis|ME|45.2831067|-69.6769991|1014|Bald Mountain Pond||30-SEP-1980
+Holeb Falls|568186|Falls|Somerset|ME|45.5333814|-70.3636799|1217|Attean Pond||30-SEP-1980
+Holmes Falls|568208|Falls|Washington|ME|44.7964643|-67.6722194|85|Peaked Mountain Pond||30-SEP-1980
+Ledge Falls|569438|Falls|Penobscot|ME|45.6414419|-68.5480854|249|East Millinocket||30-SEP-1980
+Ledge Falls|569439|Falls|Aroostook|ME|45.7572814|-67.9580710|354|Haynesville||30-SEP-1980
+Ledge Falls|569440|Falls|Piscataquis|ME|45.9597670|-69.0589368|1220|Doubletop Mountain||30-SEP-1980
+Ledge Falls|569441|Falls|Piscataquis|ME|45.9939349|-68.8878223|1230|Mount Katahdin||30-SEP-1980
+Little Allagash Falls|569656|Falls|Piscataquis|ME|46.3265948|-69.4509516|988|Tramway||30-SEP-1980
+Little Ambejackmockamus Falls|569658|Falls|Piscataquis|ME|45.8714335|-69.1122706|673|Rainbow Lake East||30-SEP-1980
+Little Falls|569770|Falls|Washington|ME|44.8603520|-67.8011121|148|Montegail Pond||30-SEP-1980
+Little Falls|569771|Falls|Washington|ME|44.9167440|-67.2713774|75|Porcupine Mountain||30-SEP-1980
+Little Falls|569772|Falls|Oxford|ME|45.0319966|-70.8561808|1486|Kennebago||30-SEP-1980
+Little Falls|569773|Falls|Washington|ME|45.1672940|-67.7513895|223|Grand Lake Stream||30-SEP-1980
+Little Falls|569775|Falls|Washington|ME|45.5078453|-67.4622220|315|Vanceboro||30-SEP-1980
+Little Wilson Falls|570105|Falls|Piscataquis|ME|45.3739367|-69.4717179|856|Monson East||30-SEP-1980
+Long Falls|570206|Falls|Somerset|ME|45.2278320|-70.2033996|1138|Little Bigelow Mountain||30-SEP-1980
+Lower Falls|570499|Falls|Aroostook|ME|46.1522720|-68.3078080|604|Knowles Corner||30-SEP-1980
+Millinocket Falls|571391|Falls|Penobscot|ME|46.3094879|-68.8125458|735|Millinocket Lake East||30-SEP-1980
+Mother Walker Falls|571744|Falls|Oxford|ME|44.5781141|-70.9267410|1424|Old Speck Mountain||30-SEP-1980
+Moxie Falls|571835|Falls|Somerset|ME|45.3647727|-69.9397837|722|The Forks||30-SEP-1980
+Mud Gauntlet Falls|571863|Falls|Piscataquis|ME|45.5364371|-69.0330998|738|Jo-Mary Mountain||30-SEP-1980
+Munsungan Falls|571987|Falls|Piscataquis|ME|46.3700412|-68.9197704|807|Millinocket Lake West||30-SEP-1980
+Nesowadnehunk Falls|572100|Falls|Piscataquis|ME|45.8467121|-69.0300471|584|Rainbow Lake East||30-SEP-1980
+Norway Falls|572508|Falls|Piscataquis|ME|46.0050463|-68.8444881|968|The Traveler||30-SEP-1980
+Orin Falls|572768|Falls|Penobscot|ME|45.9511585|-68.7475409|643|Deasey Mountain||30-SEP-1980
+Passamagamet Falls|573044|Falls|Piscataquis|ME|45.7492135|-68.9258773|492|Pemadumcook Lake|01-JAN-1929|30-SEP-1980
+Pockwockamus Falls|573543|Falls|Piscataquis|ME|45.8164351|-68.9606009|545|Abol Pond||30-SEP-1980
+Poplar Hill Falls|573640|Falls|Somerset|ME|45.3442180|-70.0117297|636|Pierce Pond||30-SEP-1980
+Presumpscot Falls|573799|Falls|Cumberland|ME|43.7181362|-70.2689378|0|Portland West||30-SEP-1980
+Red River Falls|574098|Falls|Aroostook|ME|46.9103179|-68.7308790|640|Island Pond||30-SEP-1980
+Rumford Falls|574584|Falls|Oxford|ME|44.5395082|-70.5442321|522|Rumford||30-SEP-1980
+Sarampus Falls|574913|Falls|Franklin|ME|45.3017178|-70.6036799|1237|Jim Pond||30-SEP-1980
+Sawtelle Falls|574952|Falls|Penobscot|ME|46.1542133|-68.6497627|600|Hay Lake||30-SEP-1980
+Screw Auger Falls|575066|Falls|Oxford|ME|44.5720034|-70.9100740|1165|Old Speck Mountain||30-SEP-1980
+Screw Auger Falls|575067|Falls|Piscataquis|ME|45.4844914|-69.3064387|915|Barren Mountain East||30-SEP-1980
+Shadagee Falls|575275|Falls|Franklin|ME|45.2664410|-70.5661791|1204|Jim Pond||30-SEP-1980
+Shin Falls|575406|Falls|Penobscot|ME|46.1392137|-68.6136504|666|Hay Brook Mountain||30-SEP-1980
+Silver Ripple Cascade|575468|Falls|Oxford|ME|44.6864486|-70.7400701|883|Ellis Pond||30-SEP-1980
+Skew Falls|575519|Falls|Aroostook|ME|46.8425405|-68.7192123|692|Carr Pond||30-SEP-1980
+Smalls Falls|575569|Falls|Franklin|ME|44.8589461|-70.5167341|1115|Jackson Mountain||30-SEP-1980
+Spednic Falls|576021|Falls|Washington|ME|45.2939606|-67.4661087|200|Kelleyland|01-JAN-1969|30-SEP-1980
+Stair Falls|576231|Falls|Piscataquis|ME|45.4942131|-69.3444951|1138|Barren Mountain East||30-SEP-1980
+Stair Falls|576232|Falls|Penobscot|ME|46.0906017|-68.7858765|630|The Traveler||30-SEP-1980
+Stair Falls|576233|Falls|Aroostook|ME|46.1144946|-68.3233633|551|Island Falls||30-SEP-1980
+Sullivan Falls|576511|Falls|Hancock|ME|44.5206331|-68.2208475|0|Sullivan||30-SEP-1980
+Swans Falls|576586|Falls|Oxford|ME|44.0381251|-70.9825687|384|Fryeburg||30-SEP-1980
+The Cataracts|576781|Falls|Oxford|ME|44.6386696|-70.8603504|1175|Andover||30-SEP-1980
+The Falls|576796|Falls|Oxford|ME|44.5950624|-70.4728425|436|Dixfield||30-SEP-1980
+Thirtyfoot Falls|576973|Falls|Piscataquis|ME|46.4125384|-69.1047730|1243|Chase Lake||30-SEP-1980
+Upper Falls|577603|Falls|Aroostook|ME|46.1606054|-68.2941966|732|Knowles Corner||30-SEP-1980
+Warren Falls|577844|Falls|Aroostook|ME|46.0897730|-68.3039177|512|Island Falls||30-SEP-1980
+Whetstone Falls|578321|Falls|Penobscot|ME|45.8647716|-68.6219797|371|Stacyville||30-SEP-1980
+Little Niagara Falls|578825|Falls|Piscataquis|ME|45.8722674|-69.0397695|997|Rainbow Lake East||27-AUG-2002
+Billings Falls|578859|Falls|Piscataquis|ME|45.4944909|-69.3389394|1093|Barren Mountain East||01-NOV-1988
+Houston Brook Falls|578866|Falls|Somerset|ME|45.0708889|-69.9400610|522|Bingham||01-NOV-1989
+Mud Lake Falls|578891|Falls|Washington|ME|45.6892295|-67.7308419|423|Forest City|01-JAN-1969|01-JUL-1990
+Buttermilk Falls|579005|Falls|Piscataquis|ME|45.4889356|-69.3258836|1040|Barren Mountain East||01-MAY-1989
+Hays Brook Falls|579008|Falls|Piscataquis|ME|45.4853250|-69.2744938|712|Barren Mountain East||01-MAY-1989
+Cowyard Falls|579015|Falls|Piscataquis|ME|45.3314388|-69.3361594|384|Sebec Lake West||01-MAY-1989
+Bucks Falls|579016|Falls|Piscataquis|ME|45.3083839|-69.3175477|328|Sebec Lake West||01-MAY-1989
+Kezar Falls|581078|Falls|Oxford|ME|44.1981239|-70.8145112|607|North Waterford||30-SEP-1980
+Mad River Falls|581110|Falls|Oxford|ME|44.2883979|-71.0061843|968|Wild River||30-SEP-1980
+Dunn Falls|1907990|Falls|Oxford|ME|44.6617238|-70.8984069|1309|B Pond||07-MAY-2001
+Steep Falls|1908207|Falls|Oxford|ME|44.2070143|-70.5320044|381|Norway||07-MAY-2001
+Poplar Stream Falls|1908400|Falls|Franklin|ME|45.1011663|-70.1939552|1089|Poplar Mountain||07-MAY-2001
+Austin Stream Falls|1908484|Falls|Somerset|ME|45.1319992|-69.8133905|909|Dimmick Mountain||07-MAY-2001
+Cold Stream Falls|1908513|Falls|Somerset|ME|45.4658820|-70.0314523|1440|Johnson Mountain||07-MAY-2001
+Little Falls|1909234|Falls|Washington|ME|44.6561872|-67.9572271|79|Schoodic Lake||07-MAY-2001
+Sprague Falls|1909355|Falls|Washington|ME|44.6450763|-67.9938948|72|Schoodic Lake||07-MAY-2001
+Slugundy Falls|1910182|Falls|Piscataquis|ME|45.4139364|-69.4203286|587|Barren Mountain West||07-MAY-2001
+Mayo Falls|1911018|Falls|York|ME|43.2373098|-70.5089406|0|York Beach||07-MAY-2001
+Bagaduce Falls|1911357|Falls|Hancock|ME|44.3953549|-68.7055831|20|Penobscot||08-MAY-2001
+Goose Falls|1911633|Falls|Hancock|ME|44.3542441|-68.8091966|10|Cape Rosier||08-MAY-2001
+Hadlock Falls|1911659|Falls|Hancock|ME|44.3314686|-68.2802934|509|Southwest Harbor||08-MAY-2001
+Man O'War Brook Falls|1911753|Falls|Hancock|ME|44.3189686|-68.3200167|102|Southwest Harbor||08-MAY-2001
+Mallison Falls|1912700|Falls|Cumberland|ME|43.7273014|-70.4203296|79|Gorham||08-MAY-2001
+Saccarappa Falls|1912976|Falls|Cumberland|ME|43.6778586|-70.3672727|46|Portland West||08-MAY-2001
+Basion Cove Falls|1913279|Falls|Cumberland|ME|43.7450829|-70.0361586|26|South Harpswell||08-MAY-2001
+Orris Falls|2559629|Falls|York|ME|43.2752778|-70.7108333|177|North Berwick||01-JUL-2009
+Aziscohos Falls (historical)|2677992|Falls|Lincoln|ME|44.9444444|-70.9980556|1457|Unknown|15-JAN-1937|08-APR-2011
+Algonquin Falls|619952|Falls|Gogebic|MI|46.6171683|-90.0757292|984|Copper Peak||14-APR-1980
+Big Falls|621319|Falls|Baraga|MI|46.8388154|-88.0709603|978|McComb Corner||14-APR-1980
+Bonanza Falls|621700|Falls|Ontonagon|MI|46.8180011|-89.5693184|663|White Pine||14-APR-1980
+Chipmunk Falls|623208|Falls|Iron|MI|46.2916149|-88.5631920|1440|Porter Lake||14-APR-1980
+Chipmunk Falls|623209|Falls|Alger|MI|46.6697032|-85.9557194|669|Grand Marais||14-APR-1980
+Chippewa Falls|623218|Falls|Gogebic|MI|46.5988352|-90.0821181|1050|Copper Peak||14-APR-1980
+Great Conglomerate Falls|627274|Falls|Gogebic|MI|46.6324460|-90.0551732|912|Black River Harbor||14-APR-1980
+Greenstone Falls|627369|Falls|Ontonagon|MI|46.7237663|-89.8312942|1188|Underwood Hill||14-APR-1980
+Houghton Falls|628663|Falls|Houghton|MI|47.2071479|-88.4273394|899|Laurium||14-APR-1980
+Letherby Falls|630334|Falls|Baraga|MI|46.7815951|-88.1020730|1280|McComb Corner||14-APR-1980
+Little Trap Falls|630797|Falls|Ontonagon|MI|46.6905028|-89.5557091|1240|Bergland NE||14-APR-1980
+Lower Falls|631166|Falls|Chippewa|MI|46.6036287|-85.2073277|623|Timberlost||14-APR-1980
+Lower Falls|631167|Falls|Baraga|MI|46.8654815|-88.0823483|709|McComb Corner||14-APR-1980
+Manakiki Falls|631372|Falls|Gogebic|MI|46.6408351|-90.1119938|850|Black River Harbor||14-APR-1980
+Minnewawa Falls|632462|Falls|Ontonagon|MI|46.5971694|-89.8496100|1230|Tula||14-APR-1980
+Nimikon Falls|633415|Falls|Ontonagon|MI|46.6049472|-89.8537768|1191|Tula||14-APR-1980
+Nokomis Falls|633447|Falls|Gogebic|MI|46.6466133|-89.9101682|1043|Tiebel Creek||14-APR-1980
+Ocqueoc Falls|633935|Falls|Presque Isle|MI|45.3961232|-84.0580627|682|Ocqueoc||14-APR-1980
+Pemene Falls|634580|Falls|Menominee|MI|45.5932986|-87.7765084|745|Miscauno Island||14-APR-1980
+Pewabeck Falls|634743|Falls|Ontonagon|MI|46.8074458|-89.5870972|673|White Pine||14-APR-1980
+Pinnacle Falls|635019|Falls|Marquette|MI|46.7063169|-87.8067985|1234|Silver Lake Basin||14-APR-1980
+Potawatomi Falls|635335|Falls|Gogebic|MI|46.6374460|-90.0515620|866|Black River Harbor|01-JAN-1968|14-APR-1980
+Powder Horn Falls|635368|Falls|Gogebic|MI|46.5060281|-90.0819943|1243|Copper Peak||14-APR-1980
+Quiver Falls|635575|Falls|Menominee|MI|45.6577406|-87.8223435|781|Faithorn||14-APR-1980
+Rapid River Falls|635651|Falls|Ontonagon|MI|46.6271520|-89.6686906|1227|Aldridge Creek||14-APR-1980
+Sable Falls|636454|Falls|Alger|MI|46.6688664|-86.0134995|636|Grand Sable Lake||14-APR-1980
+Saint Marys Falls|636907|Falls|Chippewa|MI|46.5077998|-84.3625400|604|Sault Ste. Marie South OE N|01-JAN-1892|14-APR-1980
+Sand Portage Falls|637203|Falls|Dickinson|MI|45.7599579|-87.9645687|840|Norway||14-APR-1980
+Scott Falls|637468|Falls|Alger|MI|46.4369320|-86.8144252|633|Au Train||14-APR-1980
+Shining Cloud Falls|637813|Falls|Gogebic|MI|46.7580017|-89.8715551|784|Carp River East||14-APR-1980
+Silver Falls|637934|Falls|Baraga|MI|46.7927085|-88.3365174|686|Aura||14-APR-1980
+Siskiwit Falls|638010|Falls|Keweenaw|MI|47.9854403|-88.8028566|610|Malone Bay||14-APR-1980
+Saxon Falls|1580352|Falls|Gogebic|MI|46.5360579|-90.3796239|879|Oronto Bay||29-AUG-1980
+Superior Falls|1580560|Falls|Gogebic|MI|46.5610574|-90.4162911|758|Oronto Bay||29-AUG-1980
+Tibbets Falls|1614847|Falls|Baraga|MI|46.5799394|-88.5890255|1178|Covington||14-APR-1980
+Traders Falls|1615029|Falls|Gogebic|MI|46.7510572|-89.8943342|659|Carp River West||14-APR-1980
+Trap Falls|1615035|Falls|Ontonagon|MI|46.7916129|-89.6907129|1312|Government Peak||14-APR-1980
+Upper Falls|1615400|Falls|Luce|MI|46.5750153|-85.2573315|689|Betsy Lake South||14-APR-1980
+Upper Falls|1615401|Falls|Baraga|MI|46.6202154|-88.4995793|1243|Vermilac||14-APR-1980
+West Branch Falls|1616034|Falls|Baraga|MI|46.8388156|-88.0898491|886|McComb Corner||14-APR-1980
+Canyon Falls|1617057|Falls|Baraga|MI|46.6235483|-88.4759679|1362|Vermilac|01-JAN-1964|01-JAN-1991
+Little Garlic Falls|1618235|Falls|Marquette|MI|46.6677059|-87.5787461|817|Buckroe||01-FEB-1991
+Hogback Falls|1618250|Falls|Marquette|MI|46.8082581|-87.8479072|886|Ives Hill||01-FEB-1991
+Froling Falls|1618838|Falls|Marquette|MI|46.3604969|-87.3298630|948|Little Lake||01-JAN-2000
+Abinodji Falls|1618983|Falls|Gogebic|MI|46.6424256|-89.9267683|1027|Tiebel Creek||14-APR-1980
+Agate Falls|1618997|Falls|Ontonagon|MI|46.4807776|-89.0909746|1161|Trout Creek||14-APR-1980
+Alger Falls|1619006|Falls|Alger|MI|46.3927251|-86.6465467|712|Munising||14-APR-1980
+Au Train Falls|1619056|Falls|Alger|MI|46.3385570|-86.8512624|722|Forest Lake||14-APR-1980
+Bond Falls|1619278|Falls|Ontonagon|MI|46.4088348|-89.1329188|1427|Paulding||14-APR-1980
+Cascade Falls|1619447|Falls|Ontonagon|MI|46.6518904|-89.4462606|1083|Matchwood NW||14-APR-1980
+Chapel Falls|1619474|Falls|Alger|MI|46.5285378|-86.4437102|732|Grand Portal Point||14-APR-1980
+Explorers Falls|1619881|Falls|Gogebic|MI|46.7327241|-89.8857228|840|Tiebel Creek||14-APR-1980
+Gabbro Falls|1619982|Falls|Gogebic|MI|46.5021695|-89.9915605|1247|Thomaston||14-APR-1980
+Gorge Falls|1620044|Falls|Gogebic|MI|46.6402238|-90.0504509|801|Black River Harbor||14-APR-1980
+Judson Falls|1620389|Falls|Gogebic|MI|46.3899478|-89.5612634|1352|Marshall Creek||14-APR-1980
+Laughing Whitefish Falls|1620494|Falls|Alger|MI|46.3838312|-87.0684783|968|Sand River||14-APR-1980
+Manabezho Falls|1620678|Falls|Gogebic|MI|46.7077236|-89.9718377|620|Tiebel Creek||14-APR-1980
+Manido Falls|1620679|Falls|Gogebic|MI|46.7049458|-89.9707266|640|Tiebel Creek||14-APR-1980
+Miners Falls|1620841|Falls|Alger|MI|46.4744299|-86.5312198|646|Indian Town||14-APR-1980
+Mosquito Falls|1620908|Falls|Alger|MI|46.5161238|-86.4776226|728|Grand Portal Point||14-APR-1980
+Nawadaha Falls|1620990|Falls|Gogebic|MI|46.6907792|-89.9718377|738|Tiebel Creek||14-APR-1980
+Neepikon Falls|1620993|Falls|Gogebic|MI|46.4910585|-89.9962826|1309|Wakefield||14-APR-1980
+Nelson Canyon Falls|1620996|Falls|Gogebic|MI|46.3921700|-89.5790419|1378|Marshall Creek||14-APR-1980
+Ogima Falls|1621094|Falls|Gogebic|MI|46.6344905|-89.9293344|1086|Tiebel Creek||14-APR-1980
+Ogimakwe Falls|1621095|Falls|Gogebic|MI|46.6407113|-89.9267401|1040|Tiebel Creek||14-APR-1980
+Rainbow Falls|1621337|Falls|Gogebic|MI|46.6588347|-90.0437841|643|Black River Harbor||14-APR-1980
+Rock River Falls|1621418|Falls|Alger|MI|46.4113456|-86.9761939|758|Rock River||14-APR-1980
+Sandstone Falls|1621514|Falls|Gogebic|MI|46.6516126|-90.0462842|712|Black River Harbor||14-APR-1980
+Silver Falls|1621614|Falls|Alger|MI|46.4511469|-86.9708468|886|Rock River||14-APR-1980
+Spray Falls|1621730|Falls|Alger|MI|46.5579600|-86.4107331|604|Grand Portal Point||14-APR-1980
+Sturgeon Falls|1621805|Falls|Houghton|MI|46.6427154|-88.6943030|879|Prickett Lake||14-APR-1980
+Trappers Falls|1621938|Falls|Gogebic|MI|46.7329153|-89.8848896|814|Tiebel Creek||14-APR-1980
+Vista Falls|1622032|Falls|Houghton|MI|46.6927152|-88.8615261|1188|Vista Falls||14-APR-1980
+Wagner Falls|1622038|Falls|Alger|MI|46.3876632|-86.6465544|696|Munising||14-APR-1980
+Wolverine Falls|1622201|Falls|Ontonagon|MI|46.4055021|-89.3490346|1302|Choate||14-APR-1980
+Yondota Falls|1622226|Falls|Gogebic|MI|46.4302001|-89.6840811|1486|Marenisco||14-APR-1980
+Alger Falls|1622240|Falls|Alger|MI|46.3930475|-86.6477175|653|Munising||01-APR-1991
+O Kun de Kun Falls|1622247|Falls|Ontonagon|MI|46.6388305|-89.1515302|994|Rockland||01-APR-1991
+Munising Falls|1622268|Falls|Alger|MI|46.4226786|-86.6212334|732|Indian Town||01-MAY-1991
+Onion Falls|1622291|Falls|Houghton|MI|46.5704974|-88.9845839|1099|Sparrow Rapids||01-MAY-1991
+Little Falls|1622297|Falls|Ontonagon|MI|46.3774466|-89.0995846|1473|Trout Creek||01-MAY-1991
+Deer Creek Falls|1622343|Falls|Ontonagon|MI|46.6524252|-89.6972079|1211|Aldridge Creek||01-MAY-1991
+Haymeadows Falls|1622444|Falls|Delta|MI|46.0257953|-86.8562553|686|Poplar Lake||01-FEB-1991
+Hogger Falls|1622529|Falls|Houghton|MI|46.7224358|-88.8045808|1040|Vista Falls||01-FEB-1991
+West Branch Sturgeon Falls|1622530|Falls|Houghton|MI|46.7224356|-88.7884695|958|Vista Falls||01-FEB-1991
+Jumbo Falls|1622546|Falls|Houghton|MI|46.4505003|-88.9131946|1283|Kenton||01-FEB-1991
+Gleason Creek Falls|1622575|Falls|Ontonagon|MI|46.6707771|-89.3359789|1401|Oak Bluff||01-FEB-1991
+Sandstone Falls|1622576|Falls|Ontonagon|MI|46.6688319|-89.2965332|958|Oak Bluff||01-FEB-1991
+Whitefish Falls|1622606|Falls|Alger|MI|46.2188394|-87.0515337|935|Diffin||01-FEB-1991
+Marshall Falls|1622712|Falls|Gogebic|MI|46.4166143|-89.5737643|1434|Marshall Creek||01-FEB-1991
+Tannery Falls|1622716|Falls|Alger|MI|46.4156501|-86.6269123|718|Munising||01-FEB-1991
+Horseshoe Falls|1622717|Falls|Alger|MI|46.4027870|-86.6426496|686|Munising||01-FEB-1991
+Otter Falls|1622752|Falls|Houghton|MI|46.8116333|-88.7542073|804|Nisula||01-FEB-1991
+Slate River Falls|1624221|Falls|Baraga|MI|46.8304848|-88.2515153|755|Aura||01-FEB-1991
+Bridalveil Falls|2098055|Falls|Alger|MI|46.5083333|-86.5230556|758|Wood Island SE||06-DEC-2006
+Lower Falls|2098056|Falls|Marquette|MI|46.8152778|-87.8036111|669|Ives Hill||18-DEC-2006
+Middle Falls|2098058|Falls|Marquette|MI|46.8111111|-87.8258333|718|Ives Hill||18-DEC-2006
+Upper Falls|2098060|Falls|Marquette|MI|46.8152778|-87.8530556|853|Ives Hill||18-DEC-2006
+East Branch Falls|2099865|Falls|Baraga|MI|46.8497222|-88.0633333|774|McComb Corner||18-DEC-2006
+Wylie Falls|2099874|Falls|Marquette|MI|46.7188889|-87.8550000|1411|Silver Lake Basin||18-DEC-2006
+Daults Falls|2099891|Falls|Baraga|MI|46.7097222|-88.4216667|1093|Alberta||18-DEC-2006
+Ogemaw Falls|2099901|Falls|Baraga|MI|46.6488889|-88.5119444|1178|Baraga Plains||18-DEC-2006
+Upper Falls|2112192|Falls|Keweenaw|MI|47.3313889|-88.4372222|679|Ahmeek||27-MAR-2007
+Lower Falls|2112193|Falls|Keweenaw|MI|47.3355556|-88.4458333|666|Ahmeek||27-MAR-2007
+Lower Falls|2112194|Falls|Keweenaw|MI|47.3938889|-87.8394444|636|Fort Wilkins||27-MAR-2007
+Upper Falls|2112196|Falls|Keweenaw|MI|47.4005556|-87.8358333|699|Fort Wilkins||27-MAR-2007
+Manganese Falls|2112201|Falls|Keweenaw|MI|47.4600000|-87.8783333|696|Lake Medora||27-MAR-2007
+Copper Falls|2112204|Falls|Keweenaw|MI|47.4305556|-88.1958333|1001|Eagle Harbor||27-MAR-2007
+Jacobs Falls|2112205|Falls|Keweenaw|MI|47.4277778|-88.2361111|715|Eagle Harbor||27-MAR-2007
+Silver River Falls|2112206|Falls|Keweenaw|MI|47.4636111|-88.0722222|643|Delaware||27-MAR-2007
+Haven Falls|2112229|Falls|Keweenaw|MI|47.3827778|-88.0250000|633|Delaware||27-MAR-2007
+Lepisto Falls|2112307|Falls|Gogebic|MI|46.6588660|-89.9405500|879|Tiebel Creek||29-MAR-2007
+Eagle River Falls|2112365|Falls|Keweenaw|MI|47.4119444|-88.2955556|643|Phoenix||29-MAR-2007
+Big Erick's Falls|2117710|Falls|Baraga|MI|46.8655160|-88.0837500|699|McComb Corner||10-APR-2007
+Black Slate Falls|2117711|Falls|Baraga|MI|46.8253000|-88.2451660|791|Skanee South||10-APR-2007
+Ectasy Falls|2117714|Falls|Baraga|MI|46.8600830|-88.0759160|718|McComb Corner||10-APR-2007
+Gomanche Falls|2117715|Falls|Baraga|MI|46.7578500|-88.3591000|902|Aura||10-APR-2007
+Lower Canyon Falls|2117717|Falls|Baraga|MI|46.6224000|-88.4772830|1325|Vermilac||11-APR-2007
+Lower Letherby Falls|2117719|Falls|Baraga|MI|46.8076330|-88.0870830|1109|McComb Corner||11-APR-2007
+Middle Falls River Falls|2117735|Falls|Baraga|MI|46.7448660|-88.4497160|735|Alberta||10-APR-2007
+Middle Silver River Falls|2117736|Falls|Baraga|MI|46.7576830|-88.3566330|883|Aura||10-APR-2007
+Power Dam Falls|2117740|Falls|Baraga|MI|46.7353500|-88.4425330|873|Alberta||10-APR-2007
+Power House Falls|2117741|Falls|Baraga|MI|46.7371000|-88.4443330|843|Alberta||10-APR-2007
+Quartzite Falls|2117835|Falls|Baraga|MI|46.8260830|-88.2468830|794|Skanee South||11-APR-2007
+Ravine River Falls|2117836|Falls|Baraga|MI|46.8213660|-88.1942330|860|Skanee South||11-APR-2007
+Slide Falls|2117837|Falls|Baraga|MI|46.8277330|-88.2482660|748|Skanee South||11-APR-2007
+Upper Silver Falls|2117840|Falls|Baraga|MI|46.6822160|-88.3295000|1430|Herman||11-APR-2007
+Hungarian Falls|2124337|Falls|Houghton|MI|47.1700000|-88.4416667|725|Laurium||16-MAY-2007
+Wyandotte Falls|2124339|Falls|Houghton|MI|46.8902778|-88.8788889|1152|Winona North||21-MAY-2007
+Irish Rapid Falls|2125236|Falls|Ontonagon|MI|46.7494444|-89.2388889|643|Rockland||29-MAY-2007
+Rock Bluff Falls|2125277|Falls|Ontonagon|MI|46.3736111|-89.1847222|1362|Watersmeet||30-MAY-2007
+Little Union Gorge Falls|2125799|Falls|Ontonagon|MI|46.7997222|-89.6183333|692|White Pine||11-JUN-2007
+Nonesuch Falls|2125800|Falls|Ontonagon|MI|46.7536111|-89.6202778|886|White Pine||11-JUN-2007
+Iagoo Falls|2126319|Falls|Gogebic|MI|46.6622222|-89.9413889|866|Tiebel Creek||11-JUN-2007
+Rocky Forty Falls|2126320|Falls|Gogebic|MI|46.5072222|-90.1205556|1253|Copper Peak||12-JUN-2007
+Maple Creek Falls|2126321|Falls|Gogebic|MI|46.6461111|-90.1133333|735|Black River Harbor||11-JUN-2007
+Pinkerton Falls|2126322|Falls|Gogebic|MI|46.7333333|-89.8947222|791|Tiebel Creek||12-JUN-2007
+Bathtub Falls|2126323|Falls|Gogebic|MI|46.7625000|-89.8777778|666|Carp River West||07-JUN-2007
+Big Carp Falls|2126324|Falls|Gogebic|MI|46.7591667|-89.8722222|732|Carp River East||07-JUN-2007
+Peterson Falls|2126325|Falls|Gogebic|MI|46.4733333|-90.1952778|1378|Ironwood||12-JUN-2007
+Granite Falls|2126326|Falls|Gogebic|MI|46.4400000|-90.0280556|1450|Bessemer||08-JUN-2007
+Root Beer Falls|2126327|Falls|Gogebic|MI|46.5069444|-89.9375000|1332|Thomaston||12-JUN-2007
+Interstate Falls|2126328|Falls|Gogebic|MI|46.4747222|-90.1991667|1358|Ironwood||11-JUN-2007
+Fumee Falls|2128900|Falls|Dickinson|MI|45.8069444|-87.9783333|1010|Norway||17-JUL-2007
+Lower Mill Pond Falls|2128901|Falls|Dickinson|MI|45.9844444|-87.8452778|1079|Felch||18-JUL-2007
+Upper Mill Pond Falls|2128902|Falls|Dickinson|MI|45.9863889|-87.8494444|1086|Felch||01-AUG-2007
+Power Dam Falls|2128903|Falls|Dickinson|MI|45.7900000|-87.7833333|919|Vulcan||01-AUG-2007
+Hydraulic Dam Falls|2128904|Falls|Dickinson|MI|45.7875000|-88.0402778|955|Iron Mountain||17-JUL-2007
+Horse Race Rapids|2128905|Falls|Dickinson|MI|45.7808333|-88.0583333|1020|Iron Mountain||17-JUL-2007
+Ford Dam Falls|2128906|Falls|Dickinson|MI|45.8063889|-88.1202778|1033|Iron Mountain||17-JUL-2007
+Piers Gorge Falls|2128908|Falls|Dickinson|MI|46.7577778|-87.9441667|1470|Mountain Lake||31-JUL-2007
+Upper East Tumbo River Falls|2129511|Falls|Iron|MI|46.4163889|-88.9088889|1398|Kenton||01-AUG-2007
+Middle East Jumbo River Falls|2129512|Falls|Iron|MI|46.4152778|-88.9086111|1401|Kenton||01-AUG-2007
+Margeson Falls|2129513|Falls|Iron|MI|46.2244444|-88.2416667|1463|Kiernan||18-JUL-2007
+Chicagon Falls|2129514|Falls|Iron|MI|46.1336111|-88.4536111|1371|Amasa||17-JUL-2007
+Glidden Rapids|2129515|Falls|Iron|MI|46.0788889|-88.2213889|1280|Lake Mary||17-JUL-2007
+Turkey Neck Falls|2336591|Falls|Marquette|MI|46.8205556|-87.9511111|984|Mountain Lake||15-AUG-2007
+Trestle Falls|2336592|Falls|Marquette|MI|46.5547222|-87.5072222|1010|Negaunee||15-AUG-2007
+Tiger Falls|2336594|Falls|Marquette|MI|46.4038889|-87.5755556|1224|Palmer||15-AUG-2007
+Schweitzer Falls|2336595|Falls|Marquette|MI|46.4077778|-87.5975000|1243|Palmer||14-AUG-2007
+Mulligan Falls|2336596|Falls|Marquette|MI|46.6836111|-87.8219444|1407|Silver Lake Basin||14-AUG-2007
+Holeyoke Falls|2336597|Falls|Marquette|MI|46.5775000|-87.4963889|961|Marquette||13-AUG-2007
+Ely Falls|2336598|Falls|Marquette|MI|46.4388889|-87.6888889|1434|Ishpeming||10-AUG-2007
+Big Garlic River Falls|2336604|Falls|Marquette|MI|46.6708333|-87.6808333|1398|Negaunee NW||10-AUG-2007
+Upper Carp River Falls|2336605|Falls|Marquette|MI|46.5213889|-87.5763889|1312|Negaunee||15-AUG-2007
+Lower Carp River Falls|2336606|Falls|Marquette|MI|46.5072222|-87.4452778|988|Marquette||13-AUG-2007
+Alder Falls|2336607|Falls|Marquette|MI|46.7794444|-87.7105556|787|Big Bay||10-AUG-2007
+Reany Falls|2336608|Falls|Marquette|MI|46.5736111|-87.4766667|791|Marquette||14-AUG-2007
+Warner Falls|2336609|Falls|Marquette|MI|46.4333333|-87.5988889|1240|Palmer||15-AUG-2007
+Dead River Falls|2336610|Falls|Marquette|MI|46.5686111|-87.4783333|830|Marquette||10-AUG-2007
+Yellow Dog River Falls|2336611|Falls|Marquette|MI|46.7286111|-87.7063889|866|Negaunee NW||15-AUG-2007
+Big Pup Falls|2336612|Falls|Marquette|MI|46.7116667|-87.7038889|1112|Negaunee NW||10-AUG-2007
+Morgan Falls|2336614|Falls|Marquette|MI|46.5077778|-87.4461111|978|Marquette||14-AUG-2007
+Bushy Creek Falls|2336615|Falls|Marquette|MI|46.7347222|-87.6936111|741|Negaunee NW||10-AUG-2007
+Forty Foot Falls|2336616|Falls|Marquette|MI|46.8327778|-87.9736111|1083|Mountain Lake||13-AUG-2007
+Eighty Foot Falls|2336617|Falls|Marquette|MI|46.8541667|-87.8416667|725|Ives Hill||10-AUG-2007
+Upper Chocolay Falls|2336618|Falls|Marquette|MI|46.3444444|-87.2516667|961|Little Lake||15-AUG-2007
+Cataract Dam Falls|2336619|Falls|Marquette|MI|46.3158333|-87.5113889|1145|Cataract Basin||10-AUG-2007
+White City Falls|2336620|Falls|Marquette|MI|46.3900000|-87.7186111|1381|Ishpeming||15-AUG-2007
+Black River Falls|2336621|Falls|Marquette|MI|46.3927778|-87.7805556|1404|Greenwood||10-AUG-2007
+Rose Falls (West)|2351930|Falls|Delta|MI|45.9730556|-87.2700000|909|Woodlawn||09-NOV-2007
+Rose Falls (East)|2351931|Falls|Delta|MI|45.9730556|-87.2458333|827|Cornell||09-NOV-2007
+Chandler Falls|2351932|Falls|Delta|MI|45.8325000|-87.0916667|643|Gladstone||18-SEP-2007
+Rapid River Falls|2351933|Falls|Delta|MI|46.0216667|-86.9833333|702|Baker Creek||19-SEP-2007
+Cole Creek Falls|2352395|Falls|Alger|MI|46.3986111|-86.8158333|650|Au Train||18-SEP-2007
+Memorial Falls|2352404|Falls|Alger|MI|46.4183333|-86.6266667|732|Munising||18-SEP-2007
+Twin Island Rapids|2353271|Falls|Menominee|MI|45.2341667|-87.7230556|617|Chappee Rapids||08-NOV-2007
+Caribou Falls|640892|Falls|Lake|MN|47.4687964|-91.0321030|764|Little Marais||11-JAN-1980
+Deadmans Rapids|642685|Falls|Koochiching|MN|48.1421609|-93.4879451|1142|Nett Lake River West||11-JAN-1980
+Gooseberry Falls|644268|Falls|Lake|MN|47.1429829|-91.4676735|659|Split Rock Point||11-JAN-1980
+Illgen Falls|645339|Falls|Lake|MN|47.3582497|-91.2140512|928|Illgen City||11-JAN-1980
+Middle Falls|647808|Falls|Cook|MN|48.0126632|-89.6159206|797|Pigeon Point||11-JAN-1980
+Minnehaha Falls|647924|Falls|Hennepin|MN|44.9146876|-93.2099445|810|Saint Paul West||11-JAN-1980
+Minnemishinona Falls|647928|Falls|Nicollet|MN|44.1699659|-94.0849577|823|Mankato West||11-JAN-1980
+Minnesota Falls|647935|Falls|Yellow Medicine|MN|44.7913464|-95.5002957|879|Minnesota Falls||11-JAN-1980
+Minnewankon Falls|647955|Falls|Nicollet|MN|44.1832993|-94.1030140|846|Mankato West||11-JAN-1980
+Partridge Falls|649174|Falls|Cook|MN|47.9937750|-89.8453675|1312|Mineral Center|01-JAN-1953|11-JAN-1980
+Pigeon Falls|649399|Falls|Cook|MN|48.0046079|-89.5978652|686|Pigeon Point|01-JAN-1953|11-JAN-1980
+Saint Anthony Falls|650517|Falls|Hennepin|MN|44.9821877|-93.2555026|791|Minneapolis South||11-JAN-1980
+Shadow Falls|651882|Falls|Ramsey|MN|44.9421877|-93.1971666|837|Saint Paul West||11-JAN-1980
+Basswood Falls|655260|Falls|Lake|MN|48.1057271|-91.6484560|1309|Basswood Lake West||11-JAN-1980
+Cascade Falls|655658|Falls|Cook|MN|47.7085044|-90.5240096|653|Deer Yard Lake||11-JAN-1980
+Hidden Falls|656579|Falls|Cook|MN|47.5565688|-90.8743165|709|Tofte||11-JAN-1980
+Little American Falls|657018|Falls|Koochiching|MN|47.9204974|-93.6215743|1240|Craigville||11-JAN-1980
+Lower Basswood Falls|657237|Falls|Lake|MN|48.1135054|-91.7115148|1253|Basswood Lake West||11-JAN-1980
+Pancake Falls|657733|Falls|Lake|MN|47.3518630|-91.3662747|1447|Silver Bay||11-JAN-1980
+Pipestone Falls|657859|Falls|Lake|MN|48.0018382|-91.7315199|1309|Basswood Lake West||11-JAN-1980
+Saganaga Falls|658126|Falls|Cook|MN|48.2287766|-90.8401076|1440|Conners Island||11-JAN-1980
+Newton Falls|658825|Falls|Lake|MN|47.9693401|-91.7229106|1309|Farm Lake|01-JAN-1979|11-JAN-1980
+Wheelbarrow Falls|658968|Falls|Lake|MN|48.1173942|-91.6915136|1263|Basswood Lake West||11-JAN-1980
+Glenn Avon Falls|659184|Falls|Lake|MN|47.2654780|-91.3432220|912|Silver Bay||01-FEB-1991
+Beaver River Falls|659273|Falls|Lake|MN|47.2651999|-91.2976655|748|Silver Bay||01-FEB-1991
+Pike River Falls|660503|Falls|St. Louis|MN|47.7910310|-92.3684998|1362|Tower||01-MAY-1991
+Ash River Falls|660690|Falls|St. Louis|MN|48.3771315|-92.8193239|1132|Ash River NE||11-JAN-1980
+Chipmunk Falls|660996|Falls|St. Louis|MN|48.1790748|-92.5976620|1201|Kabustasa Lake||11-JAN-1980
+Curtain Falls|661081|Falls|St. Louis|MN|48.2365643|-91.9062415|1260|Iron Lake|01-JAN-1954|11-JAN-1980
+Devils Cascade|661114|Falls|St. Louis|MN|48.2049031|-92.2506994|1207|Lake Jeanette||11-JAN-1980
+Fiftysix Rapids|661260|Falls|St. Louis|MN|48.2349036|-92.3387609|1129|Lake Jeanette||11-JAN-1980
+Hannine Falls|661416|Falls|St. Louis|MN|47.8679778|-92.9076759|1260|Meadow Brook||11-JAN-1980
+Loon Falls|661808|Falls|St. Louis|MN|48.2368478|-92.3259824|1158|Lake Jeanette||11-JAN-1980
+Sioux Falls|662457|Falls|St. Louis|MN|48.1040711|-92.2162516|1362|Bootleg Lake||11-JAN-1980
+Kettle Falls|663186|Falls|St. Louis|MN|48.4993500|-92.6390406|1115|Namakan Island|01-JAN-1954|01-APR-1991
+Koochiching Falls|663187|Falls|Koochiching|MN|48.6082710|-93.4029264|1096|International Falls|01-JAN-1954|01-APR-1991
+Last Falls|663195|Falls|Lake|MN|48.1143387|-91.7101258|1257|Basswood Lake West||01-FEB-1991
+Wolf Creek Falls|1815046|Falls|Pine|MN|46.1466151|-92.8607562|968|Sandstone North||25-MAR-1999
+Ramsey Falls|1815462|Falls|Redwood|MN|44.5460706|-95.1258318|932|Delhi||25-MAR-1999
+Big Spring Falls|2069904|Falls|Pine|MN|46.1138889|-92.8577778|951|Sandstone South||25-MAR-2005
+Rochester Falls|738101|Falls|Andrew|MO|39.9105501|-94.6927404|866|Helena||01-DEC-1989
+Shoal Creek Falls|739322|Falls|Newton|MO|37.0319444|-94.5419444|860|Joplin West||01-AUG-1990
+Mina Sauk Falls|751106|Falls|Iron|MO|37.5625486|-90.7412335|1283|Ironton||24-OCT-1980
+Rocky Falls|751940|Falls|Shannon|MO|37.0933828|-91.2095753|758|Stegall Mountain||24-OCT-1980
+The Falls|752517|Falls|Ozark|MO|36.6881165|-92.1973794|643|Cureall NW||24-OCT-1980
+Chain of Rocks|765827|Falls|St. Louis (city)|MO|38.7591667|-90.1791667|397|Columbia Bottom||01-MAR-1991
+Scutchalo Falls|677483|Falls|Copiah|MS|32.0376555|-90.7117673|148|Utica West||24-SEP-1980
+Dunns Falls|683991|Falls|Lauderdale|MS|32.2287572|-88.8214378|262|Stonewall||01-DEC-2003
+Rocky Falls|686813|Falls|Claiborne|MS|31.8957156|-90.7637120|154|Hermanville||01-DEC-2003
+Seminary Falls|710722|Falls|Covington|MS|31.5532228|-89.4995113|223|Seminary||01-DEC-2003
+Bradley Falls|981807|Falls|Polk|NC|35.2678947|-82.2917792|1473|Cliffield Mountain||17-JUN-1980
+Carter Falls|982695|Falls|Wilkes|NC|36.2883411|-80.8848365|1040|Thurmond||17-JUN-1980
+Lanier Falls|988141|Falls|Harnett|NC|35.4793238|-78.9294634|131|Mamers||17-JUN-1980
+Little Falls|988636|Falls|Edgecombe|NC|35.9590434|-77.7808113|59|Rocky Mount||17-JUN-1980
+Little Falls|988637|Falls|Nash|NC|35.9609877|-77.8013677|62|Rocky Mount||17-JUN-1980
+Lower Cascade Falls|989091|Falls|Stokes|NC|36.4148513|-80.2685947|978|Hanging Rock||17-JUN-1980
+Lower Falls|989096|Falls|Graham|NC|35.4545287|-83.9718487|1220|Tapoco||17-JUN-1980
+Moravian Falls|990214|Falls|Wilkes|NC|36.0858365|-81.1901746|1112|Moravian Falls||17-JUN-1980
+Upper Falls|996551|Falls|Nash|NC|35.9609877|-77.8035900|69|Rocky Mount||17-JUN-1980
+Window Falls|997475|Falls|Stokes|NC|36.4009822|-80.2596078|1371|Hanging Rock||17-JUN-1980
+Tory Falls|1006097|Falls|Stokes|NC|36.4015269|-80.2981082|1434|Hanging Rock||01-JUL-1990
+Great Falls|1017394|Falls|Stanly|NC|35.4062523|-80.1317207|505|New London||01-JUL-1988
+Whitewater Falls|1023589|Falls|Transylvania|NC|35.0712143|-82.8868047|1109|Reid||01-NOV-1989
+Beaver Brook Falls|865483|Falls|Cheshire|NH|42.9617472|-72.2600852|728|Keene||27-AUG-1980
+Beaver Brook Falls|865484|Falls|Coos|NH|44.9192138|-71.4636945|1145|Lovering Mountain||27-AUG-1980
+Ellingwood Falls|866778|Falls|Coos|NH|44.8733830|-71.1286874|1424|Errol||27-AUG-1980
+Fay Falls|866851|Falls|Cheshire|NH|43.0292465|-72.4034209|899|Walpole||27-AUG-1980
+Hampton Falls|867346|Falls|Rockingham|NH|42.9100900|-70.8706093|30|Hampton||27-AUG-1980
+Packers Falls|868970|Falls|Strafford|NH|43.1034189|-70.9520034|43|Newmarket||27-AUG-1980
+Purgatory Falls|869401|Falls|Hillsborough|NH|42.8873072|-71.7081291|597|New Boston||27-AUG-1980
+Sewalls Falls|869853|Falls|Merrimack|NH|43.2600802|-71.5536840|239|Penacook||27-AUG-1980
+Steeles Falls|870161|Falls|Merrimack|NH|43.2106372|-71.3128438|617|Gossville||27-AUG-1980
+Sumner Falls|870269|Falls|Sullivan|NH|43.5645153|-72.3809249|308|Hartland||27-AUG-1980
+Welton Falls|870729|Falls|Grafton|NH|43.6528506|-71.8500813|1014|Newfound Lake||27-AUG-1980
+Wildcat Falls|870890|Falls|Hillsborough|NH|42.8553644|-71.5036785|144|South Merrimack||27-AUG-1980
+Beede Falls|871484|Falls|Carroll|NH|43.8275719|-71.4953527|1161|Center Sandwich||27-AUG-1980
+Brickett Falls|871578|Falls|Carroll|NH|44.2506213|-71.0317394|935|Wild River||27-AUG-1980
+Hermit Falls|872034|Falls|Carroll|NH|44.2786760|-71.0386843|781|Wild River||27-AUG-1980
+Livermore Falls|872202|Falls|Grafton|NH|43.7847940|-71.6684114|584|Plymouth||27-AUG-1980
+Mill Brook Cascade|872303|Falls|Grafton|NH|43.9225694|-71.6267451|1020|Woodstock||27-AUG-1980
+Sabbaday Falls|872602|Falls|Grafton|NH|43.9947917|-71.3964632|1404|Mount Tripyramid||27-AUG-1980
+Shell Cascade|872649|Falls|Grafton|NH|43.9297919|-71.5347988|1388|Waterville Valley||27-AUG-1980
+Thompson Falls|872803|Falls|Carroll|NH|44.0414587|-71.1792378|807|North Conway West||27-AUG-1980
+Winniweta Falls|872957|Falls|Carroll|NH|44.1792342|-71.2389619|1335|Jackson||27-AUG-1980
+Greggs Falls|1915419|Falls|Hillsborough|NH|43.0173055|-71.5681257|269|Goffstown||08-MAY-2001
+Garvin Falls|1917082|Falls|Merrimack|NH|43.1659151|-71.5095149|213|Concord||08-MAY-2001
+Passaic Falls|879157|Falls|Passaic|NJ|40.9164876|-74.1820891|62|Paterson||08-SEP-1979
+Tillman Falls|881186|Falls|Sussex|NJ|41.1578733|-74.8585019|712|Culvers Gap||08-SEP-1979
+Bass Lake Falls|883140|Falls|Warren|NJ|41.0231526|-74.9529499|741|Flatbrookville||01-JUL-1981
+Maple Falls|883742|Falls|Essex|NJ|40.7345455|-74.3037596|322|Roselle||01-JUL-1981
+Foul Rift Falls|883779|Falls|Warren|NJ|40.8112090|-75.0948971|259|Belvidere||01-JUL-1981
+Pottersville Falls|1802792|Falls|Morris|NJ|40.7201007|-74.7265511|292|Gladstone|02-FEB-1898|22-OCT-1998
+The Cascades|942079|Falls|Onondaga|NY|42.8617336|-76.0629788|1181|Tully||23-JAN-1980
+Tinker Falls|942081|Falls|Cortland|NY|42.7832848|-76.0326422|1398|Tully||23-JAN-1980
+Alice Falls|942323|Falls|Clinton|NY|44.5189365|-73.4643010|338|Keeseville||23-JAN-1980
+American Falls|942427|Falls|Niagara|NY|43.0853334|-79.0689337|505|Niagara Falls||23-JAN-1980
+Angel Falls|942475|Falls|Wyoming|NY|42.6711722|-78.4347415|1079|Strykersville||23-JAN-1980
+Arkwright Falls|942558|Falls|Chautauqua|NY|42.3922157|-79.2687131|1191|Dunkirk||23-JAN-1980
+Aunt Sarahs Falls|942703|Falls|Schuyler|NY|42.3509069|-76.8585691|741|Montour Falls||23-JAN-1980
+Bear Falls|943262|Falls|Steuben|NY|42.0734067|-77.2674782|1106|Borden||23-JAN-1980
+Boucks Falls|944486|Falls|Schoharie|NY|42.5403540|-74.4259763|846|Breakabeen||23-JAN-1980
+Bozen Kill Falls|944559|Falls|Albany|NY|42.7384092|-74.1120716|682|Altamont||23-JAN-1980
+Bridal Veil Falls|944721|Falls|Niagara|NY|43.0836667|-79.0703226|505|Niagara Falls||23-JAN-1980
+Bucktail Falls|945086|Falls|Onondaga|NY|42.8222897|-76.2413176|892|Otisco Valley||23-JAN-1980
+Buttermilk Falls|945362|Falls|Tioga|NY|42.1317185|-76.2878753|932|Candor||23-JAN-1980
+Buttermilk Falls|945364|Falls|Columbia|NY|42.2181435|-73.7040120|262|Claverack||23-JAN-1980
+Buttermilk Falls|945366|Falls|Montgomery|NY|42.8686850|-74.4506921|817|Carlisle||23-JAN-1980
+Buttermilk Falls|945367|Falls|Madison|NY|43.0486788|-75.7112953|699|Oneida||23-JAN-1980
+Buttermilk Falls|945368|Falls|Fulton|NY|43.1342389|-74.2954129|1417|Jackson Summit||23-JAN-1980
+Buttermilk Falls|945370|Falls|Essex|NY|44.4661596|-73.4367996|610|Port Douglass||23-JAN-1980
+Button Falls|945393|Falls|Madison|NY|42.7911826|-75.2693318|1227|Brookfield||23-JAN-1980
+Canada Falls|945723|Falls|Delaware|NY|42.1500174|-74.7003738|1430|Margaretville||23-JAN-1980
+Canajoharie Falls|945736|Falls|Montgomery|NY|42.8925733|-74.5654181|433|Canajoharie||23-JAN-1980
+Carpenter Falls|945887|Falls|Cayuga|NY|42.8117349|-76.3432658|1273|Spafford||23-JAN-1980
+Cascade Falls|945947|Falls|Wyoming|NY|42.8228387|-78.0997331|1125|Wyoming||23-JAN-1980
+Clifford Falls|946870|Falls|Essex|NY|44.2767137|-73.8229199|1342|Keene||23-JAN-1980
+Clifton Falls|946876|Falls|Cayuga|NY|42.7400704|-76.6888368|515|Sheldrake||23-JAN-1980
+Crandall Falls|947685|Falls|Oneida|NY|43.3975689|-75.1373863|1181|Forestport||23-JAN-1980
+Denton Falls|948328|Falls|Sullivan|NY|41.5664811|-74.6323833|935|Hartwood||23-JAN-1980
+Dickinson Falls|948442|Falls|Albany|NY|42.4961905|-73.9754077|659|Alcove||23-JAN-1980
+Fall Brook Falls|949875|Falls|Livingston|NY|42.7747849|-77.8286136|597|Geneseo||23-JAN-1980
+Fellows Falls|949964|Falls|Onondaga|NY|42.8161785|-76.1574264|860|Otisco Valley||23-JAN-1980
+Glen Falls|951179|Falls|Greene|NY|42.2548097|-74.0270786|627|Freehold||23-JAN-1980
+Glenerie Falls|951210|Falls|Ulster|NY|42.0203694|-73.9829149|98|Saugerties||23-JAN-1980
+Glenora Falls|951220|Falls|Yates|NY|42.4900716|-76.9169055|610|Reading Center||23-JAN-1980
+Hardenburgh Falls|952198|Falls|Delaware|NY|42.3378608|-74.4515373|1145|Prattsville||23-JAN-1980
+High Falls|952727|Falls|Sullivan|NY|41.5534254|-74.6476613|860|Hartwood||23-JAN-1980
+High Falls|952728|Falls|Columbia|NY|42.2461988|-73.6492870|466|Claverack||23-JAN-1980
+High Falls|952729|Falls|Essex|NY|44.3489359|-73.8740333|1348|Keene||23-JAN-1980
+High Falls|952730|Falls|Franklin|NY|44.7097712|-74.1721003|1427|Owls Head||23-JAN-1980
+High Falls|952731|Falls|Franklin|NY|44.9094893|-74.0862743|951|Chateaugay||23-JAN-1980
+Horseshoe Falls|953237|Falls|Niagara|NY|43.0772778|-79.0747670|515|Niagara Falls||23-JAN-1980
+Hulls Falls|953426|Falls|Essex|NY|44.2350477|-73.7943069|958|Keene Valley||23-JAN-1980
+Johnson Falls|954119|Falls|Wyoming|NY|42.7272827|-78.4541868|1152|Strykersville||23-JAN-1980
+Judds Falls|954215|Falls|Otsego|NY|42.8225736|-74.7365346|1207|Sprout Brook||23-JAN-1980
+Katrina Falls|954398|Falls|Sullivan|NY|41.6074110|-74.6185260|1152|Yankee Lake||23-JAN-1980
+Kent Falls|954535|Falls|Clinton|NY|44.7036532|-73.6018050|469|Morrisonville||23-JAN-1980
+Leatherstocking Falls|955143|Falls|Otsego|NY|42.7327612|-74.9226293|1329|Cooperstown||23-JAN-1980
+Linsey Falls|955423|Falls|Essex|NY|43.9367248|-73.7412421|840|Paradox Lake||23-JAN-1980
+Lower Falls|956082|Falls|Livingston|NY|42.5853411|-78.0205610|820|Portageville||23-JAN-1980
+Lucifer Falls|956131|Falls|Tompkins|NY|42.4006287|-76.5841113|764|Ithaca West||23-JAN-1980
+Mad River Falls|956246|Falls|Oswego|NY|43.5934032|-75.8179687|1240|Redfield||23-JAN-1980
+Manorkill Falls|956380|Falls|Schoharie|NY|42.3806369|-74.4307026|1211|Gilboa||23-JAN-1980
+Meadow Falls|956877|Falls|Greene|NY|42.4325823|-73.8359587|315|Ravena||23-JAN-1980
+Middle Falls|957096|Falls|Livingston|NY|42.5828410|-78.0425062|935|Portageville||23-JAN-1980
+Mine Kill Falls|957386|Falls|Schoharie|NY|42.4289682|-74.4720917|1030|Gilboa||23-JAN-1980
+Mine Lot Falls|957388|Falls|Albany|NY|42.6534107|-74.0131834|774|Altamont||23-JAN-1980
+Moonshine Falls|957590|Falls|Cayuga|NY|42.7270149|-76.6882812|456|Sheldrake||23-JAN-1980
+Niagara Falls|958544|Falls|Niagara|NY|43.0833889|-79.0706003|502|Niagara Falls||23-JAN-1980
+Oak Tree Falls|959159|Falls|Seneca|NY|42.6767374|-76.7293946|463|Sheldrake||23-JAN-1980
+Perryville Falls|960217|Falls|Madison|NY|43.0097891|-75.8060217|948|Canastota||23-JAN-1980
+Phelps Falls|960284|Falls|Essex|NY|44.2011600|-73.7748608|1145|Keene Valley||23-JAN-1980
+Pixley Falls|960653|Falls|Oneida|NY|43.4022915|-75.3440605|840|Boonville||23-JAN-1980
+Rainbow Falls|962145|Falls|Clinton|NY|44.5236586|-73.4604120|256|Keeseville||23-JAN-1980
+Rensselaerville Falls|962389|Falls|Albany|NY|42.5147998|-74.1434690|1476|Rensselaerville||23-JAN-1980
+Rossman Falls|962952|Falls|Columbia|NY|42.3331408|-73.7431786|75|Stottville||23-JAN-1980
+Russell Falls|963112|Falls|Essex|NY|44.1525507|-73.7815264|1312|Keene Valley||23-JAN-1980
+Saint Marys Falls|963949|Falls|Otsego|NY|42.5121115|-75.2925482|1152|New Berlin South||23-JAN-1980
+Salmon River Falls|964325|Falls|Oswego|NY|43.5478478|-75.9407509|741|Orwell||23-JAN-1980
+Shequaga Falls|965061|Falls|Schuyler|NY|42.3447959|-76.8510687|492|Montour Falls||23-JAN-1980
+Shumla Falls|965192|Falls|Chautauqua|NY|42.3855304|-79.2943537|994|Dunkirk||23-JAN-1980
+Spier Falls|966005|Falls|Warren|NY|43.2347948|-73.7567869|361|Corinth||23-JAN-1980
+Split Rock Falls|966013|Falls|Essex|NY|44.1258853|-73.6537436|666|Rocky Peak Ridge||23-JAN-1980
+Stockbridge Falls|966464|Falls|Madison|NY|42.9511795|-75.6076805|938|Munnsville||23-JAN-1980
+Stone Falls|966504|Falls|Livingston|NY|42.5370116|-77.6674936|938|Dansville||23-JAN-1980
+Taughannock Falls|967070|Falls|Tompkins|NY|42.5356275|-76.6107786|676|Ludlowville|07-JUN-1933|23-JAN-1980
+The Flume Fall|967238|Falls|Essex|NY|44.3664359|-73.8401434|1066|Keene||23-JAN-1980
+Tompkins Falls|967640|Falls|Delaware|NY|42.0753661|-74.7648802|1489|Lewbeach||23-JAN-1980
+Triphammer Falls|967838|Falls|Livingston|NY|42.8600629|-77.7636135|702|Geneseo||23-JAN-1980
+Upper Falls|968271|Falls|Livingston|NY|42.5789521|-78.0486175|994|Portageville||23-JAN-1980
+Auger Falls|969830|Falls|Hamilton|NY|43.4672889|-74.2465257|1273|Griffin||23-JAN-1980
+Bakers Falls|969838|Falls|Washington|NY|43.2972947|-73.5909488|200|Hudson Falls||23-JAN-1980
+Brickyard Falls|969913|Falls|Onondaga|NY|42.9853441|-75.9863083|610|Oran||23-JAN-1980
+Buttermilk Falls|969942|Falls|Orange|NY|41.2200944|-74.3348742|873|Greenwood Lake||23-JAN-1980
+Buttermilk Falls|969943|Falls|Genesee|NY|43.0053389|-77.9730667|722|Churchville||23-JAN-1980
+Buttermilk Falls|969944|Falls|Washington|NY|43.4225703|-73.5876151|623|Putnam Mountain||23-JAN-1980
+Chittenango Falls|969997|Falls|Madison|NY|42.9786779|-75.8415791|810|Cazenovia||23-JAN-1980
+Cohoes Falls|970019|Falls|Saratoga|NY|42.7889667|-73.7095633|125|Troy North||23-JAN-1980
+Delphi Falls|970066|Falls|Madison|NY|42.8642336|-75.8993611|994|DeRuyter||23-JAN-1980
+Edwards Falls|970105|Falls|Onondaga|NY|42.9895108|-75.9613071|676|Oran||23-JAN-1980
+Eggleston Falls|970106|Falls|Saratoga|NY|43.2681275|-73.9517925|988|Conklingville||23-JAN-1980
+Elmer Falls|970108|Falls|Lewis|NY|43.9270122|-75.2882426|1102|Belfort||23-JAN-1980
+Hanging Rock Falls|970191|Falls|Ulster|NY|41.7414824|-74.4298779|791|Ellenville||23-JAN-1980
+High Falls|970206|Falls|Lewis|NY|43.8972903|-75.6635256|1073|Copenhagen||23-JAN-1980
+Ithaca Falls|970239|Falls|Tompkins|NY|42.4528505|-76.4916069|436|Ithaca East||23-JAN-1980
+Johnson Falls|970252|Falls|Wyoming|NY|42.7964491|-78.3283504|1227|Attica||23-JAN-1980
+Kane Falls|970256|Falls|Washington|NY|43.4264594|-73.4959458|171|Fort Ann||23-JAN-1980
+Kings Falls|970266|Falls|Lewis|NY|43.9170126|-75.6329695|846|Copenhagen||23-JAN-1980
+Montville Falls|970362|Falls|Cayuga|NY|42.7172922|-76.4091020|774|Moravia||23-JAN-1980
+Parson Falls|970456|Falls|Cayuga|NY|42.7228481|-76.4516035|984|Moravia||23-JAN-1980
+Pratts Falls|970500|Falls|Onondaga|NY|42.9311776|-75.9940870|1224|Oran||23-JAN-1980
+Rexford Falls|970520|Falls|Chenango|NY|42.6789602|-75.4712887|1184|Sherburne||23-JAN-1980
+Spicer Falls|970638|Falls|Cortland|NY|42.7395119|-75.9679768|1306|Cuyler||23-JAN-1980
+Stony Kill Falls|970670|Falls|Ulster|NY|41.7275207|-74.3016104|1276|Napanoch||23-JAN-1980
+Talcott Falls|970695|Falls|Jefferson|NY|43.8920071|-75.9788118|627|Watertown||23-JAN-1980
+White Store Falls|971139|Falls|Chenango|NY|42.4777782|-75.4174618|1197|Guilford||23-JAN-1980
+Horton Falls|971963|Falls|Albany|NY|42.6592449|-73.9062359|262|Voorheesville|01-JAN-1990|01-JAN-1991
+Hosmer Falls|973327|Falls|Seneca|NY|42.6853485|-76.7396729|499|Sheldrake|01-JAN-1974|01-JAN-1992
+Hector Falls|974024|Falls|Schuyler|NY|42.4178504|-76.8652361|679|Burdett||23-JAN-1980
+Silver Thread Falls|974059|Falls|Seneca|NY|42.6128485|-76.8560687|591|Lodi||23-JAN-1980
+Rushton Falls|975811|Falls|St. Lawrence|NY|44.5967274|-75.1746500|322|Canton|01-JAN-1991|01-APR-1991
+Allen Falls|975889|Falls|St. Lawrence|NY|44.6558918|-74.8499165|577|Parishville||23-JAN-1980
+Basford Falls|975927|Falls|St. Lawrence|NY|44.3403397|-75.0579770|856|Degrasse||23-JAN-1980
+Bruner Falls|976042|Falls|St. Lawrence|NY|44.5431179|-74.6929626|1165|Sylvan Falls||23-JAN-1980
+Copper Rock Falls|976188|Falls|St. Lawrence|NY|44.2886730|-74.9593612|1240|Tooley Pond||23-JAN-1980
+Flat Rock Falls|976317|Falls|St. Lawrence|NY|44.3183953|-75.0076971|1040|Degrasse||23-JAN-1980
+Higley Falls|976438|Falls|St. Lawrence|NY|44.5306178|-74.9318624|850|Colton||23-JAN-1980
+Jamestown Falls|976485|Falls|St. Lawrence|NY|44.3253398|-74.7165722|1384|Childwold||23-JAN-1980
+Kingsley Falls|976524|Falls|St. Lawrence|NY|44.5506175|-74.6807395|1158|Sylvan Falls||23-JAN-1980
+Moody Falls|976669|Falls|St. Lawrence|NY|44.3117285|-74.7154608|1401|Childwold||23-JAN-1980
+Rainbow Falls|976865|Falls|St. Lawrence|NY|44.3067287|-74.9990854|1168|Tooley Pond||23-JAN-1980
+Rainbow Falls|976866|Falls|St. Lawrence|NY|44.5178410|-74.8215805|1076|Rainbow Falls||23-JAN-1980
+Sinclair Falls|976997|Falls|St. Lawrence|NY|44.3378398|-75.0468655|909|Degrasse||23-JAN-1980
+Sylvan Falls|977092|Falls|St. Lawrence|NY|44.5761723|-74.7107425|1122|Sylvan Falls||23-JAN-1980
+Twin Falls|977149|Falls|St. Lawrence|NY|44.3325620|-75.0265868|958|Degrasse||23-JAN-1980
+Harper Falls|977227|Falls|St. Lawrence|NY|44.4353398|-75.0746454|751|West Pierrepont||23-JAN-1980
+High Falls|977228|Falls|St. Lawrence|NY|44.4670073|-74.6226783|1460|Augerhole Falls||23-JAN-1980
+Jacksons Falls|977231|Falls|St. Lawrence|NY|44.4947834|-75.1690946|509|Hermon||23-JAN-1980
+Lampsons Falls|977232|Falls|St. Lawrence|NY|44.4056176|-75.0713116|755|West Pierrepont||23-JAN-1980
+Pelkys Falls|977238|Falls|St. Lawrence|NY|44.4289512|-75.0201985|896|West Pierrepont||23-JAN-1980
+Oskonsa Falls|979945|Falls|Steuben|NY|42.1334063|-77.3069238|1299|Rathbone|01-JAN-1926|01-SEP-1995
+Nevele Falls|1781939|Falls|Ulster|NY|41.6945379|-74.3940434|535|Ellenville|01-JAN-1997|11-FEB-1998
+Three Falls|2106410|Falls|St. Lawrence|NY|44.5166667|-74.8819444|879|Colton||15-FEB-2007
+Five Falls (historical)|2120150|Falls|St. Lawrence|NY|44.5280556|-74.8355556|1076|Rainbow Falls||02-MAY-2007
+Gain Twist Falls (historical)|2120151|Falls|St. Lawrence|NY|44.5138889|-74.8175000|1181|Rainbow Falls||02-MAY-2007
+Little Falls (historical)|2120152|Falls|St. Lawrence|NY|44.5047222|-74.7575000|1197|Rainbow Falls||02-MAY-2007
+Honeoye Falls|2367711|Falls|Monroe|NY|42.9519444|-77.5913889|650|Honeoye Falls||12-DEC-2007
+Buttermilk Falls|2367733|Falls|Orange|NY|41.3700000|-73.9619444|52|Peekskill||12-DEC-2007
+Buttermilk Falls|2368011|Falls|Albany|NY|42.7758333|-73.6877778|20|Troy North||12-DEC-2007
+Cascade Falls|1038852|Falls|Lake|OH|41.6739370|-81.1842668|771|Painesville||12-JUL-1979
+Cedar Falls|1038892|Falls|Adams|OH|38.8367392|-83.3754659|699|Lynx||12-JUL-1979
+Greenville Falls|1041160|Falls|Miami|OH|40.1072727|-84.3746706|919|Pleasant Hill||12-JUL-1979
+Big Lyons Falls|1067813|Falls|Ashland|OH|40.6161111|-82.3277778|1083|Jelloway||01-FEB-1992
+Brandywine Falls|1068315|Falls|Summit|OH|41.2769999|-81.5381728|837|Northfield||01-APR-1992
+Deans Fall|1068572|Falls|Geauga|OH|41.5208000|-81.3901000|961|Mayfield Heights||01-APR-1992
+Grove Falls|1071861|Falls|Knox|OH|40.3831211|-82.2632108|853|Danville||01-JUN-1992
+Chagrin Falls|1072960|Falls|Cuyahoga|OH|41.4311645|-81.3923348|879|Chagrin Falls||01-AUG-1992
+Cedar Falls|1075542|Falls|Hocking|OH|39.4195117|-82.5234915|840|South Bloomingville||12-JUL-1979
+Sugar Creek Falls (historical)|1077434|Falls|Tuscarawas|OH|40.6356165|-81.5603997|948|Navarre||01-FEB-1992
+Great Falls|1922950|Falls|Cuyahoga|OH|41.3836653|-81.5323422|843|Shaker Heights||22-MAY-2001
+Blue Hen Falls|1922952|Falls|Summit|OH|41.2583887|-81.5728968|810|Northfield||22-MAY-2001
+Buttermilk Falls|1922953|Falls|Summit|OH|41.2628332|-81.5673410|712|Northfield||22-MAY-2001
+Bridal Veil Falls|1922955|Falls|Cuyahoga|OH|41.3731098|-81.5492872|843|Northfield||22-MAY-2001
+Mill Creek Falls|1922957|Falls|Cuyahoga|OH|41.4453303|-81.6251265|784|Cleveland South||22-MAY-2001
+Cascade Falls|1961340|Falls|Portage|OH|41.3297777|-81.0409280|974|Garrettsville||11-SEP-2002
+Minnehaha Falls|1961341|Falls|Portage|OH|41.3258888|-81.0378724|961|Garrettsville||11-SEP-2002
+Little Lyons Falls|2375009|Falls|Ashland|OH|40.6193000|-82.3292000|1106|Jelloway||10-JAN-2008
+Big Falls|1090110|Falls|Johnston|OK|34.3023155|-96.5763893|699|Connerville SE||18-DEC-1979
+Bridal Veil Falls|1090484|Falls|Murray|OK|34.4245331|-97.1500182|1007|Turner Falls||18-DEC-1979
+Cedar Falls|1091111|Falls|Carter|OK|34.3350914|-97.0530706|837|Gene Autry||18-DEC-1979
+Cheadle Falls|1091225|Falls|Johnston|OK|34.2756491|-96.5691665|686|Connerville SE||18-DEC-1979
+Classen Falls|1091396|Falls|Murray|OK|34.4617545|-97.1580746|843|Turner Falls||18-DEC-1979
+Henry House Falls|1093673|Falls|Carter|OK|34.3509227|-97.2333516|909|Springer||18-DEC-1979
+Hickory Falls|1093708|Falls|Carter|OK|34.3592556|-97.2922420|955|Milo||18-DEC-1979
+Lick Creek Falls|1094629|Falls|Murray|OK|34.4439768|-97.1755746|1083|Turner Falls||18-DEC-1979
+McFadden Falls|1095231|Falls|Cherokee|OK|35.9775024|-94.9251454|761|Tahlequah||18-DEC-1979
+Presbyterian Falls|1096922|Falls|McCurtain|OK|34.0695547|-94.6241030|367|Eagletown||18-DEC-1979
+Price Falls|1096931|Falls|Murray|OK|34.4262002|-97.1069621|830|Dougherty||18-DEC-1979
+Rock Creek Falls|1097345|Falls|Atoka|OK|34.2725883|-96.3242397|551|Boggy Depot||18-DEC-1979
+Slippery Falls|1098123|Falls|Johnston|OK|34.3028833|-96.7043548|771|Reagan||18-DEC-1979
+Turner Falls|1099068|Falls|Murray|OK|34.4253665|-97.1486293|965|Turner Falls||18-DEC-1979
+Travertine Falls|1101249|Falls|Murray|OK|34.5056447|-96.9691831|961|Sulphur North|01-JAN-1937|11-JAN-1999
+Hontubby Falls|1101474|Falls|Le Flore|OK|34.8559350|-94.5857808|499|Hontubby|01-JAN-1977|18-DEC-1979
+Bear Falls|1101917|Falls|Murray|OK|34.5100892|-96.9544604|1086|Sulphur North|01-JAN-1937|11-JAN-1999
+Cave Island Falls|1101928|Falls|Murray|OK|34.5067560|-96.9536269|1017|Sulphur North|01-JAN-1937|11-JAN-1999
+Garfield Falls|1101934|Falls|Murray|OK|34.5023115|-96.9555714|984|Sulphur North|01-JAN-1937|11-JAN-1999
+Little Niagara Falls|1101938|Falls|Murray|OK|34.5084226|-96.9502935|1024|Sulphur North|01-JAN-1937|11-JAN-1999
+Lost Falls|1101939|Falls|Murray|OK|34.5025893|-96.9552936|994|Sulphur North|01-JAN-1937|11-JAN-1999
+Panther Falls|1101944|Falls|Murray|OK|34.5028670|-96.9655718|955|Sulphur North|01-JAN-1937|11-JAN-1999
+Pebble Falls|1101946|Falls|Murray|OK|34.5017560|-96.9614049|988|Sulphur North|01-JAN-1937|11-JAN-1999
+Sycamore Falls|1101952|Falls|Murray|OK|34.5050893|-96.9547380|1007|Sulphur North|01-JAN-1937|11-JAN-1999
+Lower Verdigris Falls (historical)|2437449|Falls|Wagoner|OK|35.8554297|-95.3692152|489|Northeast Muskogee||05-MAR-2010
+Webbers Falls (historical)|2437549|Falls|Sequoyah|OK|35.4608333|-95.0544444|459|Stigler NE||05-MAR-2010
+Barth Falls|1117271|Falls|Clatsop|OR|46.0623324|-123.6873562|305|Green Mountain|01-JAN-1959|28-NOV-1980
+Beaver Falls|1117445|Falls|Columbia|OR|46.1037224|-123.1212278|256|Delena||28-NOV-1980
+Berry Creek Falls|1117554|Falls|Polk|OR|44.8565061|-123.4701056|1096|Falls City||28-NOV-1980
+Bonnie Falls|1117932|Falls|Columbia|OR|45.8040847|-122.9376661|344|Chapman||28-NOV-1980
+Cushing Falls|1119646|Falls|Wasco|OR|45.6117344|-121.1197618|121|Petersburg||28-NOV-1980
+Double Falls|1120038|Falls|Marion|OR|44.8920417|-122.6450116|1217|Drake Crossing||28-NOV-1980
+Drake Falls|1120071|Falls|Marion|OR|44.8895890|-122.6457932|1063|Drake Crossing||28-NOV-1980
+Fishhawk Falls|1120784|Falls|Clatsop|OR|45.9603890|-123.5862395|807|Vinemaple||28-NOV-1980
+Golden Falls|1121219|Falls|Coos|OR|43.4851152|-123.9278790|574|Golden Falls||28-NOV-1980
+Haines Falls|1121508|Falls|Washington|OR|45.4654675|-123.3203743|594|Turner Creek||28-NOV-1980
+Henrys Falls|1121762|Falls|Coos|OR|43.4970592|-124.0031593|315|Allegany||28-NOV-1980
+Horseshoe Falls|1122040|Falls|Sherman|OR|45.3873816|-120.5856442|1470|Harmony||28-NOV-1980
+Jackson Falls|1122359|Falls|Washington|OR|45.6231671|-122.9373728|410|Hillsboro||28-NOV-1980
+Laverne Falls|1122998|Falls|Coos|OR|43.2567507|-124.0273546|161|Daniels Creek||28-NOV-1980
+Lee Falls|1123020|Falls|Washington|OR|45.4651885|-123.2846730|387|Turner Creek||28-NOV-1980
+Little Falls|1123189|Falls|Clatsop|OR|45.7995553|-123.6181810|299|Elsie||28-NOV-1980
+Little Lee Falls|1123223|Falls|Washington|OR|45.4514436|-123.2641534|308|Turner Creek||28-NOV-1980
+Mill Creek Falls|1124168|Falls|Wasco|OR|45.5188503|-121.3377256|1398|Brown Creek||28-NOV-1980
+Nehalem Falls|1124639|Falls|Tillamook|OR|45.7273320|-123.7729063|69|Foley Peak||28-NOV-1980
+Pidgeon Falls|1125363|Falls|Coos|OR|43.4756697|-124.0501059|95|Allegany||28-NOV-1980
+Rainie Falls|1125787|Falls|Josephine|OR|42.6501140|-123.6172940|591|Mount Reuben||28-NOV-1980
+Shellburg Falls|1126862|Falls|Marion|OR|44.8126056|-122.6086026|1332|Lyons||28-NOV-1980
+Silver Falls|1126968|Falls|Coos|OR|43.4884485|-123.9345459|689|Golden Falls||28-NOV-1980
+Siuslaw Falls|1127012|Falls|Lane|OR|43.8537324|-123.3645388|574|Letz Creek||28-NOV-1980
+South Falls|1127252|Falls|Marion|OR|44.8788319|-122.6589914|1142|Drake Crossing||28-NOV-1980
+Stasel Falls|1127544|Falls|Marion|OR|44.8086737|-122.6005670|1335|Lyons||28-NOV-1980
+Stulls Falls|1127675|Falls|Coos|OR|43.5109483|-123.9956592|443|Elk Peak|01-JAN-1973|28-NOV-1980
+The Fall|1127965|Falls|Clackamas|OR|45.3236295|-122.3001347|489|Estacada||28-NOV-1980
+Twin Falls|1128343|Falls|Marion|OR|44.8851843|-122.6371048|1243|Drake Crossing||28-NOV-1980
+Winter Falls|1129244|Falls|Marion|OR|44.8844232|-122.6409264|1365|Drake Crossing||28-NOV-1980
+Youngs River Falls|1129400|Falls|Clatsop|OR|46.0670535|-123.7898594|52|Olney||28-NOV-1980
+Sherars Falls|1129783|Falls|Wasco|OR|45.2623439|-121.0325618|686|Sherars Bridge||22-MAY-1986
+Alsea Falls|1130736|Falls|Benton|OR|44.3284548|-123.4998248|732|Glenbrook||22-MAY-1986
+Lower North Falls|1131478|Falls|Marion|OR|44.8917241|-122.6467719|1030|Drake Crossing||22-MAY-1986
+Lower Shellburg Falls|1131499|Falls|Marion|OR|44.8102186|-122.6083078|1184|Lyons||22-MAY-1986
+Ayers Creek Falls|1131500|Falls|Marion|OR|44.8118379|-122.5883886|1444|Lyons||22-MAY-1986
+Moffett Falls|1132100|Falls|Multnomah|OR|45.6220617|-121.9739712|157|Tanner Butte||22-MAY-1986
+Kilchis Falls|1132194|Falls|Tillamook|OR|45.6053866|-123.6512331|1332|Cedar Butte||22-MAY-1986
+Wilson Falls|1132207|Falls|Tillamook|OR|45.5706646|-123.5706745|469|Jordan Creek||22-MAY-1986
+Valsetz Falls|1132250|Falls|Lincoln|OR|44.8623377|-123.7340000|738|Valsetz||22-MAY-1986
+Martin Falls|1132499|Falls|Lincoln|OR|44.6706723|-124.0373384|197|Newport North||22-MAY-1986
+Estell Falls|1132590|Falls|Coos|OR|43.4776143|-124.0401055|112|Allegany||22-MAY-1986
+Middle Creek Falls|1132609|Falls|Coos|OR|43.2151111|-124.0109337|164|McKinley||22-MAY-1986
+Green Peak Falls|1134167|Falls|Benton|OR|44.3357629|-123.4945088|755|Glenbrook||01-NOV-1991
+Elk Creek Falls|1134568|Falls|Coos|OR|42.8156121|-124.0115419|528|China Flat||01-NOV-1991
+Upper Latourell Falls|1134666|Falls|Multnomah|OR|45.5304106|-122.2211989|679|Bridal Veil||01-NOV-1991
+Cascade Falls|1134867|Falls|Linn|OR|44.5457974|-122.4287014|1175|Yellowstone Mountain||01-NOV-1991
+North Falls|1135497|Falls|Marion|OR|44.8850270|-122.6239509|1463|Elk Prairie||01-NOV-1991
+Sweet Creek Falls|1135595|Falls|Lane|OR|43.9465093|-123.9031651|427|Goodwin Peak||01-NOV-1991
+Beaver Creek Falls|1135596|Falls|Lane|OR|43.9423424|-123.8923313|610|Goodwin Peak||01-NOV-1991
+Dillon Falls|1135718|Falls|Jackson|OR|42.4581785|-123.0253254|1093|Gold Hill||01-NOV-1991
+Wildwood Falls|1135735|Falls|Lane|OR|43.6998450|-122.8189535|1004|Culp Creek||01-NOV-1991
+Bridal Veil Falls|1138603|Falls|Multnomah|OR|45.5543255|-122.1802496|174|Bridal Veil||28-NOV-1980
+Campbell Falls|1139284|Falls|Douglas|OR|43.0517871|-122.7808828|1407|Dumont Creek|01-JAN-1948|28-NOV-1980
+Chichester Falls|1139627|Falls|Lane|OR|43.9701721|-122.5378295|1115|Saddleblanket Mountain||28-NOV-1980
+Coopey Falls|1140085|Falls|Multnomah|OR|45.5622898|-122.1646264|358|Bridal Veil||28-NOV-1980
+Echo Falls|1141662|Falls|Lincoln|OR|44.8867790|-123.9323350|105|Devils Lake||28-NOV-1980
+Elowah Falls|1141845|Falls|Multnomah|OR|45.6118005|-121.9945088|440|Tanner Butte|01-JAN-1915|28-NOV-1980
+Horsetail Falls|1143820|Falls|Multnomah|OR|45.5894344|-122.0685250|266|Multnomah Falls||28-NOV-1980
+Lancaster Falls|1144805|Falls|Hood River|OR|45.6847487|-121.7059441|394|Mount Defiance|01-JAN-1971|28-NOV-1980
+Latourell Falls|1144859|Falls|Multnomah|OR|45.5368528|-122.2181419|410|Bridal Veil|01-JAN-1915|28-NOV-1980
+Little Falls|1145166|Falls|Douglas|OR|43.3553977|-122.7144967|1178|Steamboat||28-NOV-1980
+Loowit Falls|1145490|Falls|Hood River|OR|45.6082964|-121.8854778|712|Tanner Butte||28-NOV-1980
+Lower Soda Falls|1145640|Falls|Linn|OR|44.4077987|-122.4753640|1358|Cascadia||28-NOV-1980
+Metlako Falls|1146115|Falls|Hood River|OR|45.6282652|-121.8989409|223|Bonneville Dam|01-JAN-1915|28-NOV-1980
+Mist Falls|1146368|Falls|Multnomah|OR|45.5738380|-122.1315352|712|Bridal Veil||28-NOV-1980
+North Fork Falls|1146953|Falls|Douglas|OR|43.9323251|-123.8177304|968|Baldy Mountain||28-NOV-1980
+Oneonta Falls|1147227|Falls|Multnomah|OR|45.5823618|-122.0727517|404|Multnomah Falls||28-NOV-1980
+Punch Bowl Falls|1148046|Falls|Hood River|OR|45.6216773|-121.8946820|377|Tanner Butte||28-NOV-1980
+Punchbowl Falls|1148047|Falls|Hood River|OR|45.6025334|-121.6360994|833|Dee||28-NOV-1980
+Rainbow Falls|1148171|Falls|Linn|OR|44.3756310|-122.4684455|1463|Cascadia||28-NOV-1980
+Salmon Falls|1148979|Falls|Lane|OR|43.7615124|-122.3744895|1480|Huckleberry Mountain||28-NOV-1980
+Salmon Falls|1148980|Falls|Marion|OR|44.8317784|-122.3688035|1142|Elkhorn||28-NOV-1980
+Smith River Falls|1149765|Falls|Douglas|OR|43.7881736|-123.8187148|171|Smith River Falls||28-NOV-1980
+Stair Creek Falls|1150322|Falls|Curry|OR|42.6967778|-123.8995295|515|Marial||28-NOV-1980
+Steamboat Falls|1150375|Falls|Douglas|OR|43.3737314|-122.6400503|1401|Steamboat||28-NOV-1980
+Tunnel Falls|1151516|Falls|Hood River|OR|45.5849301|-121.8523145|1155|Wahtum Lake||28-NOV-1980
+Wahe Falls|1151807|Falls|Multnomah|OR|45.6159638|-121.9653588|548|Tanner Butte||28-NOV-1980
+Wahkeena Falls|1151809|Falls|Multnomah|OR|45.5734790|-122.1270590|607|Bridal Veil|01-JAN-1915|28-NOV-1980
+Warren Creek Falls|1153233|Falls|Hood River|OR|45.6862728|-121.7020637|197|Mount Defiance||22-MAY-1986
+Nenamusa Falls|1153331|Falls|Tillamook|OR|45.2428875|-123.5970558|709|Springer Mountain||22-MAY-1986
+Moose Creek Falls|1153404|Falls|Linn|OR|44.4040143|-122.4400803|1073|Cascadia||22-MAY-1986
+Chitwood Falls|1153478|Falls|Tillamook|OR|45.0739950|-123.9937255|732|Neskowin||22-MAY-1986
+Cascade Falls|1153579|Falls|Lincoln|OR|44.3192873|-123.8553891|213|Five Rivers||22-MAY-1986
+Fall Creek Falls|1153623|Falls|Lincoln|OR|44.3918021|-123.7397733|180|Grass Mountain||22-MAY-1986
+Euchre Falls|1153651|Falls|Lincoln|OR|44.8006711|-123.8698344|292|Euchre Mountain||22-MAY-1986
+The Horn|1153682|Falls|Lane|OR|44.0651200|-123.7901063|236|Mapleton||22-MAY-1986
+Tanner Creek Falls|1154338|Falls|Multnomah|OR|45.6177162|-121.9513724|433|Tanner Butte||22-MAY-1986
+Eagle Creek Upper Falls|1154927|Falls|Clackamas|OR|45.2774001|-122.1956095|968|Cherryville||22-MAY-1986
+Cavitt Falls|1155250|Falls|Douglas|OR|43.0206734|-123.2039510|781|Dodson Butte||22-MAY-1986
+Jack Falls|1155268|Falls|Douglas|OR|43.3178978|-122.6914398|1247|Steamboat|01-JAN-1969|22-MAY-1986
+Little Illinois River Falls|1155694|Falls|Josephine|OR|42.2392486|-123.6800455|1197|Cave Junction||01-MAY-1989
+Coquille River Falls|1155748|Falls|Coos|OR|42.7173783|-124.0214123|1237|Illahe||01-MAY-1989
+Munson Creek Falls|1155952|Falls|Tillamook|OR|45.3617735|-123.7609515|1197|Beaver||01-JUL-1992
+Willamette Falls|1156769|Falls|Clackamas|OR|45.3512317|-122.6220363|62|Oregon City||22-MAY-1986
+Wah Gwin Gwin Falls|1157080|Falls|Hood River|OR|45.7118446|-121.5536477|249|Hood River||01-APR-1993
+Hewett Falls|1157232|Falls|Coos|OR|43.4553926|-123.9195448|843|Golden Falls||01-APR-1993
+Kelsey Falls (historical)|1158886|Falls|Josephine|OR|42.6976124|-123.7720238|436|Kelsey Peak|01-JAN-1971|22-MAY-1986
+Lower Black Bar Falls|1158889|Falls|Josephine|OR|42.6559459|-123.7311880|512|Bunker Creek|01-JAN-1971|22-MAY-1986
+Upper Black Bar Falls|1158947|Falls|Josephine|OR|42.6520570|-123.7297989|499|Bunker Creek|01-JAN-1971|22-MAY-1986
+Grave Creek Falls|1159006|Falls|Josephine|OR|42.6498365|-123.5928486|636|Mount Reuben|01-JAN-1971|22-MAY-1986
+Tumwater Falls|1160615|Falls|Sherman|OR|45.6587379|-120.5025516|331|Quinton||01-SEP-1993
+Middle Falls|1160977|Falls|Clackamas|OR|45.2949856|-122.2567166|686|Estacada||01-SEP-1993
+Baker Creek Falls|1161003|Falls|Yamhill|OR|45.2595579|-123.3456638|856|Fairdale||01-SEP-1993
+Celilo Falls (historical)|1161648|Falls|Wasco|OR|45.6498450|-120.9789563|164|Wishram||22-MAY-1986
+Middle North Falls|1162311|Falls|Marion|OR|44.8887483|-122.6429916|1125|Drake Crossing||22-MAY-1986
+North Fork Falls|1162745|Falls|Clatsop|OR|45.8109440|-123.7498517|305|Hamlet||01-MAR-1994
+Abiqua Falls|1162805|Falls|Marion|OR|44.9263208|-122.5672886|1263|Elk Prairie||28-NOV-1980
+Drift Creek Falls|1162950|Falls|Marion|OR|44.8990108|-122.7073099|984|Drake Crossing||28-NOV-1980
+Lower South Falls|1163113|Falls|Marion|OR|44.8787331|-122.6584200|1289|Drake Crossing||28-NOV-1980
+Gunaldo Falls|1638893|Falls|Yamhill|OR|45.1039991|-123.7740023|577|Dolph||01-MAR-1994
+Wiesendanger Falls|1765041|Falls|Multnomah|OR|45.5734516|-122.1078639|1066|Multnomah Falls|01-JAN-1997|07-NOV-1997
+Multnomah Falls|1802919|Falls|Multnomah|OR|45.5758989|-122.1154241|630|Multnomah Falls||22-OCT-1998
+Ki-a-Kuts Falls|1844264|Falls|Washington|OR|45.4664995|-123.3878904|1257|Gobblers Knob|01-JAN-1999|25-JUN-1999
+Wahclella Falls|1851757|Falls|Multnomah|OR|45.6181728|-121.9514705|308|Tanner Butte||14-SEP-1999
+Fern Rock Falls|2014047|Falls|Tillamook|OR|45.6073326|-123.4373387|1079|Woods Point|01-JAN-2003|20-NOV-2003
+Upper Kentucky Falls|2435969|Falls|Douglas|OR|43.9281900|-123.8024640|1444|Baldy Mountain||16-MAY-2008
+Lower Kentucky Falls|2435990|Falls|Douglas|OR|43.9312700|-123.8157200|1017|Baldy Mountain||16-MAY-2008
+Ti'lomikh Falls|2652256|Falls|Jackson|OR|42.4432850|-123.0430980|1073|Gold Hill|09-DEC-2010|12-DEC-2010
+Bucks Falls|1170576|Falls|Wayne|PA|41.8861943|-75.4762913|1398|Starrucca||02-AUG-1979
+Bushkill Falls|1170773|Falls|Pike|PA|41.1164840|-75.0121181|548|Bushkill||02-AUG-1979
+Buttermilk Falls|1170810|Falls|Monroe|PA|41.0098171|-75.1321229|381|East Stroudsburg||02-AUG-1979
+Clarke Falls|1171925|Falls|Monroe|PA|41.0537040|-75.2229589|545|East Stroudsburg||02-AUG-1979
+Conewago Falls|1172318|Falls|Lancaster|PA|40.1203720|-76.7135792|239|York Haven||02-AUG-1979
+Conewago Falls|1172319|Falls|Dauphin|PA|40.1281495|-76.7185793|259|Middletown||02-AUG-1979
+Creek Falls|1172668|Falls|Fayette|PA|40.1072953|-79.6778185|968|Dawson||02-AUG-1979
+Dingmans Falls|1173290|Falls|Pike|PA|41.2306499|-74.8918360|568|Lake Maskenozha||02-AUG-1979
+Fulmer Falls|1175330|Falls|Pike|PA|41.2367608|-74.9154478|797|Lake Maskenozha||02-AUG-1979
+High Falls|1177003|Falls|Monroe|PA|41.2103697|-75.1435108|1099|Skytop||02-AUG-1979
+Howard Falls|1177518|Falls|Erie|PA|41.9555026|-80.2298458|1129|Edinboro North||02-AUG-1979
+Kitchen Creek Falls|1178568|Falls|Luzerne|PA|41.2992479|-76.2738241|1234|Red Rock||02-AUG-1979
+Leavitt Falls|1179094|Falls|Monroe|PA|41.2223127|-75.2415695|1302|Skytop||02-AUG-1979
+Lee Falls|1179113|Falls|Monroe|PA|41.0584263|-75.2096252|594|East Stroudsburg||02-AUG-1979
+Lewis Falls|1179237|Falls|Sullivan|PA|41.3382906|-76.3642247|1483|Red Rock||02-AUG-1979
+Marshalls Falls|1180466|Falls|Monroe|PA|41.0528720|-75.1362894|545|East Stroudsburg||02-AUG-1979
+Paradise Falls|1183284|Falls|Monroe|PA|41.1064804|-75.2671265|830|Mount Pocono||02-AUG-1979
+Scudders Falls|1187189|Falls|Bucks|PA|40.2670524|-74.8526641|20|Pennington||02-AUG-1979
+Silverthread Falls|1187695|Falls|Pike|PA|41.2306500|-74.8865581|646|Lake Maskenozha||02-AUG-1979
+Spruce Cabin Falls|1188322|Falls|Monroe|PA|41.1795354|-75.2410143|955|Skytop||02-AUG-1979
+Twin Falls|1190004|Falls|Monroe|PA|41.0314836|-75.1260114|456|East Stroudsburg||02-AUG-1979
+Twin Falls|1190005|Falls|Sullivan|PA|41.3342470|-76.3563286|1381|Red Rock||02-AUG-1979
+Winona Falls|1191606|Falls|Pike|PA|41.1092614|-75.0471193|581|Bushkill||02-AUG-1979
+Buttermilk Falls|1192224|Falls|Sullivan|PA|41.5365236|-76.7459672|1476|Shunk||02-AUG-1979
+Cucumber Falls|1192320|Falls|Fayette|PA|39.8628532|-79.5030943|1230|Fort Necessity||02-AUG-1979
+Lincoln Falls|1192786|Falls|Sullivan|PA|41.5131337|-76.6608004|1132|Shunk||02-AUG-1979
+Pinchot Falls|1193123|Falls|Pike|PA|41.3278713|-74.8226665|702|Milford||02-AUG-1979
+Raymondskill Falls|1193172|Falls|Pike|PA|41.2887051|-74.8415563|456|Milford||02-AUG-1979
+Falls of Schuylkill|1197506|Falls|Philadelphia|PA|40.0076124|-75.1940677|10|Germantown||30-AUG-1990
+Marshall Falls|1197894|Falls|Monroe|PA|41.0528720|-75.1362894|545|East Stroudsburg||30-AUG-1990
+Angel Falls|1198329|Falls|Sullivan|PA|41.3937703|-76.6770925|1414|Hillsgrove||02-AUG-1979
+Wenonan Falls|1199759|Falls|Sullivan|PA|41.3753568|-76.5868949|1335|Eagles Mere||02-AUG-1979
+High Falls|1199881|Falls|Pike|PA|41.4034234|-75.1037844|1335|Rowland||02-AUG-1979
+Ridgeway Falls|1199943|Falls|Pike|PA|41.4253677|-75.1048951|1125|Rowland||02-AUG-1979
+Wangum Falls|1199996|Falls|Wayne|PA|41.4958028|-75.2488764|1086|Hawley||02-AUG-1979
+Quakertown Falls|1201322|Falls|Lawrence|PA|41.0222819|-80.5097915|928|Campbell||01-JUL-1989
+Factory Falls|1201328|Falls|Pike|PA|41.2362052|-74.9154478|801|Lake Maskenozha||01-JUL-1989
+Deer Leap Falls|1201329|Falls|Pike|PA|41.2350941|-74.9151701|781|Lake Maskenozha||01-JUL-1989
+Snow Hill Falls|1201330|Falls|Pike|PA|41.1542595|-75.1348998|965|Skytop||01-JUL-1989
+Great Falls of the Lehigh|1201331|Falls|Luzerne|PA|41.1292515|-75.6271338|1457|Pleasant View Summit||01-JUL-1989
+Buttermilk Falls|1201340|Falls|Wyoming|PA|41.4600776|-75.8479737|643|Ransom||01-JUL-1989
+Darbytown Falls|1201376|Falls|Wayne|PA|41.6061999|-75.0765585|889|Narrowsburg||01-AUG-1989
+Rock Creek Falls|1201377|Falls|Crawford|PA|41.5233869|-80.1681171|1283|Geneva||01-AUG-1989
+Grant City Falls|1201378|Falls|Lawrence|PA|40.9783955|-80.1764493|1106|Portersville||01-AUG-1989
+Dry Run Falls|1201386|Falls|Sullivan|PA|41.4300775|-76.6705087|1257|Hillsgrove||01-AUG-1989
+Springfield Falls|1201445|Falls|Mercer|PA|41.1422816|-80.2178399|1165|Mercer||01-AUG-1989
+Dutchman Falls|1201447|Falls|Sullivan|PA|41.4500769|-76.4504995|1483|Laporte||01-AUG-1989
+Homewood Falls|1201448|Falls|Beaver|PA|40.8142308|-80.3281189|948|Beaver Falls||01-AUG-1989
+Shohola Falls|1201458|Falls|Pike|PA|41.3912202|-74.9692812|1119|Shohola||01-AUG-1989
+Ohiopyle Falls|1201467|Falls|Fayette|PA|39.8678531|-79.4955940|1175|Ohiopyle||01-AUG-1989
+Buck Hill Falls|1201472|Falls|Monroe|PA|41.1948125|-75.2685148|1109|Buck Hill Falls||01-AUG-1989
+Adams Falls|1201523|Falls|Luzerne|PA|41.2994595|-76.2741541|1250|Red Rock||01-SEP-1989
+Sheldon Reynolds Falls|1201535|Falls|Luzerne|PA|41.3192091|-76.2744282|1473|Red Rock||01-SEP-1989
+Murray Reynolds Falls|1201536|Falls|Luzerne|PA|41.3182558|-76.2739876|1447|Red Rock||01-SEP-1989
+Hawk Falls|1201560|Falls|Carbon|PA|41.0064760|-75.6338008|1375|Hickory Run||01-NOV-1989
+Tomhicken Falls|1202219|Falls|Schuylkill|PA|40.9170306|-76.1407669|1283|Nuremberg||01-JAN-1990
+Sugar Run Falls|1202390|Falls|Fayette|PA|39.9059083|-79.4905935|1165|Mill Run||01-JAN-1990
+Jonathan Run Falls|1202391|Falls|Fayette|PA|39.9022972|-79.4917046|1175|Mill Run||01-JAN-1990
+Spillway Falls|1202393|Falls|Lawrence|PA|40.9592293|-80.1692269|1079|Portersville||01-JAN-1990
+Nay Aug Falls|1202407|Falls|Lackawanna|PA|41.4014695|-75.6396336|850|Scranton||01-JAN-1990
+Whirlpool Canyon Falls|1202471|Falls|Luzerne|PA|41.2350817|-75.8079718|1253|Wilkes-Barre East||01-FEB-1990
+The Grotto|1214215|Falls|Philadelphia|PA|40.0651111|-75.1979554|279|Germantown||01-JUL-1989
+Jobos Saltillo|1612671|Falls|Utuado|PR|18.3218957|-66.6785074|922|Utuado||13-FEB-1981
+Catarata de la Mina|1992434|Falls|Río Grande|PR|18.3027313|-65.7757183|1483|El Yunque||01-JAN-2000
+Medallaiechad|1391575|Falls||PW|7.5891667|134.5905556|131|Ngermetengel||01-JAN-2000
+Tabecheding|1391958|Falls||PW|7.4505556|134.5266667|135|Oreor||01-JAN-2000
+Stepstone Falls|1217870|Falls|Washington|RI|41.6117660|-71.7603468|269|Voluntown|01-JAN-1930|21-MAY-1976
+Pawtucket Falls|1219366|Falls|Providence|RI|41.8764888|-71.3833891|7|Pawtucket|01-JAN-1930|01-APR-1991
+Horseshoe Falls|1902228|Falls|Washington|RI|41.4481563|-71.6286742|92|Carolina||03-MAY-2001
+Albion Falls|1903096|Falls|Providence|RI|41.9489879|-71.4481145|72|Pawtucket||03-MAY-2001
+Woonsocket Falls|1904484|Falls|Providence|RI|41.9991667|-71.5177778|128|Georgiaville|05-FEB-1930|03-MAY-2001
+Big Falls|1220699|Falls|Greenville|SC|35.1631717|-82.3931739|1414|Zirconia||13-JUL-1980
+High Falls|1223157|Falls|Oconee|SC|34.8112112|-82.9226465|801|Old Pickens||13-JUL-1980
+Reedy Cove Falls|1225813|Falls|Pickens|SC|35.0137217|-82.8187480|1155|Eastatoe Gap||13-JUL-1980
+The Falls|1227074|Falls|Marion|SC|34.0423859|-79.2853248|30|Centenary||13-JUL-1980
+Clearwater Falls|1229565|Falls|Pickens|SC|34.9203807|-82.8809757|892|Salem||13-JUL-1980
+Isaqueena Falls|1229841|Falls|Oconee|SC|34.8062047|-83.1209872|1224|Walhalla||13-JUL-1980
+Great Falls of Catawba|1230696|Falls|Chester|SC|34.5790342|-80.8778559|302|Great Falls||01-FEB-1993
+Hendricks Falls|1232929|Falls|Union|SC|34.5090261|-81.5984372|315|Whitmire North||01-MAY-1993
+Gordons Mill Falls|1234827|Falls|Laurens|SC|34.5934624|-81.8548226|400|Philson Crossroads||01-JUL-1993
+Great Falls|1234832|Falls|Laurens|SC|34.4034513|-82.2378957|476|Ware Shoals East||01-JUL-1993
+Cedar Falls|1235054|Falls|Kershaw|SC|34.5404281|-80.6853515|374|Heath Springs||01-JUL-1993
+Gordons Falls|1235667|Falls|Chesterfield|SC|34.7509896|-79.9025635|72|Morven East||01-AUG-1993
+Cockers Falls|1240836|Falls|Darlington|SC|34.4865457|-79.7872851|56|Mont Clare||01-MAR-1994
+Pelham Falls|1245567|Falls|Greenville|SC|34.8537297|-82.2209467|718|Pelham||01-JAN-1995
+Sioux Falls|1258087|Falls|Minnehaha|SD|43.5555306|-96.7228278|1378|Sioux Falls East||13-FEB-1980
+Stinging Fork Falls|1271444|Falls|Rhea|TN|35.7211274|-84.9270733|1381|Pennine||19-MAY-1980
+Upper Piney Falls|1273305|Falls|Rhea|TN|35.7310352|-84.8634887|1299|Spring City||19-MAY-1980
+Virgin Falls|1273482|Falls|White|TN|35.8392332|-85.3308031|1086|Lonewood||19-MAY-1980
+Abrams Falls|1275431|Falls|Blount|TN|35.6084190|-83.8796220|1489|Calderwood|01-JAN-1932|19-MAY-1980
+Baker Falls|1276174|Falls|Coffee|TN|35.4706319|-86.1674901|997|Normandy Lake||19-MAY-1980
+Big Falls|1277293|Falls|Coffee|TN|35.4849256|-86.1079511|902|Manchester||19-MAY-1980
+Bluehole Falls|1277821|Falls|Coffee|TN|35.4862720|-86.1041480|961|Manchester||19-MAY-1980
+Boone Falls|1277980|Falls|Lincoln|TN|35.0956394|-86.5966624|925|Lincoln||19-MAY-1980
+Bosworth Falls|1278026|Falls|Coffee|TN|35.4817428|-86.1513788|991|Normandy Lake||19-MAY-1980
+Burgess Falls|1279037|Falls|Putnam|TN|36.0439516|-85.5983126|771|Burgess Falls||19-MAY-1980
+Cascade Falls|1279839|Falls|Coffee|TN|35.4211884|-86.2397137|988|Normandy Lake||19-MAY-1980
+Copperas Falls|1281271|Falls|Lawrence|TN|35.1395259|-87.2405715|748|Bodenham||19-MAY-1980
+Copperas Falls|1281272|Falls|Coffee|TN|35.4200774|-86.2213798|965|Normandy Lake||19-MAY-1980
+Dry Creek Falls|1282951|Falls|Jackson|TN|36.2664484|-85.5513649|860|Dodson Branch||19-MAY-1980
+Falling Water Falls|1284098|Falls|Hamilton|TN|35.1898352|-85.2825247|1427|Fairmount||19-MAY-1980
+Fall Creek Falls|1284107|Falls|Van Buren|TN|35.6659002|-85.3558021|1411|Sampson|01-JAN-1977|19-MAY-1980
+Great Falls|1286048|Falls|Warren|TN|35.8047895|-85.6302573|679|Campaign||19-MAY-1980
+Jackson Falls|1289216|Falls|Hickman|TN|35.6967369|-87.2955666|584|Greenfield Bend||19-MAY-1980
+Jenkins Falls|1289356|Falls|Hickman|TN|35.6321471|-87.4667871|617|Sunrise||19-MAY-1980
+Laurel Falls|1290736|Falls|Marion|TN|35.0486860|-85.4077383|1407|Wauhatchie||19-MAY-1980
+Laurel Falls|1290739|Falls|Rhea|TN|35.8015428|-84.7899215|1132|Roddy||19-MAY-1980
+Little Falls|1291498|Falls|Coffee|TN|35.4840463|-86.1040666|948|Manchester||19-MAY-1980
+Lower Falls|1292215|Falls|Monroe|TN|35.4545287|-83.9715710|1280|Tapoco||19-MAY-1980
+Lower Piney Falls|1292227|Falls|Rhea|TN|35.7287709|-84.8654818|1204|Spring City||19-MAY-1980
+Machine Falls|1292439|Falls|Coffee|TN|35.4128556|-86.1791563|935|Normandy Lake||19-MAY-1980
+Magendanz Falls|1292495|Falls|Fentress|TN|36.3636996|-84.8895960|1489|Grimsley||19-MAY-1980
+Marcella Falls|1292671|Falls|Lawrence|TN|35.3634114|-87.2144567|853|Campbellsville||19-MAY-1980
+Ovoca Falls|1296556|Falls|Coffee|TN|35.4114666|-86.2027681|912|Normandy Lake||19-MAY-1980
+Ozone Falls|1296629|Falls|Cumberland|TN|35.8800711|-84.8110567|1489|Ozone||19-MAY-1980
+Piney Creek Falls|1297627|Falls|Van Buren|TN|35.6731225|-85.3841368|1496|Spencer||19-MAY-1980
+Rainbow Falls|1298827|Falls|Hardin|TN|35.0318093|-88.1320289|518|Pickwick||19-MAY-1980
+Rainbow Falls|1298828|Falls|Coffee|TN|35.4831317|-86.1477676|1014|Normandy Lake||19-MAY-1980
+Rattlesnake Falls|1298944|Falls|Maury|TN|35.4489657|-87.2627900|902|Summertown||19-MAY-1980
+Ray Falls|1298997|Falls|Rhea|TN|35.7813846|-84.8421721|1263|Roddy||19-MAY-1980
+Rutledge Falls|1300365|Falls|Coffee|TN|35.4220221|-86.1377664|919|Normandy Lake||19-MAY-1980
+The Falls|1304056|Falls|Scott|TN|36.4953536|-84.6510505|850|Honey Creek||19-MAY-1980
+Eagle Falls|1309396|Falls|Lewis|TN|35.5309083|-87.3144568|784|Mount Joy||01-MAY-1989
+Double Drop Falls|1309655|Falls|Morgan|TN|36.1184055|-84.8071697|1191|Hebbertsburg||01-JUN-1989
+Jacks Rock Falls|1309667|Falls|Morgan|TN|36.0997960|-84.7129992|1043|Lancing||01-JUN-1989
+Double Falls|1311275|Falls|Scott|TN|36.4270209|-84.6254958|994|Honey Creek||01-OCT-1989
+Cummins Falls|1311985|Falls|Jackson|TN|36.2495038|-85.5716437|768|Cookeville West||01-DEC-1989
+Cul-car-mac Falls|1313907|Falls|DeKalb|TN|35.9450636|-85.7760951|876|Smithville||19-MAY-1980
+Bald River Falls|1327495|Falls|Monroe|TN|35.3242464|-84.1771381|1447|Bald River Falls||19-MAY-1980
+Bullet Creek Falls|1327756|Falls|Monroe|TN|35.2962027|-84.4403455|1230|Mecca||19-MAY-1980
+Lower Falls|1641213|Falls|Monroe|TN|35.4545287|-83.9718487|1220|Tapoco||01-NOV-1991
+Rainbow Falls|1643622|Falls|Cannon|TN|35.7970128|-85.9727659|1138|Short Mountain||01-JUN-1989
+Barber Falls|1330027|Falls|Hays|TX|30.0698297|-97.8827521|682|Mountain City||30-NOV-1979
+Dittmar Falls|1334391|Falls|Guadalupe|TX|29.6532822|-98.0644516|541|New Braunfels East||30-NOV-1979
+Kickapoo Falls|1339084|Falls|Hood|TX|32.5454128|-97.9878163|801|Dennis||30-NOV-1979
+Pedernales Falls|1343795|Falls|Blanco|TX|30.3396432|-98.2547401|853|Pedernales Falls||30-NOV-1979
+Gorman Falls|1358200|Falls|San Saba|TX|31.0582263|-98.4822578|1115|Gorman Falls||30-NOV-1979
+Horseshoe Falls|1359639|Falls|Comal|TX|29.8585520|-98.1791772|764|Sattler||30-NOV-1979
+Post Oak Falls|1365658|Falls|San Saba|TX|31.0055740|-98.4592564|1083|Gorman Falls||30-NOV-1979
+Skiles Falls|1368384|Falls|Karnes|TX|28.9584307|-98.0444147|269|Falls City||30-NOV-1979
+Slumber Falls|1368444|Falls|Comal|TX|29.7555006|-98.1388979|636|Sattler||30-NOV-1979
+The Falls|1369780|Falls|Falls|TX|31.2465672|-96.9191548|335|Cedar Springs||30-NOV-1979
+Dolan Falls|1373421|Falls|Val Verde|TX|29.8845541|-100.9937132|1322|Dolan Springs||30-NOV-1979
+Edge Falls|1373587|Falls|Kendall|TX|29.9138267|-98.5064097|1125|Kendalia||30-NOV-1979
+Hidalgo Falls|1374060|Falls|Washington|TX|30.3940958|-96.1766258|157|Millican||30-NOV-1979
+Rust Falls|1375863|Falls|Comal|TX|29.8846614|-98.3705717|938|Fischer||30-NOV-1979
+Cason Falls|1384241|Falls|Parker|TX|32.6926307|-97.7222509|1033|Annetta||30-NOV-1979
+Rock Falls|1384260|Falls|Parker|TX|32.6926307|-97.7364181|1053|Annetta||30-NOV-1979
+Spring Falls|1384263|Falls|Parker|TX|32.6815202|-97.6744716|948|Annetta||30-NOV-1979
+Chalk Ridge Falls|1385304|Falls|Bell|TX|31.0177127|-97.5248028|518|Nolanville||01-JAN-1995
+Falling Rock Falls|1466461|Falls|Franklin|VA|37.2137503|-79.8403132|846|Hardy||28-SEP-1979
+Great Falls|1467428|Falls|Fairfax|VA|38.9987208|-77.2544255|138|Vienna||28-SEP-1979
+White Falls|1476582|Falls|Patrick|VA|36.8378677|-80.1474672|1010|Charity||28-SEP-1979
+Goods Falls|1483700|Falls|Page|VA|38.7737269|-78.4102842|623|Rileyville||28-SEP-1979
+Mountain Falls|1485676|Falls|Frederick|VA|39.1412161|-78.4061176|1181|Capon Springs||28-SEP-1979
+Wylie Falls|1487101|Falls|Giles|VA|37.4117875|-80.8620245|1463|Peterstown||28-SEP-1979
+The Falls|1487824|Falls|Nelson|VA|37.7887519|-78.9075228|1263|Horseshoe Mountain||28-SEP-1979
+Panther Falls|1488600|Falls|Amherst|VA|37.7070794|-79.2889216|1194|Buena Vista||01-DEC-1991
+Monkey Falls|1498120|Falls|Scott|VA|36.6059339|-82.5354297|1234|Kingsport||01-FEB-1995
+Eagle Point Falls (historical)|1500677|Falls|Mecklenburg|VA|36.5934753|-78.4299981|299|Tungsten||01-JUN-1995
+Hyco Falls (historical)|1500888|Falls|Halifax|VA|36.6845835|-78.7283386|299|Buffalo Springs||01-JUN-1995
+Glenn Falls|1779362|Falls|Rockbridge|VA|37.9184670|-79.1947533|1457|Vesuvius||05-FEB-1998
+Big Falls|1456413|Falls|Orleans|VT|44.9722678|-72.3848307|617|North Troy||29-OCT-1980
+Bingham Falls|1456426|Falls|Lamoille|VT|44.5194931|-72.7670668|1240|Mount Mansfield||29-OCT-1980
+Blake Falls|1456461|Falls|Washington|VT|44.4289474|-72.4145507|1197|Woodbury||29-OCT-1980
+Bolton Falls|1456512|Falls|Washington|VT|44.3594970|-72.8167878|351|Waterbury||29-OCT-1980
+Buttermilk Falls|1456696|Falls|Windsor|VT|43.4364603|-72.7278752|1257|Ludlow||29-OCT-1980
+Highgate Falls|1457821|Falls|Franklin|VT|44.9347655|-73.0476311|128|Highgate Center||29-OCT-1980
+Mollys Falls|1458513|Falls|Washington|VT|44.3569984|-72.3420484|843|Marshfield||29-OCT-1980
+Moss Glen Falls|1458562|Falls|Lamoille|VT|44.4819946|-72.6240007|1017|Mount Worcester||29-OCT-1980
+Sumner Falls|1459778|Falls|Windsor|VT|43.5645153|-72.3806471|308|Hartland||29-OCT-1980
+Wymans Falls|1460336|Falls|Windsor|VT|43.3106296|-72.6253710|1047|Andover||29-OCT-1980
+Beecher Falls|1460368|Falls|Essex|VT|45.0069905|-71.5098063|1066|Monadnock Mountain OE N||01-APR-1990
+Falls of Lana|1461057|Falls|Addison|VT|43.9042293|-73.0626136|709|East Middlebury|01-JAN-1973|29-OCT-1980
+Moss Glen Falls|1461174|Falls|Addison|VT|44.0181183|-72.8503892|1230|Warren||29-OCT-1980
+Texas Falls|1461520|Falls|Addison|VT|43.9347858|-72.9003885|1201|Bread Loaf||29-OCT-1980
+Huntington Falls|1918124|Falls|Addison|VT|44.0703355|-73.1959527|167|Middlebury||08-MAY-2001
+Winooski Falls|1918957|Falls|Chittenden|VT|44.4889381|-73.1837387|144|Burlington||08-MAY-2001
+Moretown Falls|1919134|Falls|Washington|VT|44.2511695|-72.7620608|577|Waterbury||08-MAY-2001
+Hamilton Falls|1921003|Falls|Windham|VT|43.1375771|-72.7634294|1335|Londonderry||08-MAY-2001
+Center Rutland Falls|1921798|Falls|Rutland|VT|43.6036792|-73.0139961|476|West Rutland||11-MAY-2001
+Sutherland Falls|1922147|Falls|Rutland|VT|43.6634002|-73.0334419|466|Proctor||11-MAY-2001
+Black River Falls|1922265|Falls|Windsor|VT|43.2997967|-72.4834228|410|Springfield||11-MAY-2001
+Crystal Cascade Falls|1922321|Falls|Windsor|VT|43.4347943|-72.4678685|1467|Windsor||11-MAY-2001
+Gerrys Falls|1922374|Falls|Windsor|VT|43.4506275|-72.4362019|1480|Windsor||11-MAY-2001
+Cascade Falls|1503838|Falls|San Juan|WA|48.6463762|-122.8323972|489|Mount Constitution||10-SEP-1979
+Cavern Falls|1503866|Falls|San Juan|WA|48.6483785|-122.8291869|600|Mount Constitution||10-SEP-1979
+Cedar Creek Falls|1503878|Falls|Lewis|WA|46.4117762|-122.7323348|256|Eden Valley||10-SEP-1979
+Chamokane Falls|1503908|Falls|Stevens|WA|47.8649763|-117.8572986|1453|Long Lake||10-SEP-1979
+Fisk Falls|1504915|Falls|Lewis|WA|46.5020471|-123.2873647|600|Pe Ell||10-SEP-1979
+Hidden Falls|1505490|Falls|San Juan|WA|48.6483189|-122.8227480|718|Mount Constitution||10-SEP-1979
+Kennedy Falls|1505946|Falls|Thurston|WA|47.0774643|-123.1267544|174|Kamilche Valley||10-SEP-1979
+Little Palouse Falls|1506219|Falls|Whitman|WA|46.7332025|-118.2496909|955|Palouse Falls||10-SEP-1979
+Lower Kalama River Falls|1506355|Falls|Cowlitz|WA|46.0206695|-122.7334374|276|Woolford Creek||10-SEP-1979
+Marietta Falls|1506470|Falls|Cowlitz|WA|46.0420584|-122.7867725|131|Kalama||10-SEP-1979
+Multnomah Falls|1506891|Falls|Okanogan|WA|48.1268702|-119.0195177|1155|Armstrong Creek||10-SEP-1979
+Ninemile Falls|1506989|Falls|Ferry|WA|48.0198521|-118.4103903|1355|Ninemile Flat||10-SEP-1979
+Rustic Falls|1507967|Falls|San Juan|WA|48.6470674|-122.8316444|564|Mount Constitution||10-SEP-1979
+Summer Falls|1508809|Falls|Grant|WA|47.5032159|-119.2940051|1434|Coulee City||10-SEP-1979
+Victor Falls|1509224|Falls|Pierce|WA|47.1492681|-122.1859495|367|Sumner||10-SEP-1979
+Willapa Falls|1509527|Falls|Pacific|WA|46.5249463|-123.4472267|486|Pluvius||10-SEP-1979
+Shipherd Falls|1510289|Falls|Skamania|WA|45.7381725|-121.8061882|187|Carson||01-OCT-1990
+Towell Falls|1510459|Falls|Whitman|WA|46.9836888|-117.9334216|1371|Honn Lakes||01-JUL-1990
+Palouse Falls|1510548|Falls|Franklin|WA|46.6634793|-118.2235769|718|Palouse Falls||01-JUL-1990
+Titacoclos Falls|1511566|Falls|Clallam|WA|48.3886746|-124.6935761|75|Cape Flattery||31-DEC-1992
+Mima Falls|1511625|Falls|Thurston|WA|46.9112092|-123.0879210|394|Littlerock||01-JUL-1990
+Alpine Falls|1515832|Falls|King|WA|47.7170537|-121.2259342|1394|Scenic||10-SEP-1979
+Beaver Falls|1516331|Falls|Clallam|WA|48.0948009|-124.2657676|587|Lake Pleasant||10-SEP-1979
+Boulder Falls|1516843|Falls|Snohomish|WA|48.2456613|-121.8268000|1007|Meadow Mountain||10-SEP-1979
+Bridal Veil Falls|1516945|Falls|Chelan|WA|48.2696042|-120.6439900|1493|Stehekin||10-SEP-1979
+Canyon Falls|1517364|Falls|Snohomish|WA|47.8042718|-121.5359404|643|Index|01-JAN-1988|10-SEP-1979
+Cowlitz Falls|1518227|Falls|Lewis|WA|46.4659439|-122.1073189|873|Cowlitz Falls||10-SEP-1979
+Deschutes Falls|1518683|Falls|Thurston|WA|46.8028814|-122.4145602|820|Bald Hill||10-SEP-1979
+Eagle Falls|1519043|Falls|Snohomish|WA|47.7956611|-121.5139946|705|Index||10-SEP-1979
+Gibson Falls|1519945|Falls|Snohomish|WA|48.2551122|-121.3326124|1184|Huckleberry Mountain||10-SEP-1979
+Granite Falls|1520217|Falls|Snohomish|WA|48.1028790|-121.9534645|295|Granite Falls||10-SEP-1979
+Grant Purcell Falls|1520244|Falls|Lewis|WA|46.6709455|-121.5875878|1332|Ohanapecosh Hot Springs||10-SEP-1979
+Hoko Falls|1520849|Falls|Clallam|WA|48.2002098|-124.4314126|121|Hoko Falls|01-JAN-1896|10-SEP-1979
+Horseshoe Falls|1520951|Falls|Clark|WA|45.8131694|-122.3028709|794|Dole||10-SEP-1979
+Kalama Falls|1521548|Falls|Cowlitz|WA|46.1087209|-122.3570440|1329|Cougar||10-SEP-1979
+Lilliwaup Falls|1522089|Falls|Mason|WA|47.4706479|-123.1162677|20|Lilliwaup||10-SEP-1979
+Little Mashel Falls|1522259|Falls|Pierce|WA|46.8492710|-122.2726130|928|Eatonville||10-SEP-1979
+Lower Falls|1522538|Falls|Skamania|WA|46.1545587|-121.8795306|1486|Spencer Butte||10-SEP-1979
+Lucia Falls|1522562|Falls|Clark|WA|45.8395585|-122.4464857|417|Yacolt||10-SEP-1979
+Marymere Falls|1522788|Falls|Clallam|WA|48.0495423|-123.7889178|1010|Lake Crescent|01-JAN-1979|10-SEP-1979
+McCauley Falls|1522860|Falls|King|WA|47.7648220|-121.9537332|338|Monroe||10-SEP-1979
+McKenna Falls|1522909|Falls|Kitsap|WA|47.5275103|-122.7862305|338|Wildcat Lake||10-SEP-1979
+McLoughlin Falls|1522929|Falls|Okanogan|WA|48.6095971|-119.4769999|863|Keystone||10-SEP-1979
+Meyers Falls|1523038|Falls|Stevens|WA|48.5940656|-118.0604423|1447|Kettle Falls||10-SEP-1979
+Moulton Falls|1523415|Falls|Clark|WA|45.8315029|-122.3892621|518|Yacolt||10-SEP-1979
+Nooksack Falls|1523712|Falls|Whatcom|WA|48.9053325|-121.8088453|1473|Bearpaw Mountain||10-SEP-1979
+Olney Falls|1524032|Falls|Snohomish|WA|47.8789915|-121.7176178|239|Wallace Lake||10-SEP-1979
+Salmon Falls|1525391|Falls|Clark|WA|45.7578054|-122.4245193|479|Yacolt||10-SEP-1979
+Sheep Creek Falls|1525634|Falls|Stevens|WA|48.9478023|-117.7947472|1463|Northport||10-SEP-1979
+Snoqualmie Falls|1526015|Falls|King|WA|47.5417686|-121.8378913|259|Snoqualmie||10-SEP-1979
+Sunset Falls|1526774|Falls|Snohomish|WA|47.8039939|-121.5489966|607|Index||10-SEP-1979
+Teepee Falls|1526974|Falls|Skagit|WA|48.3437247|-121.4406768|810|Prairie Mountain|01-JAN-1938|10-SEP-1979
+Twin Falls|1527528|Falls|King|WA|47.4448270|-121.6967723|866|Chester Morse Lake||10-SEP-1979
+Wallace Falls|1527774|Falls|Snohomish|WA|47.8731591|-121.6490035|1184|Gold Bar||10-SEP-1979
+Washboard Falls|1527820|Falls|Cowlitz|WA|46.1503871|-122.5256602|1152|Wolf Point||10-SEP-1979
+Wildcat Falls|1528137|Falls|Pierce|WA|46.8817707|-122.2417795|971|Lake Kapowsin||10-SEP-1979
+Hard Scrabble Falls|1528436|Falls|Whatcom|WA|48.7601138|-122.2298814|850|Deming|01-JAN-1980|31-DEC-1992
+Asbestos Falls|1528526|Falls|Snohomish|WA|48.1867746|-121.5748440|1188|Helena Ridge||01-JUN-1989
+Dougan Falls|1528784|Falls|Skamania|WA|45.6726940|-122.1528267|643|Bobs Mountain||01-AUG-1990
+Rodney Falls|1528794|Falls|Skamania|WA|45.6433816|-122.0144648|988|Beacon Rock||01-AUG-1990
+Hardy Falls|1528795|Falls|Skamania|WA|45.6423392|-122.0156391|863|Beacon Rock||01-AUG-1990
+Mission Falls|1529135|Falls|Okanogan|WA|48.3704304|-119.4392130|1371|Omak Lake||01-OCT-1990
+Domke Falls|1529357|Falls|Chelan|WA|48.1621443|-120.5433539|1181|Lucerne|01-JUN-1904|01-APR-1990
+Curly Creek Falls|1529581|Falls|Skamania|WA|46.0581691|-121.9720307|1217|Burnt Peak||01-OCT-1991
+Gorge Creek Falls|1529797|Falls|Whatcom|WA|48.7015157|-121.2104014|1194|Diablo Dam||01-JAN-1992
+Dingford Creek Falls|1529889|Falls|King|WA|47.5142785|-121.4550948|1299|Snoqualmie Lake||01-JAN-1992
+Bear Creek Falls|1530096|Falls|Clallam|WA|48.1289661|-124.3302152|745|Ellis Mountain||01-MAY-1992
+Herman Falls|1530139|Falls|Clallam|WA|48.1622982|-124.3752180|397|Ellis Mountain||01-MAY-1992
+Ladder Creek Falls|1530520|Falls|Whatcom|WA|48.6701255|-121.2498459|495|Diablo Dam||01-MAR-1993
+Rickey Rapids|1530545|Falls|Stevens|WA|48.5435102|-118.1427711|1289|Bangs Mountain||01-MAR-1993
+The Dalles (historical)|1530564|Falls|Klickitat|WA|45.6059538|-121.1650709|79|The Dalles South||01-MAR-1993
+Kettle Falls (historical)|1530609|Falls|Stevens|WA|48.6393460|-118.1094364|1286|Marcus||01-MAR-1993
+Amnicon Falls|1560839|Falls|Douglas|WI|46.6099399|-91.8924113|741|South Range||29-AUG-1980
+Beartrap Falls|1561407|Falls|Menominee|WI|44.9391468|-88.6742716|869|Keshena||29-AUG-1980
+Bellile Falls|1561541|Falls|Sawyer|WI|45.7549599|-91.2079385|1197|Radisson||29-AUG-1980
+Big Eddy Falls|1561715|Falls|Menominee|WI|44.9652593|-88.6353829|869|Keshena||29-AUG-1980
+Big Falls|1561718|Falls|Eau Claire|WI|44.8207942|-91.2943213|820|Fall Creek||29-AUG-1980
+Big Manitou Falls|1561749|Falls|Douglas|WI|46.5360520|-92.1213038|958|Sunnyside|01-JAN-1960|29-AUG-1980
+Brownstone Falls|1562276|Falls|Ashland|WI|46.3763385|-90.6410168|971|High Bridge||29-AUG-1980
+Bull Falls|1562390|Falls|Marinette|WI|45.5957943|-88.1212300|1037|Town Corner Lake||29-AUG-1980
+Cato Falls|1562814|Falls|Manitowoc|WI|44.0936044|-87.8892587|791|Valders||29-AUG-1980
+Eighteenfoot Falls|1564470|Falls|Marinette|WI|45.5874611|-88.1298408|1040|Twelvefoot Falls||29-AUG-1980
+Eightfoot Falls|1564472|Falls|Marinette|WI|45.5794057|-88.1342850|994|Twelvefoot Falls||29-AUG-1980
+Freeman Falls|1565296|Falls|Shawano|WI|44.8441451|-88.7373261|860|Thornton||29-AUG-1980
+Gilmer Falls|1565539|Falls|Shawano|WI|44.8424790|-88.7226039|863|Thornton||29-AUG-1980
+Grandfather Falls|1565721|Falls|Lincoln|WI|45.3038559|-89.7904100|1319|Grandfather Falls||29-AUG-1980
+Hamilton Falls|1566012|Falls|Eau Claire|WI|44.7963503|-90.9623701|971|Simes Creek||29-AUG-1980
+Horseshoe Falls|1566723|Falls|Marinette|WI|45.5480177|-88.1367837|997|Twelvefoot Falls||29-AUG-1980
+Little Bull Falls|1568210|Falls|Wood|WI|44.4694057|-90.1292984|1050|Pittsville||29-AUG-1980
+Little Bull Falls|1568211|Falls|Shawano|WI|44.8410903|-88.7187150|846|Thornton||29-AUG-1980
+Little Falls|1568257|Falls|Sawyer|WI|45.6432979|-90.7384827|1302|Kennan NW||29-AUG-1980
+Little Falls|1568258|Falls|Waupaca|WI|44.6074797|-89.0014978|879|Big Falls||29-AUG-1980
+Little Manitou Falls|1568312|Falls|Douglas|WI|46.5221631|-92.1260262|1037|Borea|01-JAN-1960|29-AUG-1980
+Little Quinnesec Falls|1568374|Falls|Marinette|WI|45.7735683|-87.9892913|942|Norway||29-AUG-1980
+Long Slide Falls|1568594|Falls|Marinette|WI|45.6832939|-87.9334550|912|Pembine||29-AUG-1980
+Peavey Falls|1571137|Falls|Menominee|WI|44.9660872|-88.7703836|984|Neopit||29-AUG-1980
+Pemene Falls|1571167|Falls|Marinette|WI|45.5941319|-87.7773417|755|Miscauno Island||29-AUG-1980
+Pipestone Falls|1571560|Falls|Sawyer|WI|45.8552360|-91.2368325|1444|Radisson||29-AUG-1980
+Potato River Falls|1571835|Falls|Iron|WI|46.4610593|-90.5290713|968|Gurney||29-AUG-1980
+Quiver Falls|1572007|Falls|Marinette|WI|45.6577406|-87.8223435|781|Faithorn||29-AUG-1980
+Rainbow Falls|1572036|Falls|Menominee|WI|44.9746976|-88.7945507|1053|Neopit||29-AUG-1980
+Sand Portage Falls|1573697|Falls|Marinette|WI|45.7599579|-87.9645687|840|Norway||29-AUG-1980
+Skillet Falls|1574235|Falls|Sauk|WI|43.4466506|-89.7729019|981|North Freedom||29-AUG-1980
+Smalley Falls|1574285|Falls|Marinette|WI|45.6949601|-87.9470665|968|Pembine||29-AUG-1980
+Strong Falls|1574986|Falls|Marinette|WI|45.5180178|-88.3398368|1201|Coleman Lake||29-AUG-1980
+Twelvefoot Falls|1575757|Falls|Marinette|WI|45.5810724|-88.1340073|994|Twelvefoot Falls||29-AUG-1980
+Wayka Falls|1576347|Falls|Menominee|WI|44.9305366|-88.6545492|860|Keshena||29-AUG-1980
+Shale Falls|1578191|Falls|Douglas|WI|46.6910491|-91.6001863|692|Oulu||01-JUN-1992
+Big Smoky Falls|1578782|Falls|Menominee|WI|45.0169246|-88.6367723|902|Markton||29-AUG-1980
+Copper Falls|1579041|Falls|Ashland|WI|46.3730052|-90.6399057|1030|Mellen||29-AUG-1980
+Ducknest Falls|1579160|Falls|Menominee|WI|45.0472001|-88.6592724|961|Markton||29-AUG-1980
+Evergreen Falls|1579223|Falls|Menominee|WI|45.0627541|-88.6856615|1010|Markton||29-AUG-1980
+Morgan Falls|1579917|Falls|Ashland|WI|46.3471725|-90.9162990|1253|Marengo Lake||29-AUG-1980
+Sullivan Falls|1580551|Falls|Menominee|WI|45.0527555|-88.6592724|974|Markton||29-AUG-1980
+Apple River Falls|1581584|Falls|St. Croix|WI|45.1574665|-92.7121498|741|Somerset North||29-AUG-1980
+Ni-ho-kha-wa-ne-ey-ja|1845486|Falls|Jackson|WI|44.2966279|-90.8448643|748|Black River Falls||25-JUN-1999
+Polly Falls|1845496|Falls|Jackson|WI|44.1966287|-90.8070835|801|Shamrock||25-JUN-1999
+Big Quinnesec Falls (historical)|1845543|Falls|Marinette|WI|45.7869009|-88.0406812|1020|Iron Mountain||25-JUN-1999
+Daves Falls|1876841|Falls|Marinette|WI|45.4960768|-87.9887260|833|Wausaukee North||10-JUL-2000
+Sturgeon Falls (historical)|1876874|Falls|Marinette|WI|45.7421819|-87.8648461|804|Faithorn||10-JUL-2000
+Brooks Falls|1536391|Falls|Raleigh|WV|37.7192855|-80.8920329|1322|Hinton||27-JUN-1980
+Harvey Falls|1540046|Falls|Summers|WV|37.5034541|-80.8520260|1424|Forest Hill||27-JUN-1980
+Lower Falls|1542540|Falls|Kanawha|WV|38.3748153|-81.8590193|568|Alum Creek||27-JUN-1980
+Niagara Falls|1544166|Falls|Hampshire|WV|39.5156494|-78.4672333|653|Paw Paw||27-JUN-1980
+Sandstone Falls|1546398|Falls|Raleigh|WV|37.7584516|-80.9053677|1283|Meadow Creek||27-JUN-1980
+Upper Falls|1548518|Falls|Kanawha|WV|38.3425941|-81.8415181|571|Alum Creek||27-JUN-1980
+Kanawha Falls|1556129|Falls|Fayette|WV|38.1512185|-81.2123302|630|Gauley Bridge||01-MAY-1993
+Bull Falls|1556899|Falls|Summers|WV|37.5426199|-80.9106409|1421|Pipestem||01-SEP-1993
+Richman Falls|1556968|Falls|Summers|WV|37.7778958|-80.8989790|1270|Meadow Creek||01-SEP-1993

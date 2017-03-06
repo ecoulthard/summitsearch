@@ -1,0 +1,433 @@
+@import "jMenu"
+
+//This mixin is used for all elements rounded corners
+@mixin rounded-corners($radius: 8px)
+  border-radius: $radius
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+
+$default-text: #222
+$lighter-text: #666
+$bar1-midbg: #222
+$bar1-bottombg: #222
+$light-bg1: #111
+$mid-bg1: #ababab
+$mid-bg1-highlight: #a9a9a9
+$visited-text: black
+// blue is the current theme
+$light: #E1EBF2
+$medium: #485577
+$dark: #183363
+$hover: #F6F6F6
+
+#forem
+  font: 13px/1.231 arial,helvetica,clean,sans-serif
+  *font-size: small /* for IE */
+  *font: x-small /* for IE in quirks mode */
+  color: $default-text
+
+  /**
+   * Nudge down to get to 13px equivalent for these form elements
+   */ 
+  select, input, button, textarea
+    font: 99% arial,helvetica,clean,sans-serif
+
+  /**
+   * To help tables remember to inherit
+   */
+  table:
+    font-size: inherit
+    font: 100%
+
+  #banner
+    background-image: url(/assets/forem/bg_list.gif)
+    background-repeat: repeat-x
+    color: #282
+    text-align: center
+    cursor: pointer
+    height: 120px
+    img
+      padding-right: 140px
+
+  #menuSearchBar
+    background-color: #2e66b6
+    width: 100%
+    height: 24px
+
+    #menuDiv
+      float: right
+
+      @include jMenu(#2e66b6, $dark, #82ecff, 11px, 5px)
+
+    #searchDiv
+      float: right
+      FORM
+        border-style: solid
+        border-width: 1px 3px 1px 0px
+        border-color: transparent
+        INPUT[type=search],INPUT[type=text]
+          width: 100%
+          height: 21px
+          font-size: 13px
+          margin: 0
+          padding: 0px 0px 0px 2px
+          border-style: none
+          border-width: 0
+
+  #content, #comments
+    min-height: 600px
+    a
+      color: $dark
+      &:hover
+        background-color: transparent
+    h1
+      font-size: 150%
+    h2.title
+      background: none repeat scroll 0 0 transparent
+      font-size: 2.2em
+      font-weight: lighter
+      margin: 0 0 5px
+      padding: 0
+    h1, h2, h3
+      color: $dark
+      border: 0px none
+      a
+        text-decoration: none
+        color: $dark
+        &:hover
+          color: $dark
+          text-decoration: underline
+
+    #forums_container .category
+      h2
+        border: 0px none
+        display: inline
+        padding: 0px 5px 0px 5px
+
+    #forums, .topics // table
+      border: 1px solid $dark
+      border-collapse: collapse
+      border-spacing: 0
+      background-image: url(/assets/forem/bg_list.gif)
+      background-repeat: repeat-x
+      font-size: inherit
+      .title
+        background: none repeat scroll 0 0 transparent
+        color: $dark
+        font-size: 2.5em
+        font-weight: lighter
+        margin: 0 0 10px
+        padding: 0
+      thead tr th 
+        color: white
+        font-size: 1.1em
+        font-weight: bold
+      tbody
+        font-size: 1.05em
+        .title
+          color: $dark
+          font-size: 1.3em
+          font-weight: bold
+        .last_post a
+          color: $dark
+          text-decoration: underline
+          &:visited
+            text-decoration: underline
+            color: $medium
+          &:hover
+            text-decoration: underline
+            background-color: transparent
+
+    .breadcrumb
+      background: none repeat scroll 0 0 #F2F2F2
+      border: 1px solid #DDDDDD
+      margin: 0 0 15px
+      padding: 6px 0 6px 6px
+      a
+        color: black
+        &:hover
+          color: black
+      span
+        display: inline-block
+        padding: 0 0 0 5px
+        vertical-align: top
+        .last
+          font-weight: bold
+          width: auto
+
+    #forum, #topic 
+      position: relative
+      .secondary-nav
+        position: absolute
+        right: 0
+        top: 0
+      .description
+        color: $lighter-text
+        font-style: oblique
+      h1
+        padding: 0.5em 0 0 0
+        position: relative
+        margin: 0
+        a
+          &:hover
+            text-decoration: underline
+        a.reply
+          margin-right: 1em
+          font-weight: normal
+          position: absolute
+          right: 0
+          padding: .5em
+          background-color: #fff
+          font-size: .5em
+          text-decoration: none
+          &:hover
+            background-color: $light-bg1
+
+    menu
+      margin: 15px 0
+      padding-left: 0
+      a
+        background: none repeat scroll 0 0 #99BB40
+        border: 1px solid #E8E8E8
+        padding: 7px 17px
+        display: inline-block
+        -webkit-border-radius: 5px
+        color: white
+        text-decoration: none
+        font-size: 1.1em
+        font-weight: bold
+        &:hover
+          background: none repeat scroll 0 0 #6C9D2C
+        margin: 0
+    menu.admin a
+      background: none repeat scroll 0 0 #B00505
+      &:hover
+        background: none repeat scroll 0 0 darkred
+
+    form 
+      label 
+        display: block
+        font-size: 80%
+        padding: 5px
+        abbr 
+          display: none
+      
+      input, textarea 
+        padding: .5em
+        font-size: 110%
+    
+    #posts
+      a
+        color: $dark
+        &:hover
+          color: $dark
+      .time_wrap
+        background: none repeat scroll 0 0 $dark
+        color: white
+        font-size: 0.9em
+        padding: 4px 0 4px 10px
+        a
+          color: white
+          text-decoration: none
+      .post
+        border: 1px solid #CFCFCF
+        border-collapse: collapse
+        position: relative
+        min-height: 75px
+        clear: both
+        &.odd .contents .text_wrap
+          background: none repeat scroll 0 0 white
+        &.even .contents .text_wrap
+          background: none repeat scroll 0 0 #DDDDDD
+        .contents
+          background: none repeat scroll 0 0 #DDDDDD
+          position: relative
+          min-height: 180px
+          width: 100%
+          .user
+            display: inline-block
+            float: left
+            font-size: 1em
+            padding: 5px 8px 5px 10px
+            width: 137px
+            .username
+              font-size: 1.05em
+              font-weight: bold
+              margin: 0 0 2px
+            .usertitle
+              font-size: 0.9em
+              margin: 0 0 3px
+            .icon
+              background: transparent url(http://placekitten.com/50/50) no-repeat
+              width: auto
+              height: auto
+              display: inline-block
+            .member_since, .posts_count
+              font-size: 0.9em
+            .admin
+              margin: 0 0 3px
+          .text_wrap
+            margin: 0 0 0 165px
+            padding: 10px
+            &:hover .text .actions
+              display: block
+            .text
+              display: inline-block
+              margin: 0 100px 0 0
+              min-height: 180px
+              padding: 0 0 20px
+              .actions
+                display: none
+                position: absolute
+                top: 10px
+                right: 10px
+                list-style-type: none
+                li
+                  list-style: none outside none
+                  a
+                    background-color: #BBBBBB
+                    color: black
+                    display: block
+                    margin-bottom: 0.25em
+                    padding: 0.25em
+                    text-align: center
+                    text-decoration: none
+                    &:hover
+                      background-color: #AAAAAA
+              blockquote 
+                background: none repeat scroll 0 0 $light
+                border: 1px solid #CCCCCC
+                color: #666666
+                font-style: italic
+                line-height: 1.4em
+                margin: 4px 0 0
+                padding: 4px
+                min-width: 400px
+              ul 
+                margin-left: 2em
+                p 
+                  padding: 0
+                  margin: 0
+                  float: none
+              pre 
+                width: 90%
+                background: #dfdfdf
+            .signature
+              border-top: 1px solid #CCCCCC
+              color: #666666
+              height: 20px
+              padding: 3px 0
+              width: 99%
+
+    table.subdued
+      width: 100%
+      a
+        text-decoration: none
+        color: black
+        &:visited
+          color: black
+        &:hover
+          text-decoration: underline
+      td, th
+        padding: .5em
+      td
+        border-top: 1px solid $dark
+      tr.odd, tr.even
+        &:hover
+          background-color: $hover
+      tr.odd
+        background-color: $light
+      tr.even
+        background-color: $light
+      tbody
+        color: $default-text
+        a
+          color: #000
+        .subject
+          font-size: 1.05em
+          font-weight: bold
+          display: block
+        .started-by
+          font-size: .9em
+          color: $lighter-text
+        .latest-post
+          font-size: .9em
+          font-weight: bold
+          width: 160px
+          a
+            color: #2D4357
+            text-decoration: none
+            &:hover
+              text-decoration: underline
+        .topics-count, .posts-count, .views-count
+          text-align: center
+          font-size: .9em
+          width: 80px
+        td.icon
+          width: 35px
+        td.last-post
+          max-width: 250px
+          min-width: 70px
+    
+    .sort FORM
+      display: inline-table-cell
+      text-align: center
+      padding-top: 5px
+      INPUT[type="submit"]
+        padding: 1px 8px
+
+    .pages
+      .page
+        display: inline-block
+        padding: .25em
+        &.current
+          background-color: #EEEEEE
+      a
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+      
+    .lock.icon
+      width: 34px
+      height: 32px
+      background: url("/assets/lock_icon.png") repeat scroll 0 0 transparent
+      display: inline-block
+
+    .pin.icon
+      width: 34px
+      height: 32px
+      background: url("/assets/pin_icon.png") repeat scroll 0 0 transparent
+      display: inline-block
+
+  #views, #statistics, #login
+    margin: 0 0 15px
+    padding: 6px 0 6px 6px
+    a
+      color: black
+      &:hover
+        color: black
+    span
+      font-weight: bold
+      display: inline-block
+      padding: 0 0 0 5px
+      vertical-align: top
+      .last
+        font-weight: bold
+        width: auto
+
+  #login
+    display: table-row
+    div
+      display: table-cell
+      padding: 5px
+
+  #bottom
+    width: 100%
+    color: #FFF
+    background: #141
+    text-align: center
+    padding: 10px
+    a
+      color: #bfb
+      font-size: small
+      min-width: 200px

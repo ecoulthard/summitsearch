@@ -1,0 +1,72 @@
+@mixin jMenu($bgcolor, $bordercolor, $color, $fontsize, $size)
+
+  $bgless: $bgcolor + #101010
+
+  #jMenu
+    display: table
+    margin-top: 0px
+    padding: 0
+    background-color: $bgcolor
+
+    /********************/
+    /** premier niveau **/
+    /********************/
+    li
+      display: table-cell
+      margin: 0
+      color: $color
+      
+      a, label
+        padding: ($size - 3) ($size + 3)
+        display: block
+        background-color: transparent
+        color: $color
+        text-transform: uppercase
+        font-size: $fontsize
+        font-weight: bold
+      
+      a
+        cursor: pointer
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+      
+
+      /*******************/
+      /** second niveau **/
+      /*******************/
+      ul
+        display: none
+        position: absolute
+        padding: 0
+        margin: 0
+        z-index: 100
+        background-color: $bgcolor
+        border: 1px solid $bordercolor
+        border-top: none
+        border-bottom: none
+        
+        li
+          display: block
+          padding: 0
+          border-bottom: 1px solid $bordercolor
+
+          &.arrow
+            background: transparent url(/assets/arrow_down.png) no-repeat center center
+            height: 6px
+            padding: 0
+            padding-top:  7px
+
+          a
+            font-size: $fontsize - 1
+            text-transform: none
+            padding-left: $size
+            display: block
+            border-top: 1px solid transparent
+            border-bottom: 1px solid transparent
+
+            &.isParent
+              background: transparent url(/assets/arrow_right.png) no-repeat right center
+
+            &:hover
+              background-color: $bgless

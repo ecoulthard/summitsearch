@@ -1,0 +1,13 @@
+<fieldset class="indent">
+  <legend>Participant Info</legend>
+    <div>
+      <%= f.label :person_id, "Select a person from the list." %>
+      <%= f.collection_select :person_id, Person.all, :id, :name, :include_blank => true %>
+    </div><div class="clear"></div>
+    <%= raw "If the participant is not in the list then add them to site by clicking #{ link_to "here", new_person_path, :data_popup => "true"  }." %> 
+    <div class="clear"></div>
+    <div>
+      <%= f.link_to_remove "Remove this participant", :class => 'linkButton' %>
+    </div>
+</fieldset>
+<div class="clear"></div><br>

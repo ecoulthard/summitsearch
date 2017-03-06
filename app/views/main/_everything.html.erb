@@ -1,0 +1,48 @@
+<div class="clear"></div><br>
+<table class="subdued"  cellspacing='0'>
+  <thead>
+    <tr>
+       <th colspan="4" class="clickable"><%= new ? "New" : "Recently Updated"  %> Mountains, Lakes, Waterfalls, Passes and Other Places
+         <% if new %>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More new places", places_path(:sort => 'date_created'), :class => 'linkButton' %>
+         <% end %>
+       </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ss_cache({:part => 'places'}, :expires_in => 1.week) do %>
+      <% @place_groups.each do |places| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <% places.each do |place| %>
+            <%= render :partial => 'places/thumb', :locals => {:place => place} %>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<div class="clear"></div><br>
+
+<table class="subdued"  cellspacing='0'>
+  <thead>
+    <tr>
+       <th colspan="3" class="clickable"><%= new ? "New" : "Recently Updated" %> Routes
+         <% if new %>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More new routes", routes_path(:sort => 'date_created'), :class => 'linkButton' %>
+         <% end %>
+       </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ss_cache({:part => 'routes'}, :expires_in => 12.hours) do %>
+      <% @route_groups.each do |routes| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <% routes.each do |route| %>
+            <%= render :partial => 'routes/thumb', :locals => {:route => route} %>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<div class="clear"></div><br>

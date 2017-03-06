@@ -1,0 +1,29 @@
+<table class="subdued <%= "floatTable" if defined?(float) && float %>" cellspacing='0'>
+  <thead>
+    <tr>
+       <th colspan="3" class="clickable" data-no-turbolink>Trip Reports
+	&nbsp;&nbsp;&nbsp;
+        <% if place_tag == :route_id %>
+          <%= link_to 'Submit a new Trip Report', new_trip_report_path(:route_id => place.id), :rel => 'nofollow', :class => 'linkButton' %>
+        <% elsif !place_tag.blank? %>
+          <%= link_to 'Submit a new Trip Report', new_route_path(:type => :Route, place_tag => place.id, :trip => true), :rel => 'nofollow', :class => 'linkButton' %>
+        <% end %>
+       </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @has_trip_reports %>
+      <% @trip_groups.each do |trip_reports| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <% trip_reports.each do |trip_report| %>
+            <%= render :partial => 'trip_reports/thumb', :locals => {:trip_report => trip_report, :show_user => true} %>
+          <% end %>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr class="odd">
+        <td>No Trip Reports Yet</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,36 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <% if defined? @noindex %>
+    <META NAME="ROBOTS" CONTENT="NOINDEX, FOLLOW">
+  <% end %>
+  <% if defined? @metaDescription %>
+    <meta name='description' content='<%= truncate(strip_tags(@metaDescription), :length => 500) %>'>
+    <!-- Google plus line -->
+    <meta itemprop='description' content='<%= truncate(strip_tags(@metaDescription), :length => 500) %>'>
+  <% end %>
+
+  <!-- Google plus line -->
+  <% if defined? @pageTitle %>
+    <meta itemprop="name" content='<%= @pageTitle %>'>
+  <% end %>
+
+  <%= favicon_link_tag %>
+  <%= favicon_link_tag 'markers/mountains.png', :rel => 'icon', :type => 'image/png' %>
+  <%= favicon_link_tag 'markers/mountains.png', :rel => 'apple_touch_icon', :type => 'image/png' %>
+
+  <% if defined? @pageTitle %>
+    <title><%= @pageTitle %></title>
+  <% else %>
+    <title><%= default_title %></title>
+  <% end %>
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tag %>
+  
+
+  <!-- These used to live in javascript layout but due to turbolinks they need to live in the header -->
+  <!-- so that they don't get loaded twice. -->
+  <%= google_map_include_tag %>
+  <script type="text/javascript" src="https://apis.google.com/js/plusone.js" parsetags="explicit"></script>
+
+  <%= yield(:head) %>
+</head>

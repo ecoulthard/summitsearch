@@ -1,0 +1,11 @@
+<td class="clickable colorOnHover">
+  <% unless user.nil? %>
+    <%= link_to truncate(user.display_name, :length => 150), user %><br>
+    <% unless user.city.blank? || user.province.blank? || user.country.blank? %>
+      <div class="text"><%= "#{user.city}, #{user.province} #{user.country}" %></div>
+    <% end %>
+    <div class="created_at_line">
+      <span class="created_at">Signed up <%= distance_of_time_in_words Time.now, user.created_at %> ago</span>
+    </div>
+  <% end %>
+</td>

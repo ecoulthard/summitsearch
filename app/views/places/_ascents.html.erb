@@ -1,0 +1,35 @@
+<% if mountain.ascents_including_subpeaks.any? %>
+  <h4>Ascents</h4>
+  <% for ascent in mountain.ascents_including_subpeaks %>
+    <% text = "" %>
+    <% text += "Solo " if ascent.solo %>
+    <% text += "#{nth(ascent.ascent_index)} " if ascent.ascent_index? %>
+    <% text += "#{nth(ascent.winter_ascent_index)} winter" if ascent.winter_ascent_index? %>
+    <% text +=  if ascent.success then " ascent" else "An attempt" end %>
+    <% text = text[0].capitalize + text[1..-1] %>
+    <% text += " of" %>
+    <% text += " the #{link_to(ascent.route.name, ascent.route)} of" if ascent.route_ascent_index? and !ascent.route.nil? %>
+    <% text += " #{ascent.mountain.name}" %>
+    <% text += " was #{partial_date_string(ascent.year, ascent.month, ascent.day)}" if ascent.year? %>
+    <% text += " via the #{link_to(ascent.route.name, ascent.route)}" if !ascent.route_ascent_index? and !ascent.route.nil? %>
+    <% text += " by" %>
+    <% if ascent.people.length > 3 || (ascent.other_participants? && ascent.people.length > 0) %>
+      <% text += " a group" %>
+      <% text += " guided by " + ascent.guides.collect {|g| link_to g.name, g}.to_sentence if ascent.guides.count > 0 %>
+      <% text += "," if ascent.guides.count > 0 && ascent.participants.count > 0 %>
+      <% text += " including " + ascent.participants.collect {|p| link_to p.name, p}.to_sentence if ascent.participants.count > 0 %>
+    <% elsif ascent.people.length > 1 %>
+      <% text += " " + ascent.participants.collect{|p| link_to p.name, p}.to_sentence if ascent.participants.count > 0 %>
+      <% text += " and #{pluralize(ascent.guides.count, "guide")} " + ascent.guides.collect{|g| link_to g.name, g}.to_sentence if ascent.guides.count > 0 %>
+    <% elsif ascent.people.count == 1 %>
+      <% text += " " + link_to(ascent.people.first.name, ascent.people.first) %>
+    <% end %>
+    <% text += "." %>
+    <%= raw text %>
+    <br>
+    <% if ascent.description? %>
+      <%= sanitize(ascent.description) %>
+      <br><br>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,39 @@
+<div id='topic' class='<%= 'un' unless @topic.locked? %>locked'>
+  <%= render :partial => 'forem/topics/head', :locals => { :topic => @topic } %>
+    
+  <%= render :partial => "social" %>
+  
+  <%= render :partial => "menu" %>
+
+  <% if @topic.pending_review? %>
+    <div class="moderation" id='topic_moderation'>
+      <%= t(".pending_review") %>
+      <% if forem_admin_or_moderator?(@topic.forum) %>
+        <%= form_for @topic, :url => moderate_forum_topic_path(@topic.forum, @topic), :method => :put do |f| %>
+          <%= render "forem/moderation/options", :f => f %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= forem_pages_widget(@posts) %>
+
+  <div id='posts'>
+    <%= render :partial => "forem/posts/post", :collection => @posts %>
+  </div>
+  
+  <%= forem_pages_widget(@posts) %>
+
+  <div class="clear"></div>
+
+  <%= render :partial => "menu" %>
+
+  <%= link_to "Return to #{@topic.forum.title}", @topic.forum %> 
+  
+  <div class="clear"></div><br>
+
+  <%= render :partial => "/forem/all/views" %>
+  
+  <div class="clear"></div><br>
+
+</div>

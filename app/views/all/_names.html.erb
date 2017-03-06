@@ -1,0 +1,24 @@
+<% if place.names.count > 0 %>
+  <% for name in place.names.includes(:person).includes(:named_after_person) %>
+    <% if name.name != place.name || name.year? || name.person_id? %>
+      <% text = "Named #{name.name}" if name.name == place.name %>
+      <% text = "Previously named #{name.name}" if name.name != place.name %>
+      <% text += " in #{name.year}" if name.year? %>
+      <% text += " by #{link_to name.person.name, name.person}" unless name.person.nil? %>
+      <% text += " by #{name.named_by_other}" if name.named_by_other? %>
+      <% text += "." %>
+      <% text += "<br>Named after #{link_to(name.named_after_person.name, name.named_after_person) }." unless name.named_after_person.nil? %>
+      <%= raw text %>
+      <br>
+    <% end %>
+    <% if name.description? %>
+      <%= sanitize(name.description) %>
+      <br>
+    <% end %>
+    <% if !name.named_after_person.nil? %>
+      <%= sanitize(name.named_after_person.description) %>
+      <br>
+    <% end %>
+  <% end %>
+  <br>
+<% end %>

@@ -1,0 +1,278 @@
+<div id="place_list" data-no-turbolink>
+  <h1><%= @place.name %>
+    <br /><br />
+    <%= link_to "Google Map View", gmap_path(:place_id => @place), :rel => 'nofollow', :class => 'linkButton' %>
+    <%= topo_map_link @place.centerLatitude.round(6), @place.centerLongitude.round(6), 10 %>
+    <% if user_is_editor? %>  
+      <%= link_to "Edit This #{@place.type.titleize}", edit_place_path(@place), :class => 'linkButton' %>
+      <%= link_to "Insert New #{@place.type.titleize} nearby", new_place_path(:type => @place.class.to_s, :ref_place_id => @place.id), :class => 'linkButton' %>
+    <% end %>
+  </h1>
+  <div class="place_description">
+    <% if @title_photo %>
+      <%= render :partial => 'photos/small', :locals => {:photo => @title_photo, :show_title => false, :no_link => true} %>
+    <% end %>
+    <div class="titlePhotoDiv">
+      <div id="map_div" class="map_div"></div>
+      <% content_for(:javascript) do %> 
+        <% ss_cache :part => "google_map_#{@place.id}" do %>
+          <script type="text/javascript">
+            <%= render :layout => 'all/init_google_map', :locals => {:usetopomap => false, :mapdiv => 'map_div', :zoom => 12, :centerLatitude => @centerLatitude, :centerLongitude => @centerLongitude} do %>
+              <% if @place.border_points.present? %>
+	        var pathCoordinates = [];
+	        //Iterate over all points adding to the path. Also record max and min coordinates for bounds
+	        <% @place.border_points.each_with_index do |point, i| %>
+                  var latlng<%= i %> = new google.maps.LatLng(<%= point.latitude %>, <%= point.longitude %>);
+	          pathCoordinates[<%= i %>] = latlng<%= i %>;
+	        <% end %>
+	        //Use max an min bounds to set the zoom of the map properly
+	        var sw = new google.maps.LatLng(<%= @place.min_latitude %>, <%= @place.min_longitude %>);
+	        var ne = new google.maps.LatLng(<%= @place.max_latitude %>, <%= @place.max_longitude %>);
+	        var bounds = new google.maps.LatLngBounds(sw,ne);
+	        map.fitBounds(bounds);
+	        var poly = new google.maps.Polygon({
+  	    	  path: pathCoordinates,
+  	    	  strokeColor: '#FF0000',
+  	  	  strokeOpacity: 1.0,
+  	  	  strokeWeight: 2
+  	        });
+  	        poly.setMap(map);
+	        <%= render :partial => 'places/clickable_places' %>
+              <% end %>
+	      <% if @place.latitude.present? && @place.longitude.present? %>
+	        var centerMarker = new google.maps.Marker({
+	          position: centerLatLng,
+   	          map: map,
+    	          title: <%= raw "\"#{h @place.name }\"" %>
+                });
+	      <% end %>
+            <% end %>
+          </script>
+        <% end #cache %>
+      <% end %>
+    </div>
+    <% if @title_photo %>
+      <div class="clearLeft"></div>
+    <% end %>
+    <% if @place.height.present? && @place.height > 1000 %>
+      <% ss_cache({:part => "nearby_places_#{@place.id}"}, :expires_in => 2.weeks)  do %>
+        <% if @has_nearby_places_without_photos  %>
+          <%= render :partial => 'all/attention', :locals => {:message => "Help Wanted"} %>
+          <div>
+            <h3><%= @has_photos ? "T" : @place.name + " and t" %>he following nearby mountains, lakes and other landmarks have no photos.
+              <%= link_to 'Submit a Title Photo', new_photo_path(:place_id => @place.id), :rel => 'nofollow', :class => 'linkButton' %>
+            </h3>
+            <% @nearby_places_without_photos.each do |place| %>
+              <%= link_to place.name, place %>,&nbsp;&nbsp;
+            <% end %>
+            <p><%= @num_nearby_places_without_photos %> places in the surrounding area have no photos.</p>
+            <p><%= @num_nearby_peaks_without_photos %> of those are mountains.</p>
+	  </div>
+          <br />
+        <% end %>
+      <% end #cache nearby_peaks_place_id %>
+    <% end %>
+    <% ss_cache :part => "description_#{@place.id}" do %>
+      <div>
+        <% if @place.alternate_names? %>
+          <p>
+            <b>Alternate names:</b>
+            <%= @place.alternate_names %>
+          </p>
+        <% end %>
+
+        <p>
+          <b>Name status:</b>
+          <%= @place.name_status %>
+          <% if @place.area? %>
+            &nbsp;&nbsp;<b>Area:</b>
+            <%= @place.area %> km<sup style="font-size:8px">2</sup>
+          <% end %>
+        </p>
+
+        <% if @place.latitude.present? %>
+	  <p>
+            <b>Latitude-Longitude:</b>
+            <span class="no-wrap"><%= @place.latitude.round(6) %>,<%= @place.longitude.round(6) %></span>
+          </p>
+        <% end %>
+
+        <% if @place.class.to_s == "Mountain" %>
+          <% if @place.height.present? %>
+            <b>Height: </b><%= @place.height %>m <%= "(#{@place.feet} ft)" %><br>
+	  <% elsif @place.mountains.any? %>
+            <b>Height: </b><%= @place.highest_subpeak_height %>m <%= "(#{@place.highest_subpeak_feet} ft)" %><br>
+	  <% end %>
+          
+	  <% if @parent_mountain.present? %>
+            <p class="no-wrap">
+              The closest higher mountain is <%= link_to @parent_mountain.name, @parent_mountain %>, <%= @dist_to_parent.round(2) %>km away.
+            </p><br>
+          <% end %>
+          
+	  <% if @place.mountains.count > 0 %>
+            <br><b>Subpeaks of <%= @place.name %></b>
+            <p>
+              <% @place.mountains.each do |mountain| %>
+	        <%= link_to mountain.name, mountain %> height: <%= mountain.height %>m<br>
+              <% end %>
+            </p><br>
+          <% end %>
+
+          <%= render :partial => 'mountain_areas', :locals => {:mountain => @place, :range_intro => ' in the ', :icefield_intro => 'in the ', :park_intro => 'in ', :island_intro => 'on ', :region_intro => 'in the ', :peak_group_intro => 'peak of '} %>
+
+        <% else %>
+
+          <p>List this <%= @place.class.to_s.titleize.downcase.pluralize %>:<br>
+	    <% Place.subclasses.each do |subclass| %>
+	      <% if @place.has_places_of_type(subclass) %>
+	        <%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", :place_id => @place) %>
+	      <% end %>
+	    <% end %>
+	  </p>
+        
+          <%= render :partial => 'place_areas', :locals => {:place => @place, :range_intro => 'Is part of the ', :icefield_intro => 'Is part of the ', :park_intro => 'Is located in ', :island_intro => 'Is located on ', :region_intro => 'Is located in the ', :peak_group_intro => 'Is located on '} %>
+
+        <% end %>
+
+        <% if !@place.nearby_namesake.nil? %>
+          <p>This <%= @type %> can be confused with its <%= link_to "namesake", @place.nearby_namesake %>, <%= @place.distance(@place.nearby_namesake).round(1) %>km away
+          </p>
+        <% end %>
+
+        <br>
+        <%= render :partial => 'all/names', :locals => {:place => @place} %>
+        <% if @place.class.to_s == "Mountain" %>
+          <%= render :partial => 'ascents', :locals => {:mountain => @place} %>
+	<% end %>
+        <% if @place.description? %>
+          <%= sanitize @place.description %>
+        <% end %>
+      </div>
+    <% end #cache description_place_id %>
+  </div><!-- class=="place_description" -->
+</div><!-- class="place_list" -->
+<button class="toggleButton">Read more about <%= @place.name %></button>
+<div class="clear"></div>
+<div class="entries">
+<% ss_cache(:part => "routes_#{@place.id}") do %>
+  <%= render :partial => 'routes/insertable_list', :locals => {:place_tag => :place_id, :place => @place, :routes => @routes, :route_type => "Route", :has_routes => @has_routes, :float => true} %>
+<% end %>
+<% ss_cache(:part => "trip_reports_#{@place.id}") do %>
+  <%= render :partial => 'trip_reports/insertable_list', :locals => {:place_tag => :place_id, :place => @place, :float => true} %>
+<% end %>
+<% ss_cache(:part => "albums_#{@place.id}") do %>
+  <%= render :partial => 'albums/insertable_list', :locals => {:album_type => 'Title', :place_tag => :place_id, :place => @place, :float => true} %>
+<% end %>
+<div class="clear"></div><br>
+<div id="photos_go_here" data-object_id="<%= @place.slug %>">
+  <% ss_cache(:part => "photos_#{@place.id}") do %>
+   <%= render :partial => 'photos/insertable_list', :locals => {:photo_type => 'Title', :place_tag => :place_id, :place => @place, :text_only => true } %>
+  <% end %>
+</div>
+<div class="clear"></div>
+<%= render :partial => 'all/versions_references', :locals => {:subject => @place} %>
+
+<% if defined?(@place.name_reference) && !@place.name_reference.blank? %>
+  <div class="clear"></div>
+  <span>
+    <b>Name Reference:</b>
+    <!-- NAME_SOURCE_TYPES = { :TopoMap => 1, :Canada => 2, :States => 3, :Summitsearch => 4, :Local => 5, :Wikipedia => 6, :GoogleMaps => 7, :KCountryGuide => 8 } -->
+    <%= case @place.name_reference
+        when Place::NAME_SOURCE_TYPES[:TopoMap]
+          "Name was obtained from a topo map."
+        when Place::NAME_SOURCE_TYPES[:Canada]
+          raw "Name was acquired from Natural Resources Canada via the <a href=\"http://gnss.nrcan.gc.ca/gnss-srt/searchName.jsp\">Geographical Names Search Service</a>. This site is not affiliated with or endorsed by the Government of Canada."
+        when Place::NAME_SOURCE_TYPES[:States]
+          "Mountain name provided by U.S. Geological Survey Department of the Interior/USGS."
+        when Place::NAME_SOURCE_TYPES[:Summitsearch]
+          "The name \"#{@place.name}\" is a creation of Summitsearch. Feel free to use it without attribution. Just don't claim to be the original author of the name."
+        when Place::NAME_SOURCE_TYPES[:Local]
+          "Name is in local use."
+        when Place::NAME_SOURCE_TYPES[:Wikipedia]
+          "Name was obtained from Wikipedia"
+        when Place::NAME_SOURCE_TYPES[:GoogleMaps]
+          "Name was obtained from a GoogleMap. Some of the names on Google Maps in Canada come from bivouac. It is unclear which names originate from bivouac. bivouac also pulls names from other sources with no indication of where the name was obtained. In general we avoid using names on Google maps unless the names have gained acceptance by the community."
+        when Place::NAME_SOURCE_TYPES[:KCountryGuide]
+          "Name was obtained from the \"Kananaskis Country Trail Guide\"."
+        when Place::NAME_SOURCE_TYPES[:SelkirksSouth]
+          "Name is from \"Selkirks South\" by David Jones."
+        when Place::NAME_SOURCE_TYPES[:SelkirksNorth]
+          "Name is from \"Selkirks North\" by David Jones."
+        when Place::NAME_SOURCE_TYPES[:WaterfallIceClimbs]
+          "Name obtained from \"Waterfall Ice Climbs in the Canadian Rockies\""
+        when Place::NAME_SOURCE_TYPES[:MountainFootsteps]
+          "Name obtained from \"Mountain Footsteps: Hikes in the East Kootenay of Southwestern British Columbia\""
+        when Place::NAME_SOURCE_TYPES[:SelkirkMountainExperience]
+          "Name obtained from Selkirk Mountain Experience."
+        when Place::NAME_SOURCE_TYPES[:SnowshoeingCanadianRockies]
+          "Name obtained from \"Snowshoeing in the Canadian Rockies\""
+        when Place::NAME_SOURCE_TYPES[:CentralInteriorTrailGuide]
+          "Name obtained from \"Central Interior Trail Guide\""
+        when Place::NAME_SOURCE_TYPES[:GrandeCachePassportToThePeaks]
+          "Name obtained from the Passport to the Peaks guide available in Grande Cache."
+        when Place::NAME_SOURCE_TYPES[:MoreScrambles]
+          "Name obtained from \"More Scrambles in the Canadian Rockies\""
+        when Place::NAME_SOURCE_TYPES[:CAJ]
+          "Name obtained from the Canadian Alpine Journal."
+        when Place::NAME_SOURCE_TYPES[:ClimbGreenland]
+          "Name obtained from climbgreenland.com."
+        when Place::NAME_SOURCE_TYPES[:SorcererLodge]
+          "Name obtained from Sorcerer Lodge."
+        when Place::NAME_SOURCE_TYPES[:SummitsAndIcefields]
+          "Name obtained from \"Summit and Icefields\""
+        when Place::NAME_SOURCE_TYPES[:Clubtread]
+          "Name obtained from Clubtread."
+        when Place::NAME_SOURCE_TYPES[:DTCHighwayGuide]
+          "Name obtained from The David Thompson Country Hiking Guide."
+        when Place::NAME_SOURCE_TYPES[:SummitPost]
+          "Name obtained from summitpost.com."
+        when Place::NAME_SOURCE_TYPES[:Peakery]
+          "Name obtained from peakery.com."
+        when Place::NAME_SOURCE_TYPES[:PeakBagger]
+          "Name obtained from peakbagger.com."
+        when Place::NAME_SOURCE_TYPES[:AlpineSelect]
+          "Name obtained from Alpine Select."
+        when Place::NAME_SOURCE_TYPES[:SouthWestBCScrambles]
+          "Name obtained from Scrambles in South West BC."
+	when Place::NAME_SOURCE_TYPES[:RockiesCentral]
+	  "Name is from \"Rockies Central\" by David Jones."
+	when Place::NAME_SOURCE_TYPES[:RockiesSouth]
+	  "Name is from \"Rockies South\" by David Jones."
+	when Place::NAME_SOURCE_TYPES[:RockiesWest]
+	  "Name is from \"Rockies West\" by David Jones."
+        when Place::NAME_SOURCE_TYPES[:RockiesNorth]
+          "Name is from \"Rockies North\" by David Jones."
+        else
+          "Unknown name reference."
+        end
+     %>
+  </span>
+<% end %>
+
+<% if defined?(@place.height_reference) && !@place.height_reference.blank? %>
+  <div class="clear"></div>
+  <span>
+    <b>Height Reference:</b>
+  <!-- HEIGHT_SOURCE_TYPES = { :TopoMap => 1, :Google => 2, :Wikipedia => 3, :Averaged => 4 } -->
+    <%= case @place.height_reference
+        when Place::HEIGHT_SOURCE_TYPES[:TopoMap]
+          "Elevation was obtained from a topo map."
+        when Place::HEIGHT_SOURCE_TYPES[:Google]
+          raw "Elevation was obtained from Googles <a href=\"http://code.google.com/apis/maps/documentation/elevation/index.html\">Elevation Api Service</a>."
+        when Place::HEIGHT_SOURCE_TYPES[:Wikipedia]
+          "Elevation was obtained from Wikipedia"
+        when Place::HEIGHT_SOURCE_TYPES[:Averaged]
+          "Elevation was averaged from multiple sources."
+        when Place::HEIGHT_SOURCE_TYPES[:Consistant]
+          "Elevation is consistent across multiple sources."
+        when Place::HEIGHT_SOURCE_TYPES[:GoogleRounded10m]
+          "Elevation was rounded to the nearest 10m of the generated value from Googles Elevation Api Service."
+        when Place::HEIGHT_SOURCE_TYPES[:ClimbGreenland]
+          "Elevation was obtained from ClimbGreenland.com."
+        else
+          "Unknown height reference."
+        end
+     %>
+  </span>
+<% end %>

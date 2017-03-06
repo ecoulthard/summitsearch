@@ -1,0 +1,18 @@
+<div id="place_list">
+<h1>Search Results for '<%= @search_text %>'</h1>
+
+<% if @results.length == 0 %>
+  <p class="notice"><%= "There are no results to list" %></p>
+<% end %>
+  
+<div class="clear"></div>
+  <table class="subdued">
+    <% @results.each do |record| %>
+      <tr class="clickable colorOnHover <%= cycle("odd", "even") %>">
+        <% record_class = [Place,Route].include?(record.class.superclass) ? record.class.superclass : record.class %>
+        <% table = record_class.to_s.tableize %>
+        <%= render :partial => "#{table}/#{table.singularize}", :locals => {:record => record} %>
+      </tr>
+    <% end %>
+  </table>
+</div>

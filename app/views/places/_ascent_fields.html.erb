@@ -1,0 +1,58 @@
+<fieldset class="indent">
+  <legend>Historic Ascent Info</legend>
+    <div>
+      <%= f.label :year, "Date" %>
+      <%= f.number_field :year, :in => 1792..Time.now.year %>
+      <%= f.select :month, Date::ABBR_MONTHNAMES.compact.each_with_index.collect{|m, i| [m, i+1]}.insert(0, ['', nil]) %>
+      <%= f.select :day, (1..31).to_a.insert(0, '') %>
+    </div><div class="clear"></div>
+
+    <div>
+      <%= f.label :ascent_index, "What ascent number was this? 1st, 2nd, 3rd... Leave blank if the summit was not reached." %>
+      <%= f.select :ascent_index, (1..99).to_a.insert(0,'') %>
+    </div><div class="clear"></div>
+
+    <div>
+      <%= f.label :winter_ascent_index, "If this was a winter ascent then enter the winter ascent number." %>
+      <%= f.select :winter_ascent_index, (1..99).to_a.insert(0,'') %>
+    </div><div class="clear"></div>
+    <div>
+      <%= f.label :success, "Was the summit reached?" %>
+      <%= f.check_box :success %>
+    </div><div class="clear"></div>
+
+    <div>
+      <%= f.label :solo, "Was this a solo ascent?" %>
+      <%= f.check_box :solo %>
+    </div><div class="clear"></div>
+
+    <div>
+      <%= f.label :route_id, "Which ascent route was used?" %>
+      <%= f.collection_select :route_id, @place.routes, :id, :name, :include_blank => true %>
+    </div><div class="clear"></div>
+    <%= raw "If the route is not in the list then you can add it to the site by clicking #{ link_to "here", new_route_path(:place_id => @place.id, :type => 'AscentRoute'), :data_popup => "true" }." %>
+    <div class="clear"></div>
+
+    <div>
+      <%= f.label :route_ascent_index, "Specify the route ascent number" %>
+      <%= f.select :route_ascent_index, (1..99).to_a.insert(0,'') %>
+    </div><div class="clear"></div>
+
+    <div>
+      <%= f.label :description, "Describe the story behind this ascent in your own words." %>
+      <%= f.text_area :description, :class => 'expand100-500', :rows => 5, :cols => 80 %>
+    </div><div class="clear"></div>
+
+    <%= f.fields_for :ascent_people %>
+    <%= f.link_to_add "Add participant information", :ascent_people, :class => 'linkButton' %>
+
+    <div>
+      <%= f.label :other_participants, "Were there other participants not named above?" %>
+      <%= f.check_box :other_participants %>
+    </div><div class="clear"></div>
+
+    <div>
+      <%= f.link_to_remove "Remove this ascent information", :class => 'linkButton' %>
+    </div>
+</fieldset>
+<div class="clear"></div><br>

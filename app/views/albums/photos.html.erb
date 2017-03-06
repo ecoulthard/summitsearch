@@ -1,0 +1,4 @@
+<% ss_cache :part => "photos_#{@album.id}" do %>
+  <%= render :partial => 'photos/insertable_list', :locals => {:photo_type => 'Album', :place_tag => :album_id, :place => @album} %>
+<% end %>
+

@@ -1,0 +1,26 @@
+<td class="list_description">
+  <dl>
+    <dt><%= link_to record.address, record %></dt>
+    <% unless record.user.nil? %>
+      <dd>User: <%= record.user.display_name %></dd>
+    <% end %>
+    <% unless record.last_http_user_agent.nil? %>
+      <dd>
+        <b>Last Http User Agent: </b><br>
+        <%= record.last_http_user_agent %>
+      </dd>
+    <% end %>
+    <% unless record.last_visit_at.nil? %>
+      <dd>
+        <b>Last Visited: </b>
+        <%= distance_of_time_in_words(record.last_visit_at, Time.now) %> ago
+      </dd>
+    <% end %>
+    <% unless record.visit_count.nil? %>
+      <dd>
+        <b>Visit Count: </b>
+        <%= record.visit_count %> 
+      </dd>
+    <% end %>
+  </dl>
+</td>

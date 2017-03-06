@@ -1,0 +1,45 @@
+<div>
+  <%= f.label :title, "Trip Report Title#{mark_required(@trip_report, :title)}:" %> 
+  <%= f.text_field :title, :maxlength => 128, :size => 80 %>
+</div><div class="clear"></div>
+
+<div>
+  <p>Enter the start and end date and time below in english. For example "October 3 2010 2:30pm" or "Feb 23rd 2011 at 8am". The system can understand nearly all the different ways to say the date and time, but writing it in english makes it less likely that you will make a mistake. The start time is used to sort your trip reports. If you enter both the start and end date the system will automatically link photos you have already submitted for this trip.</p>
+</div><div class="clear"></div>
+
+<div>
+  <%= f.label :start_time, "Start Time#{mark_required(@trip_report, :start_time)}:" %> 
+  <%= f.text_field :start_time, :class => 'time_field', :value => @start_time %>
+</div><div class="clear"></div>
+<div>
+  <%= f.label :end_time, "End Time#{mark_required(@trip_report, :end_time)}:" %> 
+  <%= f.text_field :end_time, :class => 'time_field', :value => @end_time %>
+</div><div class="clear"></div>
+
+<div>
+  <%= f.label :travel_time, "How long did the trip take#{mark_required(@trip_report, :travel_time)}" %> 
+  <%= f.text_field :travel_time %>
+</div><div class="clear"></div>
+<div>
+  <%= f.label :abstract, "Short Trip Summary#{mark_required(@trip_report, :abstract)}" %> 
+  <%= f.text_area :abstract, :maxlength => 30720, :class => 'expand', :rows => 4, :cols => 60 %>
+</div><div class="clear"></div>
+<div>
+  <%= f.label :participants, "List the trip participants#{mark_required(@trip_report, :participants)}" %> 
+  <%= f.text_area :participants, :maxlength => 30720, :class => 'expand', :rows => 3, :cols => 60 %>
+</div><div class="clear"></div>
+
+<div>
+  <p>Describe the events of your trip. Use the button to insert a photo into your description for illustrative purposes. Once you have selected a photo it will place a line that looks like this \"[[photo=3]]\" which you can cut and paste anywhere in your description or delete if you no longer want the photo there. This line tells the site what photo to display when displaying your trip report.<%= mark_required(@trip_report, :description) %> 
+  </p>
+  <input class="uploadPhotoButton" type="button" value="Upload/Edit Photos">
+  <input class="selectPhotoButton" type="button" value="Insert an illustrative photo from Summitsearch" />
+  <br>
+  <%= hidden_field_tag :photo_ids %>
+  <%= render :partial => 'all/multi_photo_upload', :locals => {:dialog => true, :tag_name => 'trip_report_id', :class_name => 'trip report'} %>
+  <%= render :partial => 'all/photo_select', :locals => {:trip_report => @trip_report, :latitude => @startLatitude, :longitude => @startLongitude} %>
+  <div class="clear"></div>
+  <%= f.text_area :description, :maxlength => 61440, :class => "editor", :rows => 30, :cols => 80 %>
+</div>
+<div class="clear"></div><br>
+

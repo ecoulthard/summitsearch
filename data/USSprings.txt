@@ -1,0 +1,1 @@
+"Feature Name"|"ID"|"Class"|"County"|"State"|"Latitude"|"Longitude"|"Ele(ft*)"|"Map**"|"BGN Date"|"Entry Date"|

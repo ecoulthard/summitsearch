@@ -1,0 +1,12 @@
+<div class="form">
+  <fieldset>
+     <legend>Enter in the 
+     <% if @trip %>
+	Trip Report and
+     <% end %>
+     <%= @type %> Data</legend>
+     <%= render 'form' %>
+  </fieldset>
+</div>
+
+<%= link_to 'Back', routes_path(:type => @routes.class.to_s) %>

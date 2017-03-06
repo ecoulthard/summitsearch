@@ -1,0 +1,7 @@
+<% comment = trip_report.comments.last %>
+<td class="showHover colorOnHover clickable">
+  <%= link_to truncate(trip_report.title, :length => 150), trip_report_path(trip_report, :anchor => "post-#{comment.id}") %>
+  <br>
+  <span class="text no-wrap">By: <%= truncate trip_report.user.display_name, :length => 25 %></span>
+  <%= render :partial => "articles/comment_thumb_fieldset", :locals => {:comment => comment} %>
+</div>

@@ -1,0 +1,90 @@
+<%= render 'main', :new => true %>
+
+<table class="subdued"  cellspacing='0'>
+  <thead>
+    <tr>
+      <th colspan="5" class="clickable">Recently Liked Articles 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Recently liked trip reports", trip_reports_path(:sort => 'last_liked'), :class => 'linkButton' %>
+        <%= link_to "Recently liked albums", albums_path(:sort => 'last_liked'), :class => 'linkButton' %>
+        <%= link_to "Recently liked photos", photos_path(:sort => 'last_liked'), :class => 'linkButton' %>
+      </th>
+    </tr>
+  </thead>
+<% ss_cache({:part => 'liked'}, :expires_in => 2.hours) do %>
+  <tbody>
+    <% @liked_trip_and_album_groups.each do |articles| %>
+      <tr class="<%= cycle("odd", "even") %>">
+        <% articles.each do |article| %>
+          <% if article.class == TripReport %>
+            <%= render :partial => 'trip_reports/thumb', :locals => {:trip_report => article, :show_user => true} %>
+          <% else %>
+            <%= render :partial => 'albums/thumb', :locals => {:album => article, :show_user => true} %>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="entries">
+  <% @liked_photos.each do |photo| %>
+    <%= render :partial => 'photos/thumb', :locals => {:photo => photo} %>
+  <% end %>
+</div>
+<% end %>
+<div class="clear"></div><br>
+
+<table class="subdued"  cellspacing='0'>
+  <thead>
+    <tr>
+      <th colspan="5" class="clickable">New Article Comments</th>
+    </tr>
+  </thead>
+<% ss_cache({:part => 'comments'}, :expires_in => 2.hours) do %>
+  <tbody>
+    <tr class="odd">
+      <% @commented_trips_and_albums.each do |article| %>
+        <% if article.class == TripReport %>
+          <%= render :partial => 'trip_reports/comment_thumb', :locals => {:trip_report => article} %>
+        <% else %>
+          <%= render :partial => 'albums/comment_thumb', :locals => {:album => article} %>
+        <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<div class="entries">
+  <% @commented_photos.each do |photo| %>
+    <%= render :partial => 'photos/comment_thumb', :locals => {:photo => photo} %>
+  <% end %>
+</div>
+<% end %>
+
+<%= render 'everything', :new => true %>
+
+<table class="subdued"  cellspacing='0'>
+  <thead>
+    <tr>
+       <th colspan="5" class="clickable"><%= @label %> Members
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More new members", users_path, :class => 'linkButton' %>
+       </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ss_cache({:part => 'users'}, :expires_in => 2.hours ) do %>
+      <% @user_groups.each do |users| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <% users.each do |user| %>
+            <%= render :partial => 'users/thumb', :locals => {:user => user} %>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="clear"></div><br>
+<%= link_to 'Show recently updated records', updated_path, :class => 'linkButton' %>
+
+<div class="clear"></div><br>
+<div class="fb-like-box" data-href="https://www.facebook.com/summitsearch" data-width="1000" data-height="500" data-show-faces="true" data-stream="true" data-header="true"></div>
+<div class="clear"></div><br>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<%= render :partial => 'layouts/header', :locals => {:default_title => "Summit Search", :app => "main"} %>
+<body id="main" class="nomenu <%= params[:controller] %> <%= params[:action] %>">
+  <div id="short_banner" title="Click here to go to home">
+    <%= link_to @page_title || "Summit Search", root_path %>
+  </div>
+  <div id="nomenu">
+    <% if notice %>
+      <p id="notice" class="notice"><%= raw notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id="alert" class="notice"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </div>
+
+  <%= render :partial => 'layouts/javascript', :locals => {:app => "main"}  %>
+</body>
+</html>

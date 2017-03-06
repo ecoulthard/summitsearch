@@ -1,0 +1,294 @@
+### Interactive waypoint system for creating routes
+# © 2012 Eric Coulthard ( ecoulthard@gmail.com ) 
+# 
+# Licensed under GNU GPL 3.0 or later.    
+#
+# This file contains functions for managing waypoints used in route forms.
+# Waypoints are stored in the waypoints array. The waypoints index in the array is the same as the waypoints id.
+# The waypoints array is organized so that the ids of the children of a waypoint are greater than its id.
+# It is important to keep things this way as some functions rely on this assumption.
+#
+###
+
+externalObject =
+
+  # All of the necessary globals
+  allow_branches: true # If true then the route can be a tree. Otherwise it is a single line.
+  centerLatLng: null # The latLng we use to center the google map when the route is loaded.
+  elevator: null # The google elevator that we use to look up the elevation of a waypoint.
+  active_index: null # The index of the waypoint that will be the parent of the next added waypoint.
+  local_index: 0 # The index to assign to the next added waypoint.
+  waypoints: [] # The waypoints arrau.
+
+  # Returns true if the coordinates are more than 100km from the previous point
+  coordinatesTooFarAway: (latitude, longitude) ->
+    latLng = new google.maps.LatLng latitude, longitude
+    if @active_index != null
+      return google.maps.geometry.spherical.computeDistanceBetween(@waypoints[@active_index].marker.getPosition(), latLng) > 100000
+    false # google.maps.geometry.spherical.computeDistanceBetween(@centerLatLng, latLng) > 1000000
+
+  # Call this function to set up the page for inserting waypoints.
+  initRoute: (branches_allowed, startLatitude, startLongitude, startContent, startName) ->
+    @allow_branches = branches_allowed
+    @centerLatLng = new google.maps.LatLng startLatitude, startLongitude
+    # Put a marker in the center with info about the center coordinates
+    centerContentString = "<div class='reference_window'>" + startContent + "</div>"
+    centerInfowindow = new google.maps.InfoWindow { content: centerContentString }
+    centerMarker = new google.maps.Marker {
+                                            position: @centerLatLng
+                                            clickable: false
+                                            zIndex: -100
+                                            map: window.map
+                                            icon: "<%= asset_path "markers/center-dot.png" %>"
+                                            shape: {
+                                                     coord: [15,18,6]
+                                                     type: 'circle' }
+                                            title: startName }
+    # centerInfowindow.open map,centerMarker
+    # Add map click listener to add waypoints when the map is clicked.
+    google.maps.event.addListener window.map, "click", @mapClicked
+    # When double clicked insert waypoint rather than append.
+    # google.maps.event.addListener map, "dblclick", mapDoubleClicked
+    @elevator = new google.maps.ElevationService()
+
+  # When the map is clicked add a new waypoint.
+  # Check clicked point to see if it is close to a preexisting point
+  # If it is and it would create at least a 3 point loop then create it and then make it a copy of that point
+  # If it isn't close to a preexisting point then just add it.
+  # Because this function is called by Google maps we cannot use @variables and must use Route.variables instead
+  mapClicked: (event) ->
+    if Route.local_index > 0
+      for index in [0..Route.local_index-1]
+        waypoint = Route.waypoints[index]
+        continue if waypoint._destroy
+        lat = waypoint.latitude
+        lng = waypoint.longitude
+        # If new point is close to another point based on current zoom then maybe create a loop
+        threshold = 0.005
+        switch window.map.getZoom()
+          when 13 then threshold = 0.003
+          when 14 then threshold = 0.002
+          when 15 then threshold = 0.001
+          when 16 then threshold = 0.0005
+          when 17 then threshold = 0.0003
+          when 18 then threshold = 0.0001
+          when 19 then threshold = 0.00005
+
+        # Point is close to another point. If connecting it to that point creates a loop
+        # of at least three points then add the point as a loop connecting point
+        if Math.abs(lat-event.latLng.lat()) < threshold && Math.abs(lng-event.latLng.lng()) < threshold and index != Route.active_index and Route.waypoints[Route.active_index].parent_index != index
+          $("#Latitude").val Route.waypoints[index].latitude
+          $("#Longitude").val Route.waypoints[index].longitude
+          $("#btnAddWaypoint").click()
+          return
+             
+    # If not near another point add the point as a unique point
+    # The "Add Waypoint" button calls a function in ApplicationHelper.rb that then calls add_waypoint_fields to create a waypoint
+    $("#Latitude").val event.latLng.lat()
+    $("#Longitude").val event.latLng.lng()
+    $("#btnAddWaypoint").click()
+
+  # Alters the info window content for the waypoint to onchange update the hidden content fields
+  # Also adds id to the element ids to make the ids unique
+  setUpWindowContent: (id, content) ->
+    content = content.replace "id=\"bubble_fieldset\"", "id=\"bubble_fieldset_" + id + "\""
+    content = content.replace "id=\"title\"", "id=\"title_" + id + "\""
+    content = content.replace "id=\"latitude\"", "id=\"latitude_" + id + "\""
+    content = content.replace "id=\"longitude\"", "id=\"longitude_" + id + "\""
+    content = content.replace "id=\"height\"", "id=\"height_" + id + "\""
+    content = content.replace "id=\"distance\"", "id=\"distance_" + id + "\""
+    content = content.replace "id=\"height_gain\"", "id=\"height_gain_" + id + "\""
+    content = content.replace "id=\"height_loss\"", "id=\"height_loss_" + id + "\""
+    content = content.replace "id=\"description\"", "id=\"description_" + id + "\""
+    content = content.replace /id="icon_/g, "id=\"icon_" + id + "_"
+    content = content.replace /name="icon"/g, "name=\"icon_" + id + "\""
+    content = content.replace "onchange=\"title\"", "onchange=\"Route.waypoints[" + id + "].setTitle($(this).val());\""
+    content = content.replace "onchange=\"latitude\"", "onchange=\"Route.waypoints[" + id + "].setLatitude($(this).val());\""
+    content = content.replace "onchange=\"longitude\"", "onchange=\"Route.waypoints[" + id + "].setLongitude($(this).val());\""
+    content = content.replace "onchange=\"height\"", "onchange=\"Route.waypoints[" + id + "].setHeight(parseInt($(this).val()));\""
+    content = content.replace "onchange=\"description\"", "onchange=\"Route.waypoints[" + id + "].setDescription($(this).val());\""
+    content = content.replace /onchange="icon"/g, "onchange=\"Route.waypoints[" + id + "].setIcon($(this).val(),$(this).prev('img').prop('src'));\""
+    # Setup Activate Button
+    content = content.replace "onclick=\";\"", "onmouseup=\"Route.activateWaypoint(" + id + ");\""
+    # Setup Insert Button
+    content = content.replace "onclick=\";\"", "onmouseup=\"Route.insertWaypointClicked(" + id + ");\""
+    # Setup Delete button
+    content = content.replace "onclick=\";\"", "onmouseup=\"if(confirm('Really delete this waypoint?')) Route.removeWaypoint(" + id + ");\""
+    content
+
+# This function is called when loading a pre-existing waypoint. This only happens when editing an
+# existing route.
+  loadWaypoint: (id, window_content, icon_src) ->
+    parent_index = parseInt $("#route_waypoints_attributes_" + id + "_parent_index").val()
+    if parent_index == "null" or parent_index == @local_index
+      parent_index = null
+    @waypoints[id] = new Waypoint id, parent_index,
+                                     $("#route_waypoints_attributes_" + id + "_title").val(),
+                                     $("#route_waypoints_attributes_" + id + "_latitude").val(),
+                                     $("#route_waypoints_attributes_" + id + "_longitude").val(),
+                                     parseInt($("#route_waypoints_attributes_" + id + "_height").val()),
+                                     parseFloat($("#route_waypoints_attributes_" + id + "_distance").val()),
+                                     parseInt($("#route_waypoints_attributes_" + id + "_height_gain").val()),
+                                     parseInt($("#route_waypoints_attributes_" + id + "_height_loss").val()),
+                                     $("#route_waypoints_attributes_" + id + "_description").val(),
+                                     $("#route_waypoints_attributes_" + id + "_icon").val(),
+                                     icon_src,
+                                     window_content
+    @local_index = @waypoints.length
+    @active_index = @local_index-1
+    @computeDistances() #Recompute distances just to be sure.
+
+  # Adds the new waypoint to the form.
+  # Content is the hidden fields that get submitted with the page for the waypoint
+  # Window content is the content that shows up in the popup window that appears when you click on a waypoint marker.
+  # We expect to find values stored in the variables local_index, active_index and the Latitude/Longitude textboxes.
+  addNewWaypoint: (button, association, content, window_content) ->
+    latitude = convertToDecimal $("#Latitude").val() # Convert if in a different system
+    longitude = convertToDecimal $("#Longitude").val() # Convert if in a different system
+    if latitude == "" or longitude == "" or isNaN latitude or isNaN longitude or coordinatesTooFarAway latitude, longitude
+      alert "Latitude and Longitude must be numbers at most 500km away from the center of this area and no more than 100km away from the previous waypoint added."
+      return
+    content = content.replace new RegExp("new_" + association, "g"), @local_index
+    content = content.replace "type=\"hidden\" />", "type=\"hidden\" value=\"" + latitude + "\" />"
+    content = content.replace "type=\"hidden\" />", "type=\"hidden\" value=\"" + longitude + "\" />"
+    content = content.replace "type=\"hidden\" />", "type=\"hidden\" value=\"" + @local_index + "\" />"
+    content = content.replace "type=\"hidden\" />", "type=\"hidden\" value=\"" + @active_index + "\" />"
+    @waypoints[@local_index] = new Waypoint @local_index, @active_index, "", latitude, longitude, 0, 0.0, 0, 0, "", "", null, window_content
+    # Update these global variables for future waypoints.
+    @active_index = @local_index
+    @local_index++
+    $(button).after content
+    setTimeout((-> Route.computeDistances()), 500) #Compute the new distances after half a second
+    # $(button).insert{ after: content }
+
+  # Insert a new waypoint with lat, lon between the waypoint at index and its parent
+  # We need to add the waypoint first using the traditional click of the Add Waypoint button
+  # Then we need to move it to become the parent of the waypoint at insert_index. This requires a deep shift of waypoint data.
+  insertWaypoint: (insert_index, lat, lon) ->
+    if @waypoints[insert_index].isRoot()
+      alert "Cannot insert a point before the first point"
+      return
+    # First append the new waypoint as usual
+    # The "Add Waypoint" button calls a function in RouteHelper.rb that then calls addNewWaypoint to create a waypoint
+    $("#Latitude").val lat
+    $("#Longitude").val lon
+    $("#btnAddWaypoint").click()
+
+    setTimeout((-> Route.continueInsertingWaypoint(insert_index)), 500)
+
+  # Called by set timeout in the insertWaypoint function above
+  continueInsertingWaypoint: (insert_index) ->
+
+    # Now we need to swap the waypoint attributes to its intended position
+    inserted = @waypoints[@active_index] # The newly created waypoint
+
+    #Wait a little so that google has time to assign it a height
+	
+    # Do a deep shift of each waypoints data to make room for the new waypoint data.
+    for index in [@local_index-1..insert_index]
+      waypoint = @waypoints[index]
+      waypoint.setID index+1
+      # If parent is after inserted point then its index has incremented
+      waypoint.parent_index++ if waypoint.parent_index >= insert_index
+      @waypoints[index+1] = waypoint
+      waypoint.save() # Save values to html fields and reset events
+    
+    # Insert the waypoint. Latitude, longitude will be obtained from the marker.
+    child = @waypoints[insert_index+1] #The child of the point we are inserting
+    inserted.setID insert_index
+    inserted.parent_index = child.parent_index
+    inserted.computeDistance() # need to recompute this
+    inserted.setPath()
+    @waypoints[insert_index] = inserted
+    inserted.save()  #Save values to html fields
+    @active_index = insert_index
+
+    #Update the child waypoint of the inserted waypoint so that the inserted waypoint is its parent. Its path will need to be redrawn.
+    child.setParentIndex insert_index
+    child.setPath()
+    child.save() # Save values to html fields
+    @computeDistances() #distance doesn't change but height change does
+	
+  # Overload for insertWaypoint. Needs to first choose a latitude and longitude for the inserted point before
+  # calling the main insertWaypoint function above. Called by insertWaypoint button in the info windows.
+  insertWaypointClicked: (insert_index) ->
+    @insertWaypoint insert_index, @waypoints[insert_index].midLatitude(), @waypoints[insert_index].midLongitude()
+	
+  #Make the waypoint at index the active waypoint if the route allows branching or the active point was removed
+  activateWaypoint: (index) ->
+    if (@allow_branches and @active_index != index) or activeWaypoint._destroy
+      @getWaypoint(index).marker.setIcon "<%= asset_path "markers/yellow-dot.png" %>"
+      @activeWaypoint().resetIcon() # Reset parent waypoint icon
+      @active_index = index
+	
+  # A waypoint is being deleted. First set it to be destroyed by the db when submitted.
+  # Then reassign its child point to connect to its parent.
+  # Also need to assign the parent of the removed point as the parent of each of its children waypoints.
+  removeWaypoint: (index) ->
+    removed = @getWaypoint index
+    # Cannot remove first point if it has more than 1 child as this would disconnect the tree
+    if removed.isRoot() && removed.numChildren() > 1
+      alert "Cannot remove the root point since this will disconnect the route"
+      return
+    removed.destroy()
+	
+    # if the active waypoint is being removed need to choose a new active waypoint. A child waypoint is a good choice.
+    reassign_active_index = @active_index == index
+	
+    #grandparent index of each child point of the removed point
+    grandparent_index = removed.parent_index
+	
+    # For each point after the removed point check to see if it is a child point.
+    for i in [index..@local_index-1]
+      waypoint = @waypoints[i]
+      continue if waypoint._destroy
+      parent_index = waypoint.parent_index
+      if parent_index == index # If child point
+        waypoint.setParentIndex grandparent_index # Make grand parent waypoint its parent
+        if grandparent_index != null
+          waypoint.setPath() # Redrawn path to new parent
+        else
+          waypoint.path.setMap null
+      if reassign_active_index # Make this child the new active waypoint
+        @activateWaypoint i
+        reassign_active_index = false
+
+    #If we need to choose a new active waypoint and there are no children to choose
+    if reassign_active_index
+      if grandparent_index != null # Move active index to parent if the removed waypoint has a parent
+        @activateWaypoint grandparent_index
+      else # Waypoint has no parent so make the last added non-destroyed waypoint active
+        @active_index = null
+        for i in [@local_index-1..1]
+          continue if @waypoints[i]._destroy
+          @activateWaypoint i
+          break
+    #Need to recompute distances
+    @computeDistances()
+
+  getWaypoint: (index) ->
+    @waypoints[index]
+
+  activeWaypoint: ->
+    @waypoints[@active_index]
+
+  # Recompute the distances for all waypoints. Needs to be done when a point is moved or removed.
+  # Also compute total distance and height change for the route.
+  computeDistances: ->
+    distance = height_gain = height_loss = 0
+    for waypoint in @waypoints[0..@local_index-1]
+      continue if waypoint._destroy
+      waypoint.computeDistance()
+      waypoint.setHeightChange()
+      distance += waypoint.distToParent()
+      heightChange = waypoint.getHeightChangeToParent()
+      height_gain += heightChange if heightChange >= 0
+      height_loss -= heightChange if heightChange < 0
+    #DB only stores 2 decimal places for distance so we need to round in order to not trigger
+    #distance changed which will cause a lot of expensive computations in Route.rb
+    $("#route_distance").val Math.round(distance*100)/100
+    $("#route_height_gain").val height_gain
+    $("#route_height_loss").val height_loss
+
+
+window.Route = externalObject

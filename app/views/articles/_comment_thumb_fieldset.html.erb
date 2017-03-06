@@ -1,0 +1,9 @@
+<div class="hover">
+  <fieldset>
+    <legend>Latest Comment</legend>
+    <%= truncate(sanitize(comment.text), :length => 300) %>
+    <div class="text">
+      <span class="no-wrap">By: <%= link_to truncate(comment.user.display_name, :length => 25), comment.user %></span>
+    </div>
+  </fieldset>
+</div>

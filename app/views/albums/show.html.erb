@@ -1,0 +1,46 @@
+<div id="place_list" data-no-turbolink>
+  <h1><%= @album.title %> <span>by <%= link_to @album.user.display_name, @album.user %></span>
+    <br><br>
+    <%= link_to "Google Map View", gmap_path(:album_id => @album.id), :rel => 'nofollow', :class => 'linkButton' %>
+    <%= topo_map_link @album.ref_latitude.round(6), @album.ref_longitude.round(6), 10 %>
+    <% if @show_edit_link %>
+      &nbsp<%= link_to "Edit This Album", edit_album_path(@album), :class => 'linkButton' %>
+    <% end %>
+  </h1>
+
+  <% ss_cache :part => "description_#{@album.id}" do %>
+    <div>
+      <% if !@time.nil? %>
+        <p>
+          <b>Date: </b>&nbsp;<%= @time %>
+        </p>
+      <% end %>
+
+      <% if !@description.nil? %>
+        <p>
+          <%= sanitize @description %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="clear"></div><br>
+  <%= render :partial => 'articles/vote' %>
+  <div id="recommendations" class="recommendations">
+    <%= render :partial => 'articles/recommendations' %>
+  </div>
+  <div class="clear"></div><br>
+  
+  <%= render :partial => 'articles/social' %>
+
+    <div class="clear"></div>
+    <div id="photos_go_here" data-object_id="<%= @album.to_param %>">
+      <% ss_cache :part => "photos_#{@album.id}" do %>
+        <%= render :partial => 'photos/insertable_list', :locals => {:photo_type => 'Album', :place_tag => :album_id, :place => @album, :text_only => true} %>
+      <% end %>
+    </div>
+
+</div>
+
+<div class="clear"></div> 
+<%= render :partial => 'articles/comments' %>

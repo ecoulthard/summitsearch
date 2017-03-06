@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html itemscope itemtype="http://schema.org/Article">
+<%= render :partial => 'layouts/header', :locals => {:default_title => "Summit Search", :app => "main"} %>
+<body id="main" class="default <%= params[:controller] %> <%= params[:action] %> <%= "ie7" if ie7 %>"> 
+  <div id="banner" tabindex="1" style="background-image: url(<%= asset_path("logo_backgrounds/background#{rand(1..NUM_BACKGROUND_IMAGES)}.jpg") %>)">
+    <%= link_to "", main_app.root_path, :id => "BannerLink"  %>
+    <%= image_tag("logo.png", :alt => 'Summit Search Mountain Community', :id => 'BannerLogo') %>
+    <%= menu %>
+      <li tabindex="6" class="menu_right search" data-no-turbolink>
+        <%= form_tag main_app.search_path, :method => 'get' do %>
+          <%= search_field_tag :search, '', :placeholder => "Search the site" %><br>
+        <% end %>
+      </li>
+      <% if user_signed_in? %>
+        <li tabindex="5" class="not_search menu_right">
+          <%= link_to current_user.display_name, main_app.user_path(current_user), :class => 'drop' %>
+          <div class="dropdown_1column align_right">
+            <div class="col_1">
+              <ul class="simple">
+                <li><%= link_to "Edit Profile", main_app.edit_user_registration_path %></li>
+                <li><%= link_to "Sign out", main_app.destroy_user_session_path, :method => :delete %></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      <% else %>
+        <li class="not_search menu_right" data-no-turbolink><a class="signup">Sign up</a></li>
+        <li class="not_search menu_right" data-no-turbolink><a class="signin">Sign in</a></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  
+  <div id="content">
+    <% if notice %>
+      <p id="notice" class="notice"><%= raw notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id="alert" class="notice"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </div>
+  <div class="clear"></div>
+  <div id="bottom">
+      <%= link_to "Contribution Guide", main_app.contributions_path, :rel => 'nofollow' %>&nbsp;
+      <%= link_to "Terms of use", main_app.terms_path, :rel => 'nofollow' %>&nbsp;
+      <%= link_to "Disclaimer", main_app.disclaimer_path, :rel => 'nofollow' %>&nbsp;
+      <%= link_to "Suggestions", forem.forum_path("suggestions") %>
+  </div>
+  <%= render :partial => "layouts/signup" %>
+  <%= render :partial => "layouts/signin" %>
+  <%= render :partial => 'layouts/javascript', :locals => {:app => "main"}  %>
+</body>
+</html>

@@ -1,0 +1,226 @@
+@import "mixins"
+
+/* 
+ * Pure css menu obtained from
+ * http://net.tutsplus.com/tutorials/html-css-techniques/how-to-build-a-kick-butt-css3-mega-drop-down-menu/
+  */
+
+@mixin menu
+
+  #menu
+    position: absolute
+    left: -999em /* hides the menu */
+    top: 100px
+    width: 95%
+    list-style: none
+    margin: 0px auto 0px auto
+    height: 43px
+    padding: 0px 20px 0px 20px
+
+    @include rounded-corners(10px, 10px, 10px, 10px)
+    @include background-image
+    /* @include background-gradient(#014464, #0272a7, #013953) */
+    @include box-shadow(1px, #edf9ff)
+      
+    /* Borders */
+    border: 1px solid #002232  
+
+    /* Right alignment */  
+    .menu_right   
+      float: right  
+      margin-right: 0px  
+
+    /* Drop Down Content Stylings */
+    p, h2, h3, ul li   
+      font-family: Arial, Helvetica, sans-serif  
+      line-height: 21px  
+      font-size: 12px  
+      text-align: left  
+      text-shadow: 1px 1px 1px #FFFFFF  
+    h2   
+      font-size: 21px  
+      font-weight: 400  
+      letter-spacing: -1px  
+      margin: 7px 0 14px 0  
+      padding-bottom: 14px  
+      border-bottom: 1px solid #666666  
+    h3
+      font-size: 14px  
+      margin: 7px 0 14px 0  
+      padding-bottom: 7px  
+      border-bottom: 1px solid #888888  
+    p   
+      line-height: 18px  
+      margin: 0 0 10px 0
+
+    li
+      float: left  
+      text-align: center  
+      position: relative  
+      margin-right: 30px
+      border: none
+      padding: 4px 10px 4px 10px
+    li.search
+      margin-top: 3px
+      width: 300px
+      INPUT[type=search],INPUT[type=text]
+        font-size: 14px
+        height: 30px 
+        width: 100%
+        border-style: none
+        border-width: 0
+    > li.not_search
+      margin-top: 7px  
+      /* li:hover */ 
+      &:hover, &:focus
+        border: 1px solid #777777
+        padding: 4px 9px 4px 9px
+        @include rounded-corners(5px, 5px, 0px, 0px)
+        @include background-gradient(#F4F4F4, #F4F4F4, #EEEEEE)
+        a
+          color: #161616
+          text-shadow: 1px 1px 1px #FFFFFF
+        .drop
+          background: url("/assets/drop.png") no-repeat right 7px
+        .dropdown_1column,
+        .dropdown_2columns,   
+        .dropdown_3columns,  
+        .dropdown_4columns,  
+        .dropdown_5columns
+          left: -1px  
+          top: auto  
+    
+        .align_right
+          left: auto
+          right: -1px
+          top: auto
+        div a
+          font-size: 12px  
+          color: #015b86  
+          &:hover   
+            color: #029feb  
+      a   
+        font-family: Arial, Helvetica, sans-serif  
+        font-size: 14px   
+        color: #EEEEEE  
+        display: block  
+        outline: 0  
+        text-decoration: none  
+        text-shadow: 1px 1px 1px #000  
+      .drop   
+        padding-right: 21px  
+        background: url("/assets/drop.png") no-repeat right 8px  
+      /* Drop Down */  
+      .dropdown_1column,   
+      .dropdown_2columns,   
+      .dropdown_3columns,   
+      .dropdown_4columns,  
+      .dropdown_5columns
+        margin: 4px auto  
+        float: left  
+        position: absolute
+        z-index: 100
+        left: -999em /* Hides the drop down */ 
+        text-align: left  
+        padding: 10px 5px 10px 5px  
+        border: 1px solid #777777  
+        border-top: none  
+        @include rounded-corners(0px, 5px, 5px, 5px)
+        @include background-gradient(#F4F4F4, #EEEEEE, #BBBBBB)
+
+      .dropdown_1column
+        width: 140px  
+      .dropdown_2columns
+        width: 280px  
+      .dropdown_3columns
+        width: 420px  
+      .dropdown_4columns
+        width: 560px  
+      .dropdown_5columns
+        width: 700px
+    
+      .align_right   
+        @include rounded-corners(5px, 0px, 5px, 5px)
+
+      .black_box   
+        background-color: #333333  
+        color: #eeeeee  
+        text-shadow: 1px 1px 1px #000  
+        padding: 4px 6px 4px 6px  
+        @include rounded-corners(5px, 5px, 5px, 5px)
+        @include box-shadow(3px, #000000)
+
+      ul   
+        list-style: none  
+        padding: 0  
+        margin: 0 0 12px 0  
+        li   
+          font-size: 12px  
+          line-height: 24px  
+          position: relative  
+          text-shadow: 1px 1px 1px #ffffff  
+          padding: 0  
+          margin: 0  
+          float: none  
+          text-align: left  
+          width: 130px  
+          &:hover   
+            background: none  
+            border: none  
+            padding: 0  
+            margin: 0  
+    
+      .greybox li   
+        background: #F4F4F4  
+        border: 1px solid #bbbbbb  
+        margin: 0px 0px 4px 0px  
+        padding: 4px 6px 4px 6px  
+        width: 116px  
+        @include rounded-corners(5px, 5px, 5px, 5px)
+        &:hover   
+          background: #ffffff  
+          border: 1px solid #aaaaaa  
+          padding: 4px 6px 4px 6px  
+          margin: 0px 0px 4px 0px  
+     
+  /* Columns */  
+  .col_1,  
+  .col_2,  
+  .col_3,  
+  .col_4,  
+  .col_5
+    display: inline  
+    float: left  
+    position: relative  
+    margin-left: 5px  
+    margin-right: 5px  
+    
+  .col_1
+    width: 130px  
+  .col_2
+    width: 270px  
+  .col_3
+    width: 410px  
+  .col_4
+    width: 550px  
+  .col_5
+    width: 690px
+
+  .strong   
+    font-weight: bold  
+    
+  .italic   
+    font-style: italic  
+    
+  .imgshadow   
+    background: #FFFFFF  
+    padding: 4px  
+    border: 1px solid #777777  
+    margin-top: 5px
+    @include box-shadow(5px, #666666)
+
+  /* Image sticks to the left */  
+  .img_left
+    width: auto
+    float: left
+    margin: 5px 15px 5px 5px

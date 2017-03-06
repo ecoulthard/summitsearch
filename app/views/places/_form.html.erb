@@ -1,0 +1,300 @@
+<!-- form_for(@place, :html => {:multipart => true}) do |f| -->
+<%= simple_nested_form_for(@place, :html => {:multipart => true})  do |f| %>
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@place.errors.count, "error") %> prohibited this <%= @type %> from being saved:</h2>
+
+      <ul>
+      <% @place.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :type %>
+  <%= f.hidden_field :ref_place_id %>
+  
+  <div class="actions">
+    <%= f.submit @submit, :style => 'left:40%' %>
+  </div>
+  
+  <div>
+    <%= f.label :name, "#{@type} Name#{mark_required(@place, :name)}:" %>
+    <%= f.text_field :name, :size => 60 %>
+  </div><div class="clear"></div><br>
+  <div>
+    <%= f.label :type, "Place Type #{mark_required(@place, :type)}:" %> 
+    <%= f.select :type, options_from_collection_for_select(([Place]+Place.subclasses).map{|subclass| subclass.to_s}, 'to_s', 'titleize', @place.class.to_s)%>
+  </div>
+  <div class="clear"></div>
+  <div>
+    <%= f.label :name_status, "#{@type} Name Status#{mark_required(@place, :name_status)}:" %>
+    <%= f.select :name_status, Place::NAME_STATUS_TYPES %>
+    Name Source:
+    <%= f.select :name_reference, Place::NAME_SOURCE_TYPES , { include_blank: true } %>
+  </div><div class="clear"></div><br>
+
+  <%= f.fields_for :names do |names_form| %>
+    <%= render :partial => 'all/name_fields', :locals => {:f => names_form} %>
+  <% end %>
+  <%= f.link_to_add "Add additional name information", :names, :class => 'linkButton' %>
+
+  <div class="clear"></div><br>
+
+  <% if @place.class == Mountain %>
+    <%= f.fields_for :ascents %>
+    <%= f.link_to_add "Add specific information about an ascent", :ascents, :class => 'linkButton' %>
+  <% end %>
+
+  <div class="clear"></div><br>
+
+
+  <div>
+    <p>Briefly describe the location, terrain and history of the <%= "#{@type}.#{mark_required(@place, :description)}" %></p>
+    <%= f.text_area :description, :class => "editor", :rows => 20, :cols => 80 %>
+  </div><div class="clear"></div><br>
+  <div>
+  <div>
+    <%= f.label :sub_region, "Can this place be used as a subregion? Subregions can be used to group mountains in a larger region. #{mark_required(@place, :sub_region)}"%> 
+    &nbsp;&nbsp;Yes<%= f.check_box :sub_region %>
+  </div><div class="clear"></div><br>
+  <div>
+    <%= f.label :match_names, "Enter any comma separated terms that would refer to the #{@type} if they occured in a sentence. This is used to help match photos and trip reports to this #{@type}.#{mark_required(@place, :match_names)}"%>
+    <%= f.text_area :match_names, :class => 'expand50-200', :rows => 5, :cols => 80 %>
+  </div><div class="clear"></div><br>
+  <div>
+    <%= f.label :reject_names, "Enter any comma separated terms that if they occured in a sentence would mean that this #{@type} is not being referred to. This is used to help reduce incorrect matches of photos and trip reports to this #{@type}.#{mark_required(@place, :reject_names)}"%>
+    <%= f.text_area :reject_names, :class => 'expand50-200', :rows => 5, :cols => 80 %>
+  </div><div class="clear"></div><br>
+
+  <div>
+    <%= f.label :partial_name_match, "Have the photo text matcher use the shortened names for this place?#{mark_required(@place, :partial_name_match)}" %> 
+    &nbsp;&nbsp;Yes<%= f.check_box :partial_name_match %>
+  </div><div class="clear"></div><br>
+  
+  <div>
+    <p>Describe the sources of the content you added. Please include links whenever possible.<%= mark_required(@place, :references) %></p>
+    <%= f.text_area :references, :class => "editor", :rows => 20, :cols => 80 %>
+  </div>
+
+  <div class="clear"></div><br>
+
+  <h4>You need to add a main point for the place and/or a border. Select which one you would like add.</h4>
+  <button id="btnAddMainPoint">Set Main Point</button>
+  <button id="btnAddBorderPoints">Add Border Points</button>
+
+  <div id="divAddBorderPoints">
+    <h4>Please enter boundary points for the <%= @type %>.</h4>
+    <p>There are 3 ways that you can submit boundary points for this place:<p>
+    <ol>
+      <li>
+        <p>You can submit the boundary points in a .kml file using the field below.</p>
+        <div>
+          <p><label for="upload_file">Select File:</label> 
+          <%= file_field 'upload', 'datafile' %></p>
+        </div>
+      </li>
+      <li>
+        <p>You can enter each point using the latitude and longitude fields below and clicking the 'add point' link for each of them.</p>
+        Latitude: <%= text_field_tag 'Latitude' %> Longitude: <%= text_field_tag 'Longitude' %> <button id="btnAddPoint">Add Point</button>
+      </li>
+      <li>
+        <p>You can add each point by clicking on the google map below. Because we have no idea where this <%= @type %> is, that you want to create, we cannot place the map anywhere that makes sense. You'll have to navigate the map to find the <%= @type %> you wish to add. You will likely want to zoom in quite a bit before trying to submit the place. Alternatively you can enter the first point for the place in the latitude and longitude fields above to center the map on the place and then enter the remaining points. The final line closing the polygon will be added when you click on submit</p>
+      </li>
+    </ol>
+  
+    <%= f.fields_for :border_points do |builder| %>  
+      <%= render 'border_point_fields', :f => builder %>
+    <% end %>
+
+    <p class="notice">Warning. Very large places may take a long time to save and may timeout giving you an error page. For example it took more than 10 minutes to submit Jasper National Park because of its size and the number of edges in its boundary. It timed out giving an error page, but was still saved into the site. Smaller places like icefields will probably be fine.</p>
+  </div>
+
+  <div id="divAddMainPoint">
+    <p>Click on the map to have Google auto refine the coordinates and estimate height of the center point or only point for this place. The latitude-longitude and height fields will be updated each time you click. If you can, please enter the actual height of the place, since Google is very inaccurate.<p>
+    <%= f.label :latitude, "Latitude-Longitude#{mark_required(@place, :latitude)}:" %>  
+    <%= f.text_field :latitude, :size => 10 %>,<%= f.text_field :longitude, :size => 11 %>
+    <div class="clear"></div>
+    <%= f.label :height, "Height:#{mark_required(@place, :height)}" %>  
+    <%= f.text_field :height, :size => 4 %> meters or <input type="text" id="place_feet" size=5/> feet
+    <div class="clear"></div>
+
+    <%= f.label :height_reference, "Height Source:#{mark_required(@place, :height_reference)}" %>
+    <%= f.select :height_reference, Place::HEIGHT_SOURCE_TYPES , { include_blank: true } %>
+    <div class="clear"></div><br>
+
+    <% if user_is_admin? && @place.type == "Mountain"  %>
+      <!--<label>search depth</label>
+      <%= text_field_tag :search_depth, "1", :size => 4 %>-->
+    <% end %>
+  </div>
+
+  <div class="clear"></div><br>
+  <div class="actions">
+    <%= f.submit @submit %>
+  </div>
+  <br>
+
+  <div id="map_div_big" class="map_div_big"></div>
+  <%= mytopo_data %>
+
+  <% content_for(:javascript) do %> 
+    <script type="text/javascript">
+      window.addMainPoint = false;
+      window.addBorderPoints = false;
+      
+      <%= render :layout => 'all/init_google_map', :locals => {:usetopomap => true, :mapdiv => 'map_div_big', :zoom => @zoom, :centerLatitude => @startLatitude, :centerLongitude => @startLongitude} do %>
+	
+	//Add click listener to add border points when the map is clicked.
+ 	google.maps.event.addListener(map, "click", function(event) {
+	  if(window.addBorderPoints){
+    	    $("#Latitude").val(event.latLng.lat());
+    	    $("#Longitude").val(event.latLng.lng());
+    	    $("#btnAddPoint").click();
+	  }
+	});
+
+        latlng = null;
+	<% @place.border_points.each_with_index do |point, i| %>
+	  Place.loadBorderPoint(<%= i %>);
+	<% end %>
+  	Place.path = new google.maps.Polyline({
+  		path: Place.pathCoordinates,
+  		strokeColor: '#FF0000',
+  		strokeOpacity: 1.0,
+  		strokeWeight: 2,
+		map: map
+  	});
+
+        //Put a marker in the center with info about the center coordinates
+	var centerMarker = new google.maps.Marker({
+    		position: centerLatLng,
+		clickable: false,
+		zIndex: -100,
+    		map: map,
+		<%= raw "icon: \"#{asset_path("markers/center-dot.png")}\"," %>
+		shape: {coord: [15,18,6], type: 'circle'},
+		title: <%= raw "\"#{h @title }\"" %>
+	});
+  	<% if @place.latitude.nil? %>
+	  lastMainMarker = null;
+	<% else %>
+	  var mainMarker = new google.maps.Marker({
+	    position: new google.maps.LatLng(<%= @place.latitude %>, <%= @place.longitude %>),
+	    title: <%= raw "\"Current #{@place.type} Position\"" %> ,
+	    map: map
+	  });
+	  lastMainMarker = mainMarker;
+	<% end %>
+
+	elevator = new google.maps.ElevationService();
+
+	//Add click listener to set the main point when the map is clicked.
+ 	google.maps.event.addListener(map, "click", function(event) {
+	  if(window.addMainPoint)
+	    placeMarker(event.latLng);
+	});
+
+        //Place marker at the current coordinates and get the height from Google
+        function placeMarker(latLng){
+	  var lat = latLng.lat();
+	  var lng = latLng.lng();
+	  var mainLocations = [];
+	  <% if @place.type == "Mountain" %>//Refine summit for mountains
+	    var depth = 1;
+            <% if user_is_admin? %>
+	      //depth = parseInt($("#search_depth").val());
+	    <% end %>
+	    var interval = 0.00004 * depth;
+	    for(var i = 0; i < 15; i++)
+	      for(var j = 0; j < 15; j++)
+	    	mainLocations.push(new google.maps.LatLng(lat-(10*interval) + interval*i,lng-(10*interval) + interval*j));
+	  <% else %>
+	    mainLocations.push(latLng);
+	  <% end %>
+	  //Get elevation
+	  elevator.getElevationForLocations({'locations': mainLocations}, function(results, status) {
+	    if (status == google.maps.ElevationStatus.OK){
+	      var max_height = 0, max_index = 0;
+	      for(var i = 0; i < results.length; i++)
+		if(max_height < results[i].elevation){
+		  max_height = results[i].elevation
+		  max_index = i;
+		}
+	      document.getElementById("place_latitude").value=results[max_index].location.lat();
+	      document.getElementById("place_longitude").value=results[max_index].location.lng();
+	      document.getElementById("place_height").value = Math.round(max_height);
+	      document.getElementById("place_feet").value = Math.round(max_height * 3.28084);
+	      var mainMarker = new google.maps.Marker({
+	        position: results[max_index].location,
+		title: <%= raw "\"Current #{@place.type} Position\"" %> ,
+	        map: map
+	      });
+	      if(lastMainMarker != null)
+	        lastMainMarker.setMap(null);
+	      lastMainMarker = mainMarker;
+	    }
+	    else
+	      alert(status);
+	  });
+        }      
+
+      <% end %>
+    
+      $(function() {
+        $("#map_div_big").hide()
+	$("#divAddMainPoint").hide()
+	$("#divAddBorderPoints").hide()
+
+	$("#place_latitude").change(function(){
+	  $(this).val($(this).val().replace(/[^0-9:;\.-]/g, ""));
+	  $(this).val($(this).val().replace(/;/g, ":"));
+	  $(this).val(convertToDecimal($(this).val()));	  
+	  if($("#place_longitude").val() != "")
+	    placeMarker(new google.maps.LatLng($(this).val(), $("#place_longitude").val()));
+	});
+
+	$("#place_longitude").change(function(){
+	  $(this).val($(this).val().replace(/[^0-9:;\.-]/g, ""));
+	  $(this).val($(this).val().replace(/;/g, ":"));
+	  $(this).val(convertToDecimal($(this).val()));	  
+       	  if($("#place_latitude").val() != "")
+	    placeMarker(new google.maps.LatLng($("#place_latitude").val(), $(this).val()));
+	});
+
+	$("#place_height").change(function(){
+	  $("#place_feet").val(Math.round($(this).val() * 3.28084));
+	});
+
+        $("#place_feet").change(function(){
+          $("#place_height").val(Math.round($(this).val() / 3.28084));
+        });
+
+      });
+
+      $("#btnAddMainPoint").click(function(e){
+        window.addMainPoint = true;
+        window.addBorderPoints = false;
+	$("#map_div_big").show()
+	$("#divAddMainPoint").show()
+	$("#divAddBorderPoints").hide()
+	e.preventDefault();
+      });
+
+      $("#btnAddBorderPoints").click(function(e){
+        window.addMainPoint = false;
+        window.addBorderPoints = true;
+	$("#map_div_big").show()
+	$("#divAddMainPoint").hide()
+	$("#divAddBorderPoints").show()
+	e.preventDefault();
+      });
+
+      $("#btnAddPoint").click(function(e){
+         window.Place.addNewBorderPoint(this, "border_points", "<%= border_point_fields(f) %>");
+         e.preventDefault();
+      });
+    </script>
+  <% end %>
+
+<% end %>

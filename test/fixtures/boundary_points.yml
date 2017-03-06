@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  latitude: 9.99
+  longitude: 9.99
+  area: one
+  local_index: 1
+
+two:
+  latitude: 19.99
+  longitude: 19.99
+  area: one
+  local_index: 1
+
+three:
+  latitude: 29.99
+  longitude: 29.99
+  area: one
+  local_index: 1
+
+four:
+  latitude: 9.99
+  longitude: 9.99
+  area: two
+  local_index: 1
+
+five:
+  latitude: 29.99
+  longitude: 39.99
+  area: two
+  local_index: 1
+
+six:
+  latitude: 19.99
+  longitude: 19.99
+  area: two
+  local_index: 1

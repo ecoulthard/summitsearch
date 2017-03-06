@@ -1,0 +1,2 @@
+class HikingRoute < Route
+end

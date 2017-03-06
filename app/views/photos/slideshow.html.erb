@@ -1,0 +1,20 @@
+<% content_for(:javascript) do %>
+  <%= raw "<script src=\"#{root_path}javascripts/galleria/galleria-1.2.5.js\" type=\"text/javascript\"></script>" %>  
+  <%= raw "<script src=\"#{root_path}javascripts/galleria/themes/twelve/galleria.twelve.min.js\" type=\"text/javascript\"></script>" %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#gallery').galleria({
+	autoplay: 8000,
+        height: 700,
+	imageCrop: 'height',
+	imagePan: true,
+	transition: 'fade'
+      });
+    });
+  </script>
+<% end %>
+<div id="gallery">
+  <% @photos.each do |photo| %>
+    <%= link_to image_tag(photo.photo.url(:long_thumb), :alt => photo.caption, :title => photo.title), photo.photo.url(:medium), :rel => photo.photo.url()  %>
+  <% end %>  
+</div>

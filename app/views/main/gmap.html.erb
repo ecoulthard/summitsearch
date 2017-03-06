@@ -1,0 +1,45 @@
+<div id="place_list">
+<% cache_if params[:radius].blank?, {:part => "form#{  params.dup.keep_if{|key,value| key.match(/.*_id/) } }"}, :expires_in => 3.months  do %>
+<h1>Google Map View
+  &nbsp&nbsp&nbsp
+  <%= form_tag gmap_path, :method => 'get', :style =>'display:inline' do %>
+    Radius of labelling in km:&nbsp
+    <% if defined? @article %>
+      <%= hidden_field_tag :route_id, @article.id if @article.class.superclass == Route %>
+      <%= hidden_field_tag :place_id, @article.id if @article.class.superclass == Place %>
+      <%= hidden_field_tag :trip_report_id, @article.id if @article.class == TripReport %>
+      <%= hidden_field_tag :album_id, @article.id if @article.class == Album %>
+      <%= hidden_field_tag :photo_id, @article.id if @article.class == Photo %>
+    <% end %>
+      <%= number_field_tag :radius, @radius, :in => 1..400, :size => 3, :style => 'display:inline;height:20px;' %>
+  &nbsp&nbsp
+  <%= link_to_if defined? @article, "back", @article %><br>
+  <% end %>
+</h1>
+<% end #cache form %>
+
+<div id="map_div" class="map_div_big"></div>
+<% content_for(:javascript) do %> 
+  <script type="text/javascript">
+      <%= render :layout => 'all/init_google_map', :locals => {:usetopomap => false, :mapdiv => 'map_div', :zoom => 13, :centerLatitude => @centerLatitude, :centerLongitude => @centerLongitude} do %>
+          <% cache_if params[:radius].blank?, {:part => "map_init#{ params.dup.keep_if{|key,value| key.match(/.*_id/) } }"}, :expires_in => 3.months  do %>
+              //If it is a photo then draw a vantage point icon
+              <% if defined?(@photo) && !@photo.latitude.nil? && !@photo.longitude.nil? %>
+                  var latlng = new google.maps.LatLng(<%= "#{@photo.latitude},#{@photo.longitude}" %>);
+                  var marker = new google.maps.Marker({
+                      position: latlng,
+                      map: map,
+                      icon: "/images/markers/camera.png",
+                      shadow: "/images/markers/camera.shadow.png",
+                      title: "Vantage point"
+                  });
+              <% end %>
+          <% end #cache map_init %>
+          <% cache_if params[:radius].blank?, {:part => "map_places#{@lat.to_s},#{@lon.to_s}"}, :expires_in => 2.weeks  do %>
+              <%= render :partial => 'places/clickable_places' %>
+          <% end #cache map_places %>
+      <% end %>
+  </script>
+<% end %>
+</div>
+<p><%= params %></p>

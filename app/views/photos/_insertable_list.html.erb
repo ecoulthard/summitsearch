@@ -1,0 +1,44 @@
+<% text_only = false unless defined? text_only %>
+<% if @has_photos %>
+  <h2 data-no-turbolink><%= photo_type %> Photos
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to 'View Slideshow', slideshow_photos_path(place_tag => place.id, :type => 'Title'), :rel => 'nofollow', :data_popup => "true", :class => 'linkButton' %>
+    <%= link_to 'View Full Size Photos', show_full_photos_path(place_tag => place.id, :type => 'Title'), :rel => 'nofollow', :data_popup => "true", :class => 'linkButton' %>
+    <% if place_tag == :trip_report_id %>
+      <%= link_to 'Insert/Edit Photos', multi_photos_trip_report_path(place_tag => place.id), :rel => 'nofollow', :class => 'linkButton', data: { no_turbolink: true } %>
+    <% elsif place_tag == :album_id %>
+      <%= link_to 'Insert/Edit Photos', edit_album_path(place), :rel => 'nofollow', :class => 'linkButton', data: { no_turbolink: true } %>
+    <% elsif place_tag != :user_id %>
+      <%= link_to 'Insert a Photo', new_photo_path(place_tag => place.id), :rel => 'nofollow', :class => 'linkButton', data: { no_turbolink: true } %>
+    <% end %>
+  </h2>
+  <% @photos.each do |photo| %>
+    <%= render :partial => 'photos/thumb', :locals => {:photo => photo, :text_only => text_only} %>
+  <% end %>
+  <% unless place_tag == :trip_report_id %>
+    <div><%= will_paginate @photos if defined? @photos.total_pages %></div>
+  <% end %>
+<% else %>
+  <h2 data-no-turbolink>No <%= photo_type %> Photos Yet
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <% if place_tag == :trip_report_id %>
+      <%= link_to 'Insert/Edit Photos', multi_photos_trip_report_path(place_tag => place.id), :rel => 'nofollow', :class => 'linkButton', data: { no_turbolink: true } %>
+    <% elsif place_tag == :album_id %>
+      <%= link_to 'Insert/Edit Photos', edit_album_path(place), :rel => 'nofollow', :class => 'linkButton', data: { no_turbolink: true } %>
+    <% elsif place_tag != :user_id %>
+      <%= link_to 'Insert a Photo', new_photo_path(place_tag => place.id), :rel => 'nofollow', :class => 'linkButton', data: { no_turbolink: true } %>
+    <% end %>
+  </h2>
+<% end %>
+<% if @appears_in_other_photos %>
+  <div class="clear"></div><br>
+  <h2 data-no-turbolink>Also mentioned in these photos
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to 'View Slideshow', slideshow_photos_path(place_tag => place.id, :type => 'Mentioned'), :rel => 'nofollow', :data_popup => "true", :class => 'linkButton' %>
+    <%= link_to 'View Full Size Photos', show_full_photos_path(place_tag => place.id, :type => 'Mentioned'), :rel => 'nofollow', :data_popup => "true", :class => 'linkButton' %>
+  </h2>
+  <% @photo_appearances.each do |photo| %>
+    <%= render :partial => 'photos/thumb', :locals => {:photo => photo, :text_only => text_only} %>
+  <% end %>
+  <div><%= will_paginate @photo_appearances if defined? @photos.total_pages %></div>
+<% end %>

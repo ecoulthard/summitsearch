@@ -1,0 +1,11 @@
+<div class='breadcrumb'>
+  <%= link_to t('forem.forum.forums'), forums_path %>
+  <span> | </span>
+  <%= link_to topic.forum.title, topic.forum %> 
+  <span> | </span>
+  <span class="last"><%= sanitize(topic.subject, :tags => %w(a), :attributes => %w(href)) %></span>
+</div>
+
+<div class="clear"></div><br>
+<h2 class="title"><%= sanitize(topic.subject, :tags => %w(a), :attributes => %w(href)) %></h2>
+<div class="clear"></div><br>

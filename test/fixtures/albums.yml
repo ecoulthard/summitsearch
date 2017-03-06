@@ -1,0 +1,34 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+columbia:
+  title: View North West of Mount Columbia
+  description: Peaks near the Wales Glacier and North of the Wales Glacier. Zoomed in from the Columbia Icefield. Wales Peak, Wales Glacier, Chaba Peak, Mount Clemenceau, False Chaba Peak, Listening Mountain, Sundial Mountain, Sundial E4, Mount Hooker, Serenity Mountain, Warwick Mountain, Dais Mountain
+  ref_title: MyString
+  ref_content: MyText
+  ref_latitude: 52.159107
+  ref_longitude: -117.332268
+  importance: 9.99
+  user: vador
+  deleted: false
+
+two:
+  title: MyString
+  description: MyText
+  ref_title: MyString
+  ref_content: MyText
+  ref_latitude: 9.99
+  ref_longitude: 9.99
+  importance: 9.99
+  user: vador
+  deleted: true
+
+three:
+  title: MyString
+  description: MyText
+  ref_title: MyString
+  ref_content: MyText
+  ref_latitude: 9.99
+  ref_longitude: 9.99
+  importance: 9.99
+  user: vador
+  deleted: true

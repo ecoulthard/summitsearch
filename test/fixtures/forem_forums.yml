@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+rockies:
+  id: 1
+  name: Canadian Rockies
+  description: MyString
+  category_id: 1
+  views_count: 60
+
+other:
+  id: 2
+  name: Other Regions
+  description: MyString
+  category_id: 1
+  views_count: 120

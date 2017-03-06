@@ -1,0 +1,16 @@
+<% # Parse out anything enclosed in [[]]. Currently this only includes photos. If it is a photo they display the photo %>
+<% sanitize(text).split("[[").each_with_index do |t,index| %>
+  <% t = t.gsub("<p>","<div>") %>
+  <% t = t.gsub("</p>","</div>") %>
+  <% t = t.gsub("</div>","</div><div class=\"clear\"></div>") %>
+  <% t = t.gsub("<br>|<br/>|<br />","<div class=\"clear\"></div><br />") %>
+  <% if t.starts_with? "photo=" %>
+    <% photo_id = t[t.index("photo=")+6,t.index("]]")] %>
+	  <% if Photo.exists? photo_id %>
+	    <%= render :partial => 'photos/small', :locals => {:photo => Photo.find(photo_id.to_i)} %>
+	  <% end %>
+	<% end %>
+  <% #Remove the text enclosed in [[]] from this segment %>
+  <% t = t[t.index("]]")+2, t.length] if t.include?("]]") %>
+	<%= sanitize t %>
+<% end %>

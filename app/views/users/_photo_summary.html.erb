@@ -1,0 +1,25 @@
+<td id="<%= "User_Photo_Summary:#{user.id}" %>" class="User_Photo_Summary clickable">
+  <h3><%= link_to user.display_name, user %></h3>
+  <% where_string = new ? 'created_at > ?' : 'updated_at > ?' %>
+  <% photo_count = 0 %>
+  <div class="text">
+    <% #text = "has " + (new ?  "uploaded " : "updated ") %>
+    <% if user.photos.where(where_string, 1.day.ago).count != 0 %>
+      <%= pluralize user.photos.where(where_string, 1.day.ago).count, "photo" %>
+      <br>today.
+    <% elsif user.photos.where(where_string, 1.week.ago).count != 0 %>
+      <%= pluralize user.photos.where(where_string, 1.week.ago).count, "photo" %>
+      <br>this past week.
+    <% elsif user.photos.where(where_string, 1.month.ago).count != 0 %>
+      <%= pluralize user.photos.where(where_string, 1.month.ago).count, "photo" %>
+      <br>in the last month.
+    <% elsif user.photos.where(where_string, 4.months.ago).count != 0 %>
+      <%= pluralize user.photos.where(where_string, 4.months.ago).count, "photo" %>
+      <br>in the last 4 months.
+    <% end %>
+  </div>
+  <% if new %>
+    <div class="text"><%= link_to 'View Slideshow', slideshow_photos_path(:user_id => user.id), :rel => 'nofollow', :data_popup => "true" %></div>
+    <div class="text"><%= link_to 'View Full Size Photos', show_full_photos_path(:user_id => user.id), :rel => 'nofollow', :data_popup => "true" %></div>
+  <% end %>
+</td>

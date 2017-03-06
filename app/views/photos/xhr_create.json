@@ -1,0 +1,7 @@
+<% self.formats = ["html"] # Allows rendering html partials %>
+{
+  "success": true,
+  "id": <%= @photo.id %>,
+  "time": <%= raw @photo.time.to_json %>,
+  "html": "<%= escape_javascript(render :partial => 'photos/edit_thumb', :locals => {:photo => @photo}) %>"
+}

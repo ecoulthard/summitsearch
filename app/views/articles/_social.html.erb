@@ -1,0 +1,57 @@
+<div class="social">
+  <div class="fb-like" data-href="<%= request.url %>" data-send="true" data-width="450" data-show-faces="true"></div>
+  <g:plusone annotation="inline" width="200" callback="googlePlusClicked" href="<%= request.url %>"></g:plusone>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-url="<%= request.url %>">Tweet</a>
+<!--  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+</div>
+
+<div class="clearLeft"></div>
+
+<%= form_for send("social_update_#{article_type}_path", :method => 'post') do %>
+  <%= hidden_field_tag :id, '' %>
+<% end %>
+
+<% content_for(:javascript) do %>
+<script type='text/javascript'>
+  window.socialUpdate = function(facebook_like, google_plus){
+    //Create postback path string
+    var updatepath = "<%= send("social_update_#{article_type}_path", :id => article.id, :facebook_like => "facebook_like_param", :google_plus => "google_plus_param", :authenticity_token => "authenticity_token_param") %>";
+    updatepath = updatepath.replace("facebook_like_param", facebook_like);
+    updatepath = updatepath.replace("google_plus_param", google_plus);
+    updatepath = updatepath.replace("authenticity_token_param", escape($('meta[name=csrf-token]').prop('content')));
+    //Execute the postback
+    $.post(updatepath, function(data) {});
+  };
+</script>
+<% end %>
+
+<!--
+<script type='text/javascript'>
+  <% #content_for(:facebook) do %>
+    /*FB.Event.subscribe('edge.create',
+      function(response) {
+        socialUpdate("true", "");
+      }
+    );
+    FB.Event.subscribe('edge.remove',
+      function(response) {
+        socialUpdate("false", "");
+      }
+    );*/
+  <% #end %>
+
+  //Google+ include code
+/*  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+
+  var googlePlusClicked = function(response){
+    if(response.state == "on")
+      socialUpdate("","true");
+    else
+      socialUpdate("","false");
+  };*/
+</script>
+-->

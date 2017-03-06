@@ -1,0 +1,18 @@
+<td class="list_description">
+  <dl>
+    <dt><%= link_to record.title, record %></dt>
+    <dd>
+      Trip Report Author: <%= record.user.display_name %>&nbsp;&nbsp;
+      Length: <%= record.route.distance %>km&nbsp;&nbsp;
+      <% if record.route.height_gain != 0 %>
+        Height Gain: <%= record.route.height_gain %>m&nbsp;&nbsp;
+      <% end %>
+      <% if record.route.height_loss != 0 %>
+        Height Loss: <%= record.route.height_loss %>m&nbsp;&nbsp;
+      <% end %>
+      <%= render :partial => 'articles/article_totals', :locals => {:article => record} %>
+    </dd>
+    <dd><%= truncate(strip_tags(record.abstract),
+           :length => 400) %></dd>
+  </dl>
+</td>

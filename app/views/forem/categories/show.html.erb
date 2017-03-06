@@ -1,0 +1,10 @@
+<div class='breadcrumb'>
+  <%= link_to t('forem.forum.forums'), forums_path %>
+  <span> | </span>
+  <span class="last"><%= @category %></span>
+</div>
+
+<%= render @category %>
+
+<div class="clear"></div><br>
+<%= render :partial => "/forem/all/views" %>

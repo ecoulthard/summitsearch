@@ -1,0 +1,105 @@
+<% content_for(:javascript) do %> 
+  <script>
+   
+    $(document).ready(function() {
+      // Load the dialog
+      $("#dlgPhotoSelect").dialog({
+        open: function(event, ui) {//Allow mouse scroll
+          window.setTimeout(function() {
+            jQuery(document).unbind('mousedown.dialog-overlay')
+                            .unbind('mouseup.dialog-overlay');
+          }, 100);
+        },
+        autoOpen: false, modal: true, position: ['center',150], minWidth: 800
+      });
+
+      $(document).on("mouseenter",'.entry, .thumbDiv', function() {
+        $(this).children('.captionDiv, .abstractDiv').show();
+      });
+      $(document).on("mouseleave",'.entry, .thumbDiv', function() {
+        $(this).children('.captionDiv, .abstractDiv').hide();
+      });
+
+      //Button was clicked so bring up dialog
+      $(".selectPhotoButton").click(function(e) {
+        //Cancel the link behavior
+        e.preventDefault();
+        //set which field to insert the selected photo id into
+        $("#use_field").val($(this).nextAll().find(".editor:first").prop("id"));
+        $("#dlgPhotoSelect").dialog("open");
+        <% if (defined?(trip_report) && !trip_report.id.nil?) || (defined?(topic) && !topic.id.nil?) %>
+          //If there are no photos shown yet then get them.
+          if($("#photo_list IMG").length == 0 && $("#search").val() == "")
+            getPhotoList();
+        <% end %>
+      });
+         
+      //A photo is selected add its id to the text in the field specified in the #use_field hidden field.
+      $(document).on('click', '.thumbDiv a', function (){
+        var textfield_id = $("#use_field").val();
+	$("#" + textfield_id).insertAtCaret("[[photo=" + $(this).prop('name') + "]]");
+        //tinyMCE.execInstanceCommand(textfield_id,"mceInsertContent",false,"[[photo=" + $(this).prop('name') + "]]");
+        $("#dlgPhotoSelect").dialog("close");
+        return false;
+      });
+
+      $("#photo_search").keypress(function(e) {
+        if (e.keyCode == 13){//Pressed return
+          getPhotoList();
+          $(this).blur();
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      $("#photo_search, #only_my_photos, #only_trip_photos, #only_topic_photos").change(function(){
+        getPhotoList();
+      });
+
+      function getPhotoList(){
+        var getpath = "<%= main_app.nearby_list_photos_path :search => "photo_search", :only_my_photos => "photo_only_my_photos", :trip_report_id => "photo_trip_report_id", :topic_id => "photo_topic_id", :latitude => "photo_start_latitude", :longitude => "photo_start_longitude" %>";
+        getpath = getpath.replace("photo_search", $('#photo_search').val());
+        getpath = getpath.replace("photo_only_my_photos", $('#only_my_photos').is(':checked'));
+        <% if !defined?(trip_report) || trip_report.id.nil? %>
+          getpath = getpath.replace("photo_trip_report_id", "");
+        <% else %>
+          getpath = getpath.replace("photo_trip_report_id", $('#only_trip_photos').is(':checked') ? <%= trip_report.id %> : "");
+        <% end %>
+        <% if !defined?(topic) || topic.id.nil? %>
+          getpath = getpath.replace("photo_topic_id", "");
+        <% else %>
+          getpath = getpath.replace("photo_topic_id", $('#only_topic_photos').is(':checked') ? <%= topic.id %> : "");
+        <% end %>
+        getpath = getpath.replace("photo_start_latitude", $('#photo_start_latitude').val());
+        getpath = getpath.replace("photo_start_longitude", $('#photo_start_longitude').val());
+        $('#photo_list').html("<span class=\"qq-upload-spinner\"></span> Loading photos");
+        $.get(getpath, function(photo_html) {
+          $('#photo_list').html(photo_html);
+        });
+      }
+
+      $('#search').change(function (){
+        return false;
+      });
+    });
+   
+  </script>
+<% end %>
+
+<%= hidden_field_tag :use_field %>
+<%= hidden_field_tag :photo_start_latitude, latitude %>
+<%= hidden_field_tag :photo_start_longitude, longitude %>
+ 
+<div id="dlgPhotoSelect" title="Search for and select a photo from Summitsearch to use for illustration">
+  <%= search_field_tag :photo_search, "", :placeholder => "Search for nearby photos", :size => 40 %>
+  <span style="font-weight:normal;font-size:12px" class="no-wrap">
+    <% if defined?(trip_report) && !trip_report.id.nil? %>
+      Only show photos from this trip <%= check_box_tag :only_trip_photos, nil, true %>&nbsp;&nbsp;
+    <% elsif defined?(topic) && !topic.id.nil? %>
+      Only show photos uploaded for this topic <%= check_box_tag :only_topic_photos, nil, true %>&nbsp;&nbsp;
+    <% end %>
+    Only show my photos <%= check_box_tag :only_my_photos, nil, true %>
+  </span>
+  <div class="clear"></div><br>
+  <div id="photo_list"></div>
+</div>

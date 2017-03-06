@@ -1,0 +1,70 @@
+<% content_for(:javascript) do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      //If the input loses focus then save the entered changes
+      //Currently saves title, time and description of the album
+      $(document).on('change',".edit_album input:text, .edit_album .editor", function(event) {
+        var el = $(this);
+        if($(this).is(".editor"))
+          el = $(this).parents(".markItUp").parent();
+    	  //Show a message saying it is saving.
+	      var label = el.prev(".editLabel");
+        el.hide();
+	      label.addClass("saving");
+        label.show();
+	      label.html("<span class=\"qq-upload-spinner\"></span> Saving " + $(this).prop('id') + "<br><br>");
+	      $(".edit_album").submit();
+      });
+
+      //Updating the album meta data finished check response and update page accordingly.
+      $(document).on("ajax:complete",".edit_album", function(event,xhr,status){
+	      var label = $(".editLabel.saving");
+	      label.removeClass("saving");
+	      var el = label.next(":text, div:has('.editor')");
+	      if(xhr.responseText == "success"){//If successful pass the message along and redisplay the field
+	        label.html("Saved Successfully");
+	        label.delay(1000).fadeOut(0);
+	        el.delay(1000).fadeIn(0);
+	      }
+	      else
+	        label.text("An error occured. Could not update " + el.prop('id'));
+      });
+    });
+  </script>
+<% end %>
+
+<%= form_for(@album, :remote => true) do |f| %>
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+      <ul>
+      <% @album.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :ref_latitude %>
+  <%= f.hidden_field :ref_longitude %>
+  <p>All the fields are optional. Only the photos are required.</p>
+
+  <div>
+    <%= f.label :title, "Album Title#{mark_required(@album, :title)}:" %> 
+    <div id="Grr" class="editLabel"></div>
+    <%= f.text_field :title, :maxlength => 128, :size => 80 %>
+  </div>
+  <div class="clear"></div><br>
+  <div>
+    <p>Describe your photo album<%= mark_required(@album, :title) %>:</p>
+    <div id="wtf" class="editLabel"></div>
+    <%= f.text_area :description, :maxlength => 30720, :class => "editor", :rows => 3, :cols => 100 %>
+  </div>
+  <div class="clear"></div><br>
+  <div class="field">
+    <p>The time field is used to sort your albums on your profile page.</p>
+    <%= f.label :time, "Time#{mark_required(@album, :time)}:" %>  
+    <div class="editLabel"></div>
+    <%= f.text_field :time, :class => 'time_field' %>
+  </div>
+<% end %>

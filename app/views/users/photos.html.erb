@@ -1,0 +1,9 @@
+<% if @type == "new" && @user.last_photo_uploaded_at > 5.minutes.ago %>
+  <br><h3><%= @user.display_name %> is currently uploading photos. Please check again later.</h3><br>
+<% else %>
+  <% ss_cache({:part => "photos_#{@type}_#{@user.id}"}, :expires_in => 1.hour) do %>
+    <% @photos.each do |photo| %>
+      <%= render :partial => 'photos/thumb', :locals => {:photo => photo} %>
+    <% end %>
+  <% end %>
+<% end %>

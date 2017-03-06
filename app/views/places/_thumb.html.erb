@@ -1,0 +1,10 @@
+<td class="clickable colorOnHover">
+  <% unless place.nil? %>
+    <%= link_to truncate(place.name, :length => 150), place %><br>
+    <span class="text">Area: <%= place.area %> km<sup style="font-size:8px">2</sup></span>
+    <span class="text">Height: <%= place.height %>m<%= ", Isolation: #{place.dist_to_parent }km" if place.class == Mountain && place.parent_mountain.present? %></span><br>
+    <% if place.name.length <= 35 && place.areas.length > 0 && place.areas.order(:area).first.name.length <= 20 %>
+      <span class="text">Located in: <%= place.areas.order(:area).first.name %></span>
+    <% end %>
+  <% end %>
+</td>

@@ -1,0 +1,135 @@
+<div id="place_list" data-no-turbolink>
+  <h1><%= @route.name %><br><br>
+    <%= link_to "Google Map View", gmap_path(:route_id => @route.id), :rel => 'nofollow', :class => 'linkButton' %>
+    <%= topo_map_link @route.averageLatitude.round(6), @route.averageLongitude.round(6), 10 %>
+    <% if @show_edit_link %>
+      <%= link_to "Edit This #{@type}", edit_route_path(@route), :class => 'linkButton'%>
+    <% end %>
+  </h1>
+
+  <div class="top_content">
+    <div class="titlePhotoDiv">
+      <%= render 'route_draw' %>
+    </div>
+
+  <% ss_cache :part => "description_#{@route.id}" do %>
+    <% if @route.class != Route %>
+      <p>
+         <b>
+	   <%= @route.class::DIFFICULTY_OPTIONS[@route.difficulty] unless @route.difficulty.nil? %>
+	   <%= @route.class.to_s.titleize %>
+	 </b>
+	 <%= "Not suitable for complete beginners" if @route.difficulty == 0 && (@route.newb.blank? || !@route.newb?) %>
+      </p>
+    <% end %>
+
+    <p>
+      <b>Author:</b>
+      <%= link_to @route.user.display_name, @route.user %>
+    </p>
+
+    <% if !@route.avalanche_rating.blank? %>
+      <p>
+        <b>ATES Avalanche Rating:</b>
+        <%= @route.avalanche_rating %>
+      </p>
+    <% end %>
+
+    <% if @route.seracs || @route.rockfall || @route.river_crossing || @route.objective_hazard.present? %>
+      <b>Objective Hazards:</b>
+      <% hazards_string = "" %>
+      <% hazards_string += "seracs" if @route.seracs %>
+      <% hazards_string += ", " if @route.seracs && @route.rockfall %>
+      <% hazards_string += "rockfall" if @route.rockfall %>
+      <% hazards_string += ", " if (@route.seracs || @route.rockfall) && @route.river_crossing %>
+      <% hazards_string += "river crossing" if @route.river_crossing %>
+      <%= hazards_string %>
+      <%= raw "<br>" if @route.seracs || @route.rockfall || @route.river_crossing %>
+      <% if @route.objective_hazard.present? %>
+        <%= @route.objective_hazard %><br>
+      <% end %>
+      <br>
+    <% end %>
+
+    <%= render :partial => 'places/place_areas', :locals => {:place => @route, :range_intro => 'Travels through the ', :icefield_intro => 'Travels over or near the ', :park_intro => 'Is located in ', :island_intro => 'Is located on ', :region_intro => 'Is located in the '} %>
+
+    <div class="clear"></div>
+    <%= render 'route_place' %>
+
+    <% if @dist != 0 %>
+      <p>
+        <b>One way estimated distance:</b>
+        <%= @dist %>Km
+      </p>
+    <% end %>
+
+    <% if @gain != 0 %>
+      <p>
+        <b>One way estimated height gain:</b>
+        <%= @gain %>m
+      </p>
+    <% end %>
+
+    <% if @loss != 0 %>
+      <p>
+        <b>One way estimated height loss:</b>
+        <%= @loss %>m
+      </p>
+    <% end %>
+
+    <% if @route.travel_time != "Unknown" %>
+      <p>
+        <b>Travel time:</b>
+        <%= @route.travel_time %>
+      </p>
+    <% end %>
+
+    <% if @route.gps.exists? %>
+      <p>
+        <b>Download GPX File:</b>
+	<%= link_to "Download", @route.gps.url(:original, false) %>
+      </p>
+    <% end %>
+
+    <% if !@route.access.nil? %>
+      <p>
+        <b>Road Access:</b>
+        <%= @route.access %>
+      </p>
+    <% end %>
+
+
+    <% if !@route.equipment.nil? %>
+      <p>
+        <b>Equipment:</b>
+        <%= @route.equipment %>
+      </p>
+    <% end %>
+
+    <p>
+      <b>Description:</b>
+      <%= sanitize @route.description %>
+    </p>
+
+  <% end #cache description_trip_report_id %>
+
+  </div>
+  <div class="TripListDiv">
+    <% ss_cache :part => "trip_reports_#{@route.id}" do %>
+      <%= render :partial => 'trip_reports/insertable_list', :locals => {:place_tag => :route_id, :place => @route} %>
+    <% end %>
+    <hr>
+  </div>
+  <% ss_cache :part => "albums_#{@route.id}" do %>
+    <%= render :partial => 'albums/insertable_list', :locals => {:album_type => @type, :place_tag => :route_id, :place => @route} %>
+  <% end %>
+  <div class="clear"></div>
+  <div id="photos_go_here" data-object_id="<%= @route.to_param %>">
+    <% ss_cache :part => "photos_#{@route.id}" do %>
+      <%= render :partial => 'photos/insertable_list', :locals => {:photo_type => @type, :place_tag => :route_id, :place => @route, :text_only => true } %>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+  <%= render :partial => 'all/versions_references', :locals => {:subject => @route} %>
+  <div class="entries" style="height:100px"></div>
+</div>

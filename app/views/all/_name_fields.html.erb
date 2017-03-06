@@ -1,0 +1,37 @@
+<fieldset class="indent">
+  <legend>Name Info</legend>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div><div class="clear"></div>
+    <div>
+      <%= f.label :year %>
+      <%= f.number_field :year, :in => 1792..Time.now.year %>
+    </div><div class="clear"></div>
+
+    <div>
+      <%= f.label :person_id, "Who came up with this name?" %>
+      <%= f.collection_select :person_id, Person.all, :id, :name, :include_blank => true %>
+    </div><div class="clear"></div>
+    <%= raw "If the person who named this is not in the list then you can add them to the site by clicking #{ link_to "here", new_person_path, :data_popup => "true"  }." %> 
+    <div>
+      <%= f.label :named_by_other, "Naming institute" %>
+      <%= f.text_field :named_by_other %>
+    </div><div class="clear"></div>
+    <div>
+      <%= f.label :named_after_person_id, "Is this named after a person on the site." %>
+      <%= f.collection_select :named_after_person_id, Person.all, :id, :name, :include_blank => true %>
+    </div><div class="clear"></div>
+    <%= raw "If the person who this peak was named after is not in the list then you can add them to the site by clicking #{ link_to "here", new_person_path, :data_popup => "true"  }." %> 
+    <%= raw "Note: Please do not add anyone to the site that never actually visited the mountains." %> 
+
+    <div>
+      <%= f.label :description, "Describe the story behind this name." %>
+      <%= f.text_area :description, :class => 'expand50-200', :rows => 2, :cols => 80 %>
+    </div><div class="clear"></div>
+
+    <div>
+      <%= f.link_to_remove "Remove this name information", :class => 'linkButton' %>
+    </div>
+</fieldset>
+<div class="clear"></div><br>

@@ -1,0 +1,17 @@
+<%= simple_form_for [@forum, @topic] do |f| %>
+  <div class="clear"></div><br>
+  <%= f.submit %>
+  <div class="clear"></div><br>
+  <%= f.input :subject, :input_html => {:size => 80} %>
+  <div class="clear"></div><br>
+  <%= f.hidden_field :place_id %>
+
+  <%= f.simple_fields_for :posts do |post| %>
+    <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
+  <% end %>
+ 
+  <%= hidden_field_tag :photo_ids %>
+
+  <%= f.submit %>
+  <div class="clear"></div><br>
+<% end %>

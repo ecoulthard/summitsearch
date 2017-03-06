@@ -1,0 +1,132 @@
+<div>
+  <h1><%= @ip_address.display_name %> <%= link_to "Back to Index", ip_addresses_path, :class => 'linkButton' %> </h1>
+  <div class="entries">
+    <% if user_is_admin? %>
+      <div>
+        <b>Last Http User Agent: </b><br>
+        <%= @ip_address.last_http_user_agent %>
+      </div>
+      <br>
+      <div>
+        <b>Visit Count: </b><br>
+	<%= @ip_address.visit_count %>
+      </div>
+      <br>
+      <div>
+        <b>Last Visited: </b><br>
+	<%= distance_of_time_in_words(@ip_address.last_visit_at, Time.now) %> ago
+      </div>
+      <br>
+      <div>
+        <b>Address: </b><br>
+	<%= @ip_address.address %>
+      </div>
+      <br>
+
+      <table class="subdued" cellspacing='0'>
+        <thead>
+          <tr>
+            <th colspan="4">Latest Trip Reports Visited</th>
+          </tr>
+        </thead>
+        <tbody>
+	  <% times_string = "" %>
+          <% @trip_report_visit_groups.each do |article_visits| %>
+            <tr class="<%= cycle("odd", "even") %>">
+              <% article_visits.each do |article_visit| %>
+	        <% break if article_visit.nil? %>
+                <%= render :partial => 'trip_reports/thumb', :locals => {:trip_report => article_visit.record} %>
+	        <% times_string += "#{distance_of_time_in_words(Time.now,article_visit.updated_at)} ago, " %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="clear"></div>
+      <%= times_string %>
+      <br><br>
+
+      <table class="subdued" cellspacing='0'>
+        <thead>
+          <tr>
+            <th colspan="4">Latest Places Visited</th>
+          </tr>
+        </thead>
+        <tbody>
+	  <% times_string = "" %>
+          <% @place_visit_groups.each do |article_visits| %>
+            <tr class="<%= cycle("odd", "even") %>">
+              <% article_visits.each do |article_visit| %>
+	        <% break if article_visit.nil? %>
+                <%= render :partial => 'places/thumb', :locals => {:place => article_visit.record} %>
+	        <% times_string += "#{distance_of_time_in_words(Time.now,article_visit.updated_at)} ago, " %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="clear"></div>
+      <%= times_string %>
+      <br><br>
+
+      <div>
+        <b>Latest Photos Visited</b>
+	<br>
+	<% times_string = "" %>
+        <% @photo_visits.each do |photo_visit| %>
+	  <%= render :partial => 'photos/thumb', :locals => {:photo => photo_visit.record} %>
+	  <% times_string += "#{distance_of_time_in_words(Time.now,photo_visit.updated_at)} ago, " %>
+        <% end %>
+	<div class="clear"></div>
+	<%= times_string %>
+      </div>
+      <br><br>
+
+      <table class="subdued" cellspacing='0'>
+        <thead>
+          <tr>
+            <th colspan="4">Latest Routes Visited</th>
+          </tr>
+        </thead>
+        <tbody>
+	  <% times_string = "" %>
+          <% @route_visit_groups.each do |article_visits| %>
+            <tr class="<%= cycle("odd", "even") %>">
+              <% article_visits.each do |article_visit| %>
+	        <% break if article_visit.nil? %>
+                <%= render :partial => 'routes/thumb', :locals => {:route => article_visit.record} %>
+	        <% times_string += "#{distance_of_time_in_words(Time.now,article_visit.updated_at)} ago, " %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="clear"></div>
+      <%= times_string %>
+      <br><br>
+
+      <table class="subdued" cellspacing='0'>
+        <thead>
+          <tr>
+            <th colspan="4">Latest Albums Visited</th>
+          </tr>
+        </thead>
+        <tbody>
+	  <% times_string = "" %>
+          <% @album_visit_groups.each do |article_visits| %>
+            <tr class="<%= cycle("odd", "even") %>">
+              <% article_visits.each do |article_visit| %>
+	        <% break if article_visit.nil? %>
+                <%= render :partial => 'albums/thumb', :locals => {:album => article_visit.record} %>
+	        <% times_string += "#{distance_of_time_in_words(Time.now,article_visit.updated_at)} ago, " %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="clear"></div>
+      <%= times_string %>
+    <% end %>
+  </div>
+  <div class="entries" style="height:100px"></div>
+</div>

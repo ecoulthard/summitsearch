@@ -1,0 +1,9 @@
+<%= sanitize "Someone has commented on your #{@article_type.humanize}: #{ link_to @article.title, send("#{@article_type}_url", @article) }" %>
+<br><br>
+This discussion is also being displayed in the site forum as a new topic.  You can view it here:
+<br>
+<%= forem.forum_topic_url(@article.topic.forum_id, @article.topic) %>
+<br><br>
+To unsubscribe from further notifications for this discussion, use the following link:
+<br>
+<%= forem.unsubscribe_forum_topic_url(@article.topic.forum_id, @article.topic) %>

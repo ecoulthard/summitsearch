@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+columbia:
+  id: 1
+  forum_id: 1
+  user_id: 100
+  subject: Climbed Mount Columbia
+  state: approved
+  last_post_at: <%= 1.week.ago.to_s(:db) %>
+  views_count: 11

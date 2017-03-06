@@ -1,0 +1,14 @@
+<% text_only = false unless defined? text_only %>
+<div class="thumbDiv showHover colorOnHover <%= "clickable" unless defined?(no_link) %>" style="width:<%= photo.thumb_div_width %>px">
+  <% if !photo.title.nil? %>
+    <div class="thumbTitleDiv" style="font-size: <%= photo.title.length > 40 && !photo.is_panorama? ? "7px" : (photo.title.length > 23 && !photo.is_panorama? ? "10px" : "12px") %>;width:<%= photo.thumb_div_width %>px">
+      <%= link_to truncate(photo.title, :length => 100), photo, :class => 'thumbTitle', :name => photo.id  %>
+    </div>
+  <% else %>
+    <div class="thumbTitleDiv"></div>
+  <% end %>
+  <% unless text_only %>
+    <%= link_to image_tag(photo.photo.url(:long_thumb), :class => 'thumb', :alt => photo.alt, :width => photo.long_thumb_width, :height => photo.long_thumb_height), photo, :name => photo.id  %>
+    <%= render :partial => 'photos/hover', :locals => {:photo => photo} %>
+  <% end %>
+</div>

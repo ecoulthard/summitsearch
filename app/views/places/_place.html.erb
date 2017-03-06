@@ -1,0 +1,36 @@
+<td class='list_image'>
+  <% if record.thumb_title_photo %>
+    <%= link_to image_tag(record.thumb_title_photo.photo.url(:long_thumb), :class => 'list_image', :alt => record.title_photo ? record.title_photo.alt : ''), record %>
+  <% end %>
+</td>
+<td class="list_description">
+  <dl>
+    <dt><%= link_to record.name, record %></dt>
+    
+    <% if !record.height.nil? %>
+       <dd>Height: <%= record.height %>m (<%= record.feet %> ft)</dd>
+    <% end %>
+
+    <% if defined?(record.parent_mountain) && record.parent_mountain.present? %>
+      <dd>The closest higher mountain is <%= "#{record.parent_mountain.name}, #{record.dist_to_parent}" %>km away.</dd>
+    <% end %>
+
+    <% if record.areas.length > 0 %>
+      <dd>Located in these areas:
+        <% record.areas.each do |area| %>
+	  <%= raw "&nbsp;" if record.areas.first != area %><%= link_to area.name, area %>
+	<% end %>
+      </dd>
+    <% else %>
+      <dd>Province/State: <%= record.province %></dd>
+    <% end %>
+    
+    <% if record.area.present? %>
+      <dd>Area: <%= record.area %> km<sup style="font-size:8px">2</sup></dd>
+    <% end %>
+
+    <dd><%= truncate(strip_tags(record.description),
+           :length => 200) %></dd>
+  </dl>
+</td>
+

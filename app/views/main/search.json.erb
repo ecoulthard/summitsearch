@@ -1,0 +1,14 @@
+[
+  <% @results.each do |result| %>
+    {
+      "label": "<%= result.autocomplete_summary %>",
+      "id": "<%= result.to_param %>",
+      "album": <%= result.class == Album %>,
+      "place": <%= result.class == Place || result.class.superclass == Place %>,
+      "photo": <%= result.class == Photo %>,
+      "route": <%= result.class == Route || result.class.superclass == Route %>,
+      "trip_report": <%= result.class == TripReport %>,
+      "user": <%= result.class == User %>
+    }<%= "," if @results.last != result %>
+  <% end %>
+]

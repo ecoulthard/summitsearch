@@ -1,0 +1,10 @@
+<% comment = album.comments.last %>
+<td class="showHover colorOnHover clickable">
+  <% unless album.title.blank? %>
+    <h3 style="font-size: <%= album.title.length > 70 ? "8px" : "15px" %>;"><%= link_to album.title, album_path(album, :anchor => "post-#{comment.id}") %></h3><br>
+  <% end %>
+  <div class="text">
+    <span class="no-wrap">By: <%= truncate album.user.display_name, :length => 25 %></span>
+  </div>
+  <%= render :partial => "articles/comment_thumb_fieldset", :locals => {:comment => comment} %>
+</td>

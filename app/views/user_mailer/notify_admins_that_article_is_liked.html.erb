@@ -1,0 +1,2 @@
+This is a notification sent to all admin users of summitsearch.org. An article on the site was liked.<br><br>
+Article: <%= link_to @article_title, send("#{@article_type}_url", :id => @article_id) %> has been <%= @liked_phrase %>

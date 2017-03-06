@@ -1,0 +1,45 @@
+<table class="subdued <%= "floatTable" if defined? float %>" cellspacing='0'>
+  <thead>
+    <tr>
+       <th colspan="3" class="clickable" data-no-turbolink>Albums
+          <% unless place_tag.blank? %>
+	    &nbsp;&nbsp;&nbsp;
+            <%= link_to 'Submit a new Album', new_album_path(place_tag => place.id), :rel => 'nofollow', :class => 'linkButton' %>
+          <% end %>
+       </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @has_albums %>
+      <% @album_groups.each do |albums| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <% albums.each do |album| %>
+            <%= render :partial => 'albums/thumb', :locals => {:album => album, :show_user => true} %>
+          <% end %>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr class="odd">
+        <td>No Albums Yet</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if @appears_in_other_albums %>
+  <table class="subdued"  cellspacing='0'>
+    <thead>
+      <tr>
+         <th colspan="3">Also mentioned in these albums</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @album_appearances_groups.each do |albums| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <% albums.each do |album| %>
+            <%= render :partial => 'albums/thumb', :locals => {:album => album, :show_user => true} %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

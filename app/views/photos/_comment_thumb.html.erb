@@ -1,0 +1,13 @@
+<% comment = photo.comments.last %>
+<% return if comment.nil? %>
+<div class="thumbDiv showHover colorOnHover clickable" style="width:<%= photo.thumb_div_width %>px">
+  <% if !photo.title.nil? %>
+    <div class="thumbTitleDiv" style="font-size: <%= photo.title.length > 40 && !photo.is_panorama? ? "8px" : (photo.title.length > 30 && !photo.is_panorama? ? "10px" : "13px") %>;width:<%= photo.thumb_div_width %>px">
+    <%= link_to truncate(photo.title, :length => 100), photo_path(photo, :anchor => "post-#{comment.id}"), :class => 'thumbTitle', :name => photo.id, :data_popup => "true"  %>
+    </div>
+  <% else %>
+    <div class="thumbTitleDiv"></div>
+  <% end %>
+  <%= link_to image_tag(photo.photo.url(:long_thumb), :class => 'thumb', :alt => photo.alt), photo_path(photo, :anchor => "post-#{comment.id}"), :name => photo.id, :data_popup => "true"  %><br>
+  <%= render :partial => "articles/comment_thumb_fieldset", :locals => {:comment => comment} %>
+</div>

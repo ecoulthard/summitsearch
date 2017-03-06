@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../../../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>/usr/lib/ruby/gems/1.8/gems/activemodel-3.0.0.beta4/README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Jun 20 17:19:13 -0600 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Active Model - defined interfaces for <a href="../../../../../../../../classes/Rails.html">Rails</a></h1>
+<p>
+Prior to <a href="../../../../../../../../classes/Rails.html">Rails</a>
+3.0, if a plugin or gem developer wanted to be able to have an object
+interact with Action Pack helpers, it was required to either copy chunks of
+code from <a href="../../../../../../../../classes/Rails.html">Rails</a>,
+or monkey patch entire helpers to make them handle objects that did not
+look like Active Record. This generated code duplication and fragile
+applications that broke on upgrades.
+</p>
+<p>
+Active Model is a solution for this problem.
+</p>
+<p>
+Active Model provides a known set of interfaces that your objects can
+implement to then present a common interface to the Action Pack helpers.
+You can include functionality from the following modules:
+</p>
+<ul>
+<li>Adding attribute magic to your objects
+
+<pre>
+  Add prefixes and suffixes to defined attribute methods...
+
+  class Person
+    include ActiveModel::AttributeMethods
+
+    attribute_method_prefix 'clear_'
+    define_attribute_methods [:name, :age]
+
+    attr_accessor :name, :age
+
+    def clear_attribute(attr)
+      send(&quot;#{attr}=&quot;, nil)
+    end
+  end
+
+  ...gives you clear_name, clear_age.
+</pre>
+<p>
+<a
+href="../../../../../../../../classes/ActiveModel/AttributeMethods.html">Learn
+more</a>
+</p>
+</li>
+<li>Adding callbacks to your objects
+
+<pre>
+  class Person
+    extend ActiveModel::Callbacks
+    define_model_callbacks :create
+
+    def create
+      _run_create_callbacks do
+        # Your create action methods here
+      end
+    end
+  end
+
+  ...gives you before_create, around_create and after_create class methods that
+  wrap your create method.
+</pre>
+<p>
+<a href="../../../../../../../../classes/ActiveModel/CallBacks.html">Learn
+more</a>
+</p>
+</li>
+<li>For classes that already look like an Active Record object
+
+<pre>
+  class Person
+    include ActiveModel::Conversion
+  end
+
+  ...returns the class itself when sent :to_model
+
+ {Learn more}[link:classes/ActiveModel/Conversion.html]
+</pre>
+</li>
+<li>Tracking changes in your object
+
+<pre>
+  Provides all the value tracking features implemented by ActiveRecord...
+
+  person = Person.new
+  person.name # =&gt; nil
+  person.changed? # =&gt; false
+  person.name = 'bob'
+  person.changed? # =&gt; true
+  person.changed # =&gt; ['name']
+  person.changes # =&gt; { 'name' =&gt; [nil, 'bob'] }
+  person.name = 'robert'
+  person.save
+  person.previous_changes # =&gt; {'name' =&gt; ['bob, 'robert']}
+</pre>
+<p>
+<a href="../../../../../../../../classes/ActiveModel/Dirty.html">Learn
+more</a>
+</p>
+</li>
+<li>Adding <tt>errors</tt> support to your object
+
+<pre>
+  Provides the error messages to allow your object to interact with Action Pack
+  helpers seamlessly...
+
+  class Person
+
+    def initialize
+      @errors = ActiveModel::Errors.new(self)
+    end
+
+    attr_accessor :name
+    attr_reader   :errors
+
+    def validate!
+      errors.add(:name, &quot;can not be nil&quot;) if name == nil
+    end
+
+    def ErrorsPerson.human_attribute_name(attr, options = {})
+      &quot;Name&quot;
+    end
+
+  end
+
+  ... gives you...
+
+  person.errors.full_messages
+  # =&gt; [&quot;Name Can not be nil&quot;]
+  person.errors.full_messages
+  # =&gt; [&quot;Name Can not be nil&quot;]
+</pre>
+<p>
+<a href="../../../../../../../../classes/ActiveModel/Errors.html">Learn
+more</a>
+</p>
+</li>
+<li>Testing the compliance of your object
+
+<pre>
+  Use ActiveModel::Lint to test the compliance of your object to the
+  basic ActiveModel API...
+</pre>
+<p>
+<a href="../../../../../../../../classes/ActiveModel/Lint/Tests.html">Learn
+more</a>
+</p>
+</li>
+<li>Providing a human face to your object
+
+<pre>
+  ActiveModel::Naming provides your model with the model_name convention
+  and a human_name attribute...
+
+  class NamedPerson
+    extend ActiveModel::Naming
+  end
+
+  ...gives you...
+
+  NamedPerson.model_name        #=&gt; &quot;NamedPerson&quot;
+  NamedPerson.model_name.human  #=&gt; &quot;Named person&quot;
+</pre>
+<p>
+<a href="../../../../../../../../classes/ActiveModel/Naming.html">Learn
+more</a>
+</p>
+</li>
+<li>Adding observer support to your objects
+
+<pre>
+  ActiveModel::Observers allows your object to implement the Observer
+  pattern in a Rails App and take advantage of all the standard observer
+  functions.
+</pre>
+<p>
+<a href="../../../../../../../../classes/ActiveModel/Observer.html">Learn
+more</a>
+</p>
+</li>
+<li>Making your object serializable
+
+<pre>
+  ActiveModel::Serialization provides a standard interface for your object
+  to provide to_json or to_xml serialization...
+
+  s = SerialPerson.new
+  s.serializable_hash   # =&gt; {&quot;name&quot;=&gt;nil}
+  s.to_json             # =&gt; &quot;{\&quot;name\&quot;:null}&quot;
+  s.to_xml              # =&gt; &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;serial-person...
+</pre>
+<p>
+<a
+href="../../../../../../../../classes/ActiveModel/Serialization.html">Learn
+more</a>
+</p>
+</li>
+<li>Integrating with Rail&#8216;s internationalization (i18n) handling through
+ActiveModel::Translations&#8230;
+
+<pre>
+  class Person
+    extend ActiveModel::Translation
+  end
+</pre>
+<p>
+<a
+href="../../../../../../../../classes/ActiveModel/Translation.html">Learn
+more</a>
+</p>
+</li>
+<li>Providing a full Validation stack for your objects&#8230;
+
+<pre>
+ class Person
+   include ActiveModel::Validations
+
+   attr_accessor :first_name, :last_name
+
+   validates_each :first_name, :last_name do |record, attr, value|
+     record.errors.add attr, 'starts with z.' if value.to_s[0] == ?z
+   end
+ end
+
+ person = Person.new(:first_name =&gt; 'zoolander')
+ person.valid?          #=&gt; false
+</pre>
+<p>
+<a
+href="../../../../../../../../classes/ActiveModel/Validations.html">Learn
+more</a>
+</p>
+</li>
+<li>Make custom validators
+
+<pre>
+ class Person
+   include ActiveModel::Validations
+   validates_with HasNameValidator
+   attr_accessor :name
+ end
+
+ class HasNameValidator &lt; ActiveModel::Validator
+   def validate(record)
+    record.errors[:name] = &quot;must exist&quot; if record.name.blank?
+   end
+ end
+
+ p = ValidatorPerson.new
+ p.valid?                  #=&gt;  false
+ p.errors.full_messages    #=&gt; [&quot;Name must exist&quot;]
+ p.name = &quot;Bob&quot;
+ p.valid?                  #=&gt;  true
+</pre>
+<p>
+<a href="../../../../../../../../classes/ActiveModel/Validator.html">Learn
+more</a>
+</p>
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

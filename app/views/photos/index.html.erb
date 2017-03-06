@@ -1,0 +1,29 @@
+<div id="place_list">
+
+<% if @photos.length == 0 %>
+  <p class="notice"><%= "There are no photos to list" %></p>
+<% end %>
+
+<h1>
+  Listing Photos
+  <% if defined? @area %>
+    <%= "in #{@area.name}" %>
+  <% end %>
+  <% if !@lower.nil? && !@upper.nil? %>
+    <%= "from (#{@lower} - #{@upper})" %>
+  <% end %>
+  <br /><br />
+  <%= render :partial => 'all/index_sort', :locals => {:record_class => Photo, :selected_sort => @sort, :area_id => (defined?(@area) ? @area.id : nil) } %>
+  <br /><br />
+  <%= will_paginate @records, :inner_window => 10, :outer_window => 2 %>
+</h1>
+
+<div class="clear"></div>
+<% @photos.each do |photo| %>
+  <%= render :partial => 'thumb', :locals => {:photo => photo} %>
+<% end %>
+<div class="clear"></div>
+
+<h2>
+  <td colspan="2" align="center"><%= will_paginate @records, :inner_window => 10, :outer_window => 2 %></td>
+</h2>

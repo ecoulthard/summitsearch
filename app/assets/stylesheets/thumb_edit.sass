@@ -1,0 +1,30 @@
+//This mixin is used for all elements rounded corners
+@mixin rounded-corners($radius: 8px)
+  border-radius: $radius
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+
+/* CSS for editable photo thumbnail divs */
+.editThumbDiv
+  margin-right: 4px
+  height: 220px
+  margin: 4px
+  float: left
+  background: #f6f6ff
+  padding: 0.2em 1em
+  border-style: solid
+  border-color: grey
+  border-width: 1px
+  @include rounded-corners
+
+  .editTextAreaCaption
+    position: relative
+    font-size: 11px
+  .editLabel
+    overflow: hidden
+    display: none
+  .editSmallPhotoDiv
+    position: relative
+    left: -15px
+    z-index: 100
+    display: none

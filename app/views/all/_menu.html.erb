@@ -1,0 +1,80 @@
+<ul id="menu">
+  <li tabindex="2" class="not_search"><%= link_to "Index", main_app.listing_path, :class=>"drop" %>
+    <div class="dropdown_4columns">
+      <div class="col_1">
+        <h3>&nbsp;</h3>
+        <ul>
+	  <li><%= link_to "Home", main_app.root_path %></li>
+          <li><%= link_to "Albums", main_app.albums_path %></li>
+          <li><%= link_to "Fanatics Forum", forem.root_path %></li>
+          <li><%= link_to "Members", main_app.users_path %></li>
+          <li><%= link_to "Mountains", main_app.mountains_path %></li>
+          <li><%= link_to "People", main_app.people_path %></li>
+          <li><%= link_to "Photos", main_app.photos_path %></li>
+          <li><%= link_to "Trip Reports", main_app.trip_reports_path %></li>
+        </ul>
+      </div>
+      <div class="col_1">
+        <h3><%= link_to "Places", main_app.places_path %></h3>
+	<ul>
+          <% Place.subclasses.take(10).each do |subclass| %>
+            <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path") %></li>
+	  <% end %>
+	</ul>
+      </div>
+      <div class="col_1">
+        <h3>&nbsp;</h3>
+	<ul>
+          <% Place.subclasses.drop(10).take(10).each do |subclass| %>
+            <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path") %></li>
+	  <% end %>
+	</ul>
+      </div>
+
+      <div class="col_1">
+        <h3><%= link_to "Routes", main_app.routes_path %></h3>
+        <ul>
+          <% Route.subclasses.each do |subclass| %>
+            <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path") %></li>
+	        <% end %>
+	      </ul>
+      </div>
+    </div>  
+  </li>
+  <li tabindex="3" class="not_search"><%= link_to "Regions", main_app.regions_path, :class=>"drop" %>
+    <div class="dropdown_4columns">
+      <!-- Hardcoded the Coast, Columbia, Rockies and Cascade in here. -->
+      <% Region.where("slug in (?)", ["canadian-rockies","columbia-mountains","coast-mountains","cascade-mountains"]).each do |region| %>
+        <div class="col_1">
+          <h3><%= link_to truncate(region.name, :length => 60), region %></h3>
+          <ul>
+            <% Place.subclasses.each do |subclass| %>
+              <% if region.places.where("type=?", subclass.to_s).count > 0 %>
+                <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", :place_id => region.id) %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </li>
+  <li tabindex="4" class="not_search"><%= link_to "Forums", forem.root_path, :class=>"drop" %>
+    <div class="dropdown_4columns">
+      <div class="col_1">
+         <%= link_to "Active Topics", main_app.forem_search_path(:hours => 6) %>
+      </div>
+      <div class="col_1">
+        <%= link_to "Unanswered Topics", main_app.forem_search_path(:hours => 24*120, :unanswered => true) %>
+      </div><br />
+      <% Forem::Category.all.includes(:forums).each do |category| %>
+        <div class="<%= category.name.length >= 20 ? "col_3" : "col_2" %>">
+          <h3><%= link_to truncate(category.name, :length => 60), forem.category_path(category) %></h3>
+          <ul>
+            <% category.forums.each do |forum| %>
+              <li class="no-wrap"><%= link_to forum.title, forem.forum_path(forum) %></li>
+            <% end %>
+          </ul>
+        </div>  
+      <% end %>
+    </div>
+  </li>

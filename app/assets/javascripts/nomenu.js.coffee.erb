@@ -1,0 +1,21 @@
+if $('body.nomenu').length
+  #Make banner clickable to return to home
+  $("#short_banner").click ->
+    window.location.href = $(this).children("a").prop("href")
+
+  #Prevent double click submits.
+  $(document).on "submit","form", (e) ->
+    $("input:submit, BUTTON").prop("disabled",true)
+    true
+
+  #Block pressing enter when we don't want it to submit a form.
+  $(document).on "keypress",'.noenter', (e) ->
+    if(e.keyCode == 13 || e.which == 13) #Block enter key
+      e.preventDefault()
+      false
+
+  $(document).on 'nested:fieldAdded', (e) ->
+    #this field was just inserted into your form
+    field = e.field
+    field.find("textarea[class*=expand]").TextAreaExpander()
+

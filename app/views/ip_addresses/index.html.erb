@@ -1,0 +1,28 @@
+<div id="place_list">
+<h1>Listing Ip Addresses
+  <% if !@lower.nil? && !@upper.nil? %>
+    <%= "from (#{@lower} - #{@upper})" %>
+  <% end %>
+</h1>
+
+<%= render :partial => 'all/index_sort', :locals => {:record_class => IpAddress, :selected_sort => @sort} %>
+<div class="clear"></div>
+
+<% if @ip_addresses.length == 0 %>
+  <p class="notice"><%= "There are no ip addresses to list" %></p>
+<% end %>
+
+<div><%= will_paginate @ip_addresses, :inner_window => 10, :outer_window => 2 %></div>
+
+<table>
+<% @ip_addresses.each do |ip_address| %>
+  <tr id="ip_address_<%= ip_address.id %>" class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <%= render ip_address %>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />
+
+<div><%= will_paginate @ip_address, :inner_window => 10, :outer_window => 2 %></div>

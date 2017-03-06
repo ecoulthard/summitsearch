@@ -1,0 +1,10 @@
+<td class="list_description">
+  <dl>
+    <dt><%= link_to record.title, record %></dt>
+    <dd>Album Author: <%= record.user.display_name %>&nbsp;&nbsp;
+      <%= render :partial => 'articles/article_totals', :locals => {:article => record} %>
+    </dd>
+    <dd><%= truncate(strip_tags(record.description),
+         :length => 200) %></dd>
+  </dl>
+</td>

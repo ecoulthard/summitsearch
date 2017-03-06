@@ -1,0 +1,14 @@
+<div class="smallDiv" style="width:<%= photo.small_div_width %>px">
+  <% if (!defined?(show_title) || show_title) && !photo.title.nil? %>
+    <div style="width:<%= photo.small_div_width %>px"><%= link_to truncate(photo.title, :length => 200), main_app.photo_path(photo), :class => 'thumbTitle' %>&nbsp;</div>
+  <% end %>
+  <% if defined?(no_link) %>
+    <%= image_tag(photo.photo.url(:small), :alt => photo.alt, :width => photo.small_width, :height => photo.small_height) %><br>
+  <% else %>
+    <%= link_to image_tag(photo.photo.url(:small), :alt => photo.alt, :width => photo.small_width, :height => photo.small_height), main_app.photo_path(photo), :name => photo.id, :data_popup => "true" %><br>
+  <% end %>
+  <div>By: <%= link_to truncate(photo.user.display_name, :length => 50), main_app.user_path(photo.user) %></div>
+  <div style="width:<%= photo.small_div_width %>px">
+      <%= strip_tags(photo.caption) %>
+  </div>
+</div>

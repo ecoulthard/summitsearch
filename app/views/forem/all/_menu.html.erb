@@ -1,0 +1,18 @@
+<ul id="jMenu">
+  <li><%= link_to "Index", root_path, :class=>"fNiv" %>
+    <ul>
+      <li class="arrow"></li> <!-- Only for illustration : arrow_down.png -->
+      <li><%= link_to "Active Topics", main_app.forem_active_topics_path %>
+      <li><%= link_to "Members", main_app.users_path %></li>
+      <% Forem::Category.all.each do |category| %>
+        <li><%= link_to truncate(category.name, :length => 60), category %>
+          <ul>
+            <% category.forums.each do |forum| %>
+              <li><%= link_to forum.title, forum %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+      <li><%= link_to "Unanswered Topics", main_app.forem_unanswered_path %>
+    </ul>
+  </li>

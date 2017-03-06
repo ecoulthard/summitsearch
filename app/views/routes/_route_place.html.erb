@@ -1,0 +1,6 @@
+<% if !@route.place.nil? && @route.class::SHOW_DESTINATION_PLACE  %>
+  <span class="no-wrap">
+    <b>Destination <%= @route.place.class.to_s.titleize %>:</b>
+    <%= link_to @route.place.name, @route.place %>
+  </span>
+<% end %>

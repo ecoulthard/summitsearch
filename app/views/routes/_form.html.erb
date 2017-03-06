@@ -1,0 +1,194 @@
+<%= form_for(@route) do |f| %>
+  <% if @route.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@route.errors.count, "error") %> prohibited this <%= @type %> from being saved:</h2>
+
+      <ul>
+      <% @route.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  
+  <% if defined?(@area_id) %>
+    <%= hidden_field_tag :area_id, @area_id %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit @submit, :style => 'left:30%' %>
+  </div>
+
+  <% if @route.id.nil? %>
+    <%= f.fields_for :trip_reports do |builder| %>  
+      <%= render 'trip_reports/trip_report_fields', :f => builder %>
+    <% end %>
+    <br>
+  <% elsif defined?(@trip_report) %>
+    <%= hidden_field_tag :trip_report_id, @trip_report.id %>
+    <%= f.fields_for @trip_report do |builder| %>
+      <%= render 'trip_reports/trip_report_fields', :f => builder %>
+    <% end %>
+  <% end %>
+
+  <div>
+    <%= f.label :name, "#{@type} Name#{mark_required(@route, :name)}:" %> 
+    <%= f.text_field :name, :maxlength => 128, :size => 90 %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :type, "Route Type #{mark_required(@route, :type)}:" %> 
+    <%= f.select :type, options_from_collection_for_select(([Route]+Route.subclasses).map{|subclass| subclass.to_s}, 'to_s', 'titleize', @route.class.to_s)%>
+  </div>
+  <div>
+    <%= f.label :difficulty, "Difficulty#{mark_required(@route, :difficulty)}:" %> 
+    <%= f.select :difficulty, @route.class::DIFFICULTY_OPTIONS.each_with_index.map { |x,i| [x, i] },{},:class => "left"  %>
+  </div><div class="clear"></div><br>
+  <div>
+    <%= f.label :newb, "Is this route appropriate for someone with no experience?#{mark_required(@route, :newb)}" %>
+    &nbsp;&nbsp;Yes<%= f.check_box :newb %>
+  </div><div class="clear"></div><br>
+  <div>
+    <%= f.label :avalanche_rating, "If Avalanche terrain then what is the ATES Rating?#{mark_required(@route, :difficulty)}" %> 
+    <%= f.select :avalanche_rating, ["", "Simple", "Challenging", "Complex"] %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :glacier_travel, "Is there Glacier Travel?#{mark_required(@route, :glacier_travel)}"%> 
+    &nbsp;&nbsp;Yes<%= f.check_box :glacier_travel %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :seracs, "Is there any serac hazard?#{mark_required(@route, :seracs)}" %> 
+    &nbsp;&nbsp;Yes<%= f.check_box :seracs %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :rockfall, "Is there rockfall hazard?#{mark_required(@route, :rockfall)}" %> 
+    &nbsp;&nbsp;Yes<%= f.check_box :rockfall %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :river_crossing, "Is there a river crossing?#{mark_required(@route, :river_crossing)}" %> 
+    &nbsp;&nbsp;Yes<%= f.check_box :river_crossing %>
+  </div><div class="clear"></div>
+  <div>
+    <%= f.label :objective_hazard, "Describe any objective hazards on this route?#{mark_required(@route, :objective_hazard)}" %> 
+    <%= f.text_area :objective_hazard, :maxlength => 30720, :class => 'expand', :rows => 3, :cols => 80 %>
+  </div><div class="clear"></div><br>
+  
+  <% if @route.places.length > 0 && @route.class::SHOW_DESTINATION_PLACE  %>
+    <div>
+      <%= label_tag :place_id, "Destination Place:#{mark_required(@route, :place_id)}" %>
+      <%= f.select :place_id, options_from_collection_for_select(@route.places, 'id', 'name', @route.place_id) %>
+    </div><div class="clear"></div>
+  <% elsif defined?(@place_id) && @route.class::SHOW_DESTINATION_PLACE  %>
+    <%= f.hidden_field :place_id, :value => @place_id %>
+    <%= hidden_field_tag :place_id, @place_id %>
+  <% end %>
+
+  <div>
+    <%= f.label :different_start_end, "Does the route start and end in a different place? This is helpful for computing round trip distance.#{mark_required(@route, :different_start_end)}" %> 
+    &nbsp;&nbsp;Yes<%= f.check_box :different_start_end %>
+  </div><div class="clear"></div><br>
+
+  <div>
+    <%= f.label :access, "How do you access this route?#{mark_required(@route, :access)}" %> 
+    <%= f.text_area :access, :maxlength => 30720, :class => 'expand', :rows => 5, :cols => 80 %>
+  </div><div class="clear"></div><br>
+
+  <div>
+    <%= f.label :equipment, "What equipment would you recommend for this route?#{mark_required(@route, :equipment)}" %> 
+    <%= f.text_area :equipment, :maxlength => 30720, :class => 'expand', :rows => 5, :cols => 80 %>
+  </div><div class="clear"></div><br>
+  <div>
+    <p><%= "Briefly describe the overall terrain, features and difficulty of the #{@type}. For more detailed descriptions of sections of the #{@type} use the fields that popup when you add a point to the google map below. Tell us some of the history behind this #{@type}. What is the story behind the name(s)? Who first travelled this #{@type}?#{mark_required(@route, :description)}" %></p>
+    <%= f.text_area :description, :maxlength => 30720, :class => "editor", :rows => 5, :cols => 80 %>
+  </div><div class="clear"></div><br>
+  <% if @route.class::PHOTO_LINKABLE %>
+    <div>
+      <div>
+        <%= f.label :match_names, "Enter any comma separated terms that would refer to the #{@type} if they occured in a sentence. This is used to help match photos and trip reports to this #{@type}.#{mark_required(@route, :match_names)}"%>
+        <%= f.text_area :match_names, :class => 'expand', :rows => 5, :cols => 80 %>
+      </div><div class="clear"></div>
+      <div>
+        <%= f.label :reject_names, "Enter any comma separated terms that if they occured in a sentence would mean that this #{@type} is not being referred to. This is used to help reduce incorrect matches of photos and trip reports to this #{@type}.#{mark_required(@route, :reject_names)}"%>
+        <%= f.text_area :reject_names, :class => 'expand', :rows => 5, :cols => 80 %>
+      </div><div class="clear"></div>
+
+      <p>Describe the sources of the content you added. Please include links whenever possible.<%= mark_required(@route, :references) %></p>
+      <%= f.text_area :references, :class => "mceEditor", :rows => 5, :cols => 80  %>
+    </div>
+  <% end %>
+
+  <h4>Enter geographic information for the <%= @type %>.</h4>
+  <p>There are 2 ways that you can submit waypoints for this <%= @type %>. You can upload a .gpx file using the field below or you can use the waypoint submission system described in detail below. Note: You cannot submit using both methods at the same time. If both a gpx file and waypoints are entered the gpx file is what will be kept. Because gpx files can contain a huge number of waypoints (over 3000 for a day trip) we only use and display a small number of them. One filtering technique is not to use waypoints closer than 50m to other waypoints. This helps the route page to load promptly and also removes a lot of error in the distance and elevation change calculations for the route.</p>
+  <div>
+    <%= f.label :gps, "GPX File#{mark_required(@route, :gps)}:" %>  
+    <%= f.file_field :gps %>
+  </div><div class="clear"></div><br>
+  <p>Read the instructions below for using the waypoint submission system for this <%= @type %>. You are required to enter at least 2 waypoints minimum. <span style="font-size:9px">Note: Internet Explorer 7 and below don't work with the Google maps interface. Internet Explorer 8 works but behaves very slowly when interacting with Google Maps. Internet Explorer 9 is faster but last I checked moving waypoints didn't work. It is still in Beta so it might work in the future. I highly suggest using any other browser, since all the popular browsers are much better than Internet Explorer. Just do a Google search for Firefox, Google Chrome, Safari or Opera and click on the appropriate result to install a better browser.</span></p>
+  <ol>
+    <li><b>Adding waypoints:</b> You can either enter each waypoint using the fields below and clicking the 'add waypoint' button for each of them, or you can add them by clicking on the google map below for each point.</li>
+    <li><b>Inserting detailed descriptions of a waypoint.</b> Just click on the marker for the waypoint you wish to describe in more detail and a window of fields will open for you. Close the window when you are done. You can re-open the window anytime you like to edit what you have written. If you change the latitude or longitude fields in the window the marker will move to the new location. If you edit the location or description the waypoint will turn green. This will help you keep track of which waypoints have descriptions.</li>
+    <li><b>Assigning an icon to a waypoint</b> Just click on the marker for the waypoint and a window of fields will open for you. Scroll to the bottom of the window and you will see a list of icons you can select for the waypoint.</li>
+    <li><b>Moving waypoints:</b> You can drag and drop a waypoints marker to move it. You can also manually change the waypoints latitude and longitude fields. If you click on a marker a window will appear with the waypoints fields such as latitude and longitude. You can change them as you like.</li>
+    <li><b>Deleting waypoints:</b> To delete a waypoint right click on the marker of the waypoint you wish to delete or click the "Remove this waypoint" button in the waypoints popup window.</li>
+<% if @allow_branches %> 
+    <li><b>Branching the <%= @type %>:</b> To make a separate branch of the <%= @type %>, click on the marker you wish to start the branch from and a window of fields will open. Click on the marker again and it will turn yellow. When a marker is yellow the next point you add will be connected to that marker. Newly added points by default are made to be the yellow marker. You can also click the "Make this the active waypoint" button in the window to make the marker yellow.</li>
+    <li><b>Closing a loop:</b> To make a loop, create all the points in the loop first and then click really close to the first point of the loop to close the loop. If you don't want to close a loop then to add the close point as a separate point you will need to zoom in first.</li>
+<% elsif %>
+ <li><b>Branching the <%= @type %>:</b> Branches are disabled for <%= @type.pluralize %>. They don't really make sense in this context.</li>
+  <li><b>Closing a loop:</b> Loops are disabled for <%= @type.pluralize %>. They don't really make sense in this context.</li>
+<% end %> 
+    <li><b>Inserting a waypoint between 2 existing waypoints:</b> You can do this by clicking on the line between 2 waypoints. You need to click exactly on the line for this to work. If you miss the new waypoint will be added but not inserted. You can also do this by clicking on the "Insert a new waypoint" button in a waypoints popup window.</li>
+  </ol>
+</p><br>
+  Latitude: <%= text_field_tag 'Latitude' %> Longitude: <%= text_field_tag 'Longitude' %> <button id="btnAddWaypoint">Add Waypoint</button>
+ 
+  <%= f.fields_for :waypoints do |builder| %>  
+    <%= render 'waypoint_fields', :f => builder %>
+  <% end %>
+
+  <%= f.hidden_field :distance %>
+  <%= f.hidden_field :height_gain %>
+  <%= f.hidden_field :height_loss %>
+
+  <% content_for(:javascript) do %>
+    <script type="text/javascript">
+      <%= render :layout => 'all/init_google_map', :locals => {:usetopomap => true, :mapdiv => 'map_div_big', :zoom => @zoomLevel, :centerLatitude => @startLatitude, :centerLongitude => @startLongitude} do %>
+        //Initialize the google map and load the existing waypoints. See the file waypoint.js
+	<%= sanitize "Route.initRoute(#{@allow_branches}, #{@startLatitude}, #{@startLongitude}, \"#{@startContent}\", \"#{@startName}\");" %>
+  	<% @route.waypoints.each_with_index do |waypoint, i| %>  
+	  Route.loadWaypoint(<%= i %>, <%= raw "\"#{escape_javascript render "waypoint_bubble_fields"}\"" %>, <%= raw "\"#{waypoint.icon? ? asset_path("markers/#{waypoint.icon}.png") : waypoint.display? ? asset_path("markers/green-dot.png") : ''}\"" %>);
+	<% end %>
+
+      <% end %>
+
+      $("#btnAddWaypoint").click(function(e){
+         window.Route.addNewWaypoint(this, "waypoints", "<%= waypoint_fields(f) %>", "<%= waypoint_bubble_fields(f) %>");
+         e.preventDefault();
+      });
+
+      //Change the difficulty options when the route type changes.
+      $("#route_type").change(function(e){
+
+        //Get the array of difficulty options for this route type.
+        var difficulty_options = difficulties[$(this).val()];
+
+        //Clear the existing options.
+        $('#route_difficulty').empty();
+
+        //Add the new options to the select.
+        for(var i = 0; i<difficulty_options.length; i++)
+          $('#route_difficulty').append( $('<option></option>').val(i).html(difficulty_options[i]));
+      });
+
+      window.difficulties = <%= sanitize @difficulties.to_json %>;
+    </script>
+  <% end %>
+
+  <div class="clear"></div><br><br>
+  <div class="actions">
+    <%= f.submit @submit %>
+  </div>
+  <br>
+  <div id="map_div_big" class="map_div_big"></div>
+  <%= mytopo_data %>
+<% end %>

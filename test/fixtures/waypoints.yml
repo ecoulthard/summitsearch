@@ -1,0 +1,28 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  latitude: 52.22500
+  longitude: -117.43584
+  height: 3731
+  location: MyText
+  route: columbia
+  local_index: 0
+  parent_index: -1
+
+two:
+  latitude: 52.14722
+  longitude: -117.44139
+  height: 3741
+  location: MyText
+  route: columbia
+  local_index: 1
+  parent_index: 0
+
+three:
+  latitude: 52.24722
+  longitude: -117.41139
+  height: 3722
+  location: MyText
+  route: columbia
+  local_index: 2
+  parent_index: 1

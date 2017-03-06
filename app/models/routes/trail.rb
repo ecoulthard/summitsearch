@@ -1,0 +1,2 @@
+class Trail < Route
+end

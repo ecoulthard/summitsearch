@@ -1,0 +1,33 @@
+<% if place.areas.length > 0 %>
+  <% if place.ranges.length > 0 %>
+    <% place.ranges.each do |range| %>
+      <p class="no-wrap"><%= range_intro %> <%= link_to range.name, range %>.</p>&nbsp;&nbsp;
+    <% end %>
+  <% end %>
+
+  <% if place.icefield %>
+    <p class="no-wrap"><%= icefield_intro %> <%= link_to place.icefield.name, place.icefield %>.</p>&nbsp;&nbsp;
+  <% end %>
+
+  <% if place.parks.length > 0 %>
+    <% place.parks.each do |park| %>
+      <p class="no-wrap"><%= park_intro %> <%= link_to park.name, park %>.</p>&nbsp;&nbsp;
+    <% end %>
+  <% end %>
+
+  <% if place.island %>
+    <p class="no-wrap"><%= island_intro %> <%= link_to place.island.name, place.island %>.</p>&nbsp;&nbsp;
+  <% end %>
+
+  <% if place.regions.length > 0 %>
+    <% place.regions.each do |region| %>
+      <p class="no-wrap"><%= region_intro %> <%= link_to region.name, region %>.</p>&nbsp;&nbsp;
+    <% end %>
+  <% end %>
+
+  <% if defined?(place.mountain) && place.mountain %>
+    <p class="no-wrap"><%= mountain_intro %> <%= link_to place.mountain.name, place.mountain %>.</p>&nbsp;&nbsp;
+  <% end %>
+
+<% end %>
+

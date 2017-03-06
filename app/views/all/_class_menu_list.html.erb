@@ -1,0 +1,36 @@
+<% field = "name" unless ["title", "name"].include? field #Whitelist filter %>
+<% sqlstring = "LEFT(#{field},:length) >= :lower AND LEFT(#{field},:length) <= :upper" %>
+<% sqlstring = "(name NOT LIKE 'Mount %' AND LEFT(name,:length) >= :lower AND LEFT(name,:length) <= :upper) OR (name LIKE 'Mount %' AND LEFT(SUBSTR(name,7),:length) >= :lower AND LEFT(SUBSTR(name,7),:length) <= :upper)" if menu_class == Mountain %>
+<% if menu_class.where(sqlstring, {:lower => lower, :upper => upper, :length => lower.length }).count < 10 %>
+  <ul>
+    <% menu_class.where(sqlstring, {:lower => lower, :upper => upper, :length => lower.length }).order(field).each do |record| %>
+      <li><%= link_to truncate(record.send(field), :length => 60), record %>
+      <% if menu_class.superclass == Place #Put links for area places %>
+        <ul>
+	  <% Place.subclasses.each do |subclass| %>
+	    <% if record.send(subclass.to_s.tableize).length > 0 %>
+	      <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", :place_id => record.id) %></li>
+	    <% end %>
+	  <% end %>
+	</ul>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% elsif lower.length < 1 %>
+  <% step = [3,10,26][lower.length] %>
+  <% range = upper.length > 0 ? (lower..upper) : [""] %>
+  <ul>
+    <% range.each do |start| %>
+      <% ("a".."z").step(step).each do |letter| %>
+        <% next_lower = start+letter %>
+        <% next_upper = start+((letter[0].ord+step-1) <= "z"[0].ord ? (letter[0].ord+step-1) : "z"[0]).chr %>
+        <% if menu_class.where(sqlstring, { :lower => next_lower, :upper => next_upper, :length => (next_lower.length) }).count > 0 %>
+          <li><%= link_to "#{next_lower}-#{next_upper}", send("#{menu_class.to_s.tableize}_path", :lower => next_lower, :upper => next_upper, :sort => field.titleize) %>
+            <%= render :partial => 'all/class_menu_list', :locals => {:menu_class => menu_class, :lower => next_lower, :upper => next_upper, :field => field } %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

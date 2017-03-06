@@ -1,0 +1,32 @@
+<div id="place_info_div">
+
+  <div>
+    <b><%= place.name %></b>
+  </div>
+
+  <% if place.alternate_names? %>
+    <div>
+      <b>Also known as:</b>
+      <%= place.alternate_names %>
+    </div>
+  <% end %>
+
+  <% if defined? place.height %>
+    <div>
+      <b>Height:</b>
+      <%= place.height.to_s %>m (<%= place.feet %> ft)
+    </div>
+  <% end %>
+
+  <% if defined? place.area %>
+    <div>
+      <b>Area:</b>
+      <%= place.area.to_s %>km
+    </div>
+  <% end %>
+
+  <!-- if place.thumb_title_photo -->
+    <!-- link_to image_tag(place.thumb_title_photo.photo.url(:long_thumb), :style => "height:#{place.thumb_title_photo.long_thumb_height};width:#{place.thumb_title_photo.long_thumb_width}"), place -->
+  <!-- end -->
+
+</div>

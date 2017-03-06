@@ -1,0 +1,23 @@
+<div class="clear"></div><br>
+<div class="form">
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <fieldset>
+    <legend>Forgot your password?</legend>
+    
+    <div>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+    </div>
+
+    <div class="clear"></div><br>
+    <div>
+	<%= f.submit "Send me reset password instructions" %>
+    </div>
+    <div class="clear"></div><br>
+  </fieldset>
+<% end %>
+</div>
+
+<%= render :partial => "devise/shared/links" %>

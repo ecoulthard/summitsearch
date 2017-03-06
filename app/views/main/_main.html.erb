@@ -1,0 +1,69 @@
+<table class="subdued" cellspacing='0'>
+  <thead>
+    <tr>
+      <th colspan="4" class="clickable"><%= new ?  "New" : "Recently Updated" %> Trip Reports or Albums 
+        <% if new %>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More new trip reports", trip_reports_path, :class => 'linkButton' %>
+          &nbsp;<%= link_to "More new albums", albums_path, :class => 'linkButton' %>
+          &nbsp;<span>
+            <% if defined? @numTripsAlbumsSinceLastVisit %>
+              <%= "#{@numTripsAlbumsSinceLastVisit} new since your last visit." if @numTripsAlbumsSinceLastVisit > 0 %>
+            <% end %>
+            <% ss_cache({:part => 'trips_and_albums_count'}, :expires_in => 2.hours ) do %>
+              <%= "#{@numTripsAlbumsToday} new in the last 24 hours." if @numTripsAlbumsToday > 0 %>
+              <%= "#{@numTripsAlbumsThisWeek} new in the last 7 days." if @numTripsAlbumsThisWeek > 0 %> 
+            <% end %>
+          </span>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ss_cache({:part => 'trips_and_albums'}, :expires_in => 2.hours) do %>
+      <% @trip_and_album_groups.each do |articles| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <% articles.each do |article| %>
+            <% if article.class == TripReport %>
+              <%= render :partial => 'trip_reports/thumb', :locals => {:trip_report => article, :show_user => true} %>
+            <% else %>
+              <%= render :partial => 'albums/thumb', :locals => {:album => article, :show_user => true} %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<div class="clear"></div><br>
+<table class="subdued"  cellspacing='0'>
+  <thead>
+    <tr>
+      <th colspan="6" class="clickable"><%= new ? "New" : "Recently Updated" %> Photos
+        <% if new %>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More new photos", photos_path, :class => 'linkButton' %>
+          <span>
+            <% if defined? @numPhotosSinceLastVisit %>
+               <%= "#{pluralize @numPhotosSinceLastVisit, "new photo"} since your last visit. " if @numPhotosSinceLastVisit > 0 %>
+            <% end %>
+            <% ss_cache({:part => 'photo_count'}, :expires_in => 2.hours) do %>
+              <%= "#{pluralize @numPhotosToday, "new photo"} in the last 24 hours." if @numPhotosToday > 0 %>
+              <%= "#{pluralize @numPhotosThisWeek, "new photo"} in the last 7 days." if @numPhotosThisWeek > 0 %>
+            <% end %>
+          </span>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ss_cache({:part => 'photos'}, :expires_in => 2.hours ) do %>
+      <tr class="odd">
+        <% @photo_users.each do |user| %>
+          <%= render :partial => 'users/photo_summary', :locals => {:user => user, :new => new} %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="clear"></div><br>
+<div class="entries User_Photos"></div>
+<div class="clear"></div><br>

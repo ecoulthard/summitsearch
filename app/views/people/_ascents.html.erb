@@ -1,0 +1,44 @@
+<% if @person.ascents.count > 0 %>
+  <table class="subdued floatTable"  cellspacing='0'>
+    <thead>
+      <tr>
+         <th>Ascents</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for ascent in @ascents %>
+        <% participants = ascent.participants - [@person] %>
+	<% guides = ascent.guides - [@person] %>
+	<% text = "" %>
+	<% if ascent.solo %>
+	  <% text = "Solo #{ascent.ascent_index}#{case ascent.ascent_index when 1 then "st" when 2 then "nd" when 3 then "rd" else "th" end} ascent" if ascent.success %>
+	  <% text = "Solo attempt" if !ascent.success %>
+	  <% text += " of #{link_to(ascent.mountain.name, ascent.mountain)}" %>
+	  <% text += " was #{partial_date_string(ascent.year, ascent.month, ascent.day)}" %>
+	  <% text += " via the #{link_to(ascent.route.name, ascent.route)}" unless ascent.route.nil? %>
+	<% else %>
+	  <% text = "#{ascent.ascent_index}#{case ascent.ascent_index when 1 then "st" when 2 then "nd" when 3 then "rd" else "th" end} ascent" if ascent.success and ascent.ascent_index? %>
+	  <% text = "Ascent" if ascent.success and ascent.ascent_index.nil? %>
+	  <% text = "Attempted" if !ascent.success %>
+	  <% text += " of #{link_to(ascent.mountain.name, ascent.mountain)}" %>
+	  <% text += " #{partial_date_string(ascent.year, ascent.month, ascent.day)}" if ascent.year? %>
+	  <% text += " via the #{link_to(ascent.route.name, ascent.route)}" unless ascent.route.nil? %>
+	  <% if ascent.people.count > 3 || (ascent.other_participants? && ascent.people.count > 0) %>
+            <% text += " with a group" %>
+	    <% text += " guided by " + guides.collect {|g| link_to g.name, g}.to_sentence if guides.count > 0 %>
+	    <% text += "," if guides.count > 0 && participants.count > 0 %>
+	    <% text += " including " + participants.collect {|p| link_to p.name, p}.to_sentence if participants.count > 0 %>
+	  <% elsif ascent.people.count > 1 %>
+	    <% text += " with" %>
+	    <% text += " " + participants.collect{|p| link_to p.name, p}.to_sentence if participants.count > 0 %>
+	    <% text += guides.collect{|g| " guide " + link_to(g.name, g)}.to_sentence if guides.count > 0 %>
+	  <% end %>
+	<% end %>
+	<% text += "." %>
+        <tr class="<%= cycle("odd", "even") %>">
+	  <td><%= raw text %></td>
+	</tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="text">
+  <% if !article.total_likes.nil? && article.total_likes > 0 %>
+      <span class="no-wrap">Liked: <%= pluralize article.total_likes, 'time' %></span>&nbsp;&nbsp;
+  <% end %>
+  <% if !article.total_comments.nil? && article.total_comments > 0 %>
+      <span class="no-wrap"><%= pluralize article.total_comments, 'comment' %></span>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: Fred Ayers
+  description: MyText
+  references: MyText
+  birthdate: 1912-11-17 16:46:23
+  deathdate: 1952-11-17 16:46:23
+  user: vador
+
+two:
+  name: J. Norman Collie
+  description: MyText
+  references: MyText
+  birthdate: 1812-11-17 16:46:23
+  deathdate: 1852-11-17 16:46:23
+  user: vador

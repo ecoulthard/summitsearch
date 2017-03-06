@@ -1,0 +1,36 @@
+<% if user_signed_in? %>
+  <span id="vote" class="vote">
+    <% if article.user != current_user && !article.has_rated(current_user) %>
+      <b>Recommend this <%= article_type.titleize %>:</b>&nbsp;&nbsp;
+      <span id="voteImgSpan" class="no-wrap">
+        <%= image_tag "thumbs_up.png", :id => 'thumbs_up_photo' %>
+        <% #link_to image_tag("two_thumbs_up.png"), two_thumbs_up_path, :remote => true %>
+      </span>
+    <% end %>
+  </span>
+  <% content_for(:javascript) do %> 
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#thumbs_up_photo").click(function(e){
+          var getpath = "<%= thumbs_up_path %>";
+          $('#voteImgSpan').html("<span class=\"qq-upload-spinner\"></span>Saving");
+	  //Delay the vote by 1 second to allow the server to save the visit information first. Otherwise errors happen.
+          setTimeout(function(){
+	    $.get(getpath, function(data) {
+              if(data == "success"){//If successful pass the message along and redisplay the field
+                $('#vote').html("Thanks for your recommendation.");
+                $('#thumbs_up').html("<%= "This #{article_type.humanize} has been liked #{@num_thumbs_up + 1} time by the following member:" %>");
+                $('#fans').append("<%= current_user.display_name %>")
+                $('#fans').css({'background-color':'#00ff00'}).animate({'background-color':'#ffffff'}, 2000);
+              }
+              else
+                $('#vote').text("An error occured. We could not save your recommendation.");
+            });
+	  }, 1000);
+          e.preventDefault();
+          return false;
+        });
+      });
+    </script>
+  <% end %>
+<% end %>

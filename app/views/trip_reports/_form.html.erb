@@ -1,0 +1,22 @@
+<%= form_for(@trip_report, :html => {:multipart => true}) do |f| %>
+  <% if @trip_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trip_report.errors.count, "error") %> prohibited this trip_report from being saved:</h2>
+
+      <ul>
+      <% @trip_report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :route_id %>
+
+  <%= render 'trip_report_fields', :f => f %>
+
+  <div class="clear"></div><br><br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <br>
+<% end %>
