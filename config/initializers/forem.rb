@@ -1,6 +1,6 @@
 Forem.user_class = "User"
 Forem.user_profile_links = true
-Forem.email_from_address = "SummitSearch Notifier <" + ENV['NOTIFIER_EMAIL'] + ">"
+Forem.email_from_address = "SummitSearch Notifier <" + Rails.application.config.notifier_email + ">"
 Rails.application.config.to_prepare do
   Forem::ForumsController.layout "forem"
   Forem::CategoriesController.layout "forem"

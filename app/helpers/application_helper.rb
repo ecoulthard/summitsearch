@@ -4,6 +4,10 @@ module ApplicationHelper
     request.user_agent && request.user_agent.match(/msie 7.0/i)
   end
 
+  def facebookAppId
+    Rails.application.config.facebook_app_id 
+  end
+
   #Returns the string for the number in nst, nnd, nrd or nth.
   def nth(n)
     if n > 9 and n.to_s[-2..-1].to_i.between?(10,19)
@@ -61,9 +65,9 @@ module ApplicationHelper
   #returns the mytopo tag using our mytopo id and secret key
   def mytopo_data
 #if localhost
-      content_tag "div", id: "trimble-data", data: {partner_id: ENV['MY_TOPO_PARTNER_ID'], hash: Digest::MD5.hexdigest(ENV['MY_TOPO_HEX_DIGEST'] + clientip)} do end
+      content_tag "div", id: "trimble-data", data: {partner_id: Rails.application.config.my_topo_partner_id, hash: Digest::MD5.hexdigest(Rails.application.config.my_topo_hex_digest + clientip)} do end
 #else
-#raw "<script type=\"text/javascript\" src=\"http://www.mytopo.com/TileService/Scripts/trimble.mytopo.v3.js?partnerID=ENV['MY_TOPO_PARTNER_ID']&hash=#{ Digest::MD5.hexdigest(ENV['MY_TOPO_HEX_DIGEST'] + clientip) }\"></script>"
+#raw "<script type=\"text/javascript\" src=\"http://www.mytopo.com/TileService/Scripts/trimble.mytopo.v3.js?partnerID=#{ Rails.application.config.my_topo_partner_id }&hash=#{ Digest::MD5.hexdigest(Rails.application.config.my_topo_hex_digest + clientip) }\"></script>"
 #end
   end
 
@@ -84,7 +88,7 @@ module ApplicationHelper
 
   def google_map_include_tag
     if localhost
-      raw "<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?libraries=geometry&key=" + ENV['GOOGLE_MAPS_API_KEY']  + "\"></script>"
+      raw "<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?libraries=geometry&key=" + Rails.application.config.google_maps_api_key + "\"></script>"
     else
       raw "<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?libraries=geometry\"></script>"
     end

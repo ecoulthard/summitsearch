@@ -12,9 +12,10 @@
   <% else %>
     var doNotTrack = false;
   <% end %>
+  var facebookAppId = <%= facebookAppId %>;
+  var facebookChannelUrl = '//summitsearch.org/channel.html';
 </script>
 <div id="fb-root"></div>
 <%= javascript_include_tag "application" %>
 
 <%= yield(:javascript) %>
-<%= render :partial => 'layouts/include_facebook' %>

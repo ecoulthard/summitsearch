@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "SummitSearch Notifier <" + ENV['NOTIFIER_EMAIL'] + ">"
+  default :from => "SummitSearch Notifier <" + Rails.application.config.notifier_email + ">"
 
   def article_first_comment(article_type, article)
     @article_type = article_type

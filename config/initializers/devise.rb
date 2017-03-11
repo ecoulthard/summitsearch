@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = ENV['NOTIFIER_EMAIL']
+  config.mailer_sender = Rails.application.config.notifier_email
 
   config.router_name = :main_app
   
@@ -47,9 +47,9 @@ Devise.setup do |config|
   #config.encryptor = :bcrypt #Devise told me to remove this
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = ENV['DEVISE_PEPPER']
+  config.pepper = Rails.application.config.devise_pepper
 
-  config.secret_key = ENV['DEVISE_SECRET_KEY']
+  config.secret_key = Rails.application.config.devise_secret_key
   
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time

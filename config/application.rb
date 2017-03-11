@@ -9,12 +9,21 @@ module Summitsearch
    # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
+		
     # Add additional load paths for your own custom dirs
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
-
+    #Load environment variables
+    config.secret_key_base = ENV['SECRET_KEY_BASE']
+    config.notifier_email = ENV['NOTIFIER_EMAIL']
+    config.facebook_app_id = ENV['FACEBOOK_APP_ID']
+    config.google_maps_api_key = ENV['GOOGLE_MAPS_API_KEY']
+    config.my_topo_partner_id = ENV['MY_TOPO_PARTNER_ID']
+    config.my_topo_hex_digest = ENV['MY_TOPO_HEX_DIGEST']
+    config.devise_pepper = ENV['DEVISE_PEPPER']
+    config.devise_secret_key = ENV['DEVISE_SECRET_KEY']
+	
     #config.middleware.use ExceptionNotification::Rack,
     #    :email => {
     #        :email_prefix => "SummitSearch-Errors: ",

@@ -30,8 +30,8 @@ window.loadFacebookSDK = ->
 
 window.initializeFacebookSDK = ->
   FB.init
-    appId      : '110148615779941' # App ID
-    channelUrl : '//summitsearch.org/channel.html' # Channel File
+    appId      : facebookAppId  # App ID
+    channelUrl : facebookChannelUrl # Channel File
     status    : false
     cookie    : true
     xfbml     : true
