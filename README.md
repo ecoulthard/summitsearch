@@ -47,27 +47,33 @@ Now let's index sphinx search:
 bundle exec rake ts:index
 ```
 
-You'll need to set a few environment variables used in config/application.rb. You'll need to figure out how to set environment variables on the specific operating system you are using.
+You'll need to set a few environment variables used in config/application.rb. You'll need to figure out how to set environment variables on the specific operating system you are using. Feel free to contact [me](https://github.com/ecoulthard) if you need help with any of these. I might even let you use some of the same keys I use for dev or at least set some new ones up for you.
 
 * SECRET\_KEY\_BASE
   * This can be anything on dev.
+
+You will need to set these variable for a gmail address for notifications to work. You can change the smtp settings in development.rb if you want to use a non-gmail address. 
 * NOTIFIER\_EMAIL
-  * You will need to set this to a gmail address for notifications to work.
 * NOTIFIER\_EMAIL\_PASSWORD
-  * This will be the password to the gmail account.
+
 * FACEBOOK\_APP\_ID
-  * This is only used to get the facebook like buttons working. You can set it to anything for development.
+  * This is only used to get the facebook like buttons working. You can set it to anything for development. All it will break is the facebook like buttons.
 * GOOGLE\_MAPS\_API\_KEY
   *  This is used to get Google maps working. A lot of functionality depends on Google maps so you should probably get your own key from Google. [Google Maps Api Key](https://www.google.ca/search?q=Google+Maps+Api+key)
+
+These are used to add topo maps to the pages with Google maps. You can set it to anything for dev and it will only cause the topo maps to not show up.
 * MY\_TOPO\_PARTNER\_ID
-  *  This is used to get topo maps working on the Google maps. You can set it to anything for dev.
 * MY\_TOPO\_HEX\_DIGEST
-  *  This is used to get topo maps working on the Google maps. You can set it to anything for dev.
+
+These are used for user account passwords. They can be anything on dev since the accounts are fake. 
 * DEVISE\_PEPPER
-  * This is used for user account passwords. It can be anything on dev since the accounts are fake. 
 * DEVISE\_SECRET\_KEY
-  * This is used for user account passwords. It can be anything on dev since the accounts are fake. 
-	
+
+These are used to get paperclip working using amazon aws S3 storage. You can change the paperclip setting in development.rb to use local storage. Some things that work for local storage do not work in live so using s3 in dev is easier in my opinion once you get it set up.
+* S3\_BUCKET\_NAME
+* AWS\_ACCESS\_KEY\_ID
+* AWS\_SECRET\_ACCESS\_KEY
+
 
 Let's get it running.
 
@@ -89,4 +95,7 @@ bundle exec rails server
 # Contributing
 
 One of the things that I could use help with is upgrading summitsearch to newer versions of ruby and rails. Upgrading usually introduces a lot of bugs and is time consuming.
+
+# Current Contributors
+  * Eric Coulthard
 
