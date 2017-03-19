@@ -376,9 +376,9 @@ class PhotosController < ArticlesController
     @first_area_id = @photo.areas.count == 0 ? nil : @photo.areas.first.id
 
     unless read_fragment(:part => "google_map_#{@photo.id}")
-      @places = @photo.places_mentioned
-      @places = @places + [@photo.place] unless @photo.place.nil?
+      @places = @photo.places
     end
+
     #Set which photo to render and which layout
     if(!params[:full_size].blank? && params[:full_size].to_s == "true")
 	@full_size = true
@@ -403,7 +403,8 @@ class PhotosController < ArticlesController
         end
       end
 
-      if @photo.place_id?
+      if @photo.title_places.length != 0
+        #Photo.find(27).title_places.map {|place| {:place => place.name, :dist => 1, :height => 2} }
         if @photo.latitude? && @photo.longitude?
           @distance = @photo.place.dist(@photo.latitude, @photo.longitude).round(2)
           @direction = @photo.place.direction(@photo.latitude, @photo.longitude)

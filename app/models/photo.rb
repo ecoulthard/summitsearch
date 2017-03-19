@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
   @@per_page = 200
   belongs_to :user
   belongs_to :updater, :foreign_key => "update_id", :class_name => "User"
-  belongs_to :place
+  #belongs_to :place
   belongs_to :trip_report
   belongs_to :route
   belongs_to :album
@@ -29,12 +29,16 @@ class Photo < ActiveRecord::Base
     .where("photo_place_visits.visitable_type = 'Place' AND photo_place_visits.visitable_id = ?", place_id)
   end
 
+  has_many :place_photos, :dependent => :destroy
+  has_many :places, through: :place_photos
+  has_many :title_place_photos, -> { where(:in_title => true ) }, class_name: "PlacePhoto"
+  has_many :title_places, through: :title_place_photos, source: :place
+  has_many :place_mentioned_photos, -> { where(:in_title => false ) }, class_name: "PlacePhoto"
+  has_many :places_mentioned, through: :place_mentioned_photos, source: :place
 
   has_many :place_photos_in_areas, :dependent => :destroy, :class_name => "PlacePhotoInArea"
   #Areas that the photo was taken inside
   has_many :areas, -> { order 'area'}, :through => :place_photos_in_areas, :source => :place
-  has_many :place_photos, :dependent => :destroy
-  has_many :places_mentioned, :through => :place_photos, :source => :place
   
   has_many :route_photos, :dependent => :destroy
   has_many :routes_mentioned, :through => :route_photos, :source => :route
