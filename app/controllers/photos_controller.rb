@@ -405,10 +405,15 @@ class PhotosController < ArticlesController
 
       if @photo.title_places.length != 0
         #Photo.find(27).title_places.map {|place| {:place => place.name, :dist => 1, :height => 2} }
-        if @photo.latitude? && @photo.longitude?
-          @distance = @photo.place.dist(@photo.latitude, @photo.longitude).round(2)
-          @direction = @photo.place.direction(@photo.latitude, @photo.longitude)
-        end
+        calc_dist = @photo.latitude? && @photo.longitude?
+        @title_places = @photo.title_places.map {|place|
+	  {
+	    :place => place,
+	    :distance => calc_dist ? place.dist(@photo.latitude, @photo.longitude).round(2) : nil,
+	    :direction => calc_dist ? place.direction(@photo.latitude, @photo.longitude) : nil
+	  }
+	}
+
       end
     end
     

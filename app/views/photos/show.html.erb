@@ -55,12 +55,17 @@
       <%= link_to @photo.user.display_name, @photo.user %>
     </div>
 
-    <% subject = @photo.place if @photo.place_id? %>
-    <% subject = @photo.route if @photo.route_id? %>
-    <% if defined?(subject) && subject.present? %>
+    <% if defined?(@photo.route) && @photo.route.present? %>
       <div>
-        <b>Title <%= subject.type.titleize %>:</b>
-        <%= link_to subject.name, subject %>
+        <b>Title <%= @photo.route.type.titleize %>:</b>
+        <%= link_to @photo.route.name, @photo.route %>
+      </div>
+    <% end %>
+
+    <% if defined?(@title_places) %>
+      <div>
+        <b>Title Places:</b>
+        <%= sanitize @title_places.map {|title_place| link_to(title_place[:place].name, title_place[:place]) }.join(", ") %>
       </div>
     <% end %>
 
@@ -78,18 +83,22 @@
       </div>
     <% end %>
 
-    <% if @photo.place_id? || @photo.vantage? %>
+    <% if @photo.vantage? || defined?(@title_places) %>
       <div>
         <b>Vantage Point:</b>
         <% if @photo.vantage? %>
           <%= @photo.vantage %>
         <% end %>
-        <% if @photo.place_id? && @photo.latitude? && @photo.longitude? %>
-          <%= @distance %>km <%= @direction %> of <%= @photo.place.name %>.
+        <% if defined?(@title_places) %>
+          <% @title_places.each do |title_place| %>
+	  
+            <% if title_place[:distance].present? %>
+              <%= title_place[:distance] %>km <%= title_place[:direction] %> of <%= title_place[:place].name %>.<br />
+            <% end %>
+	  <% end %>
         <% end %>
       </div>
     <% end %>
-
     <br>  
     <% if @photo.description? %>
       <div>
