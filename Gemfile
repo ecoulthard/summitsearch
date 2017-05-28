@@ -54,6 +54,7 @@ gem 'slim'
 
 # Gems used only in the development environment.  
 group :development do
+  gem 'therubyracer' #js runtime
   gem 'web-console' #Adds a console on error pages.
   gem 'bullet' # Detects N+1 Queries and unused eager loading.
 
