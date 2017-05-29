@@ -64,7 +64,7 @@
 
     <% if defined?(@title_places) %>
       <div>
-        <b>Title Places:</b>
+	<b>Title Place<%= "s" if @title_places.length != 1 %>:</b>
         <%= sanitize @title_places.map {|title_place| link_to(title_place[:place].name, title_place[:place]) }.join(", ") %>
       </div>
     <% end %>

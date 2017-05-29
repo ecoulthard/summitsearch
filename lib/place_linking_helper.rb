@@ -7,8 +7,7 @@ module PlaceLinkingHelper
 
   #Returns all the places and routes linked to this album. Used by the show method in the controller
   def places
-    photo_places = places_mentioned + routes_mentioned
-    photo_places = photo_places << place if place_id
+    photo_places = title_places + places_mentioned + routes_mentioned
     photo_places = photo_places << route if route_id
     photo_places
   end
@@ -16,7 +15,7 @@ module PlaceLinkingHelper
 
 #This section is complicated so put on your thinking cap.
 #
-#We want to link the article to any nearby place that the author writes about in the title,
+#We want to link the article to any nearby places that the author writes about in the title,
 #caption or description. Sometimes the author may refer to a partial name of a place such as "Athabasca"
 #instead of "Mount Athabasca". Sometimes the author may use a nickname such as "AthaB".
 
@@ -42,16 +41,14 @@ module PlaceLinkingHelper
 #match the place or definitely do not match the place. We could for instance put "AthaB" in the definite
 #match list for "Mount Athabasca" and then this nickname would match a article to "Mount Athabasca".
 
-#Having said all that the following function looks for all nearby places. It looks for fully qualified
-#names for all nearby places first before it looks for partial matches. If it finds a match it then looks
-#for words that if they come before the match disqualify the place from being a match. It then looks for
-#words that if they come after a match disqualify the place. If the place is disqualified from a match we
-#don't try and match the place using any of its other names, we immediately move to the next place. If the
-#match passes the tests we make a link. If the match is in the title of the article then that means the place
-#is more important in the article than places only mentioned in the caption. So this link will appear higher in
-#the list of articles for that place. If the match is the only match in the title for this article then we make
-#this article a title article for the place. That is because we assume the place is the main subject of the
-#article. Title articles show up first in the place page and also might be used as the cover articles for the place.
+#Having said all that, the following functions looks for all nearby places. They look for fully qualified
+#names for all nearby places first before they look for partial matches. If they find a match they then look
+#for words that if they come before the match disqualify the place from being a match. They then look for
+#words that if they come after a match disqualify the place. If the place is disqualified from a match they
+#don't try and match the place using any of its other names, they immediately move to the next place. If the
+#match passes the tests they make a link. If the match is in the title of the article then that means the place
+#is more important in the article than places only mentioned in the caption. So this link will appear in the "Title Photos"
+#of that place instead of the "Mentioned In".
 
   def set_places title="", description=""
     return if title.blank? && description.blank? #return if there is no text to match.
@@ -74,12 +71,8 @@ module PlaceLinkingHelper
     places = places.reverse
     numPlacesInTitle = findMatches(text, title_text, places, "articleFullyQualifiedMatchNames", numPlacesInTitle, lat, lon)
     numPlacesInTitle = findMatches(text, title_text, places, "articlePartialMatchNames", numPlacesInTitle, lat, lon)
-    if numPlacesInTitle != 1 #Only articles with one place in the title can be a title article
-      self.place_id = self.route_id = nil
-    else #Remove extra "also appearing in" links if article is a title article
-      self.send("place_#{self.class.to_s.downcase}s").find_by_place_id(self.place_id).delete unless self.place_id.nil?
-      self.send("route_#{self.class.to_s.downcase}s").find_by_route_id(self.route_id).delete unless self.route_id.nil?
-    end
+    #Remove extra "also appearing in" links if article is a title article
+    self.send("route_#{self.class.to_s.downcase}s").find_by_route_id(self.route_id).delete unless self.route_id.nil?
   end #def
 
   #Finds matches to the given text with the given places using the given method to retrieve
@@ -164,8 +157,7 @@ module PlaceLinkingHelper
 	    break if previous_links.exists?
 
             place_article_class.create(place_id_tag => place.id,"#{self.class.to_s.downcase}_id" => id, :in_title => in_title)
-	    #If match is in the title set title place
-            self.place_id = in_title ? place.id : place_id if place_class == Place
+	    #If route match is in the title set title route
             self.route_id = in_title ? place.id : route_id if place_class == Route 
 	    #If match is in the title increment the title match count
 	    numPlacesInTitle += in_title ? 1 : 0
