@@ -6,7 +6,7 @@
     <% title_places = photo.title_places if photo.title_places.length != 0 %>
     <% if defined?(title_places) && title_places.present? %>
       <span class="text no-wrap">
-        Title places: <%= sanitize @title_places.map {|title_place| title_place.name }.join(", ") %>
+        Title places: <%= sanitize title_places.map {|title_place| title_place.name }.join(", ") %>
       </span>
     <% end %>
 

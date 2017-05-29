@@ -171,9 +171,9 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
      
     unless read_fragment(:part => "photos_#{@place.id}")
-      @photos = @place.photos.includes(:user).includes(:place)
+      @photos = @place.photos.includes(:user).includes(:title_places)
       @has_photos = @photos.length != 0
-      @photo_appearances = @place.photo_appearances.includes(:user).includes(:place)
+      @photo_appearances = @place.photo_appearances.includes(:user).includes(:title_places)
       @appears_in_other_photos = @photo_appearances.length != 0
     end
     unless read_fragment(:part => "other_photos_#{@place.id}")
