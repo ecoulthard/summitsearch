@@ -18,7 +18,7 @@ module ArticleMatchHelper
 
   #Should return one of the title photos. Should select based on quality. No panoramas.
   def title_photo
-    return photos.where("photo_width / photo_height < 3").first
+    return title_photos.where("photo_width / photo_height < 3").first
   end
 
   #Should return one of the title photos for a thumbnail. Should select based on quality.
