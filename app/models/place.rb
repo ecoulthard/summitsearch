@@ -71,7 +71,7 @@ class Place < ActiveRecord::Base
   has_many :album_appearances, -> { order 'created_at DESC' }, :through => :place_albums, :source => :album
   has_many :place_photos
   has_many :photo_appearances, -> { where("in_title=false") }, :through => :place_photos, :source => :photo
-  has_many :title_photos, -> { where("in_title=true") }, :through => :place_photos, :source => :photo
+  has_many :title_photos, -> { where("in_title=true").order("total_likes DESC NULLS LAST") }, :through => :place_photos, :source => :photo
   has_many :place_photos_in_area, :dependent => :destroy, :class_name => "PlacePhotoInArea"
   has_many :photos_in_area, -> { order 'created_at DESC' }, :through => :place_photos_in_area, :source => :photo
   has_many :place_albums_in_area, :dependent => :destroy, :class_name => "PlaceAlbumInArea"

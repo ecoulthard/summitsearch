@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219182260) do
+ActiveRecord::Schema.define(version: 20170530043345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -247,6 +247,8 @@ ActiveRecord::Schema.define(version: 20170219182260) do
     t.boolean  "partial_name_match",                                                            null: false
     t.integer  "insert_id",                                                                     null: false
     t.integer  "update_id"
+    t.integer  "bivouac_id"
+    t.integer  "height_error"
     t.decimal  "importance",                     precision: 19, scale: 10
     t.datetime "created_at"
     t.datetime "updated_at"
