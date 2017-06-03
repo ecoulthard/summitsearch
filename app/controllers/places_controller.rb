@@ -94,7 +94,7 @@ class PlacesController < ApplicationController
         @trip_groups = @trip_reports.in_groups_of(3) if @trip_reports.count > 4
       end
       unless read_fragment(:part => "albums_#{@place.id}")
-        @albums = @place.albums + @place.albums_in_area.where('deleted=false')
+        @albums = @place.title_albums + @place.albums_in_area.where('deleted=false')
         @has_albums = @albums.count != 0
         @album_groups = @albums.in_groups_of(1) if @albums.count == 1
         @album_groups = @albums.in_groups_of(2) if @albums.count > 1

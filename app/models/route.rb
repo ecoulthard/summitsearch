@@ -23,7 +23,7 @@ class Route < ActiveRecord::Base
   has_many :waypoints, :dependent => :destroy
   has_many :trip_photos, :through => :trip_reports
   has_many :albums
-  has_many :title_photos, :class_name => "Photo"
+  has_many :photos
   accepts_nested_attributes_for :trip_reports, :allow_destroy => false
   accepts_nested_attributes_for :waypoints, :allow_destroy => true, :reject_if => lambda { |a| a[:latitude].blank? }
 

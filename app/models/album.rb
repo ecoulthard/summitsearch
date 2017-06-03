@@ -9,13 +9,20 @@ class Album < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :updater, :foreign_key => "update_id", :class_name => "User"
-  belongs_to :place
+  #belongs_to :place
   belongs_to :trip_report
   belongs_to :route
   has_one :topic, :class_name => "Forem::Topic"
 
   has_many :place_albums, :dependent => :destroy
   has_many :places_mentioned, :through => :place_albums, :source => :place
+
+  has_many :place_albums, :dependent => :destroy
+  has_many :places, through: :place_albums
+  has_many :title_place_albums, -> { where(:in_title => true ) }, class_name: "PlaceAlbum"
+  has_many :title_places, through: :title_place_albums, source: :place
+  has_many :place_mentioned_albums, -> { where(:in_title => false ) }, class_name: "PlaceAlbum"
+  has_many :places_mentioned, through: :place_mentioned_albums, source: :place
 
   has_many :place_albums_in_areas, :dependent => :destroy, :class_name => "PlaceAlbumInArea"
   has_many :areas, -> { order 'area' }, :through => :place_albums_in_areas, :source => :place

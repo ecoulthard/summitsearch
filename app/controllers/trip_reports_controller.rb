@@ -104,7 +104,7 @@ class TripReportsController < ArticlesController
     @trip_report = TripReport.find(params[:id])
      
     unless read_fragment(:part => "photos_#{@trip_report.id}")
-      @photos = @trip_report.photos#.paginate :page=>params[:page], :per_page => 50
+      @photos = @trip_report.photos.includes(:title_places)
       @has_photos = @photos.length != 0
     end
 

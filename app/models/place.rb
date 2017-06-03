@@ -66,9 +66,10 @@ class Place < ActiveRecord::Base
   end
 
   has_many :trip_reports, :through => :routes
-  has_many :albums, -> { order 'created_at DESC' }
-  has_many :place_albums, :dependent => :destroy
-  has_many :album_appearances, -> { order 'created_at DESC' }, :through => :place_albums, :source => :album
+  #has_many :albums, -> { order 'created_at DESC' }
+  has_many :place_albums
+  has_many :album_appearances, -> { where("in_title=false") }, :through => :place_albums, :source => :album
+  has_many :title_albums, -> { where("in_title=true").order("total_likes DESC NULLS LAST") }, :through => :place_albums, :source => :album
   has_many :place_photos
   has_many :photo_appearances, -> { where("in_title=false") }, :through => :place_photos, :source => :photo
   has_many :title_photos, -> { where("in_title=true").order("total_likes DESC NULLS LAST") }, :through => :place_photos, :source => :photo
