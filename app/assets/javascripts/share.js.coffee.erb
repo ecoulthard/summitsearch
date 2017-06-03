@@ -185,15 +185,24 @@ window.convertToDecimal = (coord) ->
   else # Already in decimal?
     coord
 
+
 #Called on load in the show page for something that has photos
+#Photos only get loaded on the first page scroll.
 window.loadPhotos = (getpath) ->
-  object_id = $('#photos_go_here').data('object_id')
-  $('#photos_go_here').html("<p style=\"font-size:larger\"><span class=\"ajax-loader\"></span> Loading photos<p>")
-  getpath = getpath.replace("{{id}}", object_id)
-  #Get place photos from the server
-  $.get getpath, (data) ->
-    $("#photos_go_here").replaceWith(data)
-    $("input:submit, input:button, input:button, button, .linkButton").button()
+  photo_load_called = false
+
+  $(window).on 'scroll', (event) ->
+    return if photo_load_called
+    photo_load_called = true
+
+    object_id = $('#photos_go_here').data('object_id')
+    $('#photos_go_here').html("<p style=\"font-size:larger\"><span class=\"ajax-loader\"></span> Loading photos<p>")
+    getpath = getpath.replace("{{id}}", object_id)
+    
+    #Get place photos from the server
+    $.get getpath, (data) ->
+      $("#photos_go_here").replaceWith(data)
+      $("input:submit, input:button, input:button, button, .linkButton").button()
 
 jQuery.fn.extend
 		insertAtCaret: (myValue) ->
