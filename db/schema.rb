@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603195917) do
+ActiveRecord::Schema.define(version: 20170604192545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -471,19 +471,19 @@ ActiveRecord::Schema.define(version: 20170603195917) do
     t.integer  "feature_id"
     t.integer  "trip_report_id"
     t.integer  "area_id"
-    t.decimal  "latitude",                       precision: 8,  scale: 6
-    t.decimal  "longitude",                      precision: 9,  scale: 6
+    t.decimal  "latitude",                        precision: 8,  scale: 6
+    t.decimal  "longitude",                       precision: 9,  scale: 6
     t.text     "vantage"
     t.text     "caption"
     t.text     "description"
     t.integer  "user_id"
     t.integer  "height"
-    t.decimal  "ref_latitude",                   precision: 8,  scale: 6,  null: false
-    t.decimal  "ref_longitude",                  precision: 9,  scale: 6,  null: false
-    t.string   "ref_title",          limit: 128,                           null: false
-    t.text     "ref_content",                                              null: false
+    t.decimal  "ref_latitude",                    precision: 8,  scale: 6
+    t.decimal  "ref_longitude",                   precision: 9,  scale: 6
+    t.string   "ref_title",          limit: 128
+    t.string   "ref_content",        limit: 1024
     t.integer  "update_id"
-    t.decimal  "importance",                     precision: 19, scale: 10
+    t.decimal  "importance",                      precision: 19, scale: 10
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"

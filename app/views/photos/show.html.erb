@@ -6,8 +6,10 @@
     <% else %>
       <%= link_to 'View Full Size', show_full_photos_path(:photo_id => @photo.id), :data_popup => "true", :class => 'linkButton' %>
     <% end %>
-    <%= link_to "Google Map View", gmap_path(:photo_id => @photo.id), :rel => 'nofollow', :class => 'linkButton' %>
-    <%= topo_map_link @photo.lat_for_map, @photo.lon_for_map, 11 %>
+    <% unless @centerLatitude.nil? || @centerLongitude.nil? %>
+      <%= link_to "Google Map View", gmap_path(:photo_id => @photo.id), :rel => 'nofollow', :class => 'linkButton' %>
+      <%= topo_map_link @photo.lat_for_map, @photo.lon_for_map, 11 %>
+    <% end %>
     <% if @show_edit_link %>
       <%= link_to 'Edit This Photo', edit_photo_path(@photo), :class => 'linkButton' %>
       <%= link_to "Add Another Photo from this Trip", new_photo_path(:photo_id => @photo.id), :class => 'linkButton' %>

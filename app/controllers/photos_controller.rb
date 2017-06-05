@@ -14,7 +14,7 @@ class PhotosController < ArticlesController
   def index
     @noindex = true #Don't let search engines index this page
     @sort = params[:sort].blank? ? Photo::DEFAULT_SORT : params[:sort]
-    @photos = Photo.list(@sort).includes(:user).includes(:place).paginate :page=>params[:page]
+    @photos = Photo.list(@sort).includes(:user).includes(:title_places).paginate :page=>params[:page]
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @photos }

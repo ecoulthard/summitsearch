@@ -54,6 +54,9 @@ module PlaceLinkingHelper
     return if title.blank? && description.blank? #return if there is no text to match.
     lat = (defined?(self.latitude) && self.latitude.nil?) ? ref_latitude : latitude
     lon = (defined?(self.longitude) && self.longitude.nil?) ? ref_longitude : longitude
+
+    return if lat.nil? || lon.nil?
+
     #We need a separator between description and title to prevent description being mistaken for context
     #in the title. Eg "North Face of Athab" "Mountains to the South with AthaB featured prominently"
     #would have "Athab" rejected without a separator because "Mountains" occurs immediatly after it.
