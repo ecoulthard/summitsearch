@@ -29,13 +29,28 @@
     <%= f.file_field :photo %>
   </div><div class="clear"></div>
 
-  <br>
   <div class="field">
+    <%= f.label :caption, "Describe the photo. Try to include all the visible named places in your description. The names will be used to link to the photo.#{mark_required(@photo, :caption)}" %> 
+    <%= f.text_area :caption, :maxlength => 30720, :class => 'expand', :rows => 5, :cols => 80 %>
+  </div>
+  
+  <div class="clear"></div>
+ 
+  <br>
+  
+  <button id="showTimeBtn">Enter Optional Date and Time</button>
+  
+  <div id="timeDiv" class="field">
     <p>You can leave the date and time field blank if your photo is from a digital camera and the time will be extracted from the photo. If the photo is from a film camera then enter the date and time below in english. For example "October 3 2010 2:30pm" or "Feb 23rd 2011 at 8am". The system can understand nearly all the different ways to say the date and time, but writing it in english makes it less likely that you will make a mistake. The photo time is used to link your photos to your trip reports, so it is important that the time is entered correctly.</p>
     <%= f.label :time, "Date and Time Taken#{mark_required(@photo, :time)}:" %>  
     <%= f.text_field :time, :class => 'time_field' %>
-  </div><div class="clear"></div>
-  <div class="field">
+  </div>
+  
+  <div class="clear"></div><br>
+
+  <button id="showLocationBtn">Enter Optional Location of Photo</button>
+
+  <div id="locationDiv" class="field">
     <p>Click on the map below to indicate where the photo was taken. The latitude-longitude and height fields will be updated each time you click. If you like you can enter the latitude and longitude manually. The system will convert from Degrees:Minutes:Seconds as soon as you enter a latitude and longitude. The height will be recomputed each time you enter a latitude or longitude. <p>
     <%= f.label :latitude, "Latitude-Longitude#{mark_required(@photo, :latitude)}:" %>  
     <%= f.text_field :latitude, :size => 10 %>,<%= f.text_field :longitude, :size => 11 %>
@@ -47,13 +62,16 @@
     <%= mytopo_data %>
   <% content_for(:javascript) do %> 
     <script type="text/javascript">
-      <%= render :layout => 'all/init_google_map', :locals => {:usetopomap => false, :mapdiv => 'map_div', :zoom => 11, :centerLatitude => @photo.ref_latitude, :centerLongitude => @photo.ref_longitude} do %>
-	//Put a marker in the center with info about the center coordinates
-	var centerContentString = "<div class=\"reference_window\">" + <%= raw "\"#{h @photo.ref_content}\"" %> + "</div>";
-	var centerInfowindow = new google.maps.InfoWindow({
-    		content: centerContentString
-	});
-	var centerMarker = new google.maps.Marker({
+<%= render :layout => 'all/init_google_map', :locals => {:usetopomap => false, :mapdiv => 'map_div', :zoom => 11, :centerLatitude => @photo.ref_latitude, :centerLongitude => @photo.ref_longitude} do %>
+
+
+        <% if @photo.ref_latitude.present? && @photo.ref_longitude.present? %>
+	  //Put a marker in the center with info about the center coordinates
+	  var centerContentString = "<div class=\"reference_window\">" + <%= raw "\"#{h @photo.ref_content}\"" %> + "</div>";
+	  var centerInfowindow = new google.maps.InfoWindow({
+    	  	content: centerContentString
+	  });
+	  var centerMarker = new google.maps.Marker({
     		position: centerLatLng,
 		clickable: false,
 		zIndex: -100,
@@ -61,8 +79,10 @@
     		icon: "<%= asset_path "markers/center-dot.png" %>",
 		shape: {coord: [15,18,6], type: 'circle'},
 		title: <%= raw "\"#{h @photo.ref_title }\"" %>
-	});
-	centerInfowindow.open(map,centerMarker);
+	  });
+	  centerInfowindow.open(map,centerMarker);
+	<% end %>
+	
 	<% if @photo.latitude.nil? %>
 	  lastMarker = null;
 	<% else %>
@@ -121,24 +141,66 @@
   <% end %>
   </div>
 
+  <div class="clear"></div><br>
+
   <% if @photo.id? %>
     <div class="clear"></div><br>
     <%= image_tag @photo.photo.url(:medium), :style => "float:left;margin-left:10px" %>
     <div class="clear"></div><br>
   <% end %>
-  <div class="field">
-    <%= f.label :caption, "Describe the photo. Try to include all the visible named places in your description. The names will be used to link to the photo.#{mark_required(@photo, :caption)}" %> 
-    <%= f.text_area :caption, :maxlength => 30720, :class => 'expand', :rows => 5, :cols => 80 %>
-  </div><div class="clear"></div>
-  <div class="field">
-    <%= f.label :vantage, "What view point was this photo taken from? Eg: \"From Peyto Lake Lookout\"#{mark_required(@photo, :vantage)}" %> 
-    <%= f.text_area :vantage, :maxlength => 30720, :class => 'expand', :rows => 2, :cols => 80 %>
-  </div><div class="clear"></div>
-  <div class="field">
-    <p>Write anything else that you want to in this field. A story of the circumstances behind the photo. A history of something in the photo. Whatever you like. Go nuts.<%=mark_required(@photo, :description) %></p>
-    <%= f.text_area :description, :maxlength => 30720, :class => "editor", :rows => 20, :cols => 80 %>
+
+
+  <button id="showOtherFieldsBtn">Enter Other Optional Fields</button>
+
+  <div id="otherFieldsDiv">
+    <div class="field">
+      <%= f.label :vantage, "What view point was this photo taken from? Eg: \"From Peyto Lake Lookout\"#{mark_required(@photo, :vantage)}" %> 
+      <%= f.text_area :vantage, :maxlength => 30720, :class => 'expand', :rows => 2, :cols => 80 %>
+    </div><div class="clear"></div>
+  
+    <div class="field">
+      <p>Write anything else that you want to in this field. A story of the circumstances behind the photo. A history of something in the photo. Whatever you like. Go nuts.<%=mark_required(@photo, :description) %></p>
+      <%= f.text_area :description, :maxlength => 30720, :class => "editor", :rows => 20, :cols => 80 %>
+    </div>
   </div>
+
+
+  <% content_for(:javascript) do %> 
+    <script type="text/javascript">
+      $(document).ready(function() {
+	$("#timeDiv").hide();
+	$("#locationDiv").hide();
+	$("#otherFieldsDiv").hide();
+
+	$("#showTimeBtn").click(function(e){
+	  $("#showTimeBtn").hide();
+	  $("#timeDiv").show();
+	  e.preventDefault();
+	});
+
+	$("#showLocationBtn").click(function(e){
+	  $("#showLocationBtn").hide();
+	  $("#locationDiv").show();
+
+	  //This fixes a bug in Google maps that makes it wonky for hidden divs.
+	  var center = map.getCenter();
+          google.maps.event.trigger(map, "resize");
+	  map.setCenter(center);
+	  e.preventDefault();
+	});
+	
+	$("#showOtherFieldsBtn").click(function(e){
+	  $("#showOtherFieldsBtn").hide();
+	  $("#otherFieldsDiv").show();
+	  e.preventDefault();
+	});
+
+      });
+    </script>
+  <% end %>
+
   <div class="clear"></div><br><br>
+
   <div class="actions">
     <%= f.submit %>
   </div>

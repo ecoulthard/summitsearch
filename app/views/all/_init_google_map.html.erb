@@ -1,5 +1,12 @@
 function initialize() {
-   <%= "var centerLatLng = new google.maps.LatLng(#{centerLatitude},#{centerLongitude});" %>
+
+   <% if centerLatitude.present? && centerLongitude.present? %>
+     <%= "var centerLatLng = new google.maps.LatLng(#{centerLatitude},#{centerLongitude});" %>
+   <% else %>
+     <%= "var centerLatLng = new google.maps.LatLng(51.00,-116.00);" %>
+     <% zoom = 4 %>
+   <% end %>
+
    var options = {
      mapTypeControlOptions: {
        mapTypeIds: [
