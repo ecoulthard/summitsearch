@@ -278,6 +278,12 @@
 	$("#map_div_big").show()
 	$("#divAddMainPoint").show()
 	$("#divAddBorderPoints").hide()
+
+	//This fixes a bug in Google maps that makes it wonky for hidden divs.
+	var center = map.getCenter();
+        google.maps.event.trigger(map, "resize");
+	map.setCenter(center);
+
 	e.preventDefault();
       });
 
@@ -287,6 +293,12 @@
 	$("#map_div_big").show()
 	$("#divAddMainPoint").hide()
 	$("#divAddBorderPoints").show()
+
+	//This fixes a bug in Google maps that makes it wonky for hidden divs.
+	var center = map.getCenter();
+        google.maps.event.trigger(map, "resize");
+	map.setCenter(center);
+
 	e.preventDefault();
       });
 
