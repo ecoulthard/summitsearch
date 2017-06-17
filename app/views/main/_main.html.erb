@@ -39,6 +39,7 @@
   <thead>
     <tr>
       <th colspan="6" class="clickable"><%= new ? "New" : "Recently Updated" %> Photos
+        <%= link_to 'Submit a Photo', new_photo_path, :rel => 'nofollow', :class => 'linkButton',  data: { no_turbolink: true } %>
         <% if new %>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More New Photos", photos_path, :class => 'linkButton' %>
           <span>
@@ -51,7 +52,6 @@
             <% end %>
           </span>
         <% end %>
-        <%= link_to 'Submit a Photo', new_photo_path, :rel => 'nofollow', :class => 'linkButton',  data: { no_turbolink: true } %>
       </th>
     </tr>
   </thead>
