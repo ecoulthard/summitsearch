@@ -19,6 +19,8 @@ gem 'friendly_id' #Included by forem. But we need it here anyway since we use fo
 gem 'actionpack-action_caching' #Required for us to use action caching
 gem 'rails-observers' #Required for us to use cache_sweepers
 
+gem 'sitemap_generator' #For generating a sitemap.
+
 #Todo *** Install a better versioning gem than vestal_versions.
 gem 'vestal_versions', :git => 'git://github.com/jodosha/vestal_versions.git'
 

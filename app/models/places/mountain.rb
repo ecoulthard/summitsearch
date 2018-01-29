@@ -144,6 +144,15 @@ class Mountain < Place
     detail || build_detail
   end
 
+  def sitemap_priority
+    priority = 0.5
+    priority += 0.1 if dist_to_parent.present? && dist_to_parent > 1 
+    priority += 0.1 if photos.any? 
+    priority += 0.1 if trip_reports.any?
+    priority 
+  end
+
+
   #Doesn't work. Causes the mountain to not save.
   #Got this and other code that does work from 
   #http://belighted.com/en/blog/implementing-multiple-table-inheritance-in-rails
