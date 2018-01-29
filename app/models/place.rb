@@ -512,6 +512,10 @@ y2 = (point.latitude > centerLat ? 1 : -1) * (point.dist centerLat, point.longit
     GeographyHelper.direction centerLatitude, centerLongitude, lat2, lon2
   end
 
+  def sitemap_priority
+    area.present? && area > 0 ? 0.7 : 0.5 
+  end
+
   private
 
   #returns true if the point lies in the bounding box of the area
