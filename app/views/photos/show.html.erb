@@ -6,8 +6,10 @@
     <% else %>
       <%= link_to 'View Full Size', show_full_photos_path(:photo_id => @photo.id), :data_popup => "true", :class => 'linkButton' %>
     <% end %>
-    <%= link_to "Google Map View", gmap_path(:photo_id => @photo.id), :rel => 'nofollow', :class => 'linkButton' %>
-    <%= topo_map_link @photo.lat_for_map, @photo.lon_for_map, 11 %>
+    <% unless @centerLatitude.nil? || @centerLongitude.nil? %>
+      <%= link_to "Google Map View", gmap_path(:photo_id => @photo.id), :rel => 'nofollow', :class => 'linkButton' %>
+      <%= topo_map_link @photo.lat_for_map, @photo.lon_for_map, 11 %>
+    <% end %>
     <% if @show_edit_link %>
       <%= link_to 'Edit This Photo', edit_photo_path(@photo), :class => 'linkButton' %>
       <%= link_to "Add Another Photo from this Trip", new_photo_path(:photo_id => @photo.id), :class => 'linkButton' %>
@@ -55,12 +57,17 @@
       <%= link_to @photo.user.display_name, @photo.user %>
     </div>
 
-    <% subject = @photo.place if @photo.place_id? %>
-    <% subject = @photo.route if @photo.route_id? %>
-    <% if defined?(subject) && subject.present? %>
+    <% if defined?(@photo.route) && @photo.route.present? %>
       <div>
-        <b>Title <%= subject.type.titleize %>:</b>
-        <%= link_to subject.name, subject %>
+        <b>Title <%= @photo.route.type.titleize %>:</b>
+        <%= link_to @photo.route.name, @photo.route %>
+      </div>
+    <% end %>
+
+    <% if defined?(@title_places) %>
+      <div>
+	<b>Title Place<%= "s" if @title_places.length != 1 %>:</b>
+        <%= sanitize @title_places.map {|title_place| link_to(title_place[:place].name, title_place[:place]) }.join(", ") %>
       </div>
     <% end %>
 
@@ -78,18 +85,22 @@
       </div>
     <% end %>
 
-    <% if @photo.place_id? || @photo.vantage? %>
+    <% if @photo.vantage? || defined?(@title_places) %>
       <div>
         <b>Vantage Point:</b>
         <% if @photo.vantage? %>
           <%= @photo.vantage %>
         <% end %>
-        <% if @photo.place_id? && @photo.latitude? && @photo.longitude? %>
-          <%= @distance %>km <%= @direction %> of <%= @photo.place.name %>.
+        <% if defined?(@title_places) %>
+          <% @title_places.each do |title_place| %>
+	  
+            <% if title_place[:distance].present? %>
+              <%= title_place[:distance] %>km <%= title_place[:direction] %> of <%= title_place[:place].name %>.<br />
+            <% end %>
+	  <% end %>
         <% end %>
       </div>
     <% end %>
-
     <br>  
     <% if @photo.description? %>
       <div>

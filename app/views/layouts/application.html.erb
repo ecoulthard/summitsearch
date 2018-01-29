@@ -27,6 +27,9 @@
         <li class="not_search menu_right" data-no-turbolink><a class="signup">Sign up</a></li>
         <li class="not_search menu_right" data-no-turbolink><a class="signin">Sign in</a></li>
       <% end %>
+      <li class="not_search menu_right">
+        <%= link_to 'Submit a Photo', new_photo_path, :rel => 'nofollow', data: { no_turbolink: true } %>
+      </li>
     </ul>
   </div>
   <div class="clear"></div>

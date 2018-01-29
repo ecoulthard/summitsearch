@@ -74,7 +74,7 @@ class PlacesController < ApplicationController
       end
 
       unless read_fragment(:part => "nearby_places_#{@place.id}")
-        @has_photos = @place.photos.count != 0
+        @has_photos = @place.title_photos.count != 0
         @nearby_places_without_photos = @place.places_nearby_without_photos(22)
         @num_nearby_places_without_photos = @nearby_places_without_photos.count
         @num_nearby_peaks_without_photos = @nearby_places_without_photos.where("places.type = 'Mountain'").count
@@ -94,7 +94,7 @@ class PlacesController < ApplicationController
         @trip_groups = @trip_reports.in_groups_of(3) if @trip_reports.count > 4
       end
       unless read_fragment(:part => "albums_#{@place.id}")
-        @albums = @place.albums + @place.albums_in_area.where('deleted=false')
+        @albums = @place.title_albums + @place.albums_in_area.where('deleted=false')
         @has_albums = @albums.count != 0
         @album_groups = @albums.in_groups_of(1) if @albums.count == 1
         @album_groups = @albums.in_groups_of(2) if @albums.count > 1
@@ -114,7 +114,7 @@ class PlacesController < ApplicationController
       end
 
       unless read_fragment(:part => "photos_#{@place.id}")
-        @photos = @place.photos.includes(:user)
+        @photos = @place.title_photos.includes(:user)
         @photos = @photos.order("COALESCE(photos.total_likes,0) DESC")
         @has_photos = @photos.count != 0
         @photo_appearances = @place.photo_appearances.includes(:user)
@@ -166,14 +166,14 @@ class PlacesController < ApplicationController
     end
   end
 
-  #Returns partial html with photo thumbs. Requested by jquery after page load
+  #Returns partial html with photo thumbs. Requested by jquery after page scroll
   def photos
     @place = Place.find(params[:id])
      
     unless read_fragment(:part => "photos_#{@place.id}")
-      @photos = @place.photos.includes(:user).includes(:place)
+      @photos = @place.title_photos.includes(:user).includes(:title_places)
       @has_photos = @photos.length != 0
-      @photo_appearances = @place.photo_appearances.includes(:user).includes(:place)
+      @photo_appearances = @place.photo_appearances.includes(:user).includes(:title_places)
       @appears_in_other_photos = @photo_appearances.length != 0
     end
     unless read_fragment(:part => "other_photos_#{@place.id}")

@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
   @@per_page = 200
   belongs_to :user
   belongs_to :updater, :foreign_key => "update_id", :class_name => "User"
-  belongs_to :place
+  #belongs_to :place
   belongs_to :trip_report
   belongs_to :route
   belongs_to :album
@@ -29,12 +29,16 @@ class Photo < ActiveRecord::Base
     .where("photo_place_visits.visitable_type = 'Place' AND photo_place_visits.visitable_id = ?", place_id)
   end
 
+  has_many :place_photos, :dependent => :destroy
+  has_many :places, through: :place_photos
+  has_many :title_place_photos, -> { where(:in_title => true ) }, class_name: "PlacePhoto"
+  has_many :title_places, through: :title_place_photos, source: :place
+  has_many :place_mentioned_photos, -> { where(:in_title => false ) }, class_name: "PlacePhoto"
+  has_many :places_mentioned, through: :place_mentioned_photos, source: :place
 
   has_many :place_photos_in_areas, :dependent => :destroy, :class_name => "PlacePhotoInArea"
   #Areas that the photo was taken inside
   has_many :areas, -> { order 'area'}, :through => :place_photos_in_areas, :source => :place
-  has_many :place_photos, :dependent => :destroy
-  has_many :places_mentioned, :through => :place_photos, :source => :place
   
   has_many :route_photos, :dependent => :destroy
   has_many :routes_mentioned, :through => :route_photos, :source => :route
@@ -46,9 +50,7 @@ class Photo < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 50.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg','image/pjpeg', 'image/png', 'image/gif']
   
-  validates :user_id, :ref_latitude, :ref_longitude, :ref_title, :ref_content, :presence => true
-  validates :ref_latitude, :numericality => {:greater_than_or_equal_to => -90, :less_than_or_equal_to => 90}
-  validates :ref_longitude, :numericality => {:greater_than_or_equal_to => -180, :less_than_or_equal_to => 180}
+  validates :user_id, :presence => true
   validates_length_of :title, maximum: 128
   validates_length_of :caption, maximum: 30720
   validates_length_of :vantage, maximum: 30720
@@ -60,7 +62,7 @@ class Photo < ActiveRecord::Base
   before_save :trim_content
   after_create :save #save twice when created in order to add links and other things
   after_create :touch_place_route
-  after_save :setFieldsIfBlank
+  before_save :setFieldsIfBlank
   #after_create :addCreateContributionTime
   before_update :set_links # Add links to places,trip reports... etc
   after_update :addToAreas
@@ -190,13 +192,18 @@ class Photo < ActiveRecord::Base
   #Grabbes the geometry/exif data if available and set fields that are blank or have changed.
   def setFieldsIfBlank
     return if photo.nil?
-    photo_file = photo.queued_for_write[:original].nil? ? photo.path : photo.queued_for_write[:original].path
+    
+    photo_file = photo.path 
+    photo_file = photo.queued_for_write[:original].path if photo.queued_for_write[:original].present?
+    
     return unless File.exists? photo_file
+    
     changed_fields = {}
     #geo = Paperclip::Geometry.from_file(photo)
     #photo_path = self.photo(:original)
     exif_img = EXIFR::JPEG.new(photo_file)
     geo = Paperclip::Geometry.from_file(photo_file)
+    puts geo
     if (self.photo_width.nil? || self.photo_width.blank?) && !geo.width.nil?
       self.photo_width = changed_fields[:photo_width] = geo.width
     end
@@ -259,12 +266,12 @@ class Photo < ActiveRecord::Base
   #Since lat/lon may not always be set we return ref lat/lon in that case
   def lat_for_map
     lat = self.latitude.nil? ? self.ref_latitude : self.latitude
-    lat.round(6)
+    lat.nil? ? nil : lat.round(6)
   end
   
   def lon_for_map
     lon = self.longitude.nil? ? self.ref_longitude : self.longitude
-    lon.round(6)
+    lon.nil? ? nil : lon.round(6)
   end
 
 #  #After creating a photo credit the maker with some amount of access time
@@ -367,6 +374,9 @@ class Photo < ActiveRecord::Base
     #return unless self.ref_latitude_changed? || self.ref_longitude_changed? || self.latitude_changed? || self.longitude_changed?
     lat = self.latitude.nil? ? self.ref_latitude : self.latitude
     lon = self.longitude.nil? ? self.ref_longitude : self.longitude
+
+    return if lat.nil? || lon.nil?
+
     PlacePhotoInArea.delete place_photos_in_area_ids
     Place.areas.each do |area|
       if(area.inArea(lat, lon) && PlacePhotoInArea.where(:place_id => area.id, :photo_id => self.id).empty?)
@@ -379,7 +389,7 @@ class Photo < ActiveRecord::Base
   def no_duplicate_photos
     Photo.where("user_id = ? AND photo_file_name = ? AND time = ? AND photo_file_size = ?", self.user_id, self.photo_file_name, self.time, self.photo_file_size).each do |photo|
       if((self.id.nil? ) && ((self.title.blank? && self.caption.blank?) || self.title == photo.title))
-        errors.add(:photo_file_name, "There is already a photo submitted by you with the same filename and time. To submit the same photo twice you need to at least give it a unique title.")
+        errors.add(:photo_file_name, "There is already a photo submitted by you with the same filename and time. To submit the same photo twice you need to at least give it a unique filename.")
       end
     end
   end

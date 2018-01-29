@@ -2,13 +2,21 @@
   <fieldset>
     <%= truncate(strip_tags(photo.caption), :length => 300) %><br>
     <span class="text no-wrap">By: <%= truncate(photo.user.display_name, :length => 25) %></span>
-    <% subject = photo.place if photo.place_id? %>
-    <% subject = photo.route if photo.route_id? %>
-    <% if defined?(subject) && subject.present? %>
+
+    <% title_places = photo.title_places if photo.title_places.length != 0 %>
+    <% if defined?(title_places) && title_places.present? %>
       <span class="text no-wrap">
-        Title <%= subject.type.titleize %>: <%= subject.name %>
+        Title Place<%= "s" if title_places.length != 1 %>: <%= sanitize title_places.map {|title_place| title_place.name }.join(", ") %>
       </span>
     <% end %>
+
+    <% route = photo.route if photo.route_id? %>
+    <% if defined?(route) && route.present? %>
+      <span class="text no-wrap">
+        Title <%= route.type.titleize %>: <%= route.name %>
+      </span>
+    <% end %>
+
     <%= render :partial => "articles/totals_thumb", :locals => {:article => photo} %>
   </fieldset>
 </div>

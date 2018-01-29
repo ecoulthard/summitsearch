@@ -15,7 +15,7 @@
 	    <%= raw "icon: \"#{asset_path("markers/#{place.class::MARKER_ICON_SMALL}")}\"," %>
 	    <%= raw "shadow: \"#{asset_path("markers/#{place.class::MARKER_SHADOW_SMALL}")}\"," %>
           <% #Use icon with camera for mountains with photos %>
-	  <% elsif (place.photos.count != 0 or place.photo_appearances.count != 0) and defined?(place.class::MARKER_ICON_CAMERA) %>
+	  <% elsif (place.title_photos.count != 0 or place.photo_appearances.count != 0) and defined?(place.class::MARKER_ICON_CAMERA) %>
 	    <%= raw "icon: \"#{asset_path("markers/" + place.class::MARKER_ICON_CAMERA)}\"," %>
 	    <%= raw "shadow: \"#{asset_path("markers/" + place.class::MARKER_SHADOW)}\"," %>
 

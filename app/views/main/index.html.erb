@@ -4,9 +4,9 @@
   <thead>
     <tr>
       <th colspan="5" class="clickable">Recently Liked Articles 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Recently liked trip reports", trip_reports_path(:sort => 'last_liked'), :class => 'linkButton' %>
-        <%= link_to "Recently liked albums", albums_path(:sort => 'last_liked'), :class => 'linkButton' %>
-        <%= link_to "Recently liked photos", photos_path(:sort => 'last_liked'), :class => 'linkButton' %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Recently Liked Trip Reports", trip_reports_path(:sort => 'last_liked'), :class => 'linkButton' %>
+        <%= link_to "Recently Liked Albums", albums_path(:sort => 'last_liked'), :class => 'linkButton' %>
+        <%= link_to "Recently Liked Photos", photos_path(:sort => 'last_liked'), :class => 'linkButton' %>
       </th>
     </tr>
   </thead>
@@ -65,7 +65,7 @@
   <thead>
     <tr>
        <th colspan="5" class="clickable"><%= @label %> Members
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More new members", users_path, :class => 'linkButton' %>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More New Members", users_path, :class => 'linkButton' %>
        </th>
     </tr>
   </thead>
@@ -83,7 +83,7 @@
 </table>
 
 <div class="clear"></div><br>
-<%= link_to 'Show recently updated records', updated_path, :class => 'linkButton' %>
+<%= link_to 'Show Recently Updated Records', updated_path, :class => 'linkButton' %>
 
 <div class="clear"></div><br>
 <div class="fb-like-box" data-href="https://www.facebook.com/summitsearch" data-width="1000" data-height="500" data-show-faces="true" data-stream="true" data-header="true"></div>

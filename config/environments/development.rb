@@ -46,7 +46,7 @@ Summitsearch::Application.configure do
   # Expands the lines which load the assets which makes it so that you need to look at log files to see what broke when something breaks. Way to verbose so I turned it off.
   config.assets.debug = true  
 
-  config.log_level = :warn #debug, info, warn, error, fatal
+  config.log_level = :debug #debug, info, warn, error, fatal
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.

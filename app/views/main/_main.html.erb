@@ -3,8 +3,8 @@
     <tr>
       <th colspan="4" class="clickable"><%= new ?  "New" : "Recently Updated" %> Trip Reports or Albums 
         <% if new %>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More new trip reports", trip_reports_path, :class => 'linkButton' %>
-          &nbsp;<%= link_to "More new albums", albums_path, :class => 'linkButton' %>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More New Trip Reports", trip_reports_path, :class => 'linkButton' %>
+          &nbsp;<%= link_to "More New Albums", albums_path, :class => 'linkButton' %>
           &nbsp;<span>
             <% if defined? @numTripsAlbumsSinceLastVisit %>
               <%= "#{@numTripsAlbumsSinceLastVisit} new since your last visit." if @numTripsAlbumsSinceLastVisit > 0 %>
@@ -39,8 +39,9 @@
   <thead>
     <tr>
       <th colspan="6" class="clickable"><%= new ? "New" : "Recently Updated" %> Photos
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Submit a Photo', new_photo_path, :rel => 'nofollow', :class => 'linkButton',  data: { no_turbolink: true } %>
         <% if new %>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More new photos", photos_path, :class => 'linkButton' %>
+          <%= link_to "More New Photos", photos_path, :class => 'linkButton' %>
           <span>
             <% if defined? @numPhotosSinceLastVisit %>
                <%= "#{pluralize @numPhotosSinceLastVisit, "new photo"} since your last visit. " if @numPhotosSinceLastVisit > 0 %>

@@ -185,15 +185,41 @@ window.convertToDecimal = (coord) ->
   else # Already in decimal?
     coord
 
-#Called on load in the show page for something that has photos
-window.loadPhotos = (getpath) ->
+
+photo_load_called = false
+
+loadPhotosIfOnScreen = (getpath) ->
+	
+  return if photo_load_called
+
+  #Check to see if #photos_go_here is visible
+  hT = $('#photos_go_here').offset().top
+  hH = $('#photos_go_here').outerHeight()
+  wH = $(window).height()
+  wS = $(this).scrollTop()
+
+  return unless wS > (hT+hH-wH)
+    
+  photo_load_called = true
+
   object_id = $('#photos_go_here').data('object_id')
   $('#photos_go_here').html("<p style=\"font-size:larger\"><span class=\"ajax-loader\"></span> Loading photos<p>")
   getpath = getpath.replace("{{id}}", object_id)
+    
   #Get place photos from the server
   $.get getpath, (data) ->
     $("#photos_go_here").replaceWith(data)
     $("input:submit, input:button, input:button, button, .linkButton").button()
+
+#Called on load in the show page for something that has photos
+#Photos only get loaded when you scroll to the #photos_go_here element.
+window.setupPhotoLoad = (getpath) ->
+  loadPhotosIfOnScreen(getpath) #Try to load in case the #photos_go_here is already visible.
+
+  $(window).on 'scroll', (event) ->
+    $('#photos_go_here').html("<p style=\"font-size:larger\"><span class=\"ajax-loader\"></span> Loading photos<p>")
+    loadPhotosIfOnScreen(getpath)
+
 
 jQuery.fn.extend
 		insertAtCaret: (myValue) ->

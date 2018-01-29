@@ -14,7 +14,7 @@ class PhotosController < ArticlesController
   def index
     @noindex = true #Don't let search engines index this page
     @sort = params[:sort].blank? ? Photo::DEFAULT_SORT : params[:sort]
-    @photos = Photo.list(@sort).includes(:user).includes(:place).paginate :page=>params[:page]
+    @photos = Photo.list(@sort).includes(:user).includes(:title_places).paginate :page=>params[:page]
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @photos }
@@ -376,9 +376,9 @@ class PhotosController < ArticlesController
     @first_area_id = @photo.areas.count == 0 ? nil : @photo.areas.first.id
 
     unless read_fragment(:part => "google_map_#{@photo.id}")
-      @places = @photo.places_mentioned
-      @places = @places + [@photo.place] unless @photo.place.nil?
+      @places = @photo.places
     end
+
     #Set which photo to render and which layout
     if(!params[:full_size].blank? && params[:full_size].to_s == "true")
 	@full_size = true
@@ -403,11 +403,17 @@ class PhotosController < ArticlesController
         end
       end
 
-      if @photo.place_id?
-        if @photo.latitude? && @photo.longitude?
-          @distance = @photo.place.dist(@photo.latitude, @photo.longitude).round(2)
-          @direction = @photo.place.direction(@photo.latitude, @photo.longitude)
-        end
+      if @photo.title_places.length != 0
+        #Photo.find(27).title_places.map {|place| {:place => place.name, :dist => 1, :height => 2} }
+        calc_dist = @photo.latitude? && @photo.longitude?
+        @title_places = @photo.title_places.map {|place|
+	  {
+	    :place => place,
+	    :distance => calc_dist ? place.dist(@photo.latitude, @photo.longitude).round(2) : nil,
+	    :direction => calc_dist ? place.direction(@photo.latitude, @photo.longitude) : nil
+	  }
+	}
+
       end
     end
     

@@ -31,7 +31,7 @@ class MainController < ApplicationController
       @liked_trips_and_albums = (liked_trips + liked_albums).sort{ |a,b| a.last_liked_at <=> b.last_liked_at }.reverse[0..8]
       @liked_trip_and_album_groups = @liked_trips_and_albums.in_groups_of(3)
 
-      @liked_photos = Photo.where("last_liked_at IS NOT NULL AND created_at < ?", 1.week.ago).order("last_liked_at DESC").includes(:user).includes(:place).limit(9)
+      @liked_photos = Photo.where("last_liked_at IS NOT NULL AND created_at < ?", 1.week.ago).order("last_liked_at DESC").includes(:user).includes(:title_places).limit(9)
     end
 
     unless read_fragment(:part => 'comments')
