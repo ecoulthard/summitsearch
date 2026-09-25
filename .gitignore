@@ -4,6 +4,15 @@
 # belong in git's global ignore instead:
 # `$XDG_CONFIG_HOME/git/ignore` or `~/.config/git/ignore`
 
+# IDE configuration folders
+.idea/
+
+# Rails 8 deployment configuration
+.kamal/
+
+# CI/CD Workflows (Add this if you prefer to keep CI configurations strictly local/off GitHub)
+.github/
+
 # Ignore bundler config.
 /.bundle
 
