@@ -1,8 +1,6 @@
 class TripReportsController < ArticlesController
-  skip_before_action :editor_required, :only => [:multi_photos], :raise => false
-  skip_before_action :admin_required, :only => [:multi_photos], :raise => false
-
-  caches_action :index, :expires_in => 3.months, :cache_path => Proc.new { |c| c.params } if respond_to?(:caches_action)
+  skip_before_action :editor_required, only: [:multi_photos], raise: false
+  skip_before_action :admin_required, only: [:multi_photos], raise: false
 
   # GET /trip_reports
   # GET /trip_reports.xml
@@ -225,7 +223,7 @@ class TripReportsController < ArticlesController
     respond_to do |format|
       if @trip_report.update(trip_report_params)
 	if @trip_report.user != current_user && current_user.id != 1 && defined?(UserMailer) && UserMailer.respond_to?(:notify_admins)
-          UserMailer.notify_admins("Photo: #{@trip_report.title} has been updated by #{current_user.display_name}").deliver
+          UserMailer.notify_admins("Trip Report: #{@trip_report.title} has been updated by #{current_user.display_name}").deliver_later
 	end
 
         after_update()

@@ -138,13 +138,13 @@ class ArticlesController < ApplicationController
   def change_rating(rating)
     @article = article
     if(@article.user != current_user)
-      user_view = @article.views.find_by_user_id(current_user.id)
+      user_view = @article.views.find_by(user_id: current_user.id)
       if(user_view.rating.nil?)
         user_view.rating = rating
         if user_view.save
           #Send email notifying admin of the like or unlike.
           NotifyAdminArticleLikedWorker.perform_async(article_type, @article.id, @article.title, rating > 0, false, false, true) if defined?(NotifyAdminArticleLikedWorker)
-	  UpdateArticleTotalLikesWorker.perform_async(@article.class.to_s, @article.id, Time.now) if defined?(UpdateArticleTotalLikesWorker)
+	  UpdateArticleTotalLikesWorker.perform_async(@article.class.to_s, @article.id, Time.current) if defined?(UpdateArticleTotalLikesWorker)
 	  #ExpireFragmentWorker.perform_async('main', 'index', 'liked')
           expire_fragment(:controller => 'main', :action => 'index', :part => 'liked') if respond_to?(:expire_fragment)
           respond_to do |format|

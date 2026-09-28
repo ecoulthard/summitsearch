@@ -1,6 +1,4 @@
 class PeopleController < ApplicationController
-  caches_action :index, :expires_in => 3.months, :cache_path => Proc.new { |c| c.params } if respond_to?(:caches_action)
-  #cache_sweeper :person_sweeper, :only => [:create, :update ]
   # GET /people
   # GET /people.json
   def index

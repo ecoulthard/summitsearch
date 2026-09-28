@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
 
   before_action :valid_user_agents
   before_action :enable_tracking
-  before_action :authenticate_user!, :except => [:index, :show], :raise => false
-  before_action :editor_required, :except => [:index, :show, :expire], :raise => false
-  before_action :admin_required, :except => [:index, :show, :edit, :update, :new, :create, :expire], :raise => false
+  before_action :authenticate_user!, except: [:index, :show], raise: false
+  before_action :editor_required, except: [:index, :show, :expire], raise: false
+  before_action :admin_required, except: [:index, :show, :edit, :update, :new, :create, :expire], raise: false
   protect_from_forgery
 
   def forem_user
@@ -33,11 +33,15 @@ class ApplicationController < ActionController::Base
     defined?(super) ? super : @current_user
   end
 
+  def user_is_admin?
+    user_signed_in? && current_user.is_admin?
+  end
+
   def authenticate_user!
     defined?(super) ? super : (user_signed_in? ? true : permission_denied)
   end
 
-  helper_method :forem_user, :user_signed_in?, :current_user
+  helper_method :forem_user, :user_signed_in?, :current_user, :user_is_admin?
 
   def current_ability
     defined?(Forem::Ability) ? Forem::Ability.new(forem_user) : nil
@@ -154,23 +158,30 @@ class ApplicationController < ActionController::Base
   def expire_index
     controller_class = controller_name.singularize.camelize.constantize
     if params[:type].blank?
-      expire_fragment(:action => :index)
+      expire_fragment(action: :index)
       controller_class::SORT_OPTIONS.keys.sort.each do |sort|
-        expire_fragment(:action => :index, :sort => sort)
+        expire_fragment(action: :index, sort: sort)
       end
       respond_to do |format|
-        format.html { redirect_to(:action => 'index') }
+        format.html { redirect_to(action: "index") }
         format.xml  { head :ok }
       end
     else
-      subclass = controller_class.subclasses.find{|subclass| subclass.to_s == params[:type]}
-      expire_fragment(send("#{subclass.to_s.tableize}_url", :place_id => params[:place_id])[7..-1])
-      controller_class::SORT_OPTIONS.keys.sort.each do |sort|
-        expire_fragment(send("#{subclass.to_s.tableize}_url", :sort => sort, :place_id => params[:place_id])[7..-1])
-      end
-      respond_to do |format|
-        format.html { redirect_to(send("#{subclass.to_s.tableize}_url", :sort => params[:sort], :place_id => params[:place_id])) }
-        format.xml  { head :ok }
+      subclass = params[:type].to_s.safe_constantize
+      if subclass && subclass <= controller_class
+        expire_fragment(send("#{subclass.to_s.tableize}_url", place_id: params[:place_id])[7..-1])
+        controller_class::SORT_OPTIONS.keys.sort.each do |sort|
+          expire_fragment(send("#{subclass.to_s.tableize}_url", sort: sort, place_id: params[:place_id])[7..-1])
+        end
+        respond_to do |format|
+          format.html { redirect_to(send("#{subclass.to_s.tableize}_url", sort: params[:sort], place_id: params[:place_id])) }
+          format.xml  { head :ok }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to(action: "index") }
+          format.xml  { head :ok }
+        end
       end
     end
   end

@@ -1,14 +1,9 @@
 class PhotosController < ArticlesController
-  skip_before_action :authenticate_user!, :only => [:nearby_list, :slideshow, :show_full, :editable_list, :expire], :raise => false
-  skip_before_action :editor_required, :only => [:nearby_list, :slideshow, :show_full, :editable_list, :xhr_create, :thumb_edit, :thumb_update], :raise => false
-  skip_before_action :admin_required, :only => [:nearby_list, :slideshow, :show_full, :editable_list, :xhr_create, :thumb_edit, :thumb_update], :raise => false
-#skip_before_action :contributer_required, :only => [:index, :edit, :update, :new, :create, :xhr_create, :destroy, :thumb_edit, :thumb_update], :raise => false
-  skip_before_action :edit_permission_required, :only => [:nearby_list, :slideshow, :show_full, :editable_list, :xhr_create, :thumb_edit, :thumb_update], :raise => false
-  before_action :browsers_only, :only => [:slideshow, :show_full, :expire], :raise => false
-
-  caches_action :index, :expires_in => 3.months, :cache_path => Proc.new { |c| c.params } if respond_to?(:caches_action)
-  caches_action :slideshow, :cache_path => Proc.new { |c| c.params } if respond_to?(:caches_action)
-  caches_action :show_full, :cache_path => Proc.new { |c| c.params } if respond_to?(:caches_action)
+  skip_before_action :authenticate_user!, only: [:nearby_list, :slideshow, :show_full, :editable_list, :expire], raise: false
+  skip_before_action :editor_required, only: [:nearby_list, :slideshow, :show_full, :editable_list, :xhr_create, :thumb_edit, :thumb_update], raise: false
+  skip_before_action :admin_required, only: [:nearby_list, :slideshow, :show_full, :editable_list, :xhr_create, :thumb_edit, :thumb_update], raise: false
+  skip_before_action :edit_permission_required, only: [:nearby_list, :slideshow, :show_full, :editable_list, :xhr_create, :thumb_edit, :thumb_update], raise: false
+  before_action :browsers_only, only: [:slideshow, :show_full, :expire], raise: false
 
   # GET /photos
   # GET /photos.xml
@@ -203,7 +198,7 @@ class PhotosController < ArticlesController
     respond_to do |format|
       if @photo.update(photo_params)
 	if @photo.user != current_user && current_user.id != 1 && defined?(UserMailer) && UserMailer.respond_to?(:notify_admins)
-          UserMailer.notify_admins("Photo: id:#{@photo.id}, #{@photo.title} has been updated by #{current_user.display_name}").deliver
+          UserMailer.notify_admins("Photo: id:#{@photo.id}, #{@photo.title} has been updated by #{current_user.display_name}").deliver_later
 	end
         after_update()
         format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
@@ -256,7 +251,7 @@ class PhotosController < ArticlesController
         @photo.photo = params['qqfile']
       else #Handle Chrome/Firefox/IE >= 10 photos
         @filename = sanitize_filename(params['qqfile'])
-        Dir.mkdir("/tmp/#{current_user.id}") unless FileTest.exists?("/tmp/#{current_user.id}")
+        Dir.mkdir("/tmp/#{current_user.id}") unless Dir.exist?("/tmp/#{current_user.id}")
         tmp_path = "/tmp/#{current_user.id}/#{@filename}"
         File.open(tmp_path, "wb+") do |f|
           f.write(request.body.read)
@@ -373,7 +368,7 @@ class PhotosController < ArticlesController
           names.each do |name|
             if @caption.downcase.include? name.downcase
 	      name_string = @caption[@caption.downcase.index(name.downcase), name.length]
-              @caption = @caption.gsub(name_string, help.link_to(name_string, url_for(place)))
+              @caption = @caption.gsub(name_string, help.link_to(name_string, place_path(place)))
 	      break
 	    end
           end

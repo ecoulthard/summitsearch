@@ -83,6 +83,16 @@ class Place < ApplicationRecord
 
   accepts_nested_attributes_for :border_points, :allow_destroy => true, :reject_if => lambda { |a| a[:latitude].blank? }, :limit => 2000
 
+  SUBCLASS_NAMES = %w[
+    Beach Campground Cave Glacier Hut Icefield Island Lake
+    Meadow Mine Mountain MountainRange Park Pass RangerStation
+    Region Springs Town Valley Waterfall
+  ].freeze
+
+  def self.subclass_types
+    SUBCLASS_NAMES.map(&:constantize)
+  end
+
   #The radius we use to look for nearby name matches in articles.
   LARGE_LINKING_RADIUS = PlaceLinkingHelper::LARGE_LINKING_RADIUS
   NAME_STATUS_TYPES = %w(Official Unofficial Unnamed)

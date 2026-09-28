@@ -70,3 +70,5 @@ end
 gem "devise", "~> 5.0"
 
 gem "will_paginate", "~> 4.0"
+
+gem "simple_form", "~> 5.4"

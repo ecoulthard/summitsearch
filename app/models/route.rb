@@ -53,6 +53,15 @@ class Route < ApplicationRecord
   before_validation :sync_attachment_attributes
   validate :validate_gps_attachment, :if => :has_gps?
 
+  SUBCLASS_NAMES = %w[
+    ApproachRoute HikingRoute IceRoute MountaineeringRoute
+    River Road RockRoute Scramble Trail
+  ].freeze
+
+  def self.subclass_types
+    SUBCLASS_NAMES.map(&:constantize)
+  end
+
   NAME_STATUS_TYPES = %w(Official Unofficial)
   DIFFICULTY_OPTIONS = ["Easy", "Moderate", "Difficult"]
   ALLOW_BRANCHES = true #Overloaded in subclasses.
