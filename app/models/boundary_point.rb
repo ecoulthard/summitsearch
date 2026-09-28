@@ -1,6 +1,6 @@
 class BoundaryPoint < ApplicationRecord
   include GeographyHelper
-  belongs_to :area
+  belongs_to :area, class_name: "Place", optional: true
 
   validates :local_index, :latitude, :longitude, :presence => true
   validates :latitude, :numericality => {:greater_than_or_equal_to => -90, :less_than_or_equal_to => 90}

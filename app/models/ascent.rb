@@ -2,8 +2,8 @@ class Ascent < ApplicationRecord
   include Viewable
   include Visitable
   has_paper_trail
-  belongs_to :mountain, :foreign_key => :place_id
-  belongs_to :route
+  belongs_to :mountain, :foreign_key => :place_id, optional: true
+  belongs_to :route, optional: true
   has_many :ascent_people, :dependent => :destroy
   has_many :people, :through => :ascent_people
 

@@ -76,6 +76,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.3)
     base64 (0.3.0)
+    bcrypt (3.1.22)
     bcrypt_pbkdf (1.1.1)
     benchmark (0.4.1)
     bigdecimal (3.2.2)
@@ -101,6 +102,12 @@ GEM
     debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (5.0.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 7.0)
+      responders
+      warden (~> 1.2.3)
     dotenv (3.1.8)
     drb (2.2.3)
     ed25519 (1.4.0)
@@ -199,6 +206,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.8-x86_64-linux-musl)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     ostruct (0.6.2)
     paper_trail (17.0.0)
       activerecord (>= 7.1)
@@ -272,6 +280,9 @@ GEM
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
+    responders (3.2.1)
+      actionpack (>= 7.0)
+      railties (>= 7.0)
     rexml (3.4.1)
     rubocop (1.78.0)
       json (~> 2.3)
@@ -355,6 +366,8 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.3)
     useragent (0.16.11)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -365,6 +378,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (4.0.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.3)
@@ -385,12 +399,14 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  devise (~> 5.0)
   exifr
   friendly_id
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
   kamal
+  mini_magick
   paper_trail
   pg (~> 1.1)
   propshaft
@@ -406,6 +422,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  will_paginate (~> 4.0)
 
 BUNDLED WITH
    2.6.9

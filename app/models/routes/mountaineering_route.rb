@@ -1,0 +1,2 @@
+class MountaineeringRoute < Route
+end

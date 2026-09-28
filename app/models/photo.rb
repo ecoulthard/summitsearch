@@ -1,4 +1,3 @@
-require "mini_magick"
 require "exifr/jpeg"
 
 class Photo < ApplicationRecord
@@ -17,9 +16,9 @@ class Photo < ApplicationRecord
   belongs_to :route, optional: true
   belongs_to :album, optional: true
   belongs_to :parent_topic, :foreign_key => "topic_id", :class_name => "Forem::Topic", optional: true
-  has_one :topic, :class_name => "Forem::Topic"
+  has_one :topic, :class_name => "Forem::Topic" if defined?(Forem) && defined?(Forem::Topic)
 
-  has_many :comments, :through => :topic, :source => :posts, :class_name => "Forem::Post"
+  has_many :comments, :through => :topic, :source => :posts, :class_name => "Forem::Post" if defined?(Forem) && defined?(Forem::Post)
 
   #Gets all the place visits from the photos place to the photo or vice versa
   #We join visits to the ip_address that caused the visit

@@ -4,13 +4,13 @@ class TripReport < ApplicationRecord
   has_paper_trail
   cattr_reader :per_page
   @@per_page = 100
-  belongs_to :user
-  belongs_to :updater, :foreign_key => "update_id", :class_name => "User"
-  belongs_to :route
-  has_one :topic, :class_name => "Forem::Topic"
+  belongs_to :user, optional: true
+  belongs_to :updater, :foreign_key => "update_id", :class_name => "User", optional: true
+  belongs_to :route, optional: true
+  has_one :topic, :class_name => "Forem::Topic" if defined?(Forem) && defined?(Forem::Topic)
 
   has_many :photos, -> { order :time }
-  has_many :comments, :through => :topic, :source => :posts, :class_name => "Forem::Post"
+  has_many :comments, :through => :topic, :source => :posts, :class_name => "Forem::Post" if defined?(Forem) && defined?(Forem::Post)
 
   validates :user_id, :title, :description, :presence => true
   validates_length_of :title, maximum: 128

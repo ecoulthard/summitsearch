@@ -8,23 +8,24 @@ class Person < ApplicationRecord
   cattr_reader :per_page
   @@per_page = 100
   default_scope { order(:name) }
-  belongs_to :user, foreign_key: "insert_id"
-  belongs_to :updater, foreign_key: "update_id", class_name: "User"
+  belongs_to :user, foreign_key: "insert_id", optional: true
+  belongs_to :updater, foreign_key: "update_id", class_name: "User", optional: true
   has_many :ascent_people
   has_many :ascents, -> { order :ascent_index }, through: :ascent_people
   has_many :mountains, through: :ascents, source: :place
   has_many :namings, class_name: "Name"
   has_many :placenames, class_name: "Person"
-  # has_attached_file :photo, :styles => { :medium => "600x600>", :thumb => "150x150>" }, :url => "/system/people/:attachment/:id/:style/:basename.:extension",
-  #   :path => ":rails_root/public/system/people/:attachment/:id/:style/:basename.:extension"
+
+  has_one_attached :photo do |attachable|
+    attachable.variant :medium, resize_to_limit: [600, 600]
+    attachable.variant :thumb, resize_to_limit: [150, 150]
+  end
 
   SORT_OPTIONS = {'name' => "name", 'date_created' => 'created_at DESC'}
   DEFAULT_SORT = 'name'
   
-  #attr_accessible :guide, :birthdate, :deathdate, :description, :name, :photo_caption, :photo, :references
-  
-  # validates_attachment_size :photo, :less_than => 5.megabytes, :if => :has_photo?
-  # validates_attachment_content_type :photo, :content_type => ['image/jpeg','image/pjpeg', 'image/png', 'image/gif']
+  before_validation :sync_attachment_attributes
+  validate :validate_photo_attachment, :if => :has_photo?
   validates :name, :presence => true, :uniqueness => {:scope => :birthdate}
 
   before_save :set_importance
@@ -66,8 +67,30 @@ class Person < ApplicationRecord
     self.importance = ascents.count
   end
 
+  def validate_photo_attachment
+    return unless photo.attached? && photo.blob.present?
+
+    if photo.blob.byte_size > 5.megabytes
+      errors.add(:photo, "must be less than 5MB")
+    end
+
+    acceptable_types = ["image/jpeg", "image/pjpeg", "image/png", "image/gif"]
+    unless acceptable_types.include?(photo.blob.content_type)
+      errors.add(:photo, "must be a JPEG, PNG, or GIF")
+    end
+  end
+
+  def sync_attachment_attributes
+    return unless photo.attached? && photo.blob.present?
+
+    self.photo_file_name = photo.blob.filename.to_s if respond_to?(:photo_file_name=)
+    self.photo_content_type = photo.blob.content_type if respond_to?(:photo_content_type=)
+    self.photo_file_size = photo.blob.byte_size if respond_to?(:photo_file_size=)
+    self.photo_updated_at = Time.current if respond_to?(:photo_updated_at=)
+  end
+
   def has_photo?
-    return !self.photo_file_name.blank?
+    photo.attached? || !self.photo_file_name.blank?
   end
 
   def has_caption?
