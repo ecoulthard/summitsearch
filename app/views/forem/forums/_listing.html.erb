@@ -1,0 +1,14 @@
+<table id='forums' class='forums subdued' cellspacing='0'>
+  <thead>
+  <tr>
+    <th class="desc-and-last-post"><%= t('.forums') %></th>
+    <th class="last-post"><%= t('.last_post') %></th>
+    <th class="topics-count"><%= t('.topics') %></th>
+    <th class="posts-count"><%= t('.posts') %></th>
+    <th class="views-count"><%= t('.views') %></th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render category.forums %>
+  </tbody>
+</table>

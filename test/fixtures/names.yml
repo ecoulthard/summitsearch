@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  person_id: 1
+  feature_id: 1
+  area_id: 1
+  route_id: 1
+  year: 1
+  description: MyText
+
+two:
+  name: MyString
+  person_id: 1
+  feature_id: 1
+  area_id: 1
+  route_id: 1
+  year: 1
+  description: MyText

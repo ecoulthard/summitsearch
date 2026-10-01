@@ -49,7 +49,7 @@ class AlbumsController < ArticlesController
       @time = @album.time.nil? ? nil : @album.time.strftime("%B %d %Y")
     end
 
-    unless read_fragment(:part => "photos_#{@album.id}")
+    unless read_fragment(:part => "photos_text_#{@album.id}")
       @photos = @album.photos
       @has_photos = @photos.length != 0
     end
@@ -142,7 +142,7 @@ class AlbumsController < ArticlesController
   # GET /albums/1/edit
   def edit
     @album = Album.find(params[:id])
-    @multiupload = !request.user_agent.include?("MSIE") && !request.user_agent.include?("Opera")
+    @multiupload = !request.user_agent.to_s.include?("MSIE") && !request.user_agent.to_s.include?("Opera")
     @ref_title = "#{@album.user.display_name}'s Album_#{@album.id}"
     @ref_latitude = @album.ref_latitude
     @ref_longitude = @album.ref_longitude

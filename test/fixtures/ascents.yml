@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  feature_id: 1
+  route_id: 1
+  ascent_index: 1
+  year: 2012
+  solo: false
+  success: true 
+  other_participants: false
+  description: MyText
+
+two:
+  feature_id: 1
+  route_id: 1
+  ascent_index: 1
+  year: 2012
+  solo: false
+  success: true
+  other_participants: false
+  description: MyText

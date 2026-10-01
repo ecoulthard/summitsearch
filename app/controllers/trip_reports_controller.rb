@@ -54,7 +54,7 @@ class TripReportsController < ArticlesController
       @loss = @route.height_loss
     end
 
-    unless read_fragment(:part => "photos_#{@trip_report.id}")
+    unless read_fragment(:part => "photos_text_#{@trip_report.id}")
       @photos = @trip_report.photos#.paginate :page=>params[:page], :per_page => 50
       @has_photos = @photos.length != 0
     end
@@ -74,10 +74,10 @@ class TripReportsController < ArticlesController
       expire_index
     else
       @trip_report = TripReport.find(params[:id])
-      expire_fragment(:action => "show", :part => "google_map_#{@trip_report.route.id}")
-      expire_fragment(:action => "show", :part => "description_#{@trip_report.id}")
-      expire_fragment(:action => "show", :part => "photos_#{@trip_report.id}")
-      expire_fragment(:action => "photos", :part => "photos_#{@trip_report.id}")
+      expire_fragment(:part => "google_map_#{@trip_report.route.id}")
+      expire_fragment(:part => "description_#{@trip_report.id}")
+      expire_fragment(:part => "photos_text_#{@trip_report.id}")
+      expire_fragment(:part => "photos_#{@trip_report.id}")
       expire_fragment(:controller => "photos", :action => "slideshow", :trip_report_id => @trip_report.id, :type => 'Title')
       expire_fragment(:controller => "photos", :action => "show_full", :trip_report_id => @trip_report.id, :type => 'Title')
       respond_to do |format|
@@ -127,7 +127,7 @@ class TripReportsController < ArticlesController
     @end_time = ""
     @startLatitude = @route.averageLatitude
     @startLongitude = @route.averageLongitude
-    @multiupload = !request.user_agent.include?("MSIE") && !request.user_agent.include?("Opera")
+    @multiupload = !request.user_agent.to_s.include?("MSIE") && !request.user_agent.to_s.include?("Opera")
     @ref_title = @route.name
     @ref_latitude = @startLatitude
     @ref_longitude = @startLongitude
@@ -145,7 +145,7 @@ class TripReportsController < ArticlesController
     @end_time = @trip_report.end_time.nil? ? "" : @trip_report.end_time.strftime("%B %d %Y at %I:%M%P")
     @startLatitude = @trip_report.route.averageLatitude
     @startLongitude = @trip_report.route.averageLongitude
-    @multiupload = !request.user_agent.include?("MSIE") && !request.user_agent.include?("Opera")
+    @multiupload = !request.user_agent.to_s.include?("MSIE") && !request.user_agent.to_s.include?("Opera")
     @ref_title = @trip_report.route.name
     @ref_latitude = @startLatitude
     @ref_longitude = @startLongitude

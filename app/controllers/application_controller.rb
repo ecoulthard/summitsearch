@@ -68,16 +68,16 @@ class ApplicationController < ActionController::Base
   #    ip_address
   #  end
 
-  #Increment a visit count for this ip address for the given record
-  #Called by show actions of Albums,Places,Photos,Routes and TripReports
-  def logVisit record=nil, rateable=false
-    return if !valid_browser?(request.user_agent) or valid_robot?(request.user_agent)
+  # Increment a visit count for this ip address for the given record
+  # Called by show actions of Albums, Places, Photos, Routes and TripReports
+  def logVisit(record = nil, rateable = false)
+    return if !valid_browser?(request.user_agent) || valid_robot?(request.user_agent)
 
     user_id = user_signed_in? ? current_user.id : nil
     record_class = record_id = nil
     record_class = record.class.to_s unless record.nil?
     record_id = record.id unless record.nil?
-    LogVisitWorker.perform_async(request.user_agent, request.remote_ip, user_id, Time.now, record_class, record_id, rateable) if defined?(LogVisitWorker)
+    LogVisitJob.perform_later(request.user_agent, request.remote_ip, user_id, Time.current, record_class, record_id, rateable)
   end
 
   protected

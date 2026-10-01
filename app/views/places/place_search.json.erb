@@ -1,0 +1,12 @@
+[
+  <% @places.each do |place| %>
+    {
+      "label": "<%= place.autocomplete_summary %>",
+      "value": "<%= place.autocomplete_summary %>",
+      "id": <%= place.id %>,
+      "name": "<%= place.name %>",
+      "latitude": <%= place.centerLatitude %>,
+      "longitude": <%= place.centerLongitude %>
+    }<%= "," if @places.last != place %>
+  <% end %>
+]

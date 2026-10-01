@@ -1,0 +1,28 @@
+<div id="place_info_div">
+
+  <div>
+    <b><%= place.name %></b>
+  </div>
+
+  <% if place.alternate_names? %>
+    <div>
+      <b>Also known as:</b>
+      <%= place.alternate_names %>
+    </div>
+  <% end %>
+
+  <% if place.respond_to?(:height) && place.height.present? %>
+    <div>
+      <b>Height:</b>
+      <%= place.height.to_s %>m (<%= place.feet %> ft)
+    </div>
+  <% end %>
+
+  <% if place.respond_to?(:area) && place.area.present? %>
+    <div>
+      <b>Area:</b>
+      <%= place.area.to_s %>km
+    </div>
+  <% end %>
+
+</div>

@@ -17,12 +17,19 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%# Includes stylesheet and script files %>
+    <%= stylesheet_link_tag :application, "data-turbo-track": "reload" %>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <%= google_map_include_tag %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag :application, "data-turbo-track": "reload", defer: true %>
+    <%= yield :javascript %>
   </head>
 
-  <body>
+  <body class="<%= "#{controller_name} #{action_name}" %>">
+    <%= mytopo_data %>
+    <%= menu if respond_to?(:menu) %>
     <%= yield %>
   </body>
 </html>

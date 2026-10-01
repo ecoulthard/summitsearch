@@ -1,0 +1,20 @@
+:root {
+  --default-text: #222222;
+  --lighter-text: #666666;
+  --light: #E1EBF2;
+  --medium: #2e66b6;
+  --dark: #183363;
+  --hover: #F6F6F6;
+  --full-width: 100%;
+  --title-size: 1.5em;
+  --title-button-size: 1.0em;
+
+  /* Forum specific palette */
+  --forem-bar1-midbg: #222222;
+  --forem-bar1-bottombg: #222222;
+  --forem-light-bg1: #111111;
+  --forem-mid-bg1: #ababab;
+  --forem-mid-bg1-highlight: #a9a9a9;
+  --forem-visited-text: #000000;
+  --forem-medium: #485577;
+}

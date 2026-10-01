@@ -1,0 +1,3 @@
+This is a notification sent to all admin users of summitsearch.org. An article on the site was liked.<br><br>
+<% target_url_helper = (@article_type.to_s.downcase == "mountain" || @article_type.to_s.downcase == "lake") ? "place_url" : (respond_to?("#{@article_type}_url") ? "#{@article_type}_url" : "root_url") %>
+Article: <%= link_to @article_title, send(target_url_helper, id: @article_id) %> has been <%= @liked_phrase %>

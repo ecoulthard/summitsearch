@@ -1,0 +1,22 @@
+<div class="hover">
+  <fieldset>
+    <%= truncate(strip_tags(photo.caption.to_s), length: 300) %><br>
+    <span class="text no-wrap">By: <%= truncate(photo.user&.display_name.to_s, length: 25) %></span>
+
+    <% title_places = photo.title_places if photo.title_places.present? %>
+    <% if defined?(title_places) && title_places.present? %>
+      <span class="text no-wrap">
+        Title Place<%= "s" if title_places.length != 1 %>: <%= sanitize title_places.map { |title_place| title_place.name }.join(", ") %>
+      </span>
+    <% end %>
+
+    <% route = photo.route if photo.route_id? %>
+    <% if defined?(route) && route.present? %>
+      <span class="text no-wrap">
+        Title <%= (route.type.presence || "Route").titleize %>: <%= route.name %>
+      </span>
+    <% end %>
+
+    <%= render partial: "articles/totals_thumb", locals: { article: photo } %>
+  </fieldset>
+</div>

@@ -1,0 +1,21 @@
+<div>
+  <% if subject.respond_to?(:version) && subject.version.to_i > 1 %>  
+    <span class="no-wrap"><b>Version <%= subject.version %></b></span>
+  <% end %>   
+
+  <% if user_is_admin? && subject.respond_to?(:update_id?) && subject.update_id? && subject.updater.present? %>  
+    <span class="no-wrap">
+      - <b>Last Updated By:</b>
+      <%= link_to subject.updater.display_name, subject.updater %>
+       on <%= subject.updated_at.to_s %>
+    </span>
+  <% end %>
+
+  <% if subject.respond_to?(:references) && subject.references.present? %>
+    <div class="clear"></div>
+    <span>
+      <b>References:</b>
+      <%= sanitize(subject.references.to_s.gsub("<p>", "<div>").gsub("</p>", "</div>")) %>
+    </span>
+  <% end %>
+</div>

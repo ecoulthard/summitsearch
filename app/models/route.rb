@@ -62,6 +62,15 @@ class Route < ApplicationRecord
     SUBCLASS_NAMES.map(&:constantize)
   end
 
+  def self.inherited(subclass)
+    super
+    subclass.class_eval do
+      def self.model_name
+        Route.model_name
+      end
+    end
+  end
+
   NAME_STATUS_TYPES = %w(Official Unofficial)
   DIFFICULTY_OPTIONS = ["Easy", "Moderate", "Difficult"]
   ALLOW_BRANCHES = true #Overloaded in subclasses.
@@ -351,7 +360,7 @@ class Route < ApplicationRecord
   #Links this route to areas this route passes through
   #Skip if waypoints haven't changed.
   def setAreas
-    return unless self.distance_changed? || self.height_gain_changed? || self.height_loss_changed?
+    return unless previously_new_record? || saved_change_to_distance? || saved_change_to_height_gain? || saved_change_to_height_loss?
     PlaceRouteInArea.delete place_routes_in_area_ids
     Place.areas.all.each do |area|
       waypoints.each do |waypoint|
@@ -368,7 +377,7 @@ class Route < ApplicationRecord
   #then link it. The waypoint must be close to the same height as lake to link to a lake.
   #Skip if waypoints haven't changed.
   def setPlaces
-    return unless self.distance_changed? || self.height_gain_changed? || self.height_loss_changed?
+    return unless previously_new_record? || saved_change_to_distance? || saved_change_to_height_gain? || saved_change_to_height_loss?
     PlaceRoute.delete place_route_ids
     Place.find_by_radius(averageLatitude, averageLongitude, 70).each do |place|
       waypoints.each do |waypoint|

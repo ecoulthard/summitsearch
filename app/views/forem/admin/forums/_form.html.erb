@@ -1,0 +1,23 @@
+<%= form_with model: [:admin, @forum] do |f| %>
+  <div>
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, (defined?(Forem::Category) ? Forem::Category.all : []), :id, :name %>
+  </div>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="clear"></div>
+
+  <% if defined?(Forem::Group) %>
+    <h3>Moderator Groups</h3>
+    <%= f.collection_check_boxes :moderator_ids, Forem::Group.all, :id, :name %>  
+  <% end %>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

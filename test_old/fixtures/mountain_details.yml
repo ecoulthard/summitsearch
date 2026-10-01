@@ -1,0 +1,130 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  mountain: one
+  parent_mountain: two
+  dist_to_parent: 2
+
+two:
+  mountain: two
+
+columbia:
+  mountain: columbia
+  dist_to_parent: 157
+
+north_twin:
+  mountain: north_twin
+  parent_mountain: columbia
+  dist_to_parent: 8
+
+south_twin:
+  mountain: south_twin
+  parent_mountain: north_twin
+  dist_to_parent: 2
+
+alberta:
+  mountain: alberta
+  parent_mountain: north_twin
+  dist_to_parent: 8
+
+stutfield:
+  mountain: stutfield
+  parent_mountain: north_twin
+  dist_to_parent: 2
+
+king_edward:
+  mountain: king_edward
+  parent_mountain: columbia
+  dist_to_parent: 5
+
+athabasca:
+  mountain: athabasca
+  parent_mountain: north_twin
+  dist_to_parent: 16
+
+andromeda:
+  mountain: andromeda
+  parent_mountain: athabasca
+  dist_to_parent: 2
+
+snowdome:
+  mountain: snowdome
+  parent_mountain: kitchener
+  dist_to_parent: 3
+
+kitchener:
+  mountain: kitchener
+  parent_mountain: north_twin
+  dist_to_parent: 7
+
+castleguard:
+  mountain: castleguard
+  parent_mountain: andromeda
+  dist_to_parent: 9
+
+saskatchewan:
+  mountain: saskatchewan
+  parent_mountain: athabasca
+  dist_to_parent: 4
+
+wales:
+  mountain: wales
+  parent_mountain: chaba
+  dist_to_parent: 7
+  
+chaba:
+  mountain: chaba
+  parent_mountain: dais
+  dist_to_parent: 7
+
+clemenceau:
+  mountain: clemenceau
+  parent_mountain: columbia
+  dist_to_parent: 7
+  
+false_chaba:
+  mountain: false_chaba
+  parent_mountain: chaba
+  dist_to_parent: 7
+  
+listening:
+  mountain: listening
+  parent_mountain: chaba
+  dist_to_parent: 7
+  
+sundial:
+  mountain: sundial
+  parent_mountain: dais
+  dist_to_parent: 7
+  
+sundiale4:
+  mountain: sundiale4
+  parent_mountain: sundial
+  dist_to_parent: 7
+  
+hooker:
+  mountain: hooker
+  parent_mountain: clemenceau
+  dist_to_parent: 7
+  
+serenity:
+  mountain: serenity
+  parent_mountain: hooker
+  dist_to_parent: 7
+  
+warwick:
+  mountain: warwick
+  parent_mountain: sundial
+  dist_to_parent: 7
+  
+dais:
+  mountain: dais
+  parent_mountain: alberta
+  dist_to_parent: 7
+
+brew:
+  mountain: brew

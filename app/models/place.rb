@@ -93,6 +93,15 @@ class Place < ApplicationRecord
     SUBCLASS_NAMES.map(&:constantize)
   end
 
+  def self.inherited(subclass)
+    super
+    subclass.class_eval do
+      def self.model_name
+        Place.model_name
+      end
+    end
+  end
+
   #The radius we use to look for nearby name matches in articles.
   LARGE_LINKING_RADIUS = PlaceLinkingHelper::LARGE_LINKING_RADIUS
   NAME_STATUS_TYPES = %w(Official Unofficial Unnamed)
@@ -244,10 +253,13 @@ class Place < ApplicationRecord
     end
     #Load the dictionary
     words = {}
-    File.open("public/words") do |file|
-      file.each do |line|
-        conv_line = (line + ' ').encode("UTF-8","iso-8859-1")[0..-2]
-        words[conv_line.strip] = true
+    words_file = Rails.root.join("public", "words")
+    if File.exist?(words_file)
+      File.open(words_file) do |file|
+        file.each do |line|
+          conv_line = (line + ' ').encode("UTF-8","iso-8859-1")[0..-2]
+          words[conv_line.strip] = true
+        end
       end
     end
     #p words["magic"]
@@ -463,13 +475,15 @@ y2 = (point.latitude > centerLat ? 1 : -1) * (point.dist centerLat, point.longit
   #Returns the places in the surrounding 15km without title photos sorted by distance.
   #Uses unsanitized latitude and longitude since .order doesn't sanitize
   def places_nearby_without_title_photos radius=15
-    Place.find_by_radius(centerLatitude,centerLongitude,radius).where("places.id != ?", id).where("places.name_status != 'unnamed' and places.id not in (select distinct photos.place_id from photos where photos.place_id is not null)").order("places.type != 'Mountain', power(places.latitude - #{centerLatitude.to_f},2)+power(places.longitude - #{centerLongitude.to_f},2)")
+    order_sql = Arel.sql("places.type != 'Mountain', power(places.latitude - #{centerLatitude.to_f},2)+power(places.longitude - #{centerLongitude.to_f},2)")
+    Place.find_by_radius(centerLatitude,centerLongitude,radius).where("places.id != ?", id).where("places.name_status != 'unnamed' and places.id not in (select distinct photos.place_id from photos where photos.place_id is not null)").order(order_sql)
   end
 
   #Returns the places in the surrounding 15km without any photos sorted by distance.
   #Uses unsanitized latitude and longitude since .order doesn't sanitize
   def places_nearby_without_photos radius=15
-    Place.find_by_radius(centerLatitude,centerLongitude,radius).where("places.id != ?", id).where("places.name_status != 'unnamed' and places.id not in (select distinct photos.place_id from photos where photos.place_id is not null) and places.id not in (select distinct place_id from place_photos)").order("places.type != 'Mountain', power(places.latitude - #{centerLatitude.to_f},2)+power(places.longitude - #{centerLongitude.to_f},2)")
+    order_sql = Arel.sql("places.type != 'Mountain', power(places.latitude - #{centerLatitude.to_f},2)+power(places.longitude - #{centerLongitude.to_f},2)")
+    Place.find_by_radius(centerLatitude,centerLongitude,radius).where("places.id != ?", id).where("places.name_status != 'unnamed' and places.id not in (select distinct photos.place_id from photos where photos.place_id is not null) and places.id not in (select distinct place_id from place_photos)").order(order_sql)
   end
 
   def feet

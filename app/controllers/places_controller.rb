@@ -116,9 +116,9 @@ class PlacesController < ApplicationController
         @has_places = @places.count != 0
       end
 
-      unless read_fragment(:part => "photos_#{@place.id}")
+      unless read_fragment(:part => "photos_text_#{@place.id}")
         @photos = @place.title_photos.includes(:user)
-        @photos = @photos.order("COALESCE(photos.total_likes,0) DESC")
+        @photos = @photos.order(Arel.sql("COALESCE(photos.total_likes,0) DESC"))
         @has_photos = @photos.count != 0
         @photo_appearances = @place.photo_appearances.includes(:user)
         @appears_in_other_photos = @photo_appearances.count != 0
@@ -312,7 +312,7 @@ class PlacesController < ApplicationController
         #New places are assumed to be unofficial by default.
         @place.name_status = "Unofficial"
 
-	format.html { render :action => "new", :type => @place.type, :layout => 'nomenu' }
+	format.html { render :action => "new", :type => @place.type, :layout => 'nomenu', :status => :unprocessable_entity }
         format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
       end
     end
@@ -339,7 +339,7 @@ class PlacesController < ApplicationController
         @startLongitude = @place.centerLongitude
         @title = "Current Coordinates"
         @submit = "Update #{@type}"
-        format.html { render :action => "edit", :layout => 'nomenu' }
+        format.html { render :action => "edit", :layout => 'nomenu', :status => :unprocessable_entity }
         format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
       end
     end

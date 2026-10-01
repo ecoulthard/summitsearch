@@ -1,0 +1,24 @@
+<div class="social">
+  <div class="fb-like" data-href="<%= request.url %>" data-send="true" data-width="450" data-show-faces="true"></div>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-url="<%= request.url %>">Tweet</a>
+</div>
+
+<div class="clearLeft"></div>
+
+<%= form_with url: send("social_update_#{article_type}_path", article), method: :post, id: "social_form" do |f| %>
+  <%= hidden_field_tag :id, article.id %>
+<% end %>
+
+<% content_for(:javascript) do %>
+<script type='text/javascript'>
+  window.socialUpdate = function(facebook_like, google_plus){
+    //Create postback path string
+    var updatepath = "<%= send("social_update_#{article_type}_path", id: article.id, facebook_like: "facebook_like_param", google_plus: "google_plus_param", authenticity_token: "authenticity_token_param") %>";
+    updatepath = updatepath.replace("facebook_like_param", facebook_like);
+    updatepath = updatepath.replace("google_plus_param", google_plus);
+    updatepath = updatepath.replace("authenticity_token_param", escape($('meta[name=csrf-token]').prop('content')));
+    //Execute the postback
+    $.post(updatepath, function(data) {});
+  };
+</script>
+<% end %>

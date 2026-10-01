@@ -1,0 +1,11 @@
+<div class='breadcrumb'>
+  <%= link_to t('forem.forum.forums'), forums_path %>
+  <span> | </span>
+  <%= link_to topic.forum.title, topic.forum %> 
+  <span> | </span>
+  <%= link_to strip_links(topic.subject), forum_topic_path(topic.forum, topic) %> 
+</div>
+
+<div class="clear"></div><br>
+<h2 class="title"><%= link_to strip_links(topic.subject), forum_topic_path(topic.forum, topic) %></h2>
+<div class="clear"></div><br>

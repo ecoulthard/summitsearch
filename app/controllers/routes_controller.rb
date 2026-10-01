@@ -68,7 +68,7 @@ class RoutesController < ApplicationController
       @appears_in_other_albums = @album_appearances.length != 0
     end
 
-    unless read_fragment(:part => "photos_#{@route.id}")
+    unless read_fragment(:part => "photos_text_#{@route.id}")
       @photos = @route.photos.paginate :page=>params[:page], :per_page => 50
       @has_photos = @photos.length != 0
       @photo_appearances = @route.photo_appearances.paginate :page=>params[:page], :per_page => 20

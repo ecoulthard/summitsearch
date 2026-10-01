@@ -10,7 +10,8 @@ class ArticlesController < ApplicationController
   #Records the vote in the IpAddressTripReport table
   def social_update
     @article = article
-    visit = article.visits.joins(:ip_address).where(:ip_addresses => {:address => request.remote_ip}).readonly(false).first
+    ip_record = IpAddress.find_or_create_by(address: request.remote_ip)
+    visit = article.visits.find_or_initialize_by(ip_address: ip_record)
 
     #Was the article liked. If not then it was unliked.
     liked = params[:facebook_like] == "true" || params[:google_plus] == "true"
@@ -25,14 +26,14 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if visit.save
-        #Send email notifying admin of the like or unlike.
-        NotifyAdminArticleLikedWorker.perform_async(article_type, @article.id, @article.title, liked, facebook, google, false) if defined?(NotifyAdminArticleLikedWorker)
-	UpdateArticleTotalLikesWorker.perform_async(@article.class.to_s, @article.id, Time.now, liked) if defined?(UpdateArticleTotalLikesWorker)
-        expire_fragment(:controller => 'main', :action => 'index', :part => 'liked') if respond_to?(:expire_fragment)
-	format.html { render :plain => 'success' }
-	format.xml { render :plain => '{success:true}' }
+        # Send email notifying admin of the like or unlike.
+        UserMailer.notify_admins_that_article_is_liked(article_type, @article.id, @article.title, liked, facebook, google, false).deliver_later
+        UpdateArticleTotalLikesJob.perform_later(@article.class.to_s, @article.id, Time.current, liked)
+        expire_fragment(controller: 'main', action: 'index', part: 'liked') if respond_to?(:expire_fragment)
+        format.html { render plain: 'success' }
+        format.xml { render plain: '{success:true}' }
       else
-        format.xml  { render :xml => visit.errors, :status => :unprocessable_entity }
+        format.xml { render xml: visit.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,52 +47,51 @@ class ArticlesController < ApplicationController
     success = false
     fail_notice = "" #What to say if it fails
 
-    #If this is the first comment then we need to first create the topic.
+    # If this is the first comment then we need to first create the topic.
     if topic.nil?
       forum = @article.forum
       if current_user&.respond_to?(:can_create_forem_topics?) && current_user.can_create_forem_topics?(forum)
         topic_title = @article.title.nil? ? @article.id.to_s : @article.title
-        topic = forum.topics.build(:subject => help.link_to("#{article_type.titleize}: #{topic_title}", send("#{article_type}_path", :id => @article.id)), :posts_attributes => {"0" => {:text => params[:text]}})
+        topic = forum.topics.build(subject: help.link_to("#{article_type.titleize}: #{topic_title}", send("#{article_type}_path", id: @article.id)), posts_attributes: { "0" => { text: params[:text] } })
         topic.user = @article.user
-	topic[article_type.foreign_key] = @article.id
+        topic[article_type.foreign_key] = @article.id
 
         success = topic.save
-        #Subscribe the user to the comments.
+        # Subscribe the user to the comments.
         topic.subscribe_poster if topic.respond_to?(:subscribe_poster)
 
-	UpdateArticleTotalCommentsWorker.perform_async(@article.class.to_s, @article.id, Time.now) if defined?(UpdateArticleTotalCommentsWorker)
+        UpdateArticleTotalCommentsJob.perform_later(@article.class.to_s, @article.id, Time.current)
 
         post = Forem::Post.find(topic.posts.first.id)
         post.user = current_user
         success = post.save
-        if current_user != article.user && defined?(SendArticleFirstCommentEmailWorker)
-          SendArticleFirstCommentEmailWorker.perform_async(article_type, @article.class.to_s, @article.id)
+        if current_user != @article.user
+          UserMailer.article_first_comment(article_type, @article).deliver_later
         end
       else
         fail_notice = "You do not have permission to comment on this #{article_type.humanize}"
       end
-    else #Add post to the topic
+    else # Add post to the topic
       if current_user&.respond_to?(:can_reply_to_forem_topic?) && !current_user.can_reply_to_forem_topic?(topic)
         fail_notice = "You do not have permission to comment on this #{article_type.humanize}"
       elsif topic.respond_to?(:locked?) && topic.locked?
         fail_notice = "Cannot add comment because commenting is locked for this #{article_type.humanize}"
       else
-        post = topic.posts.build(:text => params[:text], :reply_to_id => params[:reply_to_id])
+        post = topic.posts.build(text: params[:text], reply_to_id: params[:reply_to_id])
         post.user = current_user
         success = post.save
-	UpdateArticleTotalCommentsWorker.perform_async(@article.class.to_s, @article.id, Time.now) if defined?(UpdateArticleTotalCommentsWorker)
+        UpdateArticleTotalCommentsJob.perform_later(@article.class.to_s, @article.id, Time.current)
       end
     end
 
     respond_to do |format|
       if success
-	#ExpireFragmentWorker.perform_async('main', 'index', 'commments')
-        expire_fragment(:controller => 'main', :action => 'index', :part => 'comments') if respond_to?(:expire_fragment)
-	format.html { redirect_to(@article, :notice => "Comment added successfully") }
-        format.xml  { render :xml => @article, :status => :updated, :location => @article }
+        expire_fragment(controller: 'main', action: 'index', part: 'comments') if respond_to?(:expire_fragment)
+        format.html { redirect_to(@article, notice: "Comment added successfully") }
+        format.xml  { render xml: @article, status: :updated, location: @article }
       else
-	format.html { redirect_to(@article, :notice => fail_notice) }
-        format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
+        format.html { redirect_to(@article, notice: fail_notice) }
+        format.xml  { render xml: @article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -142,16 +142,15 @@ class ArticlesController < ApplicationController
       if(user_view.rating.nil?)
         user_view.rating = rating
         if user_view.save
-          #Send email notifying admin of the like or unlike.
-          NotifyAdminArticleLikedWorker.perform_async(article_type, @article.id, @article.title, rating > 0, false, false, true) if defined?(NotifyAdminArticleLikedWorker)
-	  UpdateArticleTotalLikesWorker.perform_async(@article.class.to_s, @article.id, Time.current) if defined?(UpdateArticleTotalLikesWorker)
-	  #ExpireFragmentWorker.perform_async('main', 'index', 'liked')
-          expire_fragment(:controller => 'main', :action => 'index', :part => 'liked') if respond_to?(:expire_fragment)
+          # Send email notifying admin of the like or unlike.
+          UserMailer.notify_admins_that_article_is_liked(article_type, @article.id, @article.title, rating > 0, false, false, true).deliver_later
+          UpdateArticleTotalLikesJob.perform_later(@article.class.to_s, @article.id, Time.current)
+          expire_fragment(controller: 'main', action: 'index', part: 'liked') if respond_to?(:expire_fragment)
           respond_to do |format|
-            format.html { render :plain => 'success' }
-            format.xml { render :plain => '{success:true}' }
+            format.html { render plain: 'success' }
+            format.xml { render plain: '{success:true}' }
           end
-	else
+        else
           change_rating_error_response 'Could not save rating'
 	end
       else

@@ -1,0 +1,13 @@
+<td class='list_image'>
+  <%= link_to photo_image_tag(record, :thumb, alt: record.alt), record %>
+</td>
+<td class="list_description">
+  <dl>
+    <dt>Photo: <%= link_to record.title.presence || '', record %></dt>
+    <dd>
+      Photo Author: <%= record.user&.display_name %>&nbsp;&nbsp;
+      <%= render partial: 'articles/article_totals', locals: { article: record } %>
+    </dd>
+    <dd><%= truncate(strip_tags(record.caption.to_s), length: 200) %></dd>
+  </dl>
+</td>

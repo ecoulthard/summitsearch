@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+columbia:
+  type: Scramble
+  name: Mount Columbia via Athabasca Glacier
+  alternate_names: MyString
+  name_status: Official
+  description: MyText
+  travel_time: Unknown
+  user: vador
+  place: columbia
+
+one:
+  type: Trail
+  name: MyString
+  alternate_names: MyString
+  name_status: Official
+  description: MyText
+  travel_time: Unknown
+  user: vador
+
+two:
+  type: Trail
+  name: MyString
+  alternate_names: MyString
+  name_status: Official
+  description: MyText
+  travel_time: Unknown
+  user: vador

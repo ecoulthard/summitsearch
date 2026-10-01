@@ -68,4 +68,12 @@ class UserTest < ActiveSupport::TestCase
     assert user.photo.variant(:medium)
     assert user.photo.variant(:thumb)
   end
+
+  test "cannot delete last admin" do
+    admin = users(:vador)
+    assert admin.valid?
+    assert_raises(RuntimeError) do
+      admin.destroy
+    end
+  end
 end

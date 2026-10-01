@@ -1,0 +1,20 @@
+<%= form_with model: [@forum, @topic] do |f| %>
+  <div class="clear"></div><br>
+  <%= f.submit %>
+  <div class="clear"></div><br>
+  <div>
+    <%= f.label :subject %>
+    <%= f.text_field :subject, size: 80 %>
+  </div>
+  <div class="clear"></div><br>
+  <%= f.hidden_field :place_id %>
+
+  <%= f.fields_for :posts do |post| %>
+    <%= render partial: "forem/posts/form", locals: { f: post } %>
+  <% end %>
+ 
+  <%= hidden_field_tag :photo_ids %>
+
+  <%= f.submit %>
+  <div class="clear"></div><br>
+<% end %>

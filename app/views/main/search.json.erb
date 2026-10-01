@@ -1,0 +1,14 @@
+[
+  <% @results.each do |result| %>
+    {
+      "label": "<%= result.autocomplete_summary %>",
+      "id": "<%= result.to_param %>",
+      "album": <%= result.is_a?(Album) %>,
+      "place": <%= result.is_a?(Place) %>,
+      "photo": <%= result.is_a?(Photo) %>,
+      "route": <%= result.is_a?(Route) %>,
+      "trip_report": <%= result.is_a?(TripReport) %>,
+      "user": <%= result.is_a?(User) %>
+    }<%= "," if @results.last != result %>
+  <% end %>
+]

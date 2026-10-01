@@ -182,7 +182,7 @@ class PhotosController < ArticlesController
         @google_map = true
         @time = @photo.time.nil? ? "" : @photo.time.strftime("%B %d %Y at %I:%M%P")
         #flash.now[:notice] = "params: #{params.keys.to_s}"
-	      format.html { render :action => "new", :layout => 'nomenu' }
+	      format.html { render :action => "new", :layout => 'nomenu', :status => :unprocessable_entity }
         #format.json
         format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
       end

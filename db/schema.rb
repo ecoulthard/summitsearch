@@ -13,7 +13,6 @@
 ActiveRecord::Schema[8.0].define(version: 2026_09_25_050015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -475,10 +474,10 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_25_050015) do
     t.text "description"
     t.integer "user_id"
     t.integer "height"
-    t.decimal "ref_latitude", precision: 8, scale: 6
-    t.decimal "ref_longitude", precision: 9, scale: 6
-    t.string "ref_title", limit: 128
-    t.string "ref_content", limit: 1024
+    t.decimal "ref_latitude", precision: 8, scale: 6, null: false
+    t.decimal "ref_longitude", precision: 9, scale: 6, null: false
+    t.string "ref_title", limit: 128, null: false
+    t.text "ref_content", null: false
     t.integer "update_id"
     t.decimal "importance", precision: 19, scale: 10
     t.timestamptz "created_at"

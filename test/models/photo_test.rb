@@ -71,8 +71,8 @@ class PhotoTest < ActiveSupport::TestCase
     assert_not photo.is_panorama?
   end
 
-  test "is_panorama? returns false if photo is not attached" do
-    photo = Photo.new(user_id: 1, photo_width: 3000, photo_height: 1000)
+  test "is_panorama? returns false if dimensions are not panoramic" do
+    photo = Photo.new(user_id: 1, photo_width: 1000, photo_height: 1000)
     assert_not photo.is_panorama?
   end
 

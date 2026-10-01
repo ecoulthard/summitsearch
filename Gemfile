@@ -44,6 +44,7 @@ gem "thruster", require: false
 gem "image_processing", "~> 1.2"
 gem "mini_magick"
 gem "exifr"
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -72,3 +73,6 @@ gem "devise", "~> 5.0"
 gem "will_paginate", "~> 4.0"
 
 gem "simple_form", "~> 5.4"
+
+gem "mysql2"
+gem "thinking-sphinx", "~> 5.6"

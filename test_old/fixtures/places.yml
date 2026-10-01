@@ -1,0 +1,348 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  name: MyString
+  type: Mountain
+  name_status: MyString
+  alternate_names: MyString
+  height: 1
+  latitude: 9.99
+  longitude: 9.99
+  description: MyText
+  references: MyReferences
+  partial_name_match: false
+  user: vador
+  created_at: <%= 1.week.ago.to_s(:db) %>
+
+two:
+  name: MyString
+  type: Mountain
+  name_status: MyString
+  alternate_names: MyString
+  height: 1
+  latitude: 19.99
+  longitude: -9.99
+  description: MyText
+  references: MyReferences
+  partial_name_match: false
+  user: vador
+  created_at: <%= 1.day.ago.to_s(:db) %>
+
+columbia:
+  name: Mount Columbia
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3741
+  latitude: 52.14722
+  longitude: -117.44139
+  description:
+    <p>Mount Columbia is the highest point on the continental divide between BC and Alberta. It is located near the head of the Athabasca River (Arctic Ocean), and separates it from the Columbia River (Pacific Ocean). Although it is the highest peak in Alberta, Mount Robson and others are higher in BC. From the north, the mountain towers almost 8000 ft above the Athabasca River valley. Height Notes: BC Basemap gives a height of 3741m. Putnam (1974) says 12,294, Corbett gives 3747 (12,293 feet), which is the same as PeakFinder. In general, Corbett and Peakfinder stick with the old guidebook numbers, rather than the newer TRIM survey numbers.</p>
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+north_twin:
+  name: North Twin
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3731
+  latitude: 52.22500
+  longitude: -117.43584
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  slug: north-twin
+  user: vador
+
+south_twin:
+  name: South Twin
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3580
+  latitude: 52.20583
+  longitude: -117.43500
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+alberta:
+  name: Mount Alberta
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3619
+  latitude: 52.28833
+  longitude: -117.475
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+stutfield:
+  name: Stutfield Peak
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3450
+  latitude: 52.24000
+  longitude: -117.40833
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+king_edward:
+  name: Mount King Edward
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3490
+  latitude: 52.15667
+  longitude: -117.51972
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+athabasca:
+  name: Mount Athabasca
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3442
+  latitude: 52.18000
+  longitude: -117.19500
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+andromeda:
+  name: Mount Andromeda
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3450
+  latitude: 52.17389
+  longitude: -117.23611
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+snowdome:
+  name: Snowdome Mountain
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3451
+  latitude: 52.18694
+  longitude: -117.31694
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+kitchener:
+  name: Mount Kitchener
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3480
+  latitude: 52.21750
+  longitude: -117.32000
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+castleguard:
+  name: Castleguard Mountain
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3083
+  latitude: 52.11000
+  longitude: -117.25500
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  slug: castleguard
+  user: vador
+
+saskatchewan:
+  name: Mount Saskatchewan 
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3342
+  latitude: 52.10167
+  longitude: -117.095
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+wales:
+  name: Wales Peak
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3121
+  latitude: 52.18500
+  longitude: -117.65670
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+chaba:
+  name: Chaba Peak
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3211
+  latitude: 52.19833
+  longitude: -117.67167
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+clemenceau:
+  name: Mount Clemenceau
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3664
+  latitude: 52.24722
+  longitude: -117.95805
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+false_chaba:
+  name: False Chaba Peak
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3146
+  latitude: 52.20670
+  longitude: -117.65330
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+listening:
+  name: Listening Mountain
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3160
+  latitude: 52.24670
+  longitude: -117.73330
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+sundial:
+  name: Sundial Mountain
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3178
+  latitude: 52.23280
+  longitude: -117.63140
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+sundiale4:
+  name: Sundial E4
+  type: Mountain
+  name_status: Unnamed
+  alternate_names: nil
+  height: 3145
+  latitude: 52.22330
+  longitude: -117.58200
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+hooker:
+  name: Mount Hooker
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3287
+  latitude: 52.40500
+  longitude: -118.09500
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+serenity:
+  name: Serenity Mountain
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3215
+  latitude: 52.40000
+  longitude: -118.01167
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+warwick:
+  name: Warwick Mountain
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 2906
+  latitude: 52.23330
+  longitude: -117.55830
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+  
+dais:
+  name: Dais Mountain
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 3234
+  latitude: 52.27667
+  longitude: -117.64000
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador
+
+brew:
+  name: Mount Brew
+  type: Mountain
+  name_status: Official
+  alternate_names: nil
+  height: 1746
+  latitude: 50.043211
+  longitude: -123.189011
+  description: MyText
+  references: MyReferences
+  partial_name_match: true
+  user: vador

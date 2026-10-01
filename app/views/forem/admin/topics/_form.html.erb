@@ -1,0 +1,27 @@
+<%= form_with model: [:admin, @topic] do |f| %>
+  <div>
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+  <div>
+    <%= f.label :forum_id, "Forum" %>
+    <%= f.collection_select :forum_id, (defined?(Forem::Forum) ? Forem::Forum.all : []), :id, :title %>
+  </div>
+  <div>
+    <%= f.label :locked %>
+    <%= f.check_box :locked %>
+  </div>
+  <div>
+    <%= f.label :pinned %>
+    <%= f.check_box :pinned %>
+  </div>
+  <div>
+    <%= f.label :hidden %>
+    <%= f.check_box :hidden %>
+  </div>
+
+  <br />
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

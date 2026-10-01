@@ -11,7 +11,7 @@ if defined?(Forem::ApplicationController)
       return if !valid_browser?(request.user_agent)
 
       user_id = user_signed_in? ? current_user.id : nil
-      LogForemVisitWorker.perform_async(request.user_agent, request.remote_ip, user_id, Time.current, nil, nil) if defined?(LogForemVisitWorker)
+      LogForemVisitJob.perform_later(request.user_agent, request.remote_ip, user_id, Time.current, nil, nil)
     end
 
     def logForemVisit
@@ -21,7 +21,7 @@ if defined?(Forem::ApplicationController)
       record_class = record_id = nil
       record_class = record.class.to_s unless record.nil?
       record_id = record.id unless record.nil?
-      LogForemVisitWorker.perform_async(request.user_agent, request.remote_ip, user_id, Time.current, record_class, record_id) if defined?(LogForemVisitWorker)
+      LogForemVisitJob.perform_later(request.user_agent, request.remote_ip, user_id, Time.current, record_class, record_id)
     end
 
     private

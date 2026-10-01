@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+columbia:
+  title: Success on Mount Columbia
+  start_time: 2009-05-09 8:00:58
+  end_time: 2009-05-11 17:00:58
+  abstract: Approach day was a whiteout. Summit day was cloudy
+  participants: You, Me, She, Him, 
+  description: My first successful Ski Ascent turned out to be Mou
+  route: columbia
+  user: vador 
+
+two:
+  title: MyString
+  start_time: 2010-07-25 12:00:58
+  end_time: 2010-07-25 12:00:58
+  abstract: MyText
+  participants: MyText
+  description: MyText
+  route: two
+  user: vador

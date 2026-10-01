@@ -1,0 +1,11 @@
+<% if defined?(@total_visits) && @total_visits.present? %>
+  <%= "This #{article_type.humanize} has been visited #{pluralize(@total_visits, 'time')} by #{pluralize(@num_visitors, 'unique internet address')}." %><br>
+  <span id="thumbs_up_facebook"><%= "This #{article_type.humanize} has been liked #{pluralize(@num_facebook_likes.to_i, 'time')} on Facebook" if @num_facebook_likes.to_i > 0 %></span>
+  <span id="thumbs_up_google"><%= "This #{article_type.humanize} has been liked #{pluralize(@num_google_plus.to_i, 'time')} on Google Plus" if @num_google_plus.to_i > 0 %></span>
+  <span id="thumbs_up"><%= "This #{article_type.humanize} has been liked #{pluralize(@num_thumbs_up.to_i, 'time')} by the following members:" if @num_thumbs_up.to_i > 0 %></span>
+  <span id="fans" style="font-style:italic">
+    <% @fans.each do |fan| %>
+      <%= fan.display_name %>&nbsp;&nbsp;
+    <% end %>
+  </span>
+<% end %>

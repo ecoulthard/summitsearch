@@ -151,21 +151,25 @@ class MainController < ApplicationController
 	:title => 5
     }
 
-    @results = ThinkingSphinx.search(@search_text, :page=>1, :per_page => 100, :classes => [Place], :order => "importance desc", :field_weights => field_weights)
+    begin
+      @results = ThinkingSphinx.search(@search_text, :page=>1, :per_page => 100, :classes => [Place], :order => "importance desc", :field_weights => field_weights)
 
-    if(Mountain::SEARCH_KEY_WORDS.any? {|word| @search_text.downcase.include?(word)})
-      #Remove search key words so that the new search can match more mountains.
-      new_search = @search_text.downcase.gsub(Regexp.union(Mountain::SEARCH_KEY_WORDS), '')
-      @results = ThinkingSphinx.search("\"#{@search_text}\" | \"#{new_search}\"", :page=>1, :per_page => 100, :classes => [Mountain], :order => "importance desc", :field_weights => field_weights) | @results
+      if(Mountain::SEARCH_KEY_WORDS.any? {|word| @search_text.downcase.include?(word)})
+        #Remove search key words so that the new search can match more mountains.
+        new_search = @search_text.downcase.gsub(Regexp.union(Mountain::SEARCH_KEY_WORDS), '')
+        @results = ThinkingSphinx.search("\"#{@search_text}\" | \"#{new_search}\"", :page=>1, :per_page => 100, :classes => [Mountain], :order => "importance desc", :field_weights => field_weights) | @results
 
-    elsif(Lake::SEARCH_KEY_WORDS.any? {|word| @search_text.downcase.include?(word)})
-      #Remove search key words so that the new search can match more mountains.
-      new_search = @search_text.downcase.gsub(Regexp.union(Lake::SEARCH_KEY_WORDS), '')
-      @results = ThinkingSphinx.search("\"#{@search_text}\" | \"#{new_search}\"", :page=>1, :per_page => 100, :classes => [Lake], :order => "importance desc", :field_weights => field_weights) | @results
+      elsif(Lake::SEARCH_KEY_WORDS.any? {|word| @search_text.downcase.include?(word)})
+        #Remove search key words so that the new search can match more mountains.
+        new_search = @search_text.downcase.gsub(Regexp.union(Lake::SEARCH_KEY_WORDS), '')
+        @results = ThinkingSphinx.search("\"#{@search_text}\" | \"#{new_search}\"", :page=>1, :per_page => 100, :classes => [Lake], :order => "importance desc", :field_weights => field_weights) | @results
+      end
+
+      @results = @results | ThinkingSphinx.search(@search_text, :page=>1, :per_page => 100, :field_weights => field_weights)
+    rescue => e
+      Rails.logger.warn("Sphinx search error: #{e.message}")
+      @results = Place.where("name ILIKE ?", "%#{params[:search]}%").limit(20)
     end
-
-
-    @results = @results | ThinkingSphinx.search(@search_text, :page=>1, :per_page => 100, :field_weights => field_weights)
 
     if params[:open_best_result].blank? || params[:open_best_result] == "on"
       #bestValue = 0

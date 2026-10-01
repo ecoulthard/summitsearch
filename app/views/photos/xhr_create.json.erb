@@ -1,0 +1,6 @@
+{
+  "success": true,
+  "id": <%= @photo.id %>,
+  "time": <%= raw @photo.time.to_json %>,
+  "html": "<%= j(render(partial: 'photos/edit_thumb', formats: [:html], locals: { photo: @photo })) %>"
+}

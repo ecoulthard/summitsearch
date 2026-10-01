@@ -1,0 +1,12 @@
+<div class="sort">
+  <%= form_tag main_app.forem_list_topics_path, :method => 'get' do %>
+    <%= hidden_field_tag "forum_id", forum.id if defined? forum %>
+    Display topics from previous:
+    <%= select_tag "hours", options_for_select({ "All Topics" => "", "1 day" => 24, "7 days" => 7*24, "2 weeks" => 14*24, "1 month" => 31 * 24, "3 months" => 3*31*24, "6 months" => 6*31*24, "1 year" => 256 * 24}, hours) %>
+    Sort by:
+    <%= select_tag "sort", options_for_select({ "Author" => "author", "Post time" => "last_post_at", "Replies" => "num_replies", "Subject" => "subject", "Views" => "views_count" }, sort) %>
+    <%= select_tag "dir", options_for_select({"Ascending" => "asc", "Descending" => "desc"}, direction) %>
+    <%= submit_tag "Go" %>
+  <% end %>
+</div>
+

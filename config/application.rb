@@ -28,7 +28,8 @@ module Summitsearch
 
     Rails.autoloaders.main.ignore(
       Rails.root.join("app/models/forem"),
-      Rails.root.join("app/controllers/forem")
+      Rails.root.join("app/controllers/forem"),
+      Rails.root.join("app/helpers/forem")
     )
     #
     # These settings can be overridden in specific environments using the files

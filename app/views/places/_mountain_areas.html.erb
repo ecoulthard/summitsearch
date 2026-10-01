@@ -1,0 +1,42 @@
+<% if mountain.areas.length > 0 %>
+  <% if mountain.ranges.length > 0 %>
+    <% mountain.ranges.each do |range| %>
+      <% count = range.mountains.where("height > ?", mountain.height).count+1 %>
+      <p class="no-wrap"><%= count == 1 ? "The highest mountain" : "#{nth(count)} highest" %> <%= range_intro %> <%= link_to range.name, range %>.</p>&nbsp;
+    <% end %>
+  <% end %>
+
+  <% if mountain.icefield %>
+    <% icefield = mountain.icefield %>
+    <% count = icefield.mountains.where("height > ?", mountain.height).count+1 %>
+    <p class="no-wrap"><%= count == 1 ? "The highest mountain" : "#{nth(count)} highest" %> <%= icefield_intro %> <%= link_to icefield.name, icefield %>.</p>&nbsp;
+  <% end %>
+
+  <% if mountain.parks.length > 0 %>
+    <% mountain.parks.each do |park| %>
+      <% count = park.mountains.where("height > ?", mountain.height).count+1 %>
+      <p class="no-wrap"><%= count == 1 ? "The highest mountain" : "#{nth(count)} highest" %> <%= park_intro %> <%= link_to park.name, park %>.</p>&nbsp;
+    <% end %>
+  <% end %>
+
+  <% if mountain.island %>
+    <% island = mountain.island %>
+    <% count = island.mountains.where("height > ?", mountain.height).count+1 %>
+    <p class="no-wrap"><%= count == 1 ? "The highest mountain" : "#{nth(count)} highest" %> <%= island_intro %> <%= link_to island.name, island %>.</p>&nbsp;
+  <% end %>
+
+  <% if mountain.regions.length > 0 %>
+    <% mountain.regions.each do |region| %>
+      <% count = region.mountains.where("height > ?", mountain.height).count+1 %>
+      <p class="no-wrap"><%= count == 1 ? "The highest mountain" : "#{nth(count)} highest" %> <%= region_intro %> <%= link_to region.name, region %>.</p>&nbsp;
+    <% end %>
+  <% end %>
+
+  <% if defined?(mountain.peak_group) && mountain.peak_group %>
+    <% group = mountain.peak_group %>
+    <% count = group.mountains.where("height > ?", mountain.height).count+1 %>
+    <p class="no-wrap"><%= count == 1 ? "The highest peak" : "#{nth(count)} highest" %> <%= peak_group_intro %> <%= link_to group.name, group %>.</p>&nbsp;
+  <% end %>
+
+<% end %>
+

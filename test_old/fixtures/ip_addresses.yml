@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+author_ip:
+  user: author
+  address: 1.2.3.4
+  visit_count: 1
+  first_visit_at: <%= 1.day.ago.to_s(:db) %>
+  last_visit_at: <%= Time.now.to_s(:db) %>
+  last_http_user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:10.0.1) Gecko/20100101 Firefox/10.0.1
+
+vador_ip:
+  user: vador
+  address: 127.0.0.1
+  visit_count: 1
+  first_visit_at: <%= 2.years.ago.to_s(:db) %>
+  last_visit_at: <%= 1.hour.ago.to_s(:db) %>
+  last_http_user_agent: MyString

@@ -54,7 +54,7 @@ class Photo < ApplicationRecord
     attachable.variant :tiny, resize_to_limit: [80, 80], saver: { quality: 75 }
   end
 
-  validates :photo, presence: true
+  validates :photo, presence: true, unless: -> { photo_file_name.present? }
   validate :validate_photo_attachment
   
   validates :user_id, :presence => true
@@ -143,16 +143,16 @@ class Photo < ApplicationRecord
   end
 
   def ratio
-    #geo = Paperclip::Geometry.from_file(photo(:original))
-    #geo.width/geo.height
-    photo_width.to_f/photo_height.to_f
+    if photo_width.to_f > 0 && photo_height.to_f > 0
+      photo_width.to_f / photo_height.to_f
+    elsif photo.attached? && photo.blob.present? && photo.blob.metadata.is_a?(Hash) && photo.blob.metadata["width"].present? && photo.blob.metadata["height"].present?
+      photo.blob.metadata["width"].to_f / photo.blob.metadata["height"].to_f
+    else
+      4.0 / 3.0
+    end
   end
 
   def is_panorama?
-    return false unless photo.attached?
-    #geo = Paperclip::Geometry.from_file(photo(:original))
-    #ratio = geo.width/geo.height
-    #ratio = photo_width.to_f/photo_height.to_f
     ratio > 2.0 # If ratio greater than 200:100 then it is a panorama
   end
 
@@ -179,15 +179,12 @@ class Photo < ApplicationRecord
   end
 
   def long_thumb_width
-    return 0 unless photo.attached?
-    #ratio = photo_width.to_f/photo_height.to_f
-    #ratio = geo.width/geo.height
+    return 0 unless photo.attached? || photo_file_name.present? || (photo_width.to_i > 0 && photo_height.to_i > 0)
     ratio > max_long_thumb_ratio ? max_long_thumb_width : (max_long_thumb_height * ratio).to_i
   end
 
   def long_thumb_height
-    return 0 unless photo.attached?
-    #ratio = photo_width.to_f/photo_height.to_f
+    return 0 unless photo.attached? || photo_file_name.present? || (photo_width.to_i > 0 && photo_height.to_i > 0)
     ratio > max_long_thumb_ratio ? (max_long_thumb_width / ratio).to_i : max_long_thumb_height
   end
 
@@ -214,14 +211,12 @@ class Photo < ApplicationRecord
   end
 
   def small_width
-    return 0 unless photo.attached?
-    ratio = photo_width.to_f/photo_height.to_f
+    return 0 unless photo.attached? || photo_file_name.present? || (photo_width.to_i > 0 && photo_height.to_i > 0)
     ratio > max_small_ratio ? max_small_width : (max_small_height * ratio).to_i
   end
 
   def small_height
-    return 0 unless photo.attached?
-    ratio = photo_width.to_f/photo_height.to_f
+    return 0 unless photo.attached? || photo_file_name.present? || (photo_width.to_i > 0 && photo_height.to_i > 0)
     ratio > max_small_ratio ? (max_small_width / ratio).to_i : max_small_height
   end
 

@@ -1,0 +1,75 @@
+#jMenu {
+  display: table;
+  margin-top: 0px;
+  padding: 0;
+  background-color: var(--medium);
+
+  /* premier niveau */
+  li {
+    display: table-cell;
+    margin: 0;
+    color: #82ecff;
+
+    a, label {
+      padding: 2px 8px;
+      display: block;
+      background-color: transparent;
+      color: #82ecff;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    /* second niveau */
+    ul {
+      display: none;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      z-index: 100;
+      background-color: var(--medium);
+      border: 1px solid var(--dark);
+      border-top: none;
+      border-bottom: none;
+
+      li {
+        display: block;
+        padding: 0;
+        border-bottom: 1px solid var(--dark);
+
+        &.arrow {
+          background: transparent url("drop.png") no-repeat center center;
+          height: 6px;
+          padding: 0;
+          padding-top: 7px;
+        }
+
+        a {
+          font-size: 10px;
+          text-transform: none;
+          padding-left: 5px;
+          display: block;
+          border-top: 1px solid transparent;
+          border-bottom: 1px solid transparent;
+
+          &.isParent {
+            background: transparent url("drop.png") no-repeat right center;
+          }
+
+          &:hover {
+            background-color: #3e76c6;
+          }
+        }
+      }
+    }
+  }
+}

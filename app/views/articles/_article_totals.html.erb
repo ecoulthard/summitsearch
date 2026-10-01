@@ -1,0 +1,7 @@
+<% if article.total_likes.to_i > 0 %>
+  Liked: <%= pluralize(article.total_likes, 'time') %>&nbsp;&nbsp;
+<% end %>
+<% if article.total_comments.to_i > 0 %>
+  <%= pluralize(article.total_comments, 'comment') %>
+<% end %>
+

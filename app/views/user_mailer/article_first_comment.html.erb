@@ -1,0 +1,13 @@
+<% article_name = @article.respond_to?(:title) ? @article.title : @article.name %>
+<% article_link = @article.is_a?(Place) ? place_url(@article) : (@article.is_a?(Route) ? route_url(@article) : send("#{@article_type}_url", @article)) %>
+<%= sanitize "Someone has commented on your #{@article_type.humanize}: #{ link_to article_name, article_link }" %>
+<% if respond_to?(:forem) && @article.respond_to?(:topic) && @article.topic.present? %>
+<br><br>
+This discussion is also being displayed in the site forum as a new topic.  You can view it here:
+<br>
+<%= forem.forum_topic_url(@article.topic.forum_id, @article.topic) %>
+<br><br>
+To unsubscribe from further notifications for this discussion, use the following link:
+<br>
+<%= forem.unsubscribe_forum_topic_url(@article.topic.forum_id, @article.topic) %>
+<% end %>

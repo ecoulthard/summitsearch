@@ -48,4 +48,57 @@ class RouteTest < ActiveSupport::TestCase
     assert_equal content.bytesize, route.gps_file_size
     assert_not_nil route.gps_updated_at
   end
+
+  test "route without points cannot be saved" do
+    route = Scramble.new(name: "Skyline Trail", travel_time: "Unknown", insert_id: users(:vador).id)
+    assert route.invalid?
+  end
+
+  test "route with waypoints can be saved" do
+    route = Scramble.new(
+      name: "North Twin via Athabasca Glacier",
+      travel_time: "Unknown",
+      insert_id: users(:vador).id,
+      place_id: places(:north_twin).id
+    )
+
+    waypoints_data = [
+      [52.2197420249697, -117.22538315185545, -1, 1982],
+      [52.20217587589444, -117.24546753295897, 0, 2156],
+      [52.16670686505061, -117.28632294067381, 1, 2787],
+      [52.17049718923302, -117.32185684570311, 2, 3081],
+      [52.223107200708014, -117.40803085693358, 3, 3230],
+      [52.21742831872597, -117.4313768041992, 4, 3537],
+      [52.22521030605203, -117.43498169311522, 5, 3731],
+      [52.2337268641058, -117.405284274902, 4, 3358],
+      [52.2427673475595, -117.411292423096, 7, 3346],
+      [52.246235881402, -117.402366031494, 8, 3263],
+      [52.2555890604279, -117.395671237793, 9, 3162]
+    ]
+
+    waypoints_data.each_with_index do |(lat, lng, p_idx, h), idx|
+      route.waypoints.build(
+        latitude: lat,
+        longitude: lng,
+        local_index: idx,
+        parent_index: p_idx,
+        height: h
+      )
+    end
+
+    assert_equal 11, route.waypoints.length
+    route.waypoints.each do |waypoint|
+      assert_not waypoint.invalid?
+    end
+
+    assert route.save
+  end
+
+  test "route attributes must not be empty" do
+    route = Trail.new
+    assert route.invalid?
+    assert route.errors[:name].any?
+    assert route.errors[:travel_time].any?
+    assert route.errors[:insert_id].any?
+  end
 end

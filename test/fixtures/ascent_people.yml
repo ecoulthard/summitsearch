@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ascent_id: 1
+  person_id: 1
+
+two:
+  ascent_id: 1
+  person_id: 1

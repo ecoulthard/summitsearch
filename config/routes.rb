@@ -8,9 +8,15 @@ Rails.application.routes.draw do
     member do
       get :expire
       get :thumbs_up
+      put :thumbs_up
+      post :thumbs_up
       get :two_thumbs_up
+      put :two_thumbs_up
+      post :two_thumbs_up
       post :social_update
+      put :social_update
       post :create_comment
+      put :create_comment
       get :photos
     end
 
@@ -87,9 +93,15 @@ Rails.application.routes.draw do
     member do
       get :expire
       get :thumbs_up
+      put :thumbs_up
+      post :thumbs_up
       get :two_thumbs_up
+      put :two_thumbs_up
+      post :two_thumbs_up
       post :social_update
+      put :social_update
       post :create_comment
+      put :create_comment
     end
 
     collection do
@@ -146,9 +158,15 @@ Rails.application.routes.draw do
       get :expire_desc
       get :multi_photos
       get :thumbs_up
+      put :thumbs_up
+      post :thumbs_up
       get :two_thumbs_up
+      put :two_thumbs_up
+      post :two_thumbs_up
       post :social_update
+      put :social_update
       post :create_comment
+      put :create_comment
       get :photos
     end
 

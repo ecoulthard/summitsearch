@@ -1,0 +1,21 @@
+<% if can?(:read, forum) %>
+  <tr class="forum <%= cycle("odd", "even") %>">
+    <td>
+      <%= link_to forum.title, forum_path(forum), :class => "title" %>
+      <div class='description'><%= forum.description %></div>
+
+    </td>
+    <td class="last-post">
+      <span class='last_post'>
+        <% if last_post = forum.last_post_for(forem_user) -%>
+          <%= link_to(strip_links(last_post.topic.subject), forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> <%= t('time_ago_in_words', :time => time_ago_in_words(last_post.created_at)) -%>
+        <% else %>
+          <%= t('.none') -%>
+        <% end %>
+      </span>
+    </td>
+    <td class="topics-count"><%= forum.topics.count %></td>
+    <td class="posts-count"><%= forum.posts.count %></td>
+    <td class="views-count"><%= forum.views.sum(:count) %></td>
+  </tr>
+<% end %>
