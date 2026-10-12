@@ -46,12 +46,28 @@ window.convertToDecimal = function(coord) {
 };
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 let photo_load_called = false;
@@ -151,8 +167,13 @@ function initSharedUI() {
   // Dialogs
   if ($.fn.dialog) {
     if ($("#dlgSignin").length) {
-      $("#dlgSignin").dialog({ autoOpen: false, modal: true, width: 350 });
-      $(".signin").on("click", function(e) {
+      $("#dlgSignin").dialog({
+        autoOpen: false,
+        modal: false,
+        width: 360,
+        resizable: false
+      });
+      $(document).off("click.signin", ".signin").on("click.signin", ".signin", function(e) {
         $("#dlgSignin").dialog("open");
         e.preventDefault();
         return false;
@@ -160,8 +181,14 @@ function initSharedUI() {
     }
 
     if ($("#dlgSignup").length) {
-      $("#dlgSignup").dialog({ autoOpen: false, modal: true, width: 350 });
-      $(".signup").on("click", function(e) {
+      $("#dlgSignup").dialog({
+        autoOpen: false,
+        modal: false,
+        width: 380,
+        maxHeight: $(window).height() * 0.85,
+        resizable: false
+      });
+      $(document).off("click.signup", ".signup").on("click.signup", ".signup", function(e) {
         $("#dlgSignup").dialog("open");
         e.preventDefault();
         return false;
@@ -240,23 +267,27 @@ function initSharedUI() {
 
   // Toggle buttons
   $('.toggleButton').each(function() {
-    const toggleText = $(this).prevAll().find('.place_description');
+    const toggleText = $(this).prevAll().find('.place_description').add($(this).prev('.place_description'));
     if (toggleText.length === 0 || (toggleText.prop("scrollHeight") <= toggleText.prop("offsetHeight"))) {
       $(this).hide();
-    } else if ($.fn.button) {
-      $(this).button();
+    } else {
+      $(this).show();
+      if ($.fn.button) {
+        $(this).button();
+      }
     }
   });
 
-  $(document).on("click", '.toggleButton', function(e) {
+  $(document).off("click.toggleButton", '.toggleButton').on("click.toggleButton", '.toggleButton', function(e) {
+    e.preventDefault();
     e.stopPropagation();
-    const toggleText = $(this).prevAll().find('.place_description');
-    const buttonText = $(this).text();
+    const toggleText = $(this).prevAll().find('.place_description').add($(this).prev('.place_description')).first();
+    const buttonText = $(this).text().trim();
     if (buttonText.indexOf("Read more") === 0) {
       const h = toggleText.prop("scrollHeight");
       toggleText.animate({ maxHeight: h });
       $(this).text("Read less" + buttonText.substring(9));
-    } else {
+    } else if (buttonText.indexOf("Read less") === 0) {
       toggleText.animate({ maxHeight: '600px' });
       $(this).text("Read more" + buttonText.substring(9));
     }

@@ -1,0 +1,45 @@
+<% unless user_signed_in? %>
+  <div id="dlgSignup" title="Enter your details to Sign up" style="display: none;">
+    <%= form_with scope: :user, url: main_app.user_registration_path, class: "dialog-form", data: { turbo: false } do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'Confirm Password' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :username, 'Username' %>
+        <%= f.text_field :username, autocomplete: "username" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :realname, 'Real Name' %>
+        <%= f.text_field :realname, autocomplete: "name" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :country, 'Country' %>
+        <%= f.text_field :country %>
+      </div>
+      <div class="form-group">
+        <%= f.label :province, "Province/State" %>
+        <%= f.text_field :province %>
+      </div>
+      <div class="form-group">
+        <%= f.label :city, 'City' %>
+        <%= f.text_field :city %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+    <div class="auth-links">
+      <%= link_to "Forgot your password?", main_app.new_user_password_path %><br>
+      <%= link_to "Didn't receive confirmation instructions?", main_app.new_user_confirmation_path %>
+    </div>
+  </div>
+<% end %>

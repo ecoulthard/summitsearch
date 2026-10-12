@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = Rails.application.config.notifier_email
+  config.mailer_sender = Rails.application.config.notifier_email.presence || "notifier@summitsearch.org"
 
   config.router_name = :main_app
   

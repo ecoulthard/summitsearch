@@ -1,0 +1,25 @@
+<% unless user_signed_in? %>
+  <div id="dlgSignin" title="Please Sign in" style="display: none;">
+    <%= form_with scope: :user, url: main_app.user_session_path, class: "dialog-form", data: { turbo: false } do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+      <div class="form-group-checkbox">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Sign in" %>
+      </div>
+    <% end %>
+    <div class="auth-links">
+      <%= link_to "Forgot your password?", main_app.new_user_password_path %><br>
+      <%= link_to "Didn't receive confirmation instructions?", main_app.new_user_confirmation_path %>
+    </div>
+  </div>
+<% end %>

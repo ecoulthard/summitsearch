@@ -111,7 +111,7 @@ const PlaceObject = {
       for (let j = parseInt(index) - 1; j >= 1; j--) {
         const point = this.borderPoints[j];
         if (point && !point._destroy) {
-          point.marker.setIcon("/assets/markers/yellow-dot.png");
+          point.marker.setIcon((window.MarkerIcons && window.MarkerIcons.yellowDot) || "/assets/markers/yellow-dot.png");
           this.active_index = j;
           break;
         }

@@ -1,35 +1,58 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= content_for(:title) || "Summitsearch" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-
-    <%# Includes stylesheet and script files %>
-    <%= stylesheet_link_tag :application, "data-turbo-track": "reload" %>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    <%= google_map_include_tag %>
-    <%= javascript_importmap_tags %>
-    <%= javascript_include_tag :application, "data-turbo-track": "reload", defer: true %>
-    <%= yield :javascript %>
-  </head>
-
-  <body class="<%= "#{controller_name} #{action_name}" %>">
-    <%= mytopo_data %>
-    <%= menu if respond_to?(:menu) %>
+<html itemscope itemtype="http://schema.org/Article">
+<%= render 'layouts/header', default_title: "Summit Search", app: "main" %>
+<body id="main" class="default <%= controller_name %> <%= action_name %>"> 
+  <div id="banner" tabindex="1" style="background-image: url(<%= asset_path("logo_backgrounds/background#{rand(1..NUM_BACKGROUND_IMAGES)}.jpg") %>)">
+    <%= link_to "", main_app.root_path, id: "BannerLink" %>
+    <%= image_tag("logo.png", alt: 'Summit Search Mountain Community', id: 'BannerLogo') %>
+    <ul id="menu">
+      <%= menu %>
+      <li tabindex="6" class="menu_right search" data-turbo="false">
+        <%= form_with url: main_app.search_path, method: :get do |f| %>
+          <%= f.search_field :search, value: params[:search], placeholder: "Search the site" %>
+        <% end %>
+      </li>
+      <% if user_signed_in? %>
+        <li tabindex="5" class="not_search menu_right">
+          <%= link_to current_user.display_name, main_app.user_path(current_user), class: 'drop' %>
+          <div class="dropdown_1column align_right">
+            <div class="col_1">
+              <ul class="simple">
+                <li><%= link_to "Edit Profile", main_app.edit_user_registration_path %></li>
+                <li><%= button_to "Sign out", main_app.destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      <% else %>
+        <li class="not_search menu_right" data-turbo="false"><a class="signup">Sign up</a></li>
+        <li class="not_search menu_right" data-turbo="false"><a class="signin">Sign in</a></li>
+      <% end %>
+      <li class="not_search menu_right">
+        <%= link_to 'Submit a Photo', new_photo_path, rel: 'nofollow', data: { turbo: false } %>
+      </li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  
+  <div id="content">
+    <% if notice %>
+      <p id="notice" class="notice"><%= raw notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id="alert" class="notice"><%= alert %></p>
+    <% end %>
     <%= yield %>
-  </body>
+  </div>
+  <div class="clear"></div>
+  <div id="bottom">
+      <%= link_to "Contribution Guide", main_app.contributions_path, rel: 'nofollow' %>&nbsp;
+      <%= link_to "Terms of use", main_app.terms_path, rel: 'nofollow' %>&nbsp;
+      <%= link_to "Disclaimer", main_app.disclaimer_path, rel: 'nofollow' %>&nbsp;
+      <%= link_to "Suggestions", forem.forum_path("suggestions") if respond_to?(:forem) %>
+  </div>
+  <%= render "layouts/signup" %>
+  <%= render "layouts/signin" %>
+  <%= render 'layouts/javascript', app: "main" %>
+</body>
 </html>

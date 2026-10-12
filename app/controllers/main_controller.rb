@@ -87,7 +87,7 @@ class MainController < ApplicationController
 
   #Expires the cache fragments in the index method
   def expire_index
-    Rails.cache.clear("menu")
+    Rails.cache.delete("main_nav_menu_items_v1")
     expire_fragment(:action => "index", :part => "trips_and_albums")
     expire_fragment(:action => "index", :part => "trips_and_albums_count")
     expire_fragment(:action => "index", :part => "photos")

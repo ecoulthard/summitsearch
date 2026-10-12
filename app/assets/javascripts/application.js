@@ -2192,12 +2192,28 @@ window.convertToDecimal = function(coord) {
 };
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 let photo_load_called = false;
@@ -2297,8 +2313,13 @@ function initSharedUI() {
   // Dialogs
   if ($.fn.dialog) {
     if ($("#dlgSignin").length) {
-      $("#dlgSignin").dialog({ autoOpen: false, modal: true, width: 350 });
-      $(".signin").on("click", function(e) {
+      $("#dlgSignin").dialog({
+        autoOpen: false,
+        modal: false,
+        width: 360,
+        resizable: false
+      });
+      $(document).off("click.signin", ".signin").on("click.signin", ".signin", function(e) {
         $("#dlgSignin").dialog("open");
         e.preventDefault();
         return false;
@@ -2306,8 +2327,14 @@ function initSharedUI() {
     }
 
     if ($("#dlgSignup").length) {
-      $("#dlgSignup").dialog({ autoOpen: false, modal: true, width: 350 });
-      $(".signup").on("click", function(e) {
+      $("#dlgSignup").dialog({
+        autoOpen: false,
+        modal: false,
+        width: 380,
+        maxHeight: $(window).height() * 0.85,
+        resizable: false
+      });
+      $(document).off("click.signup", ".signup").on("click.signup", ".signup", function(e) {
         $("#dlgSignup").dialog("open");
         e.preventDefault();
         return false;
@@ -2386,23 +2413,27 @@ function initSharedUI() {
 
   // Toggle buttons
   $('.toggleButton').each(function() {
-    const toggleText = $(this).prevAll().find('.place_description');
+    const toggleText = $(this).prevAll().find('.place_description').add($(this).prev('.place_description'));
     if (toggleText.length === 0 || (toggleText.prop("scrollHeight") <= toggleText.prop("offsetHeight"))) {
       $(this).hide();
-    } else if ($.fn.button) {
-      $(this).button();
+    } else {
+      $(this).show();
+      if ($.fn.button) {
+        $(this).button();
+      }
     }
   });
 
-  $(document).on("click", '.toggleButton', function(e) {
+  $(document).off("click.toggleButton", '.toggleButton').on("click.toggleButton", '.toggleButton', function(e) {
+    e.preventDefault();
     e.stopPropagation();
-    const toggleText = $(this).prevAll().find('.place_description');
-    const buttonText = $(this).text();
+    const toggleText = $(this).prevAll().find('.place_description').add($(this).prev('.place_description')).first();
+    const buttonText = $(this).text().trim();
     if (buttonText.indexOf("Read more") === 0) {
       const h = toggleText.prop("scrollHeight");
       toggleText.animate({ maxHeight: h });
       $(this).text("Read less" + buttonText.substring(9));
-    } else {
+    } else if (buttonText.indexOf("Read less") === 0) {
       toggleText.animate({ maxHeight: '600px' });
       $(this).text("Read more" + buttonText.substring(9));
     }
@@ -2435,12 +2466,28 @@ window.onAppReady(function() {
 // === default.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 // Autocomplete search handling
@@ -2500,12 +2547,28 @@ window.onAppReady(function() {
 // === nomenu.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 window.onAppReady(function() {
@@ -2548,12 +2611,28 @@ window.onAppReady(function() {
 // === forem.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 window.onAppReady(function() {
@@ -2594,7 +2673,7 @@ var Waypoint = window.Waypoint = class Waypoint {
       map: window.map,
       title: "A waypoint",
       draggable: true,
-      icon: "/assets/markers/yellow-dot.png"
+      icon: (window.MarkerIcons && window.MarkerIcons.yellowDot) || "/assets/markers/yellow-dot.png"
     });
     this.infowindow = new google.maps.InfoWindow({
       content: window.Route ? window.Route.setUpWindowContent(this.id, this.window_content) : ""
@@ -2789,7 +2868,7 @@ var Waypoint = window.Waypoint = class Waypoint {
   setTitle(newTitle) {
     this.title = newTitle;
     if (this.icon_src === null || this.icon_src === "") {
-      this.icon_src = "/assets/markers/green-dot.png";
+      this.icon_src = (window.MarkerIcons && window.MarkerIcons.greenDot) || "/assets/markers/green-dot.png";
       this.marker.setIcon(this.icon_src);
     }
     $(`#route_waypoints_attributes_${this.id}_title`).val(newTitle);
@@ -2903,7 +2982,7 @@ var Waypoint = window.Waypoint = class Waypoint {
   setDescription(newDescription) {
     this.description = newDescription;
     if (this.icon_src === null || this.icon_src === "") {
-      this.icon_src = "/assets/markers/green-dot.png";
+      this.icon_src = (window.MarkerIcons && window.MarkerIcons.greenDot) || "/assets/markers/green-dot.png";
       this.marker.setIcon(this.icon_src);
     }
     $(`#route_waypoints_attributes_${this.id}_description`).val(newDescription);
@@ -3017,7 +3096,7 @@ const RouteObject = {
       clickable: false,
       zIndex: -100,
       map: window.map,
-      icon: "/assets/markers/center-dot.png",
+      icon: (window.MarkerIcons && window.MarkerIcons.centerDot) || "/assets/markers/center-dot.png",
       shape: {
         coord: [15, 18, 6],
         type: 'circle'
@@ -3188,7 +3267,7 @@ const RouteObject = {
   activateWaypoint(index) {
     if ((this.allow_branches && this.active_index !== index) || (this.activeWaypoint() && this.activeWaypoint()._destroy)) {
       if (this.getWaypoint(index)) {
-        this.getWaypoint(index).marker.setIcon("/assets/markers/yellow-dot.png");
+        this.getWaypoint(index).marker.setIcon((window.MarkerIcons && window.MarkerIcons.yellowDot) || "/assets/markers/yellow-dot.png");
       }
       if (this.activeWaypoint()) {
         this.activeWaypoint().resetIcon();
@@ -3293,7 +3372,7 @@ var BorderPoint = window.BorderPoint = class BorderPoint {
       map: window.map,
       title: "A border point",
       draggable: true,
-      icon: "/assets/markers/yellow-dot.png"
+      icon: (window.MarkerIcons && window.MarkerIcons.yellowDot) || "/assets/markers/yellow-dot.png"
     });
 
     // Set parent icon to red if id > 0
@@ -3459,7 +3538,7 @@ const PlaceObject = {
       for (let j = parseInt(index) - 1; j >= 1; j--) {
         const point = this.borderPoints[j];
         if (point && !point._destroy) {
-          point.marker.setIcon("/assets/markers/yellow-dot.png");
+          point.marker.setIcon((window.MarkerIcons && window.MarkerIcons.yellowDot) || "/assets/markers/yellow-dot.png");
           this.active_index = j;
           break;
         }
@@ -3552,12 +3631,28 @@ window.Main = {
 // === main/index.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 window.onAppReady(function() {
@@ -3571,12 +3666,28 @@ window.onAppReady(function() {
 // === main/updated.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 window.onAppReady(function() {
@@ -3590,12 +3701,28 @@ window.onAppReady(function() {
 // === places/show.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 window.onAppReady(function() {
@@ -3608,12 +3735,28 @@ window.onAppReady(function() {
 // === routes/show.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 window.onAppReady(function() {
@@ -3626,12 +3769,28 @@ window.onAppReady(function() {
 // === albums/show.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 window.onAppReady(function() {
@@ -3644,12 +3803,28 @@ window.onAppReady(function() {
 // === trip_reports/show.js ===
 
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 window.onAppReady(function() {

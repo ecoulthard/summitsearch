@@ -11,7 +11,7 @@ var BorderPoint = window.BorderPoint = class BorderPoint {
       map: window.map,
       title: "A border point",
       draggable: true,
-      icon: "/assets/markers/yellow-dot.png"
+      icon: (window.MarkerIcons && window.MarkerIcons.yellowDot) || "/assets/markers/yellow-dot.png"
     });
 
     // Set parent icon to red if id > 0

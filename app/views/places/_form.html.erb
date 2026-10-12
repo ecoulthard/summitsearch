@@ -41,7 +41,9 @@
   <div class="clear"></div><br>
 
   <% if @place.is_a?(Mountain) %>
-    <%= f.fields_for :ascents %>
+    <%= f.fields_for :ascents do |ascent_form| %>
+      <%= render partial: 'ascent_fields', locals: { f: ascent_form } %>
+    <% end %>
     <%= f.link_to_add "Add specific information about an ascent", :ascents, class: 'linkButton' %>
   <% end %>
 

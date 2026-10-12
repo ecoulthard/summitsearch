@@ -1,7 +1,7 @@
 require "test_helper"
 
 class PhotosControllerTest < ActionDispatch::IntegrationTest
-  fixtures :photos, :ip_addresses, :visits, :views, :users, :places
+  fixtures :photos, :ip_addresses, :visits, :views, :users, :places, :trip_reports, :albums
 
   setup do
     @admin = users(:vador)
@@ -97,5 +97,27 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
     put social_update_photo_url(@photo), params: { facebook_like: "false" }
     assert_response :success
     assert_equal 0, @photo.reload.likes.count
+  end
+
+  test "should get editable_list with trip_report_id" do
+    trip_report = trip_reports(:columbia)
+    get editable_list_photos_url, params: { trip_report_id: trip_report.id }
+    assert_response :success
+  end
+
+  test "should get editable_list with entity encoded query parameters" do
+    trip_report = trip_reports(:columbia)
+    get editable_list_photos_url, params: { "album_id" => "", "amp;topic_id" => "", "amp;trip_report_id" => trip_report.id }
+    assert_response :success
+  end
+
+  test "should get editable_list with empty parameters without error" do
+    get editable_list_photos_url, params: { album_id: "", topic_id: "", trip_report_id: "" }
+    assert_response :success
+  end
+
+  test "should get editable_list with non-existent id without error" do
+    get editable_list_photos_url, params: { trip_report_id: "999999" }
+    assert_response :success
   end
 end

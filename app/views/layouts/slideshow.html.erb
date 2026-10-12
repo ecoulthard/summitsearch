@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/header', default_title: "Summit Search", app: "main" %>
+<body id="slideshow" class="slideshow <%= controller_name %> <%= action_name %>">
+  <%= yield %>
+  <%= render 'layouts/javascript', app: "main" %>
+</body>
+</html>

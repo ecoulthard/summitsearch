@@ -15,6 +15,7 @@
   border: 1px solid #002232;
   background: var(--medium) url("forem/bg_list.gif") repeat-x scroll 0 0;
   box-shadow: inset 0px 0px 1px #edf9ff;
+  box-sizing: border-box;
 
   .menu_right {
     float: right;
@@ -62,12 +63,20 @@
       margin-top: 3px;
       width: 300px;
 
+      form {
+        margin: 0;
+        padding: 0;
+      }
+
       input[type="search"], input[type="text"] {
         font-size: 14px;
         height: 30px;
         width: 100%;
         border-style: none;
         border-width: 0;
+        border-radius: 4px;
+        padding: 0 8px;
+        box-sizing: border-box;
       }
     }
   }
@@ -105,13 +114,25 @@
         top: auto;
       }
 
-      div a {
+      div a, button {
         font-size: 12px;
         color: #015b86;
 
         &:hover {
           color: #029feb;
         }
+      }
+
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        text-shadow: 1px 1px 1px #FFFFFF;
+        text-align: left;
+        display: block;
+        width: 100%;
       }
     }
 
@@ -123,6 +144,7 @@
       outline: 0;
       text-decoration: none;
       text-shadow: 1px 1px 1px #000;
+      cursor: pointer;
     }
 
     .drop {

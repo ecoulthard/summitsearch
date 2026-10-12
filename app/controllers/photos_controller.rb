@@ -23,9 +23,9 @@ class PhotosController < ArticlesController
     #If no search text restrict search to within 30km otherwise search within 100km
     radius = params[:search].blank? ? 30 : 100
     search = params[:search].blank? ? "": params[:search]
-    user_id = params[:only_my_photos].blank? || params[:only_my_photos] == "false" ? nil : current_user.id
-    trip_report_id = params[:trip_report_id].blank? ? nil : params[:trip_report_id]
-    topic_id = params[:topic_id].blank? ? nil : params[:topic_id]
+    user_id = params[:only_my_photos].blank? || params[:only_my_photos] == "false" ? nil : current_user&.id
+    trip_report_id = params[:trip_report_id].presence || params["amp;trip_report_id"].presence
+    topic_id = params[:topic_id].presence || params["amp;topic_id"].presence
     sort = params[:sort].blank? ? Photo::DEFAULT_SORT : params[:sort]
     @photos = Photo.search_nearby(params[:latitude].to_f, params[:longitude].to_f, radius, search, user_id, trip_report_id, topic_id, sort)
     respond_to do |format|
@@ -226,13 +226,20 @@ class PhotosController < ArticlesController
 
   #Load editable photos partial for multi edit page.
   def editable_list
-    if !params[:trip_report_id].blank?
-      @photos = TripReport.find(params[:trip_report_id]).photos
-    elsif !params[:album_id].blank?
-      @photos = Album.find(params[:album_id]).photos
-    elsif !params[:topic_id].blank?
-      @photos = Forem::Topic.find(params[:topic_id]).uploaded_photos.where('user_id = ?', current_user.id)
+    trip_report_id = params[:trip_report_id].presence || params["amp;trip_report_id"].presence
+    album_id = params[:album_id].presence || params["amp;album_id"].presence
+    topic_id = params[:topic_id].presence || params["amp;topic_id"].presence
+
+    @photos = if trip_report_id.present?
+      TripReport.find_by(id: trip_report_id)&.photos || []
+    elsif album_id.present?
+      Album.find_by(id: album_id)&.photos || []
+    elsif topic_id.present? && current_user.present?
+      Forem::Topic.find_by(id: topic_id)&.uploaded_photos&.where(user_id: current_user.id) || []
+    else
+      []
     end
+
     respond_to do |format|
       format.html { render :partial => 'photos/editable_list' }
       format.xml  { head :ok }

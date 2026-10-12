@@ -41,7 +41,7 @@
             $("#topic_place_id").val(ui.item.id);
           //Else update the topic to use this place by calling an action.
           <% else %>
-            var setplaceidpath = "<%= main_app.forem_topics_set_place_id_path :forum_id => @topic.forum.id, :id => @topic.id, :place_id => "topic_place_id" %>";
+            var setplaceidpath = "<%= raw main_app.forem_topics_set_place_id_path(forum_id: @topic.forum.id, id: @topic.id, place_id: "topic_place_id") %>";
             setplaceidpath = setplaceidpath.replace("topic_place_id", ui.item.id);
             //Execute the postback
             $.get(setplaceidpath, function(data) {

@@ -1,10 +1,26 @@
 window.onAppReady = window.onAppReady || function(callback) {
-  if (document.readyState !== "loading") {
+  let initialFired = false;
+  const run = function() {
     callback();
+  };
+
+  if (document.readyState !== "loading") {
+    initialFired = true;
+    setTimeout(run, 0);
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", function() {
+      initialFired = true;
+      run();
+    }, { once: true });
   }
-  document.addEventListener("turbo:load", callback);
+
+  document.addEventListener("turbo:load", function() {
+    if (initialFired) {
+      initialFired = false;
+      return;
+    }
+    run();
+  });
 };
 
 // Autocomplete search handling

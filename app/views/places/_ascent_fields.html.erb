@@ -43,7 +43,9 @@
       <%= f.text_area :description, class: 'expand100-500', rows: 5, cols: 80 %>
     </div><div class="clear"></div>
 
-    <%= f.fields_for :ascent_people %>
+    <%= f.fields_for :ascent_people do |ascent_person_form| %>
+      <%= render partial: 'ascent_person_fields', locals: { f: ascent_person_form } %>
+    <% end %>
     <%= f.link_to_add "Add participant information", :ascent_people, class: 'linkButton' %>
 
     <div>

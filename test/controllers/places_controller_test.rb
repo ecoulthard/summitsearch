@@ -80,6 +80,18 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get edit for mountain with ascents" do
+    sign_in @editor
+    person = Person.create!(name: "Conrad Kain", insert_id: @admin.id)
+    mountain = places(:castleguard)
+    ascent = mountain.ascents.build(year: 1923, description: "First ascent test")
+    ascent.ascent_people.build(person_id: person.id)
+    mountain.save(validate: false)
+
+    get edit_place_url(mountain)
+    assert_response :success
+  end
+
   test "should update place" do
     sign_in @editor
     put place_url(places(:castleguard)), params: { place: places(:castleguard).attributes }

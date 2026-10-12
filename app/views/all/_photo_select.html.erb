@@ -57,7 +57,7 @@
       });
 
       function getPhotoList(){
-        var getpath = "<%= main_app.nearby_list_photos_path(search: 'photo_search', only_my_photos: 'photo_only_my_photos', trip_report_id: 'photo_trip_report_id', topic_id: 'photo_topic_id', latitude: 'photo_start_latitude', longitude: 'photo_start_longitude') %>";
+        var getpath = "<%= raw main_app.nearby_list_photos_path(search: 'photo_search', only_my_photos: 'photo_only_my_photos', trip_report_id: 'photo_trip_report_id', topic_id: 'photo_topic_id', latitude: 'photo_start_latitude', longitude: 'photo_start_longitude') %>";
         getpath = getpath.replace("photo_search", $('#photo_search').val());
         getpath = getpath.replace("photo_only_my_photos", $('#only_my_photos').is(':checked'));
         <% if !defined?(trip_report) || trip_report.id.nil? %>

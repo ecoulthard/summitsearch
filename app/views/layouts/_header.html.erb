@@ -1,0 +1,41 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <% if defined? @noindex %>
+    <META NAME="ROBOTS" CONTENT="NOINDEX, FOLLOW">
+  <% end %>
+  <% if defined? @metaDescription %>
+    <meta name='description' content='<%= truncate(strip_tags(@metaDescription), length: 500) %>'>
+  <% end %>
+
+  <% if defined? @pageTitle %>
+    <meta itemprop="name" content='<%= @pageTitle %>'>
+  <% end %>
+
+  <%= favicon_link_tag 'markers/mountains.png', rel: 'icon', type: 'image/png' %>
+  <%= favicon_link_tag 'markers/mountains.png', rel: 'apple_touch_icon', type: 'image/png' %>
+
+  <% if defined? @pageTitle %>
+    <title><%= @pageTitle %></title>
+  <% else %>
+    <title><%= default_title %></title>
+  <% end %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/redmond/jquery-ui.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+  <script type="text/javascript">
+    window.MarkerIcons = {
+      centerDot: "<%= asset_path('markers/center-dot.png') %>",
+      yellowDot: "<%= asset_path('markers/yellow-dot.png') %>",
+      greenDot: "<%= asset_path('markers/green-dot.png') %>",
+      redDot: "<%= asset_path('markers/red-dot.png') %>"
+    };
+  </script>
+
+  <%= google_map_include_tag %>
+
+  <%= yield(:head) %>
+</head>

@@ -1,7 +1,0 @@
-author_ip_visit:
-  ip_address: author_ip
-  visitable_id: 100
-  visitable_type: Photo
-  count: 2
-  facebook_like: false
-  google_plus: false

@@ -5,10 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 <% SALT = "NaCl" unless defined?(SALT) %>
+<% PASSWORD = Devise::Encryptor.digest(User, 'Password123!') unless defined?(PASSWORD) %>
 
 vador:
   email: darth@vador.com
-  encrypted_password: random_string(30)
+  encrypted_password: <%= PASSWORD %>
   password_salt: <%= SALT %>
   confirmed_at: 2010-06-21 17:22:26.767688
   confirmation_sent_at: 2010-06-21 17:15:01.314628
@@ -23,7 +24,7 @@ vador:
 
 akbar: 
   email: akbar@akbar.com
-  encrypted_password: random_string(30)
+  encrypted_password: <%= PASSWORD %>
   password_salt: <%= SALT %>
   confirmed_at: 2010-06-21 17:22:26.767688
   confirmation_sent_at: 2010-06-21 17:15:01.314628
@@ -37,7 +38,7 @@ akbar:
  
 author:
   email: author@author.com
-  encrypted_password: random_string(30)
+  encrypted_password: <%= PASSWORD %>
   password_salt: <%= SALT %>
   confirmed_at: 2010-06-21 18:51:21.817421
   confirmation_sent_at: 2010-06-21 09:23:44.843231
@@ -53,7 +54,7 @@ author:
 forem_user:
   id: 100
   email: forem@forem.com
-  encrypted_password: random_string(30)
+  encrypted_password: <%= PASSWORD %>
   password_salt: <%= SALT %>
   confirmed_at: 2010-06-21 18:51:21.817421
   confirmation_sent_at: 2010-06-21 09:23:44.843231

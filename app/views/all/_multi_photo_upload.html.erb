@@ -75,7 +75,7 @@
         return;
       //If we have an existing article then load photos.
       <% if (defined?(@trip_report) && !@trip_report.id.nil?) || (defined?(@topic) && !@topic.id.nil?) || (defined?(@album) && !@album.id.nil?) %>
-        var getpath = "<%= main_app.editable_list_photos_path(trip_report_id: 'photos_trip_report_id', topic_id: 'photos_topic_id', album_id: 'photos_album_id') %>";
+        var getpath = "<%= raw main_app.editable_list_photos_path(trip_report_id: 'photos_trip_report_id', topic_id: 'photos_topic_id', album_id: 'photos_album_id') %>";
         <% if !defined?(@trip_report) || @trip_report.id.nil? %>
           getpath = getpath.replace("photos_trip_report_id", "");
         <% else %>
@@ -188,7 +188,7 @@
 	var newTime = $(this).parent().children("input:text:last").val();
 	var newCaption = $(this).parent().children("textarea").val();
 	//Create postback path string
-	var updatepath = "<%= main_app.thumb_update_photos_path(id: 'photo_id', title: 'photo_title', time: 'photo_time', caption: 'photo_caption', authenticity_token: 'photo_authenticity_token') %>";
+	var updatepath = "<%= raw main_app.thumb_update_photos_path(id: 'photo_id', title: 'photo_title', time: 'photo_time', caption: 'photo_caption', authenticity_token: 'photo_authenticity_token') %>";
 	updatepath = updatepath.replace("photo_id", $(this).siblings("input:hidden").val());
 	updatepath = updatepath.replace("photo_title", escape(newTitle));
 	updatepath = updatepath.replace("photo_time", escape(newTime));

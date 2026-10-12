@@ -51,7 +51,7 @@ module ApplicationHelper
 
   # Returns a menu for the application layout
   def menu
-    Rails.cache.fetch('menu') { render partial: 'all/menu' }
+    Rails.cache.fetch('main_nav_menu_items_v1') { render partial: 'all/menu' }
   end
 
   def mark_required(object, attribute)  

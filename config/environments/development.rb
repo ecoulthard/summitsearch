@@ -36,15 +36,20 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "summitsearch.org",
-    user_name: ENV["NOTIFIER_EMAIL"],
-    password: ENV["NOTIFIER_EMAIL_PASSWORD"],
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+  if ENV["NOTIFIER_EMAIL"].present? && ENV["NOTIFIER_EMAIL_PASSWORD"].present?
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "summitsearch.org",
+      user_name: ENV["NOTIFIER_EMAIL"],
+      password: ENV["NOTIFIER_EMAIL_PASSWORD"],
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
+  else
+    config.action_mailer.delivery_method = :test
+  end
 
   # Make template changes take effect immediately.
   config.action_mailer.perform_caching = false

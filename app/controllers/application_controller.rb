@@ -16,9 +16,10 @@ class ApplicationController < ActionController::Base
 
   before_action :valid_user_agents
   before_action :enable_tracking
-  before_action :authenticate_user!, except: [:index, :show], raise: false
-  before_action :editor_required, except: [:index, :show, :expire], raise: false
-  before_action :admin_required, except: [:index, :show, :edit, :update, :new, :create, :expire], raise: false
+  before_action :authenticate_user!, except: [:index, :show], unless: :devise_controller?, raise: false
+  before_action :editor_required, except: [:index, :show, :expire], unless: :devise_controller?, raise: false
+  before_action :admin_required, except: [:index, :show, :edit, :update, :new, :create, :expire], unless: :devise_controller?, raise: false
+  before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery
 
   def forem_user
@@ -37,7 +38,7 @@ class ApplicationController < ActionController::Base
     user_signed_in? && current_user.is_admin?
   end
 
-  def authenticate_user!
+  def authenticate_user!(*args)
     defined?(super) ? super : (user_signed_in? ? true : permission_denied)
   end
 
@@ -81,6 +82,11 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :realname, :country, :province, :city])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :realname, :country, :province, :city, :description, :home_page, :photo, :photo_caption, :signature])
+  end
 
   VALID_BROWSERS = ["applewebkit", "blackberry", "chrome", "firefox", "gecko", "msie", "netscape", "opera", "playstation", "safari", "trident", "wii", "dolfin"]
   VALID_ROBOTS = ["google", "msnbot", "slurp", "teoma", "facebook"]

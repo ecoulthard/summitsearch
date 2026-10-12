@@ -24,7 +24,7 @@ const RouteObject = {
       clickable: false,
       zIndex: -100,
       map: window.map,
-      icon: "/assets/markers/center-dot.png",
+      icon: (window.MarkerIcons && window.MarkerIcons.centerDot) || "/assets/markers/center-dot.png",
       shape: {
         coord: [15, 18, 6],
         type: 'circle'
@@ -195,7 +195,7 @@ const RouteObject = {
   activateWaypoint(index) {
     if ((this.allow_branches && this.active_index !== index) || (this.activeWaypoint() && this.activeWaypoint()._destroy)) {
       if (this.getWaypoint(index)) {
-        this.getWaypoint(index).marker.setIcon("/assets/markers/yellow-dot.png");
+        this.getWaypoint(index).marker.setIcon((window.MarkerIcons && window.MarkerIcons.yellowDot) || "/assets/markers/yellow-dot.png");
       }
       if (this.activeWaypoint()) {
         this.activeWaypoint().resetIcon();

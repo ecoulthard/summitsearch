@@ -21,7 +21,7 @@ var Waypoint = window.Waypoint = class Waypoint {
       map: window.map,
       title: "A waypoint",
       draggable: true,
-      icon: "/assets/markers/yellow-dot.png"
+      icon: (window.MarkerIcons && window.MarkerIcons.yellowDot) || "/assets/markers/yellow-dot.png"
     });
     this.infowindow = new google.maps.InfoWindow({
       content: window.Route ? window.Route.setUpWindowContent(this.id, this.window_content) : ""
@@ -216,7 +216,7 @@ var Waypoint = window.Waypoint = class Waypoint {
   setTitle(newTitle) {
     this.title = newTitle;
     if (this.icon_src === null || this.icon_src === "") {
-      this.icon_src = "/assets/markers/green-dot.png";
+      this.icon_src = (window.MarkerIcons && window.MarkerIcons.greenDot) || "/assets/markers/green-dot.png";
       this.marker.setIcon(this.icon_src);
     }
     $(`#route_waypoints_attributes_${this.id}_title`).val(newTitle);
@@ -330,7 +330,7 @@ var Waypoint = window.Waypoint = class Waypoint {
   setDescription(newDescription) {
     this.description = newDescription;
     if (this.icon_src === null || this.icon_src === "") {
-      this.icon_src = "/assets/markers/green-dot.png";
+      this.icon_src = (window.MarkerIcons && window.MarkerIcons.greenDot) || "/assets/markers/green-dot.png";
       this.marker.setIcon(this.icon_src);
     }
     $(`#route_waypoints_attributes_${this.id}_description`).val(newDescription);

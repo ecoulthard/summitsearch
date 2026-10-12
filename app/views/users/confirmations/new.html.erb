@@ -1,7 +1,7 @@
 <div class="clear"></div><br>
 <div class="form">
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <fieldset>
     <legend>Resend confirmation instructions</legend>

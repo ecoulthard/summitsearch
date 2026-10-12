@@ -20,7 +20,7 @@
       }
     }
 
-    $(window).load(function() {
+    $(window).on('load', function() {
       sliderLeft=$('#thumbScroller .container').position().left;
       padding=$('#outer_container').css('paddingRight').replace("px", "");
       sliderWidth=$(window).width()-padding;
@@ -72,8 +72,10 @@
       sliderWidth=$(window).width()-padding;
     });
     $(function() {
+      var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.Modernizr && window.Modernizr.touch);
+
       //Hide notices after 10 seconds if not mobile.
-      if(!Modernizr.touch){
+      if(!isTouch){
         $(".notice").show();
         setTimeout(function() {
           $(".notice").slideUp('slow');
@@ -98,7 +100,7 @@
       var cnt_thumbs = 0;
       for(var i=0;i<nmb_thumbs;++i){
         var $thumb = $thumbScroller.find('.content:nth-child('+parseInt(i+1)+')');
-	$('<img/>').load(function(){
+	$('<img/>').on('load', function(){
 	  ++cnt_thumbs;
 	  if(cnt_thumbs == nmb_thumbs)
 	    //display the thumbs on the bottom of the page
@@ -115,7 +117,7 @@
       //when the the mouse is moved up/down
       //the user will be able to see the full image
       //If touch screen then disable since there is no mouse to follow.
-      if(!Modernizr.touch)
+      if(!isTouch)
         makeScrollable();
 
       //clicking on a thumb...
@@ -156,7 +158,7 @@
 	  $loader.show();
 
 	  //expand the clone when large image is loaded
-	  $('<img class="fp_preview"/>').load(function(){
+	  $('<img class="fp_preview"/>').on('load', function(){
 	    var $newimg = $(this);
 	    var $currImage = $('#fp_gallery').children('img:first');
 	    $newimg.insertBefore($currImage);
@@ -239,7 +241,7 @@
 	  $e_next = $thumbScroller.find('.content:nth-child('+current+')');
 	}
 	$loader.show();
-	$('<img class="fp_preview"/>').load(function(){
+	$('<img class="fp_preview"/>').on('load', function(){
 	  var $newimg 		= $(this);
 	  var $currImage 		= $('#fp_gallery').children('img:first');
 	  $newimg.insertBefore($currImage);
@@ -256,7 +258,7 @@
 	  $e_next	= $thumbScroller.find('.content:nth-child('+current+')');
 	}
 	$loader.show();
-	$('<img class="fp_preview"/>').load(function(){
+	$('<img class="fp_preview"/>').on('load', function(){
 	  var $newimg 		= $(this);
 	  var $currImage 		= $('#fp_gallery').children('img:first');
 	  $newimg.insertBefore($currImage);
@@ -267,7 +269,7 @@
 				
        function makeScrollable(){
          scrollSpeed=1;
-         scrollInterval = setInterval("scrollWindow()",30);
+         scrollInterval = setInterval(scrollWindow, 30);
          $(document).bind('mousemove',function(e){
 	   xpos = e.pageX; ypos = e.pageY;
 //	   var top = (e.pageY - $(document).scrollTop()/2) ;
