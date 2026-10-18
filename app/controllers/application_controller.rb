@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   before_action :editor_required, except: [:index, :show, :expire], unless: :devise_controller?, raise: false
   before_action :admin_required, except: [:index, :show, :edit, :update, :new, :create, :expire], unless: :devise_controller?, raise: false
   before_action :configure_permitted_parameters, if: :devise_controller?
-  protect_from_forgery
+  protect_from_forgery prepend: true
 
   def forem_user
     current_user

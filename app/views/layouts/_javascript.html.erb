@@ -8,7 +8,7 @@
   <% else %>
     var doNotTrack = false;
   <% end %>
-  var facebookAppId = <%= facebookAppId.to_json %>;
+  var facebookAppId = <%= raw json_escape(facebookAppId.to_json) %>;
   var facebookChannelUrl = '//summitsearch.org/channel.html';
 </script>
 <div id="fb-root"></div>

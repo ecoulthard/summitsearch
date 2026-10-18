@@ -174,6 +174,10 @@ function initSharedUI() {
         resizable: false
       });
       $(document).off("click.signin", ".signin").on("click.signin", ".signin", function(e) {
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        if (csrfToken) {
+          $('#dlgSignin form input[name="authenticity_token"]').val(csrfToken);
+        }
         $("#dlgSignin").dialog("open");
         e.preventDefault();
         return false;
@@ -189,6 +193,10 @@ function initSharedUI() {
         resizable: false
       });
       $(document).off("click.signup", ".signup").on("click.signup", ".signup", function(e) {
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        if (csrfToken) {
+          $('#dlgSignup form input[name="authenticity_token"]').val(csrfToken);
+        }
         $("#dlgSignup").dialog("open");
         e.preventDefault();
         return false;

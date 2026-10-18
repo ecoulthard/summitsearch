@@ -26,7 +26,7 @@
             <ul>
               <li class="arrow"></li> <!-- Only for illustration : arrow_down.png -->
               <li><%= link_to "Edit Profile", main_app.edit_user_registration_path %></li>
-              <li><%= button_to "Sign out", main_app.destroy_user_session_path, method: :delete %></li>
+              <li><%= button_to "Sign out", main_app.destroy_user_session_path, method: :delete, data: { turbo: false } %></li>
             </ul>
           </li>
         <% else %>  

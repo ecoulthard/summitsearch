@@ -36,7 +36,7 @@
         <h4><%= link_to truncate(region.name, length: 60), region %></h4>
         <ul>
           <% Place.subclass_types.each do |subclass| %>
-            <% if region.send(subclass.to_s.tableize).length > 0 %>
+            <% if region.places.where(type: subclass.name).exists? %>
               <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", area_id: region.id) %></li>
             <% end %>
           <% end %>
@@ -54,7 +54,7 @@
         <h4><%= link_to truncate(area.name, length: 60), area %></h4>
         <ul>
           <% Place.subclass_types.each do |subclass| %>
-            <% if area.send(subclass.to_s.tableize).length > 0 %>
+            <% if area.places.where(type: subclass.name).exists? %>
               <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", area_id: area.id) %></li>
             <% end %>
           <% end %>
@@ -73,7 +73,7 @@
         <h4><%= link_to truncate(area.name, length: 60), area %></h4>
         <ul>
           <% Place.subclass_types.each do |subclass| %>
-            <% if area.send(subclass.to_s.tableize).length > 0 %>
+            <% if area.places.where(type: subclass.name).exists? %>
               <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", area_id: area.id) %></li>
             <% end %>
           <% end %>
@@ -92,7 +92,7 @@
         <h4><%= link_to truncate(area.name, length: 60), area %></h4>
         <ul>
           <% Place.subclass_types.each do |subclass| %>
-            <% if area.send(subclass.to_s.tableize).length > 0 %>
+            <% if area.places.where(type: subclass.name).exists? %>
               <li><%= link_to subclass.to_s.titleize.pluralize, send("#{subclass.to_s.tableize}_path", area_id: area.id) %></li>
             <% end %>
           <% end %>

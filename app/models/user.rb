@@ -62,7 +62,7 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [150, 150]
   end
 
-  SORT_OPTIONS = {'name' => "IFNULL(NULLIF(username,''), realname)", 'date_created' => 'created_at DESC'}
+  SORT_OPTIONS = {'name' => Arel.sql("COALESCE(NULLIF(username,''), realname)"), 'date_created' => 'created_at DESC'}
   DEFAULT_SORT = 'date_created'
 
   after_destroy :ensure_an_admin_remains
@@ -156,7 +156,7 @@ class User < ApplicationRecord
   #Lists all models with title >= lower and <= upper
   def self.list sort=DEFAULT_SORT, lower=nil, upper=nil
     if !lower.nil? && !upper.nil? #Grab alphabetical interval of albums
-      where("confirmed_at IS NOT NULL && ((LEFT(username,:length) >= :lower AND LEFT(username,:length) <= :upper) OR ((username IS NULL OR username = '') AND LEFT(realname,:length) >= :lower AND LEFT(realname,:length) <= :upper))", {:lower => lower, :upper => upper, :length => lower.length }).order(SORT_OPTIONS[sort])
+      where("confirmed_at IS NOT NULL AND ((LEFT(username,:length) >= :lower AND LEFT(username,:length) <= :upper) OR ((username IS NULL OR username = '') AND LEFT(realname,:length) >= :lower AND LEFT(realname,:length) <= :upper))", {:lower => lower, :upper => upper, :length => lower.length }).order(SORT_OPTIONS[sort])
     else
       where('confirmed_at IS NOT NULL').order(SORT_OPTIONS[sort])
     end

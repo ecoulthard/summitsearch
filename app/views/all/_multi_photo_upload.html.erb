@@ -236,13 +236,6 @@
   <div class="clear" style="height:300px"></div>
 
   <%= hidden_field_tag :edit_textfield %>
-
-  <%= form_with url: main_app.thumb_update_photos_path, method: :post do %>
-    <%= hidden_field_tag :id, '' %>
-    <%= hidden_field_tag :title, '' %>
-    <%= hidden_field_tag :time, '' %>
-    <%= hidden_field_tag :caption, '' %>
-  <% end %>
 <% if defined?(dialog) && dialog %>
 </div>
 <% end %>

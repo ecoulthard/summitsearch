@@ -25,7 +25,7 @@
         //Cancel the link behavior
         e.preventDefault();
         //set which field to insert the selected photo id into
-        $("#use_field").val($(this).nextAll().find(".editor:first").prop("id"));
+        $("#use_field").val($(this).attr("use_field") || $(this).nextAll(".editor").first().prop("id"));
         $("#dlgPhotoSelect").dialog("open");
         <% if (defined?(trip_report) && !trip_report.id.nil?) || (defined?(topic) && !topic.id.nil?) %>
           //If there are no photos shown yet then get them.
@@ -35,10 +35,12 @@
       });
          
       //A photo is selected add its id to the text in the field specified in the #use_field hidden field.
-      $(document).on('click', '.thumbDiv a', function (){
+      $("#dlgPhotoSelect").on('click', '.thumbDiv a', function (e){
+        e.preventDefault();
         var textfield_id = $("#use_field").val();
-	$("#" + textfield_id).insertAtCaret("[[photo=" + $(this).prop('name') + "]]");
-        //tinyMCE.execInstanceCommand(textfield_id,"mceInsertContent",false,"[[photo=" + $(this).prop('name') + "]]");
+        var textfield = document.getElementById(textfield_id);
+        if (!textfield) return false;
+        $(textfield).insertAtCaret("[[photo=" + $(this).prop('name') + "]]");
         $("#dlgPhotoSelect").dialog("close");
         return false;
       });
