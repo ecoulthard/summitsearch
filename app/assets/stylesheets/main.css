@@ -513,12 +513,6 @@ legend {
   cursor: pointer;
 }
 
-.ui-tooltip {
-  box-shadow: inset 0px 0px 0px transparent;
-  padding: 0px;
-  opacity: 1;
-}
-
 .captionDiv, .abstractDiv, .captionDiv_ie, .hover {
   height: auto;
   text-align: left;
@@ -536,20 +530,55 @@ legend {
 }
 
 .ui-tooltip.ui-widget-content {
-  max-width: 30%;
-  background: transparent;
-  border-style: none;
-  border-width: 0;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(380px, calc(100vw - 24px));
+  padding: 12px;
+  background: white;
+  color: #333;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 7px 1px rgb(0 0 0 / 30%);
+  opacity: 1;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  overflow-wrap: anywhere;
 
   fieldset {
-    margin: 1px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
     text-align: left;
-    font: normal 11px "Helvetica Neue", Sans-Serif;
+    font: inherit;
+
+    legend {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0 0 8px;
+      padding: 3px 6px;
+      border: 1px solid var(--dark);
+      border-radius: 6px;
+      background: var(--medium) url("menu-background.gif") repeat-x scroll 0 0;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.25;
+      text-align: center;
+    }
 
     .text {
       color: #44a;
       font-weight: bold;
-      margin-right: 2em;
+      margin-right: 1em;
+    }
+
+    .no-wrap {
+      white-space: normal;
     }
   }
 }
@@ -731,6 +760,36 @@ legend {
 
       select, textarea, input {
         margin-left: 0em;
+      }
+    }
+  }
+}
+
+.resource-form {
+  .form {
+    padding: 16px 12px;
+    min-width: 0;
+
+    input, select, textarea {
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    .markItUp, .markItUpEditor {
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 700px) {
+      label {
+        float: none;
+        width: auto;
+        text-align: left;
+        margin-bottom: 4px;
+      }
+
+      input, select, textarea {
+        margin-left: 0;
       }
     }
   }

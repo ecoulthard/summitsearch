@@ -1,8 +1,10 @@
-<div class="form">
-  <fieldset>
-     <legend>Enter in the <%= @type %> Data</legend>
-     <%= render 'form' %>
-  </fieldset>
-</div>
+<div id="place_list" class="resource-form" data-turbo="false">
+  <h1>New <%= @type %>
+    <br><br>
+    <%= link_to 'Back to Places', places_path(type: @place.class.to_s), class: 'linkButton' %>
+  </h1>
 
-<%= link_to 'Back', places_path(type: @place.class.to_s) %>
+  <div class="form">
+    <%= render 'form' %>
+  </div>
+</div>

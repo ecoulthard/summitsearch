@@ -152,7 +152,7 @@ class RoutesController < ApplicationController
     @type = route_class.to_s.titleize
     setup_new
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
       format.xml  { 
 	if @trip
 	  render :xml => @trip_report.to_xml(:include => {:route => {:include => :waypoints}})
@@ -169,7 +169,7 @@ class RoutesController < ApplicationController
     @type = @route.type.to_s.titleize
     setup_edit
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
       format.xml  {
 	if @trip
 	  render :xml => @trip_report.to_xml(:include => {:route => {:include => :waypoints}})
@@ -232,9 +232,9 @@ class RoutesController < ApplicationController
         #puts "Erros: (#{@route.errors.messages})"
         setup_new
         if !params[:place_id].blank?
-          format.html { render :action => "new", :place_id => params[:place_id], :type => params[:route][:type], :layout => 'nomenu' }
+          format.html { render :action => "new", :place_id => params[:place_id], :type => params[:route][:type], :layout => 'application' }
 	else
-          format.html { render :action => "new", :type => @route.type, :layout => 'nomenu' }
+          format.html { render :action => "new", :type => @route.type, :layout => 'application' }
 	end
         format.xml  { render :xml => @route.errors, :status => :unprocessable_entity }
       end
@@ -261,7 +261,7 @@ class RoutesController < ApplicationController
         format.xml  { head :ok }
       else
         setup_edit
-        format.html { render :action => "edit", :layout => 'nomenu' }
+        format.html { render :action => "edit", :layout => 'application' }
         format.xml  { render :xml => @route.errors, :status => :unprocessable_entity }
       end
     end
@@ -277,7 +277,7 @@ class RoutesController < ApplicationController
     end
     setup_new
     respond_to do |format|
-      format.html { render :action => "new", :type => @route.type, :layout => 'nomenu' }
+      format.html { render :action => "new", :type => @route.type, :layout => 'application' }
     end
   end
 

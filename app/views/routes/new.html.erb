@@ -1,12 +1,10 @@
-<div class="form">
-  <fieldset>
-     <legend>Enter in the 
-     <% if @trip %>
-	Trip Report and
-     <% end %>
-     <%= @type %> Data</legend>
-     <%= render 'form' %>
-  </fieldset>
-</div>
+<div id="place_list" class="resource-form" data-turbo="false">
+  <h1>New <%= @type %><%= " and Trip Report" if @trip %>
+    <br><br>
+    <%= link_to 'Back to Routes', routes_path(type: @route&.type || params[:type]), class: 'linkButton' %>
+  </h1>
 
-<%= link_to 'Back', routes_path(type: @route&.type || params[:type]) %>
+  <div class="form">
+    <%= render 'form' %>
+  </div>
+</div>

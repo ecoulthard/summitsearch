@@ -234,7 +234,7 @@ class PlacesController < ApplicationController
     @submit = "Create #{@type}"
 
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
       format.xml  { render :xml => @place }
     end
   end
@@ -258,7 +258,7 @@ class PlacesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
       format.xml  { render :xml => @place }
     end
   end
@@ -312,7 +312,7 @@ class PlacesController < ApplicationController
         #New places are assumed to be unofficial by default.
         @place.name_status = "Unofficial"
 
-	format.html { render :action => "new", :type => @place.type, :layout => 'nomenu', :status => :unprocessable_entity }
+	format.html { render :action => "new", :type => @place.type, :layout => 'application', :status => :unprocessable_entity }
         format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
       end
     end
@@ -339,7 +339,7 @@ class PlacesController < ApplicationController
         @startLongitude = @place.centerLongitude
         @title = "Current Coordinates"
         @submit = "Update #{@type}"
-        format.html { render :action => "edit", :layout => 'nomenu', :status => :unprocessable_entity }
+        format.html { render :action => "edit", :layout => 'application', :status => :unprocessable_entity }
         format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
       end
     end

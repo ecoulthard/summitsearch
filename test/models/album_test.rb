@@ -3,6 +3,14 @@ require "test_helper"
 class AlbumTest < ActiveSupport::TestCase
   fixtures :albums, :places, :photos, :users
 
+  test "requires reference coordinates before saving" do
+    album = Album.new(user: users(:author))
+
+    assert_not album.save
+    assert_includes album.errors[:ref_latitude], "can't be blank"
+    assert_includes album.errors[:ref_longitude], "can't be blank"
+  end
+
   test "Finds and links parent place" do
     album = albums(:columbia)
     album.set_places(album.title, album.description)

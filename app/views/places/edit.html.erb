@@ -1,9 +1,11 @@
-<div class="form">
-  <fieldset>
-     <legend>Enter in the <%= @type %> Data</legend>
-     <%= render 'form' %>
-  </fieldset>
-</div>
+<div id="place_list" class="resource-form" data-turbo="false">
+  <h1>Edit <%= @place.name %>
+    <br><br>
+    <%= link_to 'View Place', @place, class: 'linkButton' %>
+    <%= link_to 'Back to Places', places_path, class: 'linkButton' %>
+  </h1>
 
-<%= link_to 'Show', @place %> |
-<%= link_to 'Back', places_path %>
+  <div class="form">
+    <%= render 'form' %>
+  </div>
+</div>

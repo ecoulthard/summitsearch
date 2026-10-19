@@ -29,6 +29,7 @@ class Album < ApplicationRecord
   has_many :routes_mentioned, through: :route_albums, source: :route
 
   validates :user_id, presence: true
+  validates :ref_latitude, :ref_longitude, presence: true
   validates_length_of :title, maximum: 128
   validates_length_of :description, maximum: 30720
 

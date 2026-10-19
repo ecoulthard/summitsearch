@@ -1,8 +1,10 @@
-<div class="form">
-  <fieldset>
-     <legend>Enter in the Trip Report Data for the <%= @route.name %></legend>
-     <%= render 'form' %>
-  </fieldset>
-</div>
+<div id="place_list" class="resource-form" data-turbo="false">
+  <h1>New Trip Report for <%= @route.name %>
+    <br><br>
+    <%= link_to 'Back to Trip Reports', trip_reports_path, class: 'linkButton' %>
+  </h1>
 
-<%= link_to 'Back', trip_reports_path %>
+  <div class="form">
+    <%= render 'form' %>
+  </div>
+</div>

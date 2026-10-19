@@ -133,7 +133,7 @@ class TripReportsController < ArticlesController
     @ref_longitude = @startLongitude
 
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
       format.xml  { render :xml => @trip_report.to_xml(:include => {:route => {:include => :waypoints}}) }
     end
   end
@@ -152,7 +152,7 @@ class TripReportsController < ArticlesController
     @id = params[:id]
     
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
       format.xml  { render :xml => @trip_report.to_xml(:include => {:route => {:include => :waypoints}}) }
     end
   end
@@ -208,7 +208,7 @@ class TripReportsController < ArticlesController
         @startLatitude = @route.averageLatitude
 	@startLongitude = @route.averageLongitude
 	@photos = []#Photo.search_nearby(@startLatitude, @startLongitude, 30, '', current_user.id)
-        format.html { render :action => "new", :layout => 'nomenu' }
+        format.html { render :action => "new", :layout => 'application' }
         format.xml  { render :xml => @trip_report.errors, :status => :unprocessable_entity }
       end
     end
@@ -240,7 +240,7 @@ class TripReportsController < ArticlesController
 	@ref_latitude = @startLatitude
 	@ref_longitude = @startLongitude
 	@id = params[:id]
-        format.html { render :action => "edit", :layout => 'nomenu' }
+        format.html { render :action => "edit", :layout => 'application' }
         format.xml  { render :xml => @trip_report.errors, :status => :unprocessable_entity }
       end
     end

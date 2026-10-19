@@ -1,13 +1,13 @@
-<h1>Editing Album
-  &nbsp;&nbsp;
-  <%= link_to 'Album Page', @album %><br>
-</h1>
+<div id="place_list" class="resource-form" data-turbo="false">
+  <h1>Edit <%= @album.title %>
+    <br><br>
+    <%= link_to 'View Album', @album, class: 'linkButton' %>
+    <%= link_to 'Back to Albums', albums_path, class: 'linkButton' %>
+  </h1>
 
-<div class="form">
-  <fieldset>
-     <legend>Enter in the Album Data</legend>
-     <%= render 'form' %>
-  </fieldset>
+  <div class="form">
+    <%= render 'form' %>
+  </div>
+
+  <%= render partial: 'all/multi_photo_upload', locals: { tag_name: 'album_id', class_name: 'Album' } %>
 </div>
-
-<%= render partial: 'all/multi_photo_upload', locals: { tag_name: 'album_id', class_name: 'Album' } %>

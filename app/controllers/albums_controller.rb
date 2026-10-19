@@ -105,8 +105,8 @@ class AlbumsController < ArticlesController
     @album.user_id = current_user.id
     if(!params[:place_id].blank?)
       @place = Place.find(params[:place_id])
-      @album.ref_latitude = @place.latitude
-      @album.ref_longitude = @place.longitude
+      @album.ref_latitude = @place.centerLatitude
+      @album.ref_longitude = @place.centerLongitude
       @album.ref_title = @place.name
       @album.ref_content = "Album was inserted for " + @place.name
     elsif(!params[:route_id].blank?)
@@ -150,7 +150,7 @@ class AlbumsController < ArticlesController
     @album.deleted = false
 
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
       format.xml  { render :xml => @album }
     end
   end

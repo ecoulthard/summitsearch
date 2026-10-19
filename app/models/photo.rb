@@ -12,7 +12,7 @@ class Photo < ApplicationRecord
   @@per_page = 200
   belongs_to :user, optional: true
   belongs_to :updater, :foreign_key => "update_id", :class_name => "User", optional: true
-  #belongs_to :place
+  belongs_to :place, optional: true
   belongs_to :trip_report, optional: true
   belongs_to :route, optional: true
   belongs_to :album, optional: true

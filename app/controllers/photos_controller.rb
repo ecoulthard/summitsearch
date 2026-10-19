@@ -135,7 +135,7 @@ class PhotosController < ArticlesController
     end
     @google_map = true
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
             format.xml  { render :xml => @photo }
     end
   end
@@ -146,7 +146,7 @@ class PhotosController < ArticlesController
     @time = @photo.time.nil? ? "" : @photo.time.strftime("%B %d %Y at %I:%M%P")
     @google_map = true
     respond_to do |format|
-      format.html { render :layout => 'nomenu' }
+      format.html { render :layout => 'application' }
       format.xml  { render :xml => @photo }
     end
   end
@@ -182,7 +182,7 @@ class PhotosController < ArticlesController
         @google_map = true
         @time = @photo.time.nil? ? "" : @photo.time.strftime("%B %d %Y at %I:%M%P")
         #flash.now[:notice] = "params: #{params.keys.to_s}"
-	      format.html { render :action => "new", :layout => 'nomenu', :status => :unprocessable_entity }
+	      format.html { render :action => "new", :layout => 'application', :status => :unprocessable_entity }
         #format.json
         format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
       end
@@ -206,7 +206,7 @@ class PhotosController < ArticlesController
       else
         @google_map = true
 	@time = @photo.time.nil? ? "" : @photo.time.strftime("%B %d %Y at %I:%M%P")
-        format.html { render :action => "edit", :layout => 'nomenu' }
+        format.html { render :action => "edit", :layout => 'application' }
         format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
       end
     end
