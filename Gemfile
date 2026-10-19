@@ -75,7 +75,5 @@ gem "devise", "~> 5.0"
 
 gem "will_paginate", "~> 4.0"
 
-gem "simple_form", "~> 5.4" # Todo No longer needed.
-
 gem "mysql2" # Needed by thinking_squinx
 gem "thinking-sphinx", "~> 5.6"
