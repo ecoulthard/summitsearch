@@ -5,9 +5,7 @@
         <ul>
           <li><%= link_to "Home", main_app.root_path %></li>
           <li><%= link_to "Albums", main_app.albums_path %></li>
-          <% if defined?(forem) %>
-            <li><%= link_to "Fanatics Forum", forem.root_path %></li>
-          <% end %>
+          <li><%= link_to "Fanatics Forum", thredded.root_path %></li>
           <li><%= link_to "Members", main_app.users_path %></li>
           <li><%= link_to "Mountains", main_app.mountains_path %></li>
           <li><%= link_to "People", main_app.people_path %></li>
@@ -59,25 +57,19 @@
       <% end %>
     </div>
   </li>
-  <% if defined?(forem) && defined?(Forem) %>
-    <li tabindex="4" class="not_search"><%= link_to "Forums", forem.root_path, class: "drop" %>
-      <div class="dropdown_4columns">
-        <div class="col_1">
-          <%= link_to "Active Topics", main_app.forem_search_path(hours: 6) %>
+  <li tabindex="4" class="not_search"><%= link_to "Forums", thredded.root_path, class: "drop" %>
+    <div class="dropdown_4columns">
+      <div class="col_1"><%= link_to "Active Topics", main_app.forum_active_topics_path %></div>
+      <div class="col_1"><%= link_to "Unanswered Topics", main_app.forum_unanswered_topics_path %></div>
+      <% forum_navigation_groups.each do |group, boards| %>
+        <div class="col_2">
+          <h3><%= group ? link_to(group.name, thredded.show_messageboard_group_path(group)) : "Forums" %></h3>
+          <ul>
+            <% boards.each do |board| %>
+              <li class="no-wrap"><%= link_to board.name, thredded.messageboard_topics_path(board) %></li>
+            <% end %>
+          </ul>
         </div>
-        <div class="col_1">
-          <%= link_to "Unanswered Topics", main_app.forem_search_path(hours: 24 * 120, unanswered: true) %>
-        </div><br />
-        <% Forem::Category.all.includes(:forums).each do |category| %>
-          <div class="<%= category.name.length >= 20 ? "col_3" : "col_2" %>">
-            <h3><%= link_to truncate(category.name, length: 60), forem.category_path(category) %></h3>
-            <ul>
-              <% category.forums.each do |forum| %>
-                <li class="no-wrap"><%= link_to forum.title, forem.forum_path(forum) %></li>
-              <% end %>
-            </ul>
-          </div>  
-        <% end %>
-      </div>
-    </li>
-  <% end %>
+      <% end %>
+    </div>
+  </li>

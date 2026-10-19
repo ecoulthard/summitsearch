@@ -1,0 +1,12 @@
+<nav class="forum-navigation" aria-label="Forum navigation">
+  <div class="forum-navigation__links">
+  <%= link_to "All Forums", thredded.root_path %>
+  <%= link_to "Active Topics", main_app.forum_active_topics_path %>
+  <%= link_to "Unanswered Topics", main_app.forum_unanswered_topics_path %>
+  </div>
+  <%= form_with url: thredded.messageboards_search_path, method: :get do |form| %>
+    <%= form.label :q, "Search forums" %>
+    <%= form.search_field :q, value: params[:q] %>
+    <%= form.submit "Search" %>
+  <% end %>
+</nav>

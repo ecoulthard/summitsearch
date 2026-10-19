@@ -1,4 +1,5 @@
 class Album < ApplicationRecord
+  include ArticleDiscussion
   include Viewable
   include Visitable
   include GeographyHelper
@@ -11,7 +12,6 @@ class Album < ApplicationRecord
   belongs_to :updater, foreign_key: "update_id", class_name: "User", optional: true
   belongs_to :place, optional: true
   belongs_to :route, optional: true
-  has_one :topic, class_name: "Forem::Topic" if defined?(Forem) && defined?(Forem::Topic)
 
   has_many :place_albums, dependent: :destroy
   has_many :places, through: :place_albums
@@ -24,7 +24,6 @@ class Album < ApplicationRecord
   has_many :areas, -> { order "area" }, through: :place_albums_in_areas, source: :place
 
   has_many :photos, -> { order :time }
-  has_many :comments, through: :topic, source: :posts, class_name: "Forem::Post" if defined?(Forem) && defined?(Forem::Post)
 
   has_many :route_albums, dependent: :destroy
   has_many :routes_mentioned, through: :route_albums, source: :route
@@ -81,12 +80,6 @@ class Album < ApplicationRecord
     else
       where("deleted IS NULL OR NOT deleted").order(SORT_OPTIONS[sort])
     end
-  end
-
-  # Returns which forum to use for a topic about this album.
-  def forum
-    area = areas.where("forum_id IS NOT NULL").order(:area).first
-    area.nil? ? (defined?(Forem::Forum) ? Forem::Forum.find_by_name("Other Regions") : nil) : area.forum
   end
 
   def set_links

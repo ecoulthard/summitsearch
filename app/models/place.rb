@@ -52,7 +52,8 @@ class Place < ApplicationRecord
   has_many :mountains, :through => :child_area_places, :class_name => "Mountain", :source => :place
   has_many :huts, :through => :child_area_places, :class_name => "Hut", :source => :place
 
-  belongs_to :forum, :class_name => "Forem::Forum", optional: true
+  # Existing area/place values remain legacy IDs; do not reinterpret as board PKs.
+  belongs_to :forum, class_name: "Thredded::Messageboard", primary_key: :forem_forum_id, optional: true
   
   has_many :place_routes, :dependent => :destroy
   has_many :routes, :through => :place_routes

@@ -22,10 +22,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery prepend: true
 
-  def forem_user
-    current_user
-  end
-
   def user_signed_in?
     defined?(super) ? super : (respond_to?(:current_user) && current_user.present?)
   end
@@ -42,11 +38,7 @@ class ApplicationController < ActionController::Base
     defined?(super) ? super : (user_signed_in? ? true : permission_denied)
   end
 
-  helper_method :forem_user, :user_signed_in?, :current_user, :user_is_admin?
-
-  def current_ability
-    defined?(Forem::Ability) ? Forem::Ability.new(forem_user) : nil
-  end
+  helper_method :user_signed_in?, :current_user, :user_is_admin?
 
   layout 'application'
 

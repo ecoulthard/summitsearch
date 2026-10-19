@@ -1,48 +1,25 @@
-<% if @topic.present? %>
-  <div id="forem">
-    <div id="comments">
-      <div id='topic' class='<%= 'un' unless @topic.locked? %>locked'>
-        <% if @posts.count > 0 %>
-          <h2>Comments</h2>
-
-          <menu>
-            <% if forem_user %>
-              <% if !@topic.subscriber?(forem_user.id) %>
-                <%= link_to "subscribe", forem.subscribe_forum_topic_path(@forum, @topic), data: { turbo_method: :post } %>
-              <% else %>
-                <%= link_to "unsubscribe", forem.unsubscribe_forum_topic_path(@forum, @topic), data: { turbo_method: :post } %>
-              <% end %>
-            <% end %>
-          </menu>
-
-          <%= will_paginate @posts %>
-
-          <div id='posts'>
-            <%= render partial: "forem/posts/post", collection: @posts %>
-          </div>
-        <% else %>
-          <h2>No Comments Yet</h2>
-        <% end %>
-
-        <div class="clear"></div><br>
-        <% if user_signed_in? %>
-          <h2>Post a Comment</h2>
-          <%= form_with url: comments_path, method: :post do |f| %>
-            <%= f.text_area :text, class: "editor", rows: 20, cols: 80 %>
-            <div class="clear"></div><br>
-
-            <% if params[:reply_to_id] %>
-              <%= hidden_field_tag :reply_to_id, params[:reply_to_id] %>
-            <% end %>
-            <%= f.submit "Post Comment" %>
-          <% end %>
-        <% else %>
-          <h3><a class="signin">Sign in</a>
-            or <a class="signup">Sign up</a>
-            to Post a Comment
-    </h3>
-        <% end %>
-      </div>
+<% if @forum.present? %>
+  <div id="comments">
+    <% if @topic && Thredded::TopicPolicy.new(@forum_user, @topic).read? %>
+      <p><%= link_to "View discussion in the forum", thredded.messageboard_topic_path(@topic.messageboard, @topic), data: { turbo: false } %></p>
+    <% end %>
+    <h2><%= @posts.any? ? "Comments" : "No Comments Yet" %></h2>
+    <%= will_paginate @posts if @posts.respond_to?(:total_pages) %>
+    <div id="posts">
+      <%= render partial: "articles/comment", collection: @posts, as: :post %>
     </div>
+    <% if @can_comment %>
+      <h2>Post a Comment</h2>
+      <%= form_with url: comments_path, method: :post do |f| %>
+        <%= f.label :text, "Comment (Markdown supported)" %>
+        <%= f.text_area :text, value: @comment_text, rows: 10, cols: 80, required: true %>
+        <%= render "forum_photos/picker", topic: @topic || @forum.topics.build(user: current_user), textarea_id: "text" %>
+        <%= f.submit "Post Comment" %>
+      <% end %>
+    <% elsif !user_signed_in? %>
+      <p><%= link_to "Sign in", new_user_session_path %> to post a comment.</p>
+    <% else %>
+      <p>Commenting is locked or unavailable.</p>
+    <% end %>
   </div>
 <% end %>

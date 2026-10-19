@@ -2,7 +2,7 @@ class View < ApplicationRecord
   before_create :set_viewed_at_to_now
 
   belongs_to :viewable, :polymorphic => true, optional: true
-  belongs_to :user, :class_name => (defined?(Forem) && Forem.respond_to?(:user_class) ? Forem.user_class.to_s : "User"), optional: true
+  belongs_to :user, optional: true
 
   validates :viewable_id,   :presence => true
   validates :viewable_type, :presence => true

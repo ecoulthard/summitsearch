@@ -40,59 +40,18 @@ class ArticlesController < ApplicationController
 
   # POST :id/create_comment
   def create_comment
-    article_type = controller_name.singularize
     @article = article
-
-    topic = @article.topic
-    success = false
-    fail_notice = "" #What to say if it fails
-
-    # If this is the first comment then we need to first create the topic.
-    if topic.nil?
-      forum = @article.forum
-      if current_user&.respond_to?(:can_create_forem_topics?) && current_user.can_create_forem_topics?(forum)
-        topic_title = @article.title.nil? ? @article.id.to_s : @article.title
-        topic = forum.topics.build(subject: help.link_to("#{article_type.titleize}: #{topic_title}", send("#{article_type}_path", id: @article.id)), posts_attributes: { "0" => { text: params[:text] } })
-        topic.user = @article.user
-        topic[article_type.foreign_key] = @article.id
-
-        success = topic.save
-        # Subscribe the user to the comments.
-        topic.subscribe_poster if topic.respond_to?(:subscribe_poster)
-
-        UpdateArticleTotalCommentsJob.perform_later(@article.class.to_s, @article.id, Time.current)
-
-        post = Forem::Post.find(topic.posts.first.id)
-        post.user = current_user
-        success = post.save
-        if current_user != @article.user
-          UserMailer.article_first_comment(article_type, @article).deliver_later
-        end
-      else
-        fail_notice = "You do not have permission to comment on this #{article_type.humanize}"
-      end
-    else # Add post to the topic
-      if current_user&.respond_to?(:can_reply_to_forem_topic?) && !current_user.can_reply_to_forem_topic?(topic)
-        fail_notice = "You do not have permission to comment on this #{article_type.humanize}"
-      elsif topic.respond_to?(:locked?) && topic.locked?
-        fail_notice = "Cannot add comment because commenting is locked for this #{article_type.humanize}"
-      else
-        post = topic.posts.build(text: params[:text], reply_to_id: params[:reply_to_id])
-        post.user = current_user
-        success = post.save
-        UpdateArticleTotalCommentsJob.perform_later(@article.class.to_s, @article.id, Time.current)
-      end
-    end
-
+    ArticleComment.create!(article: @article, user: current_user, content: params[:text],
+      reply_to_id: params[:reply_to_id], photo_ids: params[:forum_photo_ids])
     respond_to do |format|
-      if success
-        expire_fragment(controller: 'main', action: 'index', part: 'comments') if respond_to?(:expire_fragment)
-        format.html { redirect_to(@article, notice: "Comment added successfully") }
-        format.xml  { render xml: @article, status: :updated, location: @article }
-      else
-        format.html { redirect_to(@article, notice: fail_notice) }
-        format.xml  { render xml: @article.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to @article, notice: "Comment added successfully" }
+      format.xml { render xml: @article, status: :ok, location: @article }
+    end
+  rescue ArticleComment::NotAllowed, ForumPhotoAttachments::NotAllowed, ActiveRecord::RecordInvalid => error
+    message = error.is_a?(ActiveRecord::RecordInvalid) ? error.record.errors.full_messages.to_sentence : error.message
+    respond_to do |format|
+      format.html { redirect_to @article, alert: message }
+      format.xml { render plain: message, status: :unprocessable_entity }
     end
   end
 
@@ -102,24 +61,31 @@ class ArticlesController < ApplicationController
   
   protected
 
-  #A lot of this I got from Forem::TopicsController
   def loadComments
-    return unless defined?(Forem) && defined?(Forem::Topic)
-    return unless article.respond_to?(:topic)
+    @forum_user = current_user || Thredded::NullUser.new
     @topic = article.topic
-    @forum = article.forum if article.respond_to?(:forum)
-    if @forum.present?
-      if @topic.nil?
-        @topic = @forum.topics.build
-      else
-        @topic.register_view_by(forem_user) if @topic.respond_to?(:register_view_by) && respond_to?(:forem_user)
-      end 
-      @posts = @topic.posts.page(params[:page]).per(20) if @topic.respond_to?(:posts) && @topic.posts.respond_to?(:page)
-      @post = @topic.posts.build if @topic.respond_to?(:posts)
-      if params[:quote]
-        @reply_to = @topic.posts.find(params[:reply_to_id])
-        @post.text = view_context.forem_quote(@reply_to.text) if view_context.respond_to?(:forem_quote)
+    @forum = @topic&.messageboard || article.forum
+    @posts = Thredded::Post.none
+    @can_comment = false
+    return unless @forum && Thredded::MessageboardPolicy.new(@forum_user, @forum).read?
+
+    if @topic
+      return unless Thredded::TopicPolicy.new(@forum_user, @topic).read?
+
+      @posts = Thredded::PostPolicy::Scope.new(@forum_user, @topic.posts).resolve
+        .order_oldest_first.includes(:user).paginate(page: params[:page], per_page: 20)
+      candidate = @topic.posts.build(messageboard: @forum)
+      @can_comment = Thredded::PostPolicy.new(@forum_user, candidate).create?
+      if params[:quote].present?
+        reply = @posts.except(:limit, :offset).find_by(id: params[:reply_to_id])
+        if reply
+          text = reply.source == "forem" ? CGI.unescapeHTML(helpers.strip_tags(reply.content)) : reply.content
+          @comment_text = Thredded::ContentFormatter.quote_content(text)
+        end
       end
+    else
+      candidate = @forum.topics.build(user: current_user)
+      @can_comment = user_signed_in? && Thredded::TopicPolicy.new(@forum_user, candidate).create?
     end
   end
 
@@ -179,11 +145,14 @@ class ArticlesController < ApplicationController
 
   #Load and return the article provided in the params.
   def article
-    controller_name.singularize.camelize.constantize.find(params[:id])
+    model = { "album" => Album, "photo" => Photo, "trip_report" => TripReport }[article_type]
+    raise ActiveRecord::RecordNotFound unless model
+
+    model.find(params[:id])
   end
   
   def article_type
-    controller_name.singularize
+    controller_name == "articles" ? params[:article_type].to_s : controller_name.singularize
   end
 
 #  #If admin or owner or contributer you can see this trip report

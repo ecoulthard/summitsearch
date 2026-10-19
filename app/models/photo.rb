@@ -1,6 +1,7 @@
 require "exifr/jpeg"
 
 class Photo < ApplicationRecord
+  include ArticleDiscussion
   include Viewable
   include Visitable
   include GeographyHelper
@@ -15,10 +16,7 @@ class Photo < ApplicationRecord
   belongs_to :trip_report, optional: true
   belongs_to :route, optional: true
   belongs_to :album, optional: true
-  belongs_to :parent_topic, :foreign_key => "topic_id", :class_name => "Forem::Topic", optional: true
-  has_one :topic, :class_name => "Forem::Topic" if defined?(Forem) && defined?(Forem::Topic)
-
-  has_many :comments, :through => :topic, :source => :posts, :class_name => "Forem::Post" if defined?(Forem) && defined?(Forem::Post)
+  belongs_to :parent_topic, foreign_key: :topic_id, class_name: "Thredded::Topic", optional: true
 
   #Gets all the place visits from the photos place to the photo or vice versa
   #We join visits to the ip_address that caused the visit
@@ -450,12 +448,6 @@ class Photo < ApplicationRecord
       album.deleted = false
       album.save
     end
-  end
-
-  #Returns which forum to use for a topic about this photo.
-  def forum
-    area = areas.where("forum_id IS NOT NULL").order(:area).first
-    area.nil? ? Forem::Forum.find_by_name("Other Regions") : area.forum
   end
 
   #Adds links between the photo and places,routes or trip reports

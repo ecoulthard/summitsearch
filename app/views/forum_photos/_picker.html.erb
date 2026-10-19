@@ -1,0 +1,37 @@
+<% unless controller.is_a?(Thredded::ApplicationController) %>
+  <%= javascript_include_tag "forum_photos", defer: true %>
+<% end %>
+<details data-forum-photos data-textarea-id="<%= textarea_id %>"
+         data-topic-id="<%= topic.id %>" data-messageboard-id="<%= topic.messageboard_id %>"
+         data-photos-url="<%= main_app.forum_photos_path %>" data-places-url="<%= main_app.places_forum_photos_path %>">
+  <summary>Add photos</summary>
+  <p>Choose your photos or upload new ones. Photos already attached to another discussion cannot be moved.</p>
+  <label>Search your photos <input type="search" data-photo-search></label>
+  <button type="button" data-photo-load>Find photos</button>
+  <div data-photo-results></div>
+  <button type="button" data-photo-more hidden>More photos</button>
+  <fieldset>
+    <legend>Upload photos</legend>
+    <label>Nearby place <input type="search" data-place-search></label>
+    <button type="button" data-place-load>Find places</button>
+    <label>Reference place
+      <select data-photo-place>
+        <% if topic.place %>
+          <option value="<%= topic.place.id %>"><%= topic.place.name %></option>
+        <% else %>
+          <option value="">Choose a nearby place</option>
+        <% end %>
+      </select>
+    </label>
+    <label>Photos <input type="file" accept="image/jpeg,image/png,image/gif" multiple data-photo-files></label>
+    <button type="button" data-photo-upload>Upload and add photos</button>
+  </fieldset>
+  <div data-photo-selection>
+    <% if params[:forum_photo_ids].is_a?(Array) %>
+      <% params[:forum_photo_ids].first(50).each do |id| %>
+        <%= hidden_field_tag "forum_photo_ids[]", id if /\A[1-9]\d*\z/.match?(id.to_s) %>
+      <% end %>
+    <% end %>
+  </div>
+  <p role="status" aria-live="polite" data-photo-status></p>
+</details>

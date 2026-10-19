@@ -1,4 +1,5 @@
 class TripReport < ApplicationRecord
+  include ArticleDiscussion
   include Viewable
   include Visitable
   has_paper_trail
@@ -7,10 +8,8 @@ class TripReport < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :updater, :foreign_key => "update_id", :class_name => "User", optional: true
   belongs_to :route, optional: true
-  has_one :topic, :class_name => "Forem::Topic" if defined?(Forem) && defined?(Forem::Topic)
 
   has_many :photos, -> { order :time }
-  has_many :comments, :through => :topic, :source => :posts, :class_name => "Forem::Post" if defined?(Forem) && defined?(Forem::Post)
 
   validates :user_id, :title, :description, :presence => true
   validates_length_of :title, maximum: 128
@@ -62,11 +61,6 @@ class TripReport < ApplicationRecord
 #      user.recentGrantedAccessTime += User::NEW_TRIP_3RD_CONTRIBUTION_AMOUNT
 #      user.save
 #    end
-  end
-
-  #Returns which forum to use for topics about this trip report.
-  def forum
-    route.forum
   end
 
   #My list function for model index pages.

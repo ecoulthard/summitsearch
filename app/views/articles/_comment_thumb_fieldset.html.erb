@@ -1,9 +1,9 @@
 <div class="hover">
   <fieldset>
     <legend>Latest Comment</legend>
-    <%= truncate(sanitize(comment.text), length: 300) %>
+    <%= truncate(strip_tags(comment.content), length: 300) %>
     <div class="text">
-      <span class="no-wrap">By: <%= link_to truncate(comment.user.display_name, length: 25), comment.user %></span>
+      <span class="no-wrap">By: <%= comment.user ? link_to(truncate(comment.user.display_name, length: 25), comment.user) : "Deleted user" %></span>
     </div>
   </fieldset>
 </div>

@@ -1,4 +1,5 @@
 <div id="place_list">
+<p><%= link_to "Search forum discussions", thredded.messageboards_search_path(q: params[:search]), data: { turbo: false } %></p>
 <h1>Search Results for '<%= @search_text %>'</h1>
 
 <% if @results.blank? %>

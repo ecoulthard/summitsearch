@@ -39,7 +39,7 @@
       <th colspan="5" class="clickable">New Article Comments</th>
     </tr>
   </thead>
-<% ss_cache({ part: 'comments' }, expires_in: 2.hours) do %>
+<% ss_cache(@article_comments_cache_key, expires_in: 2.hours) do %>
   <tbody>
     <tr class="odd">
       <% @commented_trips_and_albums.each do |article| %>

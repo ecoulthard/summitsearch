@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   get "up" => "rails/health#show", as: :rails_health_check
+  resources :forum_photos, only: [ :index, :create ] do
+    get :places, on: :collection
+  end
 
 
   get "/albums(_sort_by_:sort)", to: "albums#index", as: :albums
@@ -209,15 +212,19 @@ Rails.application.routes.draw do
 
   mount Markitup::Rails::Engine, at: "/markitup", as: "markitup" if defined?(Markitup::Rails::Engine)
 
-  if defined?(Forem::Engine)
-    get "fanaticsforum/search", to: "forem/forums#search", as: :forem_search
-    get "fanaticsforum/unanswered", to: "forem/forums#unanswered", as: :forem_unanswered
-    get "fanaticsforum/active_topics", to: "forem/forums#active_topics", as: :forem_active_topics
-    get "fanaticsforum/list_topics", to: "forem/forums#list_topics", as: :forem_list_topics
-    get "fanaticsforum/forums/:forum_id/topics/:id/set_place_id", to: "forem/topics#set_place_id", as: :forem_topics_set_place_id
-
-    mount Forem::Engine, at: "/fanaticsforum"
+  # Forem's nested read URLs must be matched before Thredded's engine.
+  get "fanaticsforum/active_topics", to: "forum_topics#active", as: :forum_active_topics
+  get "fanaticsforum/unanswered", to: "forum_topics#unanswered", as: :forum_unanswered_topics
+  get "fanaticsforum/search", to: "forum_topics#search"
+  get "fanaticsforum/list_topics", to: "legacy_forum_redirects#list"
+  scope "fanaticsforum", controller: :legacy_forum_redirects do
+    get "forums", action: :index
+    get "forums/:forum_id/topics/:topic_id/posts/:post_id", action: :post
+    get "forums/:forum_id/topics/:topic_id", action: :topic
+    get "forums/:forum_id", action: :forum
+    get "categories/:category_id", action: :category
   end
+  mount Thredded::Engine, at: "/fanaticsforum"
 
   # These shortcuts are low priority so they must come last.
   get "/:id", to: "places#show", as: :places_show

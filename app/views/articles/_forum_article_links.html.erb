@@ -1,0 +1,3 @@
+<% [topic.album, topic.photo, topic.trip_report].compact.each do |article| %>
+  <p>Discussion of <%= link_to article.title.presence || article.model_name.human, main_app.polymorphic_path(article) %></p>
+<% end %>

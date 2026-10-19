@@ -1,8 +1,7 @@
 class LogForemVisitJob < ApplicationJob
   queue_as :default
-  include LogVisitHelper
-
-  def perform(user_agent, remote_ip, user_id, timestamp, record_class, record_id)
-    logForemVisit(user_agent, remote_ip, user_id, timestamp, record_class, record_id)
+  # Compatibility sink for jobs queued before cutover. Keep the class until
+  # old queues/retries have drained; retired tracking must not mutate history.
+  def perform(*)
   end
 end

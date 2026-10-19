@@ -14,9 +14,7 @@
           <% end %>
           </ul>
         </li>
-        <% if defined?(Forem) %>
-          <li><%= link_to "Forums", forem.root_path %></li>
-        <% end %>
+        <li><%= link_to "Forums", thredded.root_path %></li>
         <li><%= link_to "Members", users_path %></li>
         <li><%= link_to "Mountains", mountains_path %></li>
         <li><%= link_to "People", people_path %></li>

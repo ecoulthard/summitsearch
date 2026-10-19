@@ -1,0 +1,16 @@
+<article id="post-<%= post.id %>" class="post">
+  <p>
+    <% if post.user %>
+      <%= link_to post.user.display_name, user_path(post.user) %>
+    <% else %>
+      Deleted user
+    <% end %>
+    <time datetime="<%= post.created_at.iso8601 %>"><%= time_ago_in_words(post.created_at) %> ago</time>
+    <%= link_to "Permalink", thredded.post_permalink_path(post), data: { turbo: false } %>
+    <% unless post.approved? %><strong><%= post.moderation_state.humanize %></strong><% end %>
+  </p>
+  <div class="text"><%= post.filtered_content(self) %></div>
+  <% if @can_comment %>
+    <%= link_to "Quote", url_for(only_path: true, quote: true, reply_to_id: post.id, anchor: "text") %>
+  <% end %>
+</article>

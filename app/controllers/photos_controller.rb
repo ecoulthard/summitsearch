@@ -235,7 +235,7 @@ class PhotosController < ArticlesController
     elsif album_id.present?
       Album.find_by(id: album_id)&.photos || []
     elsif topic_id.present? && current_user.present?
-      Forem::Topic.find_by(id: topic_id)&.uploaded_photos&.where(user_id: current_user.id) || []
+      forum_editable_photos(topic_id)
     else
       []
     end
@@ -297,7 +297,7 @@ class PhotosController < ArticlesController
 
   #Called from multi_edit
   def thumb_update
-    @photo = Photo.find(params[:id])
+    @photo = current_user.photos.find(params[:id])
     @photo.title = params[:title]
     @photo.time = params[:time]
     @photo.caption = params[:caption]
@@ -401,8 +401,16 @@ class PhotosController < ArticlesController
   end
 
   
+  def forum_editable_photos(topic_id)
+    topic = Thredded::Topic.find(topic_id)
+    ForumPhotoAttachments.authorize!(current_user, topic)
+    ForumPhotoAttachments.eligible(current_user, topic).where(topic_id: topic.id)
+  rescue ForumPhotoAttachments::NotAllowed, ActiveRecord::RecordNotFound
+    Photo.none
+  end
+
   def photo_params
-    params.require(:photo).permit(:title, :photo, :time, :description, :height, :latitude, :longitude, :ref_latitude, :ref_longitude, :ref_title, :ref_content, :album_id, :trip_report_id, :topic_id, :caption, :vantage)
+    params.require(:photo).permit(:title, :photo, :time, :description, :height, :latitude, :longitude, :ref_latitude, :ref_longitude, :ref_title, :ref_content, :album_id, :trip_report_id, :caption, :vantage)
   end
 
   def sanitize_filename(filename)

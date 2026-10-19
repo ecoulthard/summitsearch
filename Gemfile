@@ -4,6 +4,9 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+# Thredded's legacy assets are compiled separately, then served by Propshaft.
+gem "thredded", "~> 1.2.1"
+gem "sassc", "~> 2.4", require: false # Required by Thredded
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -17,7 +20,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-gem 'friendly_id' #Included by forem. But we need it here anyway since we use for our own models for some reason.
+gem 'friendly_id' # Friendly slugs and URL history for application models.
 gem 'paper_trail' # Replaces vestal_versions
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
@@ -72,7 +75,7 @@ gem "devise", "~> 5.0"
 
 gem "will_paginate", "~> 4.0"
 
-gem "simple_form", "~> 5.4"
+gem "simple_form", "~> 5.4" # Todo No longer needed.
 
-gem "mysql2"
+gem "mysql2" # Needed by thinking_squinx
 gem "thinking-sphinx", "~> 5.6"

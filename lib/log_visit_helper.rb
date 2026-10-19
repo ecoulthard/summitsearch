@@ -43,35 +43,4 @@ module LogVisitHelper
     ip_address
   end
 
-  def logForemIpAddress(user_agent, remote_ip, user_id, timestamp)
-    # Log ip_address fields first
-    ip_address = logIpAddress(user_agent, remote_ip, user_id, timestamp)
-    return nil unless ip_address
-
-    ip_address.forem_last_visit_at = timestamp
-    ip_address.forem_first_visit_at = timestamp if ip_address.forem_first_visit_at.nil? 
-    ip_address.save
-
-    # If user logged in then log user visit
-    if user_id.present?
-      user = User.find_by(id: user_id)
-      if user
-        user.forem_last_visit_at = timestamp
-        user.forem_first_visit_at = timestamp if user.forem_first_visit_at.nil? 
-        user.save
-      end
-    end
-
-    ip_address
-  end
-
-  # Log ip_address and user visits. Also log which record they visited.
-  def logForemVisit(user_agent, remote_ip, user_id, timestamp, record_class, record_id)
-    ip_address = logForemIpAddress(user_agent, remote_ip, user_id, timestamp)
-    return if record_id.nil? || ip_address.nil?
-    record = record_class.to_s.safe_constantize&.find_by(id: record_id)
-    return unless record
-    record.register_visit_by(ip_address) if record.respond_to?(:register_visit_by)
-  end
-
 end

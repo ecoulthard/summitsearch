@@ -1,4 +1,4 @@
-<% comment = trip_report.comments.last if trip_report.respond_to?(:comments) %>
+<% comment = trip_report.public_comments.order(created_at: :desc, id: :desc).first %>
 <% return if comment.nil? %>
 <td class="showHover colorOnHover clickable">
   <%= link_to truncate(trip_report.title, length: 150), trip_report_path(trip_report, anchor: "post-#{comment.id}") %>

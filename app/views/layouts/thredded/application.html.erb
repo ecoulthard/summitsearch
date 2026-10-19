@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mountain Fanatics Forum | <%= yield :thredded_page_title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="turbo-visit-control" content="reload">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "thredded" %>
+    <%= stylesheet_link_tag "variables", "forum_theme" %>
+    <%= javascript_include_tag "thredded", defer: true %>
+    <%= javascript_include_tag "forum_photos", defer: true %>
+    <%= javascript_include_tag "forum_permalinks", defer: true %>
+  </head>
+  <body class="summit-forum" data-turbo="false" data-forum-permalink-template="<%= Thredded::UrlsHelper.post_permalink_path(1) %>">
+    <header class="forum-banner">
+      <%= link_to thredded.root_path, class: "forum-banner__logo" do %>
+        <%= image_tag "fanatics_forum_logo.png", alt: "Rocky Mountain Fanatics — powered by Summit Search", width: 740, height: 120 %>
+      <% end %>
+      <div class="forum-banner__links">
+        <%= link_to "Summit Search Home", main_app.root_path %>
+        <%= link_to "Trip Reports", main_app.trip_reports_path %>
+        <%= link_to "Photos", main_app.photos_path %>
+        <% if respond_to?(:user_signed_in?) && user_signed_in? %>
+          <%= link_to current_user.display_name, main_app.user_path(current_user) %>
+          <%= button_to "Sign out", main_app.destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", main_app.new_user_session_path %>
+          <%= link_to "Sign up", main_app.new_user_registration_path %>
+        <% end %>
+      </div>
+    </header>
+    <%= render "forum_topics/navigation" %>
+    <div class="forum-content">
+      <%= yield %>
+    </div>
+    <footer class="forum-footer">
+      <%= link_to "Contribution Guide", main_app.contributions_path %>
+      <%= link_to "Terms of use", main_app.terms_path %>
+      <%= link_to "Disclaimer", main_app.disclaimer_path %>
+    </footer>
+  </body>
+</html>

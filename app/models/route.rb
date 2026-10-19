@@ -268,7 +268,7 @@ class Route < ApplicationRecord
   #Returns which forum to use for topics about this route.
   def forum
     area = areas.where("forum_id IS NOT NULL").order(:area).first
-    area.nil? ? Forem::Forum.find_by_name("Other Regions") : area.forum
+    area.nil? ? Thredded::Messageboard.find_by(name: "Other Regions") : area.forum
   end
 
   #Used by createAscentApproachRoutes

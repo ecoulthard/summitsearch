@@ -1,0 +1,15 @@
+<% content_for :thredded_page_title, @title %>
+<main class="thredded--main-container">
+  <h1><%= @title %></h1>
+  <% if @topics.empty? %>
+    <p>No topics to display.</p>
+  <% else %>
+    <ul>
+      <% @topics.each do |topic| %>
+        <li><%= link_to topic.title, thredded.messageboard_topic_path(topic.messageboard, topic) %>
+          — <%= topic.messageboard.name %></li>
+      <% end %>
+    </ul>
+    <%= paginate @topics %>
+  <% end %>
+</main>

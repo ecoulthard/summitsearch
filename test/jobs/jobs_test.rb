@@ -8,9 +8,9 @@ class JobsTest < ActiveJob::TestCase
     end
   end
 
-  test "log forem visit job handles execution without crashing" do
-    assert_nothing_raised do
-      LogForemVisitJob.new.perform("Mozilla/5.0", "127.0.0.1", nil, Time.current, nil, nil)
+  test "queued legacy forum visits are discarded without writing history" do
+    assert_no_difference "IpAddress.count" do
+      LogForemVisitJob.perform_now("Mozilla/5.0", "192.0.2.99", nil, Time.current, "Forem::Topic", 1)
     end
   end
 

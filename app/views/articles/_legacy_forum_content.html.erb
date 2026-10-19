@@ -1,0 +1,9 @@
+<% content.to_s.split(/(\[\[photo=\d+\]\])/).each do |part| %>
+  <% if (match = part.match(/\A\[\[photo=(\d+)\]\]\z/)) %>
+    <% if (photo = Photo.find_by(id: match[1])) %>
+      <%= render partial: "photos/small", locals: { photo: photo } %>
+    <% end %>
+  <% else %>
+    <%= sanitize part %>
+  <% end %>
+<% end %>

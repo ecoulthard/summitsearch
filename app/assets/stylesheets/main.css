@@ -70,7 +70,7 @@ fieldset {
 
 legend {
   border: 1px solid var(--dark);
-  background: var(--medium) url("forem/bg_list.gif") repeat-x scroll 0 0;
+  background: var(--medium) url("menu-background.gif") repeat-x scroll 0 0;
   color: white;
   font-family: sans-serif;
   padding: 0.2em 1em;
@@ -128,7 +128,7 @@ legend {
   #short_banner {
     color: white;
     border: 1px solid var(--dark);
-    background: var(--medium) url("forem/bg_list.gif") repeat-x scroll 0 0;
+    background: var(--medium) url("menu-background.gif") repeat-x scroll 0 0;
 
     a {
       color: white;
@@ -161,7 +161,7 @@ legend {
     width: var(--full-width);
     color: white;
     border: 1px solid var(--dark);
-    background: var(--medium) url("forem/bg_list.gif") repeat-x scroll 0 0;
+    background: var(--medium) url("menu-background.gif") repeat-x scroll 0 0;
     text-align: center;
     padding: 10px 0px;
 
@@ -238,7 +238,7 @@ legend {
       font-weight: bold;
       text-align: center;
       border: 1px solid var(--dark);
-      background: var(--medium) url("forem/bg_list.gif") repeat-x scroll 0 0;
+      background: var(--medium) url("menu-background.gif") repeat-x scroll 0 0;
       border-radius: 8px;
 
       a:not(.linkButton) {
@@ -264,7 +264,7 @@ legend {
       }
 
       border: 1px solid var(--dark);
-      background: var(--medium) url("forem/bg_list.gif") repeat-x scroll 0 0;
+      background: var(--medium) url("menu-background.gif") repeat-x scroll 0 0;
       border-right-style: none;
       border-collapse: collapse;
       border-spacing: 0;
@@ -294,7 +294,7 @@ legend {
       }
 
       tfoot {
-        background-image: url("forem/bg_list.gif");
+        background-image: url("menu-background.gif");
       }
 
       td, th {

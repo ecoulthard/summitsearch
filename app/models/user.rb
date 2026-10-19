@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  prepend ForumUser
   include ActionView::Helpers::DateHelper
   cattr_reader :per_page
   @@per_page = 100
@@ -53,9 +54,9 @@ class User < ApplicationRecord
   has_many :routes_visited, :through => :route_visits, :source => :route
   has_many :trip_report_visits, -> { order 'updated_at DESC' }, :through => :ip_addresses
   has_many :trip_reports_visited, :through => :trip_report_visits, :source => :trip_report
-  has_many :topics, :class_name => "Forem::Topic"
-  has_many :posts, :class_name => "Forem::Post"
-  has_many :forem_views, :class_name => "Forem::View"
+  has_many :topics, class_name: "Thredded::Topic"
+  has_many :posts, class_name: "Thredded::Post"
+  has_many :forem_views, class_name: "LegacyForumView"
 
   has_one_attached :photo do |attachable|
     attachable.variant :medium, resize_to_limit: [600, 600]
@@ -84,7 +85,7 @@ class User < ApplicationRecord
 
   before_validation :sync_attachment_attributes
   validate :validate_photo_attachment, :if => :has_photo?
-  validates_uniqueness_of :username, :allow_nil => true
+  validates_uniqueness_of :username, allow_nil: true, case_sensitive: false
   validates :realname, :presence => true
 
   extend FriendlyId
@@ -93,40 +94,6 @@ class User < ApplicationRecord
   def slug_field
     return nil if display_name.nil?
     display_name.downcase.gsub " ", "-"
-  end
-
-  #Anyone can read the forums
-  def can_read_forem_forums?
-    true
-  end
-
-  #Anyone can read the forums
-  def can_read_forem_forum? forum
-    true
-  end
-
-  #Anyone can read the forums
-  def can_read_forem_category? category
-    true
-  end
-
-  #Anyone can create a topic
-  def can_create_forem_topics? forum
-    true
-  end
-
-  #Anyone can reply to a topic
-  def can_reply_to_forem_topic? topic
-    true
-  end
-
-  #Anyone can read the forums
-  def can_read_forem_topic? topic
-    true
-  end
-
-  def can_edit_forem_posts? forum
-    true
   end
 
   def to_s

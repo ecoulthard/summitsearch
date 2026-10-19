@@ -1,0 +1,125 @@
+/* Site chrome stays separate from the application's legacy CSS and scripts. */
+body.summit-forum {
+  margin: 0;
+  background: white;
+  color: var(--default-text);
+  font: 13px/1.5 Verdana, Arial, Helvetica, sans-serif;
+}
+/* Button links need Thredded's contrasting text colors in every state. */
+.summit-forum a:where(:not(.thredded--button, .thredded--button-light, .thredded--form--submit)) { color: var(--dark); }
+.summit-forum a:focus-visible, .summit-forum button:focus-visible {
+  outline: 3px solid #d99715;
+  outline-offset: 3px;
+}
+.forum-banner {
+  background: var(--medium) url("menu-background.gif") repeat-x;
+  text-align: center;
+}
+.forum-banner__logo { display: inline-block; max-width: 100%; }
+.forum-banner__logo img { display: block; max-width: 100%; height: auto; }
+.forum-banner__links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 8px 16px;
+  background: var(--light);
+  border-top: 1px solid var(--dark);
+}
+.forum-banner__links form { margin: 0; }
+.forum-banner__links button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--dark);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.forum-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  background: var(--medium);
+  padding: 8px max(16px, calc((100% - 1200px) / 2));
+  border-block: 1px solid var(--dark);
+}
+.forum-navigation__links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.forum-navigation a, .forum-navigation label { color: white; }
+.forum-navigation a { font-weight: bold; text-decoration: none; }
+.forum-navigation a:hover { text-decoration: underline; }
+.forum-navigation form { display: flex; align-items: center; gap: 8px; margin: 0; }
+.forum-navigation input {
+  min-width: 0;
+  max-width: 100%;
+  border: 1px solid var(--dark);
+  border-radius: 3px;
+  padding: 5px 8px;
+  font: inherit;
+}
+.forum-navigation input[type="search"] { width: 180px; }
+.forum-navigation input[type="submit"] { background: var(--light); color: var(--dark); cursor: pointer; }
+.forum-content { padding: 16px clamp(12px, 3vw, 48px); min-height: 60vh; }
+.summit-forum .thredded--main-container { max-width: 1200px; padding-inline: 0; }
+.summit-forum .thredded--messageboards-group--title {
+  background: var(--medium) url("menu-background.gif") repeat-x;
+  border: 1px solid var(--dark);
+  border-radius: 5px 5px 0 0;
+  color: white;
+  margin: 16px 0 0;
+  padding: 8px 12px;
+  font: bold 15px/1.5 Verdana, Arial, sans-serif;
+}
+.summit-forum .thredded--messageboards-group--title a { color: white; }
+.summit-forum .thredded--messageboard { border-color: #acbfd6; padding: 12px 16px; }
+.summit-forum .thredded--messageboard:nth-of-type(even) { background: #f0f5fa; }
+.summit-forum .thredded--messageboard:hover { background: var(--light); }
+.summit-forum .thredded--messageboard--title { color: var(--dark); font-weight: bold; }
+.summit-forum .thredded--messageboard--description,
+.summit-forum .thredded--messageboard--byline { font-size: 13px; }
+.summit-forum .thredded--topic { border-color: #acbfd6; }
+/* Keep follow controls in flow so their container includes the button width. */
+.summit-forum .thredded--topic-header--follow-info form {
+  position: static;
+  max-width: 100%;
+  margin: 0;
+}
+.summit-forum .thredded--post { border-bottom: 1px solid #acbfd6; padding-bottom: 16px; }
+.summit-forum .thredded--post--content { overflow-wrap: anywhere; }
+.summit-forum .thredded--post--content img { max-width: 100%; height: auto; }
+.forum-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px;
+  border-top: 1px solid #acbfd6;
+  background: var(--light);
+}
+/* Thredded overlays these controls on breadcrumbs below its tablet breakpoint. */
+@media screen and (max-width: 48rem) {
+  .summit-forum .thredded--user-navigation,
+  .summit-forum .thredded--scoped-navigation {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    z-index: auto;
+  }
+  .summit-forum .thredded--user-navigation { margin-bottom: 8px; }
+  .summit-forum .thredded--scoped-navigation { width: 100%; }
+  .summit-forum .thredded--navigation .thredded--navigation-breadcrumbs {
+    padding-right: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 600px) {
+  .forum-navigation { flex-direction: column; align-items: stretch; }
+  .forum-navigation form { flex-wrap: wrap; }
+  .forum-navigation input[type="search"] { flex: 1; width: 100px; }
+  .forum-banner__links, .forum-navigation__links { gap: 8px 16px; }
+}

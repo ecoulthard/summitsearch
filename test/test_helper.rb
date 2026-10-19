@@ -7,13 +7,6 @@ module ActiveSupport
     # Run tests in parallel with specified workers if explicitly configured
     parallelize(workers: :number_of_processors) if ENV["PARALLEL_WORKERS"] == "true"
 
-    if defined?(Forem)
-      set_fixture_class forem_categories: Forem::Category if defined?(Forem::Category)
-      set_fixture_class forem_forums: Forem::Forum if defined?(Forem::Forum)
-      set_fixture_class forem_topics: Forem::Topic if defined?(Forem::Topic)
-      set_fixture_class forem_posts: Forem::Post if defined?(Forem::Post)
-    end
-
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
 

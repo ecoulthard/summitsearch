@@ -6,6 +6,9 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Define Kaminari's method before models load; will_paginate owns `page`.
+Kaminari.configure { |config| config.page_method_name = :forum_page }
+
 module Summitsearch
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -26,11 +29,6 @@ module Summitsearch
       Rails.root.join("app/models/join_models")
     )
 
-    Rails.autoloaders.main.ignore(
-      Rails.root.join("app/models/forem"),
-      Rails.root.join("app/controllers/forem"),
-      Rails.root.join("app/helpers/forem")
-    )
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

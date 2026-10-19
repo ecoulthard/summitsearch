@@ -49,7 +49,7 @@
       <%= link_to "Contribution Guide", main_app.contributions_path, rel: 'nofollow' %>&nbsp;
       <%= link_to "Terms of use", main_app.terms_path, rel: 'nofollow' %>&nbsp;
       <%= link_to "Disclaimer", main_app.disclaimer_path, rel: 'nofollow' %>&nbsp;
-      <%= link_to "Suggestions", forem.forum_path("suggestions") if respond_to?(:forem) %>
+      <%= link_to "Suggestions", forum_suggestions_path %>
   </div>
   <%= render "layouts/signup" %>
   <%= render "layouts/signin" %>

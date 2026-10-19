@@ -32,7 +32,8 @@ class MainController < ApplicationController
       @liked_photos = Photo.where("last_liked_at IS NOT NULL AND created_at < ?", 1.week.ago).order("last_liked_at DESC").includes(:user).includes(:title_places).limit(9)
     end
 
-    unless read_fragment(:part => 'comments')
+    @article_comments_cache_key = ArticleCommentTotals.summary_cache_key
+    unless read_fragment(@article_comments_cache_key)
       commented_trips = TripReport.where("last_comment_at IS NOT NULL").includes(:user).order("last_comment_at DESC").limit(4)
       commented_albums = Album.where("last_comment_at IS NOT NULL").order("last_comment_at DESC").includes(:user).limit(4)
       @commented_trips_and_albums = (commented_trips + commented_albums).sort{ |a,b| a.last_comment_at <=> b.last_comment_at }.reverse[0..3]
@@ -96,7 +97,7 @@ class MainController < ApplicationController
     expire_fragment(:action => "index", :part => "routes")
     expire_fragment(:action => "index", :part => "users")
     expire_fragment(:action => "index", :part => "liked")
-    expire_fragment(:action => "index", :part => "comments")
+    ArticleCommentTotals.expire_summary
     respond_to do |format|
       format.html { redirect_to(root_path, :notice => 'Main index cache was cleared.') }
       format.xml  { head :ok }
@@ -165,7 +166,7 @@ class MainController < ApplicationController
         @results = ThinkingSphinx.search("\"#{@search_text}\" | \"#{new_search}\"", :page=>1, :per_page => 100, :classes => [Lake], :order => "importance desc", :field_weights => field_weights) | @results
       end
 
-      @results = @results | ThinkingSphinx.search(@search_text, :page=>1, :per_page => 100, :field_weights => field_weights)
+      @results = @results | ThinkingSphinx.search(@search_text, :page=>1, :per_page => 100, :classes => [Place, Route, Album, Photo, TripReport, User, Person], :field_weights => field_weights)
     rescue => e
       Rails.logger.warn("Sphinx search error: #{e.message}")
       @results = Place.where("name ILIKE ?", "%#{params[:search]}%").limit(20)
