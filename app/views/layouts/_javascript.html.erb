@@ -14,5 +14,6 @@
 <div id="fb-root"></div>
 <%= javascript_importmap_tags %>
 <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+<%= javascript_include_tag "nested_forms", "data-turbo-track": "reload", defer: true %>
 
 <%= yield(:javascript) %>

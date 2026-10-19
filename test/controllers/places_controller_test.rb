@@ -97,4 +97,26 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
     put place_url(places(:castleguard)), params: { place: places(:castleguard).attributes }
     assert_redirected_to place_path(places(:castleguard))
   end
+  test "should persist border points added on the edit form" do
+    sign_in @editor
+    place = places(:castleguard)
+    index = place.border_points.count
+    attributes = place.border_points.each_with_index.to_h { |point, i| [i.to_s, point.attributes] }
+    3.times do |offset|
+      attributes[(index + offset).to_s] = {
+        latitude: place.latitude + 0.001 * (offset + 1),
+        longitude: place.longitude + 0.001 * (offset % 2),
+        local_index: index + offset
+      }
+    end
+
+    assert_difference("place.border_points.reload.count", 3) do
+      put place_url(place), params: { place: { type: place.type, border_points_attributes: attributes } }
+      assert_redirected_to place_path(place)
+    end
+    added = place.border_points.last
+    assert_equal index + 2, added.local_index
+    assert_in_delta place.latitude + 0.003, added.latitude
+  end
+
 end

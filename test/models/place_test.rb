@@ -4,6 +4,35 @@ class PlaceTest < ActiveSupport::TestCase
   fixtures :places
   fixtures :mountain_details
 
+  test "saving a mountain border refreshes subpeaks even when its area stays the same" do
+    attributes = { name_status: "Official", insert_id: users(:vador).id }
+    old_peak = Mountain.create!(attributes.merge(name: "Old Subpeak", latitude: 10.5, longitude: 20.5))
+    new_peak = Mountain.create!(attributes.merge(name: "New Subpeak", latitude: 10.5, longitude: 22.5))
+    mountain = Mountain.create!(attributes.merge(
+      name: "Border Mountain", latitude: 10.6, longitude: 20.6,
+      border_points_attributes: [[10, 20.5], [10.5, 21], [11, 20.5], [10.5, 20]].each_with_index.map do |(lat, lon), index|
+        { latitude: lat, longitude: lon, local_index: index }
+      end
+    ))
+
+    assert_includes mountain.mountains.reload, old_peak
+    assert_not_includes mountain.mountains, new_peak
+    original_area = mountain.area
+
+    mountain.update!(border_points_attributes: mountain.border_points.map { |point|
+      { id: point.id, latitude: point.latitude, longitude: point.longitude + 2 }
+    })
+
+    assert_in_delta original_area, mountain.reload.area, 0.000001
+    assert_includes mountain.mountains.reload, new_peak
+    assert_not_includes mountain.mountains, old_peak
+
+    mountain.update!(border_points_attributes: mountain.border_points.map { |point|
+      { id: point.id, _destroy: true }
+    })
+    assert_empty mountain.mountains.reload
+  end
+
   test "place attributes must not be empty" do
     place = Place.new
     assert place.invalid?

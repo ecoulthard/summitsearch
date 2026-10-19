@@ -36,7 +36,7 @@
   <%= f.fields_for :names do |names_form| %>
     <%= render partial: 'all/name_fields', locals: { f: names_form } %>
   <% end %>
-  <%= f.link_to_add "Add additional name information", :names, class: 'linkButton' %>
+  <%= f.link_to_add "Add additional name information", :names, partial: 'all/name_fields', class: 'linkButton' %>
 
   <div class="clear"></div><br>
 

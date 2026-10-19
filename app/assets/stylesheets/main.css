@@ -803,7 +803,8 @@ legend {
   width: 250px;
 }
 
-body#main.routes.show #content .gm-style-iw {
+body#main.routes.show #content .gm-style-iw,
+body#main .gm-style-iw:has(#place_info_div) {
   &.gm-style-iw-c {
     padding: 12px !important;
   }
@@ -824,7 +825,8 @@ body#main.routes.show #content .gm-style-iw {
     padding-top: 0;
   }
 
-  h2.waypoint-title {
+  h2.waypoint-title,
+  h2.place-info-title {
     box-sizing: border-box;
     width: auto;
     margin: 0;
@@ -836,13 +838,44 @@ body#main.routes.show #content .gm-style-iw {
     overflow-wrap: anywhere;
   }
 
+  h2.place-info-title {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid var(--dark);
+    background: var(--medium) url("menu-background.gif") repeat-x scroll 0 0;
+  }
+
+  h2.place-info-title a,
+  h2.place-info-title a:visited {
+    color: white;
+    font-size: inherit;
+    text-decoration: none;
+  }
+
+  h2.place-info-title a:hover {
+    text-decoration: underline;
+  }
+
   #bubble_div .description,
-  #bubble_div .distance {
+  #bubble_div .distance,
+  #place_info_div {
     font-family: verdana, arial, helvetica, sans-serif;
     font-size: 13px;
     font-weight: normal;
     line-height: 18px;
     color: #333;
+  }
+
+  #place_info_div {
+    overflow-wrap: anywhere;
+
+    .place_description {
+      background: transparent;
+      border: 0;
+      max-height: none;
+      overflow: visible;
+    }
   }
 
   .gm-ui-hover-effect {

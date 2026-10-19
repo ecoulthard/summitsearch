@@ -3146,10 +3146,11 @@ const PlaceObject = {
     }
 
     content = content.replace(new RegExp(`new_${association}`, "g"), this.local_index);
-    content = content.replace('type="hidden" />', `type="hidden" value="${latitude}" />`);
-    content = content.replace('type="hidden" />', `type="hidden" value="${longitude}" />`);
-    content = content.replace('type="hidden" />', `type="hidden" value="${this.local_index}" />`);
     $(button).after(content);
+    const fieldPrefix = `#place_border_points_attributes_${this.local_index}_`;
+    $(`${fieldPrefix}latitude`).val(latitude);
+    $(`${fieldPrefix}longitude`).val(longitude);
+    $(`${fieldPrefix}local_index`).val(this.local_index);
 
     this.borderPoints[this.local_index] = new BorderPoint(this.local_index, latitude, longitude);
     this.pathCoordinates.push(this.borderPoints[this.local_index].latLon);

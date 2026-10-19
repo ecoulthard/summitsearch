@@ -100,11 +100,17 @@ module ApplicationHelper
 end
 
 class ActionView::Helpers::FormBuilder
-  def link_to_add(name, association, **options)
-    @template.link_to(name, "javascript:void(0)", options.merge(data: { association: association }, class: [options[:class], "add_nested_fields"].compact.join(" ")))
+  def link_to_add(name, association, partial: "#{association.to_s.singularize}_fields", **options)
+    child = object.class.reflect_on_association(association).klass.new
+    placeholder = "new_#{association}"
+    fields = fields_for(association, child, child_index: placeholder) do |builder|
+      @template.render(partial, f: builder)
+    end
+    data = (options[:data] || {}).merge(association: association, placeholder: placeholder, fields: String.new(fields))
+    @template.link_to(name, "#", options.merge(data: data, class: [options[:class], "add_nested_fields"].compact.join(" ")))
   end
 
   def link_to_remove(name, **options)
-    @template.link_to(name, "javascript:void(0)", options.merge(class: [options[:class], "remove_nested_fields"].compact.join(" ")))
+    @template.link_to(name, "#", options.merge(class: [options[:class], "remove_nested_fields"].compact.join(" ")))
   end
 end

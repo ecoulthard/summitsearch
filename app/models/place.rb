@@ -130,6 +130,7 @@ class Place < ApplicationRecord
   before_validation :setBoundingBox
 
   before_validation :sortBorderPoints
+  before_save :remember_border_points_changes
   before_save :setArea
   before_save :trim_content
   before_save :set_importance
@@ -372,8 +373,8 @@ y2 = (point.latitude > centerLat ? 1 : -1) * (point.dist centerLat, point.longit
   #First clear existing links then add links to all places in this area
   def setPlaces
 
-    return unless area_changed?
-    AreaPlace.delete child_area_place_ids
+    return unless boundary_changed_after_save?
+    child_area_places.delete_all
     return unless area > 0
 
     places = Place.find_by_bounding_box max_latitude, min_latitude, max_longitude, min_longitude
@@ -390,7 +391,7 @@ y2 = (point.latitude > centerLat ? 1 : -1) * (point.dist centerLat, point.longit
 
   #First clear existing links then add links to all routes in this area
   def setRoutes
-    return unless area_changed?
+    return unless boundary_changed_after_save?
     PlaceRoute.delete place_route_ids
     Route.all.each do |route|
       route.waypoints.each do |waypoint|
@@ -404,7 +405,7 @@ y2 = (point.latitude > centerLat ? 1 : -1) * (point.dist centerLat, point.longit
 
   #First clear existing links then add links to all photos in this area
   def setPhotosInArea
-    return unless area_changed?
+    return unless boundary_changed_after_save?
     PlacePhotoInArea.delete place_photos_in_area_ids
     Photo.all.each do |photo|
       if(inArea(photo.ref_latitude, photo.ref_longitude))
@@ -416,7 +417,7 @@ y2 = (point.latitude > centerLat ? 1 : -1) * (point.dist centerLat, point.longit
 
   #First clear existing links then add links to all albums in this area
   def setAlbumsInArea
-    return unless area_changed?
+    return unless boundary_changed_after_save?
     PlaceAlbumInArea.delete place_albums_in_area_ids
     Album.all.each do |album|
       if(inArea(album.ref_latitude, album.ref_longitude))
@@ -465,6 +466,15 @@ y2 = (point.latitude > centerLat ? 1 : -1) * (point.dist centerLat, point.longit
   end
 
   #Return true if the border points have changed
+  # Autosave clears the points' dirty state before the area's after_save callbacks.
+  def remember_border_points_changes
+    @border_points_changed_before_save = border_points_changed?
+  end
+
+  def boundary_changed_after_save?
+    @border_points_changed_before_save || saved_change_to_area?
+  end
+
   def border_points_changed?
     changed = false
     border_points.each do |point|

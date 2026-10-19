@@ -5,6 +5,7 @@
   contentString<%= id %> = "";
   infowindow<%= id %> = new google.maps.InfoWindow({
 	  content: contentString<%= id %>,
+      headerContent: document.createTextNode("<%= escape_javascript place.name %>"),
 	  maxWidth: 600
   });
   marker<%= id %> = new google.maps.Marker({
@@ -42,7 +43,7 @@
     if(contentString<%= id %> === ""){
       map.setOptions({draggableCursor:'wait'});
       marker<%= id %>.setOptions({cursor:'wait'});
-      contentString<%= id %> = "Loading <span class=\"qq-upload-spinner\"></span>";
+      contentString<%= id %> = "<div id=\"place_info_div\">Loading <span class=\"qq-upload-spinner\"></span></div>";
       infowindow<%= id %>.setContent(contentString<%= id %>);
       infowindow<%= id %>.open(map,marker<%= id %>);
       var getpath = "<%= infowindow_place_url(place) %>";
@@ -54,7 +55,14 @@
       $.get(getpath, function(data) {
         map.setOptions({draggableCursor:null});
 	marker<%= id %>.setOptions({cursor:null});
-        contentString<%= id %> = data;
+        const content = document.createElement('div');
+        content.innerHTML = data;
+        const title = content.querySelector('.place-info-title');
+        if (title) {
+          title.remove();
+          infowindow<%= id %>.setHeaderContent(title);
+        }
+        contentString<%= id %> = content;
         infowindow<%= id %>.setContent(contentString<%= id %>);
       });
     }

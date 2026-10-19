@@ -1,8 +1,6 @@
 <% cache part: "infowindow_#{@place_id}" do %>
 <div id="place_info_div">
-  <div>
-    <b><%= link_to @place.name, @place, data_popup: true %></b>
-  </div>
+  <h2 class="place-info-title"><%= link_to @place.name, @place, data_popup: true %></h2>
   <div class="place_description">
     <p>
       <b>Height:</b>
@@ -19,7 +17,7 @@
     <% end %>
 
     <% if defined?(@place.parent_mountain) && @place.parent_mountain.present? %>
-      <p class="no-wrap">
+      <p>
         The closest higher mountain is <%= link_to @place.parent_mountain.name, "#", id: "parent_mountain_#{@place.parent_mountain.id}", latitude: @place.parent_mountain.latitude, longitude: @place.parent_mountain.longitude %>, <%= @place.dist_to_parent.round(2) %>km away.
       </p>
       <% #Go to parent mountain if link clicked %>
