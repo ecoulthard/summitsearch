@@ -134,14 +134,16 @@ const RouteObject = {
       return;
     }
     content = content.replace(new RegExp(`new_${association}`, "g"), this.local_index);
-    content = content.replace('type="hidden" />', `type="hidden" value="${latitude}" />`);
-    content = content.replace('type="hidden" />', `type="hidden" value="${longitude}" />`);
-    content = content.replace('type="hidden" />', `type="hidden" value="${this.local_index}" />`);
-    content = content.replace('type="hidden" />', `type="hidden" value="${this.active_index}" />`);
+    // Populate the actual inputs rather than depending on Rails' HTML formatting.
+    $(button).after(content);
+    const fieldPrefix = `#route_waypoints_attributes_${this.local_index}_`;
+    $(`${fieldPrefix}latitude`).val(latitude);
+    $(`${fieldPrefix}longitude`).val(longitude);
+    $(`${fieldPrefix}local_index`).val(this.local_index);
+    $(`${fieldPrefix}parent_index`).val(this.active_index === null ? -1 : this.active_index);
     this.waypoints[this.local_index] = new Waypoint(this.local_index, this.active_index, "", latitude, longitude, 0, 0.0, 0, 0, "", "", null, window_content);
     this.active_index = this.local_index;
     this.local_index++;
-    $(button).after(content);
     setTimeout(() => {
       this.computeDistances();
     }, 500);

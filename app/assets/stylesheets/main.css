@@ -803,6 +803,62 @@ legend {
   width: 250px;
 }
 
+body#main.routes.show #content .gm-style-iw {
+  &.gm-style-iw-c {
+    padding: 12px !important;
+  }
+
+  .gm-style-iw-d {
+    overflow: auto !important;
+  }
+
+  .gm-style-iw-chr {
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .gm-style-iw-ch {
+    flex: 1;
+    min-width: 0;
+    padding-top: 0;
+  }
+
+  h2.waypoint-title {
+    box-sizing: border-box;
+    width: auto;
+    margin: 0;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.25;
+    padding: 3px 6px;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+  }
+
+  #bubble_div .description,
+  #bubble_div .distance {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #333;
+  }
+
+  .gm-ui-hover-effect {
+    flex-shrink: 0;
+    margin: 0 !important;
+    width: 28px !important;
+    height: 28px !important;
+
+    > span {
+      width: 16px !important;
+      height: 16px !important;
+      margin: 6px !important;
+    }
+  }
+}
+
 .ArticleListDiv {
   float: left;
   min-width: 300px;
@@ -945,4 +1001,3 @@ legend {
     max-height: 80vh;
   }
 }
-

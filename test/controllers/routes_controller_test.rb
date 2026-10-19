@@ -107,4 +107,31 @@ class RoutesControllerTest < ActionDispatch::IntegrationTest
     }
     assert_redirected_to route_path(route)
   end
+  test "should persist a waypoint appended on the edit form" do
+    sign_in @admin
+    route = routes(:columbia)
+    existing = route.waypoints.to_a
+    last = existing.last
+    index = existing.length
+    attributes = existing.each_with_index.to_h { |point, i| [i.to_s, point.attributes] }
+    attributes[index.to_s] = {
+      latitude: last.latitude + 0.001,
+      longitude: last.longitude,
+      local_index: index,
+      parent_index: last.local_index,
+      height: last.height
+    }
+
+    assert_difference("route.waypoints.reload.count", 1) do
+      put route_url(route), params: {
+        route: { name: route.name, type: route.type, waypoints_attributes: attributes }
+      }
+      assert_redirected_to route_path(route)
+    end
+    added = route.waypoints.last
+    assert_equal index, added.local_index
+    assert_equal last.local_index, added.parent_index
+    assert_in_delta last.latitude + 0.001, added.latitude
+  end
+
 end

@@ -51,7 +51,15 @@
 				  map: map,
 				  title: "Click to keep open"
 		    });
-		  this.infowindow = new google.maps.InfoWindow({content: window_content, maxWidth: 300});
+          const content = document.createElement('div');
+          content.innerHTML = window_content;
+          const title = content.querySelector('.waypoint-title');
+          if (title) title.remove();
+          this.infowindow = new google.maps.InfoWindow({
+            content: content,
+            headerContent: title,
+            maxWidth: 300
+          });
 		  var index = id;//Needs to be defined to be used the google listeners.
 
 		  //Open info windows on click
