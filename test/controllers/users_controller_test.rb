@@ -17,6 +17,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should show user" do
     get user_url(@author)
     assert_response :success
+    assert_select "body > #bottom", count: 1
+    assert_select "#content #bottom", count: 0
   end
 
   test "editor should promote author" do

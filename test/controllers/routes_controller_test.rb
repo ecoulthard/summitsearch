@@ -16,6 +16,17 @@ class RoutesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get index sorted by height change" do
+    get routes_url, params: { sort: "height_change" }
+    assert_response :success
+  end
+
+  test "should get index sorted by average steepness with zero distance" do
+    @route.update_columns(distance: 0, height_gain: 100)
+    get routes_url, params: { sort: "average_steepness" }
+    assert_response :success
+  end
+
   test "should get new" do
     sign_in @admin
     get new_route_url, params: { type: "Scramble", place_id: places(:columbia).id }

@@ -95,9 +95,15 @@ body.summit-forum {
   flex-wrap: wrap;
   gap: 12px 24px;
   padding: 16px;
-  border-top: 1px solid #acbfd6;
-  background: var(--light);
+  border-top: 1px solid var(--dark);
+  background: var(--medium) url("menu-background.gif") repeat-x;
+  color: white;
 }
+.summit-forum .forum-footer a,
+.summit-forum .forum-footer a:visited,
+.summit-forum .forum-footer a:hover,
+.summit-forum .forum-footer a:focus-visible,
+.summit-forum .forum-footer a:active { color: white; }
 /* Thredded overlays these controls on breadcrumbs below its tablet breakpoint. */
 @media screen and (max-width: 48rem) {
   .summit-forum .thredded--user-navigation,

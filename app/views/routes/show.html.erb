@@ -1,9 +1,13 @@
 <div id="place_list" data-turbo="false">
-  <h1><%= @route.name %><br><br>
-    <%= link_to "Google Map View", gmap_path(route_id: @route.id), rel: 'nofollow', class: 'linkButton' %>
-    <%= topo_map_link @route.averageLatitude.round(6), @route.averageLongitude.round(6), 10 %>
-    <% if @show_edit_link %>
-      <%= link_to "Edit This #{@type}", edit_route_path(@route), class: 'linkButton' %>
+  <h1 class="section-header">
+    <span class="section-title"><%= @route.name %></span>
+    <span class="section-action-break"><br><br></span>
+    <%= render layout: 'all/section_actions', locals: { label: 'Route', menu_id: 'page-actions' } do %>
+      <%= link_to "Google Map View", gmap_path(route_id: @route.id), rel: 'nofollow', class: 'linkButton' %>
+      <%= topo_map_link @route.averageLatitude.round(6), @route.averageLongitude.round(6), 10 %>
+      <% if @show_edit_link %>
+        <%= link_to "Edit This #{@type}", edit_route_path(@route), class: 'linkButton' %>
+      <% end %>
     <% end %>
   </h1>
 

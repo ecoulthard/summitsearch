@@ -1,9 +1,12 @@
 <div id="place_list" data-turbo="false">
-  <h1><%= @person.name %> 
-    <% if user_is_editor? %>  
-      <br /><br />
-      <%= link_to "Edit This Person", edit_person_path(@person), class: 'linkButton' %>
-      <%= link_to "Insert New Person", new_person_path, class: 'linkButton' %>
+  <h1 class="section-header">
+    <span class="section-title"><%= @person.name %></span>
+    <% if user_is_editor? %>
+      <span class="section-action-break"><br><br></span>
+      <%= render layout: 'all/section_actions', locals: { label: 'Person', menu_id: 'page-actions' } do %>
+        <%= link_to "Edit This Person", edit_person_path(@person), class: 'linkButton' %>
+        <%= link_to "Insert New Person", new_person_path, class: 'linkButton' %>
+      <% end %>
     <% end %>
   </h1>
   <div class="entries">

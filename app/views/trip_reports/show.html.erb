@@ -1,14 +1,17 @@
 <div id="place_list" data-turbo="false">
-  <h1><%= @trip_report.title %> <span>by <%= link_to @trip_report.user.display_name, @trip_report.user rescue (@trip_report.user&.display_name || "Unknown") %></span>
-    <br><br>
-    <%= link_to 'View Photo Slideshow', slideshow_photos_path(trip_report_id: @trip_report.id, type: 'Title'), rel: 'nofollow', data: { popup: true }, class: 'linkButton' %>
-    <%= link_to 'View Full Size Photos', show_full_photos_path(trip_report_id: @trip_report.id, type: 'Title'), rel: 'nofollow', data: { popup: true }, class: 'linkButton' %>
-    <%= link_to "Google Map View", gmap_path(trip_report_id: @trip_report.id), rel: 'nofollow', class: 'linkButton' %>
-    <%= topo_map_link @trip_report.route.averageLatitude.round(6), @trip_report.route.averageLongitude.round(6), 10 %>
-    <% if @show_edit_link %>
-      <%= link_to "Edit This Trip Report", edit_trip_report_path(@trip_report), class: 'linkButton' %>
-      <% if @can_edit_route %>
-        <%= link_to "Edit the Route", edit_route_path(@trip_report.route), class: 'linkButton' %>
+  <h1 class="section-header">
+    <span class="section-title"><%= @trip_report.title %> <span>by <%= link_to @trip_report.user.display_name, @trip_report.user rescue (@trip_report.user&.display_name || "Unknown") %></span></span>
+    <span class="section-action-break"><br><br></span>
+    <%= render layout: 'all/section_actions', locals: { label: 'Trip report', menu_id: 'page-actions' } do %>
+      <%= link_to 'View Photo Slideshow', slideshow_photos_path(trip_report_id: @trip_report.id, type: 'Title'), rel: 'nofollow', data: { popup: true }, class: 'linkButton' %>
+      <%= link_to 'View Full Size Photos', show_full_photos_path(trip_report_id: @trip_report.id, type: 'Title'), rel: 'nofollow', data: { popup: true }, class: 'linkButton' %>
+      <%= link_to "Google Map View", gmap_path(trip_report_id: @trip_report.id), rel: 'nofollow', class: 'linkButton' %>
+      <%= topo_map_link @trip_report.route.averageLatitude.round(6), @trip_report.route.averageLongitude.round(6), 10 %>
+      <% if @show_edit_link %>
+        <%= link_to "Edit This Trip Report", edit_trip_report_path(@trip_report), class: 'linkButton' %>
+        <% if @can_edit_route %>
+          <%= link_to "Edit the Route", edit_route_path(@trip_report.route), class: 'linkButton' %>
+        <% end %>
       <% end %>
     <% end %>
   </h1>

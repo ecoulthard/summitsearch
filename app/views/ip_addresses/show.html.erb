@@ -1,5 +1,10 @@
 <div>
-  <h1><%= @ip_address.display_name %> <%= link_to "Back to Index", ip_addresses_path, class: 'linkButton' %> </h1>
+  <h1 class="section-header">
+    <span class="section-title"><%= @ip_address.display_name %></span>
+    <%= render layout: 'all/section_actions', locals: { label: 'IP address', menu_id: 'page-actions' } do %>
+      <%= link_to "Back to Index", ip_addresses_path, class: 'linkButton' %>
+    <% end %>
+  </h1>
   <div class="entries">
     <% if user_is_admin? %>
       <div>

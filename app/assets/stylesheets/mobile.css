@@ -1,0 +1,780 @@
+/* Reflow the home page, shared listings, and detail pages on small screens. */
+@media screen and (max-width: 800px), screen and (max-width: 1000px) and (max-height: 500px) {
+  body#main.main.gmap {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+
+    #short_banner {
+      flex-shrink: 0;
+
+      a {
+        display: block;
+        padding: 10px 12px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    #nomenu, #place_list {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 0;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .map-toolbar {
+      flex-shrink: 0;
+      gap: 8px;
+
+      h1 {
+        width: 100%;
+      }
+
+      label {
+        width: 100%;
+      }
+    }
+
+    #map_div.map_div_big {
+      box-sizing: border-box;
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      min-height: 240px;
+      height: auto;
+      margin: 0;
+      overflow: hidden;
+    }
+  }
+
+}
+
+@media screen and (max-width: 800px), screen and (max-width: 1000px) and (max-height: 500px) {
+  body#main :is(#content, #place_list) .gm-style-iw {
+    &.gm-style-iw-c {
+      box-sizing: border-box;
+      max-width: calc(100vw - 48px) !important;
+      padding: 12px !important;
+    }
+
+    .gm-style-iw-d {
+      max-width: 100%;
+      max-height: min(50dvh, 360px) !important;
+      overflow: auto !important;
+      overscroll-behavior: contain;
+    }
+
+    &, p, div, td, label, input, select, textarea,
+    #place_info_div, #bubble_div .description, #bubble_div .distance {
+      font-family: verdana, arial, helvetica, sans-serif;
+      font-size: 16px !important;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .gm-style-iw-chr {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .gm-style-iw-ch {
+      flex: 1;
+      min-width: 0;
+      padding-top: 0;
+    }
+
+    .gm-ui-hover-effect {
+      flex-shrink: 0;
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px;
+      min-height: 44px;
+      margin: 0 !important;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--dark);
+
+      > span {
+        width: 24px !important;
+        height: 24px !important;
+        margin: 10px !important;
+      }
+    }
+
+    h2.waypoint-title, h2.place-info-title {
+      width: auto;
+      font-size: 18px;
+      line-height: 1.4;
+      white-space: normal;
+    }
+
+    #place_info_div, #bubble_div, .info_window, .reference_window,
+    .smallDiv, .smallDiv > div {
+      box-sizing: border-box;
+      width: 100% !important;
+      max-width: 100%;
+      height: auto;
+      float: none;
+    }
+
+    #place_info_div, #bubble_div {
+      overflow: visible;
+    }
+
+    .place_description {
+      max-height: none;
+      background: transparent;
+      border: 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    #bubble_div {
+      .no-wrap {
+        white-space: normal;
+      }
+
+      fieldset {
+        min-width: 0;
+        padding: 8px;
+      }
+
+      label {
+        float: none;
+        width: auto;
+        text-align: left;
+      }
+
+      input, select, textarea {
+        box-sizing: border-box;
+        max-width: 100%;
+        margin-left: 0;
+      }
+
+      input:not([type="radio"], [type="checkbox"], [type="hidden"]), select {
+        min-height: 44px;
+      }
+
+      input[type="button"], button {
+        white-space: normal;
+        margin: 4px 0;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  body#main.main.index #content > table.subdued > thead > tr > th.section-header,
+  body#main.show #content .section-header:has(.section-actions),
+  body#main #content .record-listing > h1.section-header,
+  body#main #content .resource-form > h1.section-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+
+    .section-title {
+      font-size: inherit;
+    }
+
+    .section-actions {
+      display: contents;
+    }
+
+    .section-action-break,
+    .sort-label {
+      display: none;
+    }
+
+    .section-action-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-column: 2;
+      grid-row: 1;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid white;
+      border-radius: 6px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+
+      span {
+        font-size: 26px;
+        line-height: 1;
+      }
+    }
+
+    .section-action-toggle:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 2px;
+    }
+
+    .section-action-links {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 8px;
+      border-top: 1px solid rgb(255 255 255 / 35%);
+
+      .linkButton {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 44px;
+        margin: 4px 0;
+        padding: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        white-space: normal;
+      }
+    }
+
+    .section-action-toggle[aria-expanded="false"] + .section-action-links {
+      display: none;
+    }
+
+    .section-summary {
+      grid-column: 1 / -1;
+      font-weight: normal;
+    }
+
+    .section-summary:empty {
+      display: none;
+    }
+
+    > .pagination {
+      grid-column: 1 / -1;
+      margin-top: 8px;
+    }
+  }
+
+  body#main #content .resource-form > h1.section-header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 8px;
+    font-size: 20px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  body#main.default {
+    #banner {
+      height: auto;
+      background-size: auto 120px;
+      background-position: center top;
+      cursor: auto;
+    }
+
+    #banner #BannerLogo {
+      box-sizing: border-box;
+      display: block;
+      max-width: 100%;
+      height: auto;
+      max-height: 120px;
+      padding: 8px;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    #menu {
+      position: relative;
+      left: 0;
+      top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+      padding: 4px;
+      margin: 0;
+      border-radius: 0;
+      z-index: 101;
+      text-align: left;
+    }
+
+    #menu > li {
+      position: static;
+      float: none;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    #menu > li.not_search {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    #menu > li > a {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+
+    #menu > li > a.drop {
+      display: none;
+    }
+
+    #menu > li > .navigation-dropdown-toggle {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 24px 8px 12px;
+      border: 0;
+      border-radius: 0;
+      background: var(--medium) url("drop.png") no-repeat right 18px;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    #menu > li > .navigation-dropdown-toggle:focus-visible {
+      outline: 3px solid white;
+      outline-offset: -3px;
+    }
+
+    #menu > li > .navigation-dropdown-toggle[aria-expanded="true"] {
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    #menu > li.search {
+      box-sizing: border-box;
+      order: -2;
+      flex: 1 1 calc(100% - 52px);
+      min-width: 0;
+      width: calc(100% - 52px);
+      padding: 4px;
+    }
+
+    #menu input[type="search"] {
+      height: 44px;
+      font-size: 16px;
+    }
+
+    #menu > li.not_search > div[class*="dropdown_"] {
+      display: none;
+      box-sizing: border-box;
+      width: 100%;
+      max-height: 60vh;
+      overflow-y: auto;
+      left: 0;
+      right: 0;
+    }
+
+    #menu > li.not_search:has(> .navigation-dropdown-toggle[aria-expanded="true"]) > div[class*="dropdown_"] {
+      display: flex;
+      flex-wrap: wrap;
+      left: 0;
+      right: 0;
+    }
+
+    #menu div[class*="col_"] {
+      box-sizing: border-box;
+      flex: 1 1 140px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    #menu div a, #menu div button {
+      box-sizing: border-box;
+      min-height: 44px;
+      padding: 8px 4px;
+      font-size: 16px;
+      white-space: normal;
+    }
+
+    #menu > li.navigation-toggle {
+      box-sizing: border-box;
+      display: block;
+      order: -1;
+      flex: 0 0 52px;
+      min-width: 0;
+      padding: 4px;
+    }
+
+    #navigation-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid white;
+      border-radius: 6px;
+      background: transparent;
+      color: white;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    #navigation-toggle:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 2px;
+    }
+
+    #menu:has(#navigation-toggle[aria-expanded="false"]) > li.not_search {
+      display: none;
+    }
+
+  }
+
+  body#main:is(.main.index, :has(.record-listing), .show) {
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+
+    p, ul, ol, li, td, input, button {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    #content {
+      padding: 12px 8px;
+    }
+
+    #content .record-listing {
+      min-width: 0;
+    }
+
+    #content h1,
+    #content h2 {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px 8px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    #content .record-listing > table,
+    #content .record-listing > table > tbody,
+    #content .record-listing > table > tbody > tr,
+    #content .record-listing > table > tbody > tr > td {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      min-width: 0;
+      float: none;
+    }
+
+    #content .record-listing > table > tbody > tr {
+      padding: 12px;
+      border-bottom: 1px solid var(--dark);
+    }
+
+    #content .record-listing > table > tbody > tr > td {
+      padding: 0;
+      border: 0;
+    }
+
+    #content .record-listing .list_description dl {
+      max-height: none;
+      overflow: visible;
+    }
+
+    #content .record-listing dt {
+      margin-bottom: 8px;
+    }
+
+    #content .record-listing dd + dd {
+      margin-top: 8px;
+    }
+
+    #content .record-listing img.list_image {
+      min-width: 0;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 8px;
+    }
+
+    #content .pagination {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.5;
+    }
+
+    #content .pagination > * {
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 8px;
+      font-size: inherit;
+    }
+
+    #content .photo-list-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+      gap: 8px;
+    }
+
+    #content .photo-list-grid > .thumbDiv {
+      width: 100% !important;
+      float: none;
+    }
+
+    #content > table.subdued,
+    #content > table.subdued > thead,
+    #content > table.subdued > thead > tr,
+    #content > table.subdued > thead > tr > th,
+    #content > table.subdued > tbody,
+    #content > table.subdued > tbody > tr,
+    #content > table.subdued > tbody > tr > td {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      float: none;
+    }
+
+    #content > table.subdued > thead > tr > th {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    #content > table.subdued > tbody > tr > td {
+      padding: 12px;
+    }
+
+    #content .no-wrap {
+      white-space: normal;
+    }
+
+    #content .linkButton {
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      max-width: 100%;
+      min-height: 44px;
+      margin: 6px 2px;
+      padding: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+      white-space: normal;
+    }
+
+    #content .entries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    #content .thumbDiv {
+      box-sizing: border-box;
+      flex: 1 1 200px;
+      min-width: 0;
+      max-width: 100%;
+      height: auto;
+      padding: 10px;
+      margin: 0;
+    }
+
+    /* Photo partials supply inline widths and very small title fonts. */
+    #content .thumbTitleDiv {
+      width: auto !important;
+      height: auto;
+      margin-bottom: 8px;
+      font-size: 16px !important;
+      line-height: 1.5;
+      overflow: visible;
+    }
+
+    #content .thumbDiv img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    #content .fb-like-box {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    #bottom {
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    #bottom a {
+      box-sizing: border-box;
+      min-width: 0;
+      min-height: 44px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    &.show {
+      #content .entries,
+      #content .top_content,
+      #content .top_content_small {
+        display: block;
+        min-height: 0;
+        min-width: 0;
+        width: 100%;
+      }
+
+      #content .titlePhotoDiv {
+        box-sizing: border-box;
+        float: none !important;
+        width: 100%;
+        padding: 0 !important;
+        margin: 12px 0;
+      }
+
+      #content .map_div,
+      #content .map_div_small {
+        box-sizing: border-box;
+        float: none !important;
+        width: 100%;
+        height: 320px;
+        margin: 12px 0;
+      }
+
+      /* Leave map tiles and controls at the sizes chosen by Google Maps. */
+      #content img:not(.gm-style img),
+      #content video {
+        max-width: 100%;
+        height: auto;
+      }
+
+      #content iframe {
+        max-width: 100%;
+      }
+
+      #content .smallDiv,
+      #content .smallDiv > div {
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+
+      #content .smallDiv {
+        float: none;
+        margin: 12px 0;
+      }
+
+      #content .ArticleListDiv,
+      #content .TripListDiv {
+        float: none;
+        width: 100%;
+        min-width: 0;
+      }
+
+      #content table.subdued {
+        box-sizing: border-box;
+        display: block;
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        margin: 12px 0;
+      }
+
+      /* Related article tables group cards into rows under one heading. */
+      #content table.subdued:not(:has(thead th:nth-child(2))) {
+        > thead, > thead > tr, > thead > tr > th,
+        > tbody, > tbody > tr, > tbody > tr > td {
+          box-sizing: border-box;
+          display: block;
+          width: 100%;
+          min-width: 0;
+        }
+      }
+
+      #content table.subdued > thead > tr > th.section-header:has(.section-actions) {
+        display: grid;
+      }
+
+      #content h3.section-header .section-action-toggle {
+        color: inherit;
+        border-color: currentColor;
+      }
+
+      #content .social {
+        white-space: normal;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+
+      #content .toggleButton {
+        position: static;
+        max-width: 100%;
+        min-height: 44px;
+        white-space: normal;
+      }
+
+      #comments input,
+      #comments textarea,
+      #comments select {
+        box-sizing: border-box;
+        max-width: 100%;
+        font-size: 16px;
+      }
+
+      #comments textarea {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+      }
+
+      #comments fieldset {
+        box-sizing: border-box;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      #comments table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+
+      #comments input[type="submit"],
+      #comments button {
+        min-height: 44px;
+        white-space: normal;
+      }
+
+      #content pre {
+        max-width: 100%;
+        overflow-x: auto;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

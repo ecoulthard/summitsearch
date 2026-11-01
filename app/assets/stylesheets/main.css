@@ -53,17 +53,20 @@ img {
 }
 
 fieldset {
-  background: #efe;
-  padding: 2px 2px 2px 5px;
+  box-sizing: border-box;
+  min-width: 0;
+  border: 1px solid var(--dark);
+  background: var(--light);
+  padding: 12px 16px;
   border-radius: 8px;
 
   fieldset.indent {
-    background: #dfd;
+    background: white;
     width: auto;
     margin-left: 80px;
 
     fieldset.indent {
-      background: #efe;
+      background: var(--light);
     }
   }
 }
@@ -75,6 +78,14 @@ legend {
   font-family: sans-serif;
   padding: 0.2em 1em;
   border-radius: 8px;
+}
+
+.section-actions > .section-action-toggle {
+  display: none;
+}
+
+.section-actions, .section-action-links {
+  display: inline;
 }
 
 .clear {
@@ -113,6 +124,11 @@ legend {
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto 150px;
+
+    #BannerLink {
+      display: block;
+      line-height: 0;
+    }
 
     img {
       padding-left: 350px;
@@ -165,7 +181,7 @@ legend {
     text-align: center;
     padding: 10px 0px;
 
-    a {
+    a, a:visited, a:hover, a:focus-visible, a:active {
       color: white;
       font-size: 1.1em;
       min-width: 200px;
@@ -583,6 +599,11 @@ legend {
   }
 }
 
+/* Autocomplete is appended to the body, outside the navigation's stacking context. */
+body#main .ui-autocomplete {
+  z-index: 102;
+}
+
 .abstractDiv {
   width: 340px;
 }
@@ -711,13 +732,54 @@ legend {
 }
 
 .form {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  padding: 16px 12px;
+
+  fieldset {
+    margin-bottom: 16px;
+  }
+
+  legend {
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  input, select, textarea,
+  .markItUp, .markItUpEditor {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="file"], [type="submit"], [type="button"]),
+  select, textarea {
+    border: 1px solid #a6c9e2;
+    border-radius: 4px;
+    background-color: white;
+    color: var(--default-text);
+    padding: 6px 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-family: inherit;
+
+    &:focus-visible {
+      outline: 2px solid var(--medium);
+      outline-offset: 2px;
+    }
+  }
+
   label {
     width: 20em;
     float: left;
     text-align: right;
-    padding-top: 0.2em;
     margin-right: 0.1em;
     display: block;
+    color: var(--dark);
+    font-weight: bold;
+    padding-top: 10px;
   }
 
   select, textarea, input {
@@ -739,8 +801,128 @@ legend {
     visibility: hidden;
   }
 
-  input[type="submit"] {
-    font-size: 24px;
+  input[type="submit"], input[type="button"], button:not(.section-action-toggle),
+  input[type="file"]::file-selector-button {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 8px 16px;
+    border: 1px solid var(--dark);
+    border-radius: 6px;
+    background: var(--medium) url("menu-background.gif") repeat-x scroll 0 0;
+    color: white;
+    font: bold 14px/1.5 verdana, arial, helvetica, sans-serif;
+    white-space: normal;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--dark);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--medium);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+
+  input[type="file"]::file-selector-button {
+    margin-right: 8px;
+  }
+
+  input[type="checkbox"], input[type="radio"] {
+    accent-color: var(--medium);
+  }
+
+  .markItUp {
+    border-color: var(--dark);
+    border-radius: 6px;
+    background: var(--light);
+  }
+
+  .markItUpEditor {
+    font-family: inherit;
+    line-height: 1.5;
+  }
+
+  .actions {
+    margin-top: 16px;
+  }
+
+  /* Keep validation messages readable without the scaffold's solid red boxes. */
+  body#main & .field_with_errors {
+    display: contents;
+    background: transparent;
+    padding: 0;
+
+    input, select, textarea {
+      border-color: #a12622;
+    }
+  }
+
+  body#main & #error_explanation {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #a12622;
+    border-radius: 6px;
+    background: #fff5f4;
+    color: var(--default-text);
+    padding: 12px 16px;
+    margin: 0 0 16px;
+
+    h2 {
+      margin: 0 0 8px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #a12622;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      font-size: inherit;
+      line-height: 1.5;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 16px;
+    line-height: 1.5;
+
+    p, li {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    label {
+      float: none;
+      width: auto;
+      text-align: left;
+      margin-bottom: 4px;
+    }
+
+    input, select, textarea {
+      margin-left: 0;
+      font-size: 16px;
+    }
+
+    input:not([type="hidden"], [type="checkbox"], [type="radio"]), select {
+      min-height: 44px;
+    }
+
+    fieldset.indent {
+      margin-left: 0;
+    }
   }
 
   #bubble_div {
@@ -851,6 +1033,59 @@ legend {
   width: var(--full-width);
   height: 100%;
   overflow: auto;
+}
+
+body#main.main.gmap #nomenu .map-toolbar {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 12px;
+  background: var(--light);
+  color: var(--dark);
+
+  h1 {
+    margin: 0;
+    border: 0;
+    font: bold 20px/1.4 verdana, arial, helvetica, sans-serif;
+  }
+
+  .map-radius-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  input, .map-back-link {
+    box-sizing: border-box;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--dark);
+    border-radius: 6px;
+    font: inherit;
+  }
+
+  input[type="number"] {
+    width: 88px;
+    background: white;
+    color: var(--default-text);
+  }
+
+  input[type="submit"], .map-back-link {
+    background: var(--medium);
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  input:focus-visible, a:focus-visible {
+    outline: 2px solid var(--medium);
+    outline-offset: 2px;
+  }
 }
 
 .info_window {

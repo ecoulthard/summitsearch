@@ -1,11 +1,13 @@
 <table class="subdued" cellspacing="0">
   <thead>
     <tr>
-      <th colspan="4" class="clickable"><%= new ?  "New" : "Recently Updated" %> Trip Reports or Albums 
+      <th colspan="4" class="section-header"><span class="section-title"><%= new ?  "New" : "Recently Updated" %> Trip Reports or Albums</span>
         <% if new %>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More New Trip Reports", trip_reports_path, class: 'linkButton' %>
-          &nbsp;<%= link_to "More New Albums", albums_path, class: 'linkButton' %>
-          &nbsp;<span>
+          <%= render layout: 'all/section_actions', locals: { label: 'Trip Reports or Albums', menu_id: 'trip-report-actions' } do %>
+            <%= link_to "More New Trip Reports", trip_reports_path, class: 'linkButton' %>
+            <%= link_to "More New Albums", albums_path, class: 'linkButton' %>
+          <% end %>
+          <span class="section-summary">
             <% if defined?(@numTripsAlbumsSinceLastVisit) && @numTripsAlbumsSinceLastVisit.present? %>
               <%= "#{@numTripsAlbumsSinceLastVisit} new since your last visit." if @numTripsAlbumsSinceLastVisit > 0 %>
             <% end %>
@@ -38,11 +40,13 @@
 <table class="subdued" cellspacing="0">
   <thead>
     <tr>
-      <th colspan="6" class="clickable"><%= new ? "New" : "Recently Updated" %> Photos
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Submit a Photo', new_photo_path, rel: 'nofollow', class: 'linkButton', data: { turbo: false } %>
+      <th colspan="6" class="section-header"><span class="section-title"><%= new ? "New" : "Recently Updated" %> Photos</span>
+        <%= render layout: 'all/section_actions', locals: { label: 'Photos', menu_id: 'photo-actions' } do %>
+          <%= link_to 'Submit a Photo', new_photo_path, rel: 'nofollow', class: 'linkButton', data: { turbo: false } %>
+          <%= link_to "More New Photos", photos_path, class: 'linkButton' if new %>
+        <% end %>
         <% if new %>
-          <%= link_to "More New Photos", photos_path, class: 'linkButton' %>
-          <span>
+          <span class="section-summary">
             <% if defined?(@numPhotosSinceLastVisit) && @numPhotosSinceLastVisit.present? %>
                <%= "#{pluralize @numPhotosSinceLastVisit, "new photo"} since your last visit. " if @numPhotosSinceLastVisit > 0 %>
             <% end %>

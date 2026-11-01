@@ -1,10 +1,15 @@
 <div id="place_list">
-  <h1><%= @user.display_name %> 
-    <% if @show_edit_link %>
-      <%= link_to 'Edit Your Profile', edit_user_registration_path, class: 'linkButton', data: { turbo: false } %>
-    <% end %>
-    <% if user_is_admin? %>
-      <%= link_to 'Site History', statistics_user_path(@user), class: 'linkButton' %>
+  <h1 class="section-header">
+    <span class="section-title"><%= @user.display_name %></span>
+    <% if @show_edit_link || user_is_admin? %>
+      <%= render layout: 'all/section_actions', locals: { label: 'Member', menu_id: 'page-actions' } do %>
+        <% if @show_edit_link %>
+          <%= link_to 'Edit Your Profile', edit_user_registration_path, class: 'linkButton', data: { turbo: false } %>
+        <% end %>
+        <% if user_is_admin? %>
+          <%= link_to 'Site History', statistics_user_path(@user), class: 'linkButton' %>
+        <% end %>
+      <% end %>
     <% end %>
   </h1>
   <div class="entries">
@@ -32,7 +37,7 @@
       </p>
     <% end %>
 
-    <% ss_cache part: "trip_report_groups_#{@user.id}" do %>
+    <% ss_cache part: "trip_report_groups_v2_#{@user.id}" do %>
       <% if @has_trip_reports %>
 	<b>Trip Reports</b><br>
         <!--<ul class="left">-->
@@ -48,7 +53,7 @@
           </ul>
         <% end %>
       <% end %>
-      <div class="clearLeft"><br />
+      <div class="clearLeft"><br /></div>
     <% end %>
 
     <% if @user.description? %>

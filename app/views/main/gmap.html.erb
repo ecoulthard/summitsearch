@@ -1,9 +1,9 @@
 <div id="place_list">
-<% cache_if params[:radius].blank?, { part: "form#{params.to_unsafe_h.select { |key, _| key.end_with?('_id') }}" }, expires_in: 3.months do %>
-<h1>Google Map View
-  &nbsp;&nbsp;&nbsp;
-  <%= form_with url: gmap_path, method: :get, style: 'display:inline' do %>
-    Radius of labelling in km:&nbsp;
+<% cache_if params[:radius].blank?, { part: "responsive_form_v2#{params.to_unsafe_h.select { |key, _| key.end_with?('_id') }}" }, expires_in: 3.months do %>
+<div class="map-toolbar">
+<h1>Google Map View</h1>
+  <%= form_with url: gmap_path, method: :get, class: 'map-radius-form' do %>
+    <%= label_tag :radius, "Labelling radius (km)" %>
     <% if defined?(@article) && @article.present? %>
       <%= hidden_field_tag :route_id, @article.id if @article.is_a?(Route) %>
       <%= hidden_field_tag :place_id, @article.id if @article.is_a?(Place) %>
@@ -11,11 +11,11 @@
       <%= hidden_field_tag :album_id, @article.id if @article.is_a?(Album) %>
       <%= hidden_field_tag :photo_id, @article.id if @article.is_a?(Photo) %>
     <% end %>
-    <%= number_field_tag :radius, @radius, in: 1..400, size: 3, style: 'display:inline;height:20px;' %>
-    &nbsp;&nbsp;
-    <%= link_to_if (defined?(@article) && @article.present?), "back", @article %><br>
+    <%= number_field_tag :radius, @radius, in: 40..300, required: true %>
+    <%= submit_tag "Apply", name: nil %>
+    <%= link_to "Back", @article, class: "map-back-link" if defined?(@article) && @article.present? %>
   <% end %>
-</h1>
+</div>
 <% end #cache form %>
 
 <div id="map_div" class="map_div_big"></div>

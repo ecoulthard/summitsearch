@@ -1,11 +1,14 @@
 <div id="place_list" data-turbo="false">
-  <h1><%= @place.name %>
-    <br /><br />
-    <%= link_to "Google Map View", gmap_path(place_id: @place), rel: 'nofollow', class: 'linkButton' %>
-    <%= topo_map_link @place.centerLatitude.round(6), @place.centerLongitude.round(6), 10 %>
-    <% if user_is_editor? %>  
-      <%= link_to "Edit This #{@place.type.titleize}", edit_place_path(@place), class: 'linkButton' %>
-      <%= link_to "Insert New #{@place.type.titleize} nearby", new_place_path(type: @place.class.to_s, ref_place_id: @place.id), class: 'linkButton' %>
+  <h1 class="section-header">
+    <span class="section-title"><%= @place.name %></span>
+    <span class="section-action-break"><br><br></span>
+    <%= render layout: 'all/section_actions', locals: { label: 'Place', menu_id: 'page-actions' } do %>
+      <%= link_to "Google Map View", gmap_path(place_id: @place), rel: 'nofollow', class: 'linkButton' %>
+      <%= topo_map_link @place.centerLatitude.round(6), @place.centerLongitude.round(6), 10 %>
+      <% if user_is_editor? %>
+        <%= link_to "Edit This #{@place.type.titleize}", edit_place_path(@place), class: 'linkButton' %>
+        <%= link_to "Insert New #{@place.type.titleize} nearby", new_place_path(type: @place.class.to_s, ref_place_id: @place.id), class: 'linkButton' %>
+      <% end %>
     <% end %>
   </h1>
   <div class="place_description">
@@ -59,8 +62,10 @@
         <% if @has_nearby_places_without_photos %>
           <%= render partial: 'all/attention', locals: { message: "Help Wanted" } %>
           <div>
-            <h3><%= @has_photos ? "T" : @place.name + " and t" %>he following nearby mountains, lakes and other landmarks have no photos.
-              <%= link_to 'Submit a Title Photo', new_photo_path(place_id: @place.id), rel: 'nofollow', class: 'linkButton' %>
+            <h3 class="section-header"><span class="section-title"><%= @has_photos ? "T" : @place.name + " and t" %>he following nearby mountains, lakes and other landmarks have no photos.</span>
+              <%= render layout: 'all/section_actions', locals: { label: 'Nearby Places Without Photos', menu_id: 'nearby-photo-actions' } do %>
+                <%= link_to 'Submit a Title Photo', new_photo_path(place_id: @place.id), rel: 'nofollow', class: 'linkButton' %>
+              <% end %>
             </h3>
             <% @nearby_places_without_photos.each do |place| %>
               <%= link_to place.name, place %>,&nbsp;&nbsp;
@@ -276,3 +281,5 @@
      %>
   </span>
 <% end %>
+
+</div><!-- class="entries" -->

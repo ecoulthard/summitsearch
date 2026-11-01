@@ -58,6 +58,8 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
     get new_place_url, params: { type: "Mountain", ref_place_id: places(:castleguard).id }
     assert_response :success
+    assert_select "body > #bottom", count: 1
+    assert_select "#content #bottom", count: 0
   end
 
   test "should create place" do
@@ -72,12 +74,16 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
   test "should show place" do
     get place_url(places(:castleguard))
     assert_response :success
+    assert_select "body > #bottom", count: 1
+    assert_select "#content #bottom", count: 0
   end
 
   test "should get edit" do
     sign_in @editor
     get edit_place_url(places(:castleguard))
     assert_response :success
+    assert_select "body > #bottom", count: 1
+    assert_select "#content #bottom", count: 0
   end
 
   test "should get edit for mountain with ascents" do

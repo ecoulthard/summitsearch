@@ -1,8 +1,11 @@
 <div id="place_list" class="resource-form" data-turbo="false">
-  <h1>Edit <%= @trip_report.title %>
-    <br><br>
-    <%= link_to 'View Trip Report', @trip_report, class: 'linkButton' %>
-    <%= link_to 'Back to Trip Reports', trip_reports_path, class: 'linkButton' %>
+  <h1 class="section-header">
+    <span class="section-title">Edit <%= @trip_report.title %></span>
+    <span class="section-action-break"><br><br></span>
+    <%= render layout: 'all/section_actions', locals: { label: 'Trip report form', menu_id: 'form-actions' } do %>
+      <%= link_to 'View Trip Report', @trip_report, class: 'linkButton' %>
+      <%= link_to 'Back to Trip Reports', trip_reports_path, class: 'linkButton' %>
+    <% end %>
   </h1>
 
   <div class="form">

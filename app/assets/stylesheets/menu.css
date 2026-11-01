@@ -2,6 +2,11 @@
  * Pure CSS mega drop down menu
  */
 
+#menu > li.navigation-toggle,
+#menu > li > .navigation-dropdown-toggle {
+  display: none;
+}
+
 #menu {
   position: absolute;
   left: -999em; /* hides the menu */

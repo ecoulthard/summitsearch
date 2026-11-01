@@ -3,10 +3,12 @@
 <table class="subdued" cellspacing="0">
   <thead>
     <tr>
-      <th colspan="5" class="clickable">Recently Liked Articles 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Recently Liked Trip Reports", trip_reports_path(sort: 'last_liked'), class: 'linkButton' %>
-        <%= link_to "Recently Liked Albums", albums_path(sort: 'last_liked'), class: 'linkButton' %>
-        <%= link_to "Recently Liked Photos", photos_path(sort: 'last_liked'), class: 'linkButton' %>
+      <th colspan="5" class="section-header"><span class="section-title">Recently Liked Articles</span>
+        <%= render layout: 'all/section_actions', locals: { label: 'Recently Liked Articles', menu_id: 'liked-article-actions' } do %>
+          <%= link_to "Recently Liked Trip Reports", trip_reports_path(sort: 'last_liked'), class: 'linkButton' %>
+          <%= link_to "Recently Liked Albums", albums_path(sort: 'last_liked'), class: 'linkButton' %>
+          <%= link_to "Recently Liked Photos", photos_path(sort: 'last_liked'), class: 'linkButton' %>
+        <% end %>
       </th>
     </tr>
   </thead>
@@ -64,8 +66,10 @@
 <table class="subdued" cellspacing="0">
   <thead>
     <tr>
-       <th colspan="5" class="clickable"><%= @label %> Members
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "More New Members", users_path, class: 'linkButton' %>
+       <th colspan="5" class="section-header"><span class="section-title"><%= @label %> Members</span>
+         <%= render layout: 'all/section_actions', locals: { label: 'Members', menu_id: 'member-actions' } do %>
+           <%= link_to "More New Members", users_path, class: 'linkButton' %>
+         <% end %>
        </th>
     </tr>
   </thead>

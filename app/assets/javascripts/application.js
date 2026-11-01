@@ -1978,22 +1978,90 @@ if (window.jQuery) {
   });
 }
 
-function initSharedUI() {
-  const isTouch = isTouchDevice();
-
-  if (!isTouch) {
-    $("#banner").on("click", function(event) {
-      if ($(event.target).is("#banner") || $(event.target).is("#BannerLogo")) {
-        $("html").css({ cursor: "wait" });
-        const href = $("#BannerLink").prop("href");
-        if (href) {
-          if (window.Turbo) window.Turbo.visit(href);
-          else window.location.href = href;
-        }
-      }
+// Mobile section actions remain ordinary links inside a disclosure panel.
+function initSectionActions() {
+  $(document).off('.sectionActions')
+    .on('click.sectionActions', 'body#main .section-action-toggle', function(event) {
+      event.preventDefault();
+      const expanded = $(this).attr('aria-expanded') === 'true';
+      $('.section-action-toggle').attr('aria-expanded', 'false');
+      $(this).attr('aria-expanded', String(!expanded));
+    })
+    .on('keydown.sectionActions', 'body#main .section-actions', function(event) {
+      if (event.key !== 'Escape') return;
+      const toggle = $(this).find('.section-action-toggle');
+      if (toggle.attr('aria-expanded') !== 'true') return;
+      event.preventDefault();
+      toggle.attr('aria-expanded', 'false').trigger('focus');
     });
-  } else {
+}
+
+function initMainNavigation() {
+  $('#menu > li > a.drop').each(function(index) {
+    const link = $(this);
+    const panel = link.siblings('div[class*="dropdown_"]').first();
+    const panelId = `main-dropdown-${index}`;
+    panel.attr('id', panelId);
+    link.attr('aria-controls', panelId).removeAttr('aria-expanded');
+    let toggle = link.siblings('.navigation-dropdown-toggle');
+    if (!toggle.length) {
+      // A native button avoids mobile browsers treating a link's first tap as hover.
+      toggle = $('<button type="button" class="drop navigation-dropdown-toggle"></button>')
+        .text(link.text()).insertAfter(link);
+    }
+    toggle.attr({ 'aria-controls': panelId, 'aria-expanded': 'false' });
+  });
+  const dropdownToggles = $('#menu > li > .navigation-dropdown-toggle');
+  const closeDropdowns = () => dropdownToggles.attr('aria-expanded', 'false');
+
+  $(document).off('.mainNavigation')
+    .on('click.mainNavigation', '#navigation-toggle', function() {
+      const expanded = $(this).attr('aria-expanded') === 'true';
+      $(this).attr('aria-expanded', String(!expanded));
+      closeDropdowns();
+      $('#menu .firstClick').removeClass('firstClick');
+    })
+    .on('click.mainNavigation', '#menu > li > .navigation-dropdown-toggle', function(event) {
+      if (!window.matchMedia('(max-width: 800px)').matches) return;
+      event.preventDefault();
+      const expanded = $(this).attr('aria-expanded') === 'true';
+      closeDropdowns();
+      $(this).attr('aria-expanded', String(!expanded));
+    })
+    .on('click.mainNavigation', function(event) {
+      if (!$(event.target).closest('#menu > li:has(> a.drop)').length) closeDropdowns();
+    })
+    .on('keydown.mainNavigation', '#menu', function(event) {
+      if (event.key !== 'Escape') return;
+      const dropdown = dropdownToggles.filter('[aria-expanded="true"]').first();
+      if (dropdown.length) {
+        event.preventDefault();
+        closeDropdowns();
+        dropdown.trigger('focus');
+        return;
+      }
+      const toggle = $('#navigation-toggle');
+      if (toggle.attr('aria-expanded') !== 'true') return;
+      event.preventDefault();
+      toggle.attr('aria-expanded', 'false').trigger('focus');
+      $('#menu .firstClick').removeClass('firstClick');
+    });
+}
+
+function initSharedUI() {
+  initSectionActions();
+  initMainNavigation();
+  const isTouch = isTouchDevice();
+  const homePanelSelector = "body.main.index td.clickable:not(.User_Photo_Summary), body.main.index .thumbDiv.clickable";
+
+  if (isTouch) {
     $(".clickable, #menu li > a").on("click", function(e) {
+      // Mobile dropdowns have their own toggle; other controls act immediately.
+      const control = $(e.target).closest("a, button, input, select, textarea, label");
+      if (control.length && (!control.is("#menu > li > a.drop") || window.matchMedia('(max-width: 800px)').matches)) return;
+      // Home-page cards open immediately; photo summaries keep their expand action.
+      if ($(this).is(homePanelSelector)) return;
+
       const firstclick = $(this).hasClass("firstClick");
       $(".clickable, #menu li > a").removeClass("firstClick");
       if (!firstclick) {
@@ -2003,9 +2071,6 @@ function initSharedUI() {
       }
     });
 
-    $("#banner").on("click", function() {
-      $("#menu").css("left", "0px");
-    });
   }
 
   // Dialogs
@@ -2058,13 +2123,15 @@ function initSharedUI() {
     });
   } else {
     $(document).on('click', '.entry, .thumbDiv', function() {
+      if ($(this).is(homePanelSelector)) return;
       $(".entry, .thumbDiv").children('.captionDiv, .abstractDiv').hide();
       $(this).children('.captionDiv, .abstractDiv').show();
     });
   }
 
-  // Tooltip
-  if ($.fn.tooltip) {
+  // Touch browsers can reveal hover content before clicking and consume the tap.
+  // Keep previews for mouse users; touch users follow the card's link instead.
+  if ($.fn.tooltip && !isTouch) {
     $(document).tooltip({
       items: ".showHover",
       show: false,
@@ -2089,10 +2156,10 @@ function initSharedUI() {
 
   // Clickable items
   $(document).on('click', '.clickable', function(event) {
-    if ($(event.target).is("a") || $(event.target).parent().is("a")) {
+    if ($(event.target).closest("a, button, input, select, textarea, label").length) {
       return true;
     }
-    if (!isTouch || $(this).hasClass("firstClick")) {
+    if (!isTouch || $(this).is(homePanelSelector) || $(this).hasClass("firstClick")) {
       const link = $(this).find("a:first")[0];
       if (link && link.href) {
         if (window.Turbo) window.Turbo.visit(link.href);

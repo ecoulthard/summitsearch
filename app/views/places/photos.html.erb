@@ -5,10 +5,11 @@
 <% ss_cache({ part: "other_photos_#{@place.id}" }, expires_in: 1.month) do %>
   <% if @has_photos_in_area %>
     <div class="ArticleListDiv">
-      <h2 class="ui-state-default">Other Photos taken from <%= "the " if [Icefield, MountainRange, Region].any? { |klass| @place.is_a?(klass) } %><%= @place.name %>
-        <%= link_to 'View Slideshow', slideshow_photos_path(place_tag: :place_id, type: 'InArea'), rel: 'nofollow', data_popup: "true", class: 'linkButton' %>
-        &nbsp;
-        <%= link_to 'View Full Size Photos', show_full_photos_path(place_tag: :place_id, type: 'InArea'), rel: 'nofollow', data_popup: "true", class: 'linkButton' %>
+      <h2 class="ui-state-default section-header"><span class="section-title">Other Photos taken from <%= "the " if [Icefield, MountainRange, Region].any? { |klass| @place.is_a?(klass) } %><%= @place.name %></span>
+        <%= render layout: 'all/section_actions', locals: { label: 'Other Photos In This Area', menu_id: "area-photos-#{@place.to_param}-actions" } do %>
+          <%= link_to 'View Slideshow', slideshow_photos_path(place_tag: :place_id, type: 'InArea'), rel: 'nofollow', data_popup: "true", class: 'linkButton' %>
+          <%= link_to 'View Full Size Photos', show_full_photos_path(place_tag: :place_id, type: 'InArea'), rel: 'nofollow', data_popup: "true", class: 'linkButton' %>
+        <% end %>
       </h2>
       <% @photos_in_area.each do |photo| %>
         <%= render partial: 'photos/thumb', locals: { photo: photo } %>

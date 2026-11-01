@@ -1,7 +1,10 @@
 <div id="place_list" class="resource-form" data-turbo="false">
-  <h1>New Album
-    <br><br>
-    <%= link_to 'Back to Albums', albums_path, class: 'linkButton' %>
+  <h1 class="section-header">
+    <span class="section-title">New Album</span>
+    <span class="section-action-break"><br><br></span>
+    <%= render layout: 'all/section_actions', locals: { label: 'Album form', menu_id: 'form-actions' } do %>
+      <%= link_to 'Back to Albums', albums_path, class: 'linkButton' %>
+    <% end %>
   </h1>
 
   <div class="form">

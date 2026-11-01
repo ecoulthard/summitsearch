@@ -1,10 +1,13 @@
 <div id="place_list" data-turbo="false">
-  <h1><%= @album.title %> <span>by <%= link_to @album.user.display_name, @album.user rescue (@album.user&.display_name || "Unknown") %></span>
-    <br><br>
-    <%= link_to "Google Map View", gmap_path(album_id: @album.id), rel: 'nofollow', class: 'linkButton' %>
-    <%= topo_map_link @album.ref_latitude.round(6), @album.ref_longitude.round(6), 10 %>
-    <% if @show_edit_link %>
-      &nbsp;<%= link_to "Edit This Album", edit_album_path(@album), class: 'linkButton' %>
+  <h1 class="section-header">
+    <span class="section-title"><%= @album.title %> <span>by <%= link_to @album.user.display_name, @album.user rescue (@album.user&.display_name || "Unknown") %></span></span>
+    <span class="section-action-break"><br><br></span>
+    <%= render layout: 'all/section_actions', locals: { label: 'Album', menu_id: 'page-actions' } do %>
+      <%= link_to "Google Map View", gmap_path(album_id: @album.id), rel: 'nofollow', class: 'linkButton' %>
+      <%= topo_map_link @album.ref_latitude.round(6), @album.ref_longitude.round(6), 10 %>
+      <% if @show_edit_link %>
+        &nbsp;<%= link_to "Edit This Album", edit_album_path(@album), class: 'linkButton' %>
+      <% end %>
     <% end %>
   </h1>
 

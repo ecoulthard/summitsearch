@@ -17,7 +17,9 @@ function initialize() {
          google.maps.MapTypeId.HYBRID,
          google.maps.MapTypeId.TERRAIN
        ],
-       style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+       style: window.matchMedia('(max-width: 800px), (max-width: 1000px) and (max-height: 500px)').matches
+         ? google.maps.MapTypeControlStyle.DROPDOWN_MENU
+         : google.maps.MapTypeControlStyle.HORIZONTAL_BAR
      },
      zoom: <%= zoom %>,
      zoomControlOptions: {

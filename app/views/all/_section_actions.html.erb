@@ -1,0 +1,8 @@
+<span class="section-actions">
+  <button type="button" class="section-action-toggle" aria-label="Actions for <%= label %>" aria-expanded="false" aria-controls="<%= menu_id %>">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <span id="<%= menu_id %>" class="section-action-links">
+    <%= yield %>
+  </span>
+</span>

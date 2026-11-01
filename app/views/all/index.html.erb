@@ -1,10 +1,11 @@
-<div id="place_list">
+<div id="place_list" class="record-listing">
 
 <% if @records.empty? %>
   <p class="notice"><%= "There are no #{pluralize '', @type} to list" %></p>
 <% end %>
 
-<h1>
+<h1 class="section-header">
+  <span class="section-title">
   Listing <%= @type.to_s.pluralize.downcase %> by <%= @sort.humanize.downcase %>
   <% if defined?(@place) && @place.present? %>
     <%= "in #{@place.name}" %>
@@ -12,9 +13,10 @@
   <% if !@lower.nil? && !@upper.nil? %>
     <%= "from (#{@lower} - #{@upper})" %>
   <% end %>
-  <br><br>
+  </span>
+  <span class="section-action-break"><br><br></span>
   <%= render partial: 'all/index_sort', locals: { record_class: @record_class, record_class_path: @record_class_path, selected_sort: @sort, place_id: (defined?(@place) && @place.present? ? @place : nil) } %>
-  <br><br>
+  <span class="section-action-break"><br><br></span>
   <%= will_paginate @records, inner_window: 10, outer_window: 2 if defined?(will_paginate) && @records.respond_to?(:total_pages) %>
 </h1>
 <div class="clear"></div>

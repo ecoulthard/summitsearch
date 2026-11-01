@@ -2,10 +2,16 @@
 <html itemscope itemtype="http://schema.org/Article">
 <%= render 'layouts/header', default_title: "Summit Search", app: "main" %>
 <body id="main" class="default <%= controller_name %> <%= action_name %>"> 
-  <div id="banner" tabindex="1" style="background-image: url(<%= asset_path("logo_backgrounds/background#{rand(1..NUM_BACKGROUND_IMAGES)}.jpg") %>)">
-    <%= link_to "", main_app.root_path, id: "BannerLink" %>
-    <%= image_tag("logo.png", alt: 'Summit Search Mountain Community', id: 'BannerLogo') %>
+  <div id="banner" style="background-image: url(<%= asset_path("logo_backgrounds/background#{rand(1..NUM_BACKGROUND_IMAGES)}.jpg") %>)">
+    <%= link_to main_app.root_path, id: "BannerLink" do %>
+      <%= image_tag("logo.png", alt: 'Summit Search Mountain Community', id: 'BannerLogo') %>
+    <% end %>
     <ul id="menu">
+      <li class="navigation-toggle">
+        <button type="button" id="navigation-toggle" aria-label="Main navigation" aria-expanded="false" aria-controls="menu">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </li>
       <%= menu %>
       <li tabindex="6" class="menu_right search" data-turbo="false">
         <%= form_with url: main_app.search_path, method: :get do |f| %>

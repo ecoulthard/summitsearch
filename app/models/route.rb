@@ -75,7 +75,7 @@ class Route < ApplicationRecord
   DIFFICULTY_OPTIONS = ["Easy", "Moderate", "Difficult"]
   ALLOW_BRANCHES = true #Overloaded in subclasses.
 
-  SORT_OPTIONS = {'distance' => 'distance DESC NULLS LAST', 'difficulty' => 'difficulty', 'name' => 'name', 'date_created' => 'created_at DESC', 'height_change' => 'height_gain + height_loss DESC NULLS LAST', 'average_steepness' => 'height_gain/distance DESC NULLS LAST'}
+  SORT_OPTIONS = {'distance' => 'distance DESC NULLS LAST', 'difficulty' => 'difficulty', 'name' => 'name', 'date_created' => 'created_at DESC', 'height_change' => Arel.sql('height_gain + height_loss DESC NULLS LAST'), 'average_steepness' => Arel.sql('height_gain / NULLIF(distance, 0) DESC NULLS LAST')}
   DEFAULT_SORT = 'name'
 
   #Is the route allowed to link to a destination place. Overwritten in subclasses

@@ -1,12 +1,15 @@
 <table class="subdued <%= "floatTable" if defined?(float) && float %>" cellspacing='0'>
   <thead>
     <tr>
-       <th colspan="3" class="clickable" data-turbo="false">Trip Reports
-	&nbsp;&nbsp;&nbsp;
-        <% if place_tag == :route_id %>
-          <%= link_to 'Submit a new Trip Report', new_trip_report_path(route_id: place.id), rel: 'nofollow', class: 'linkButton' %>
-        <% elsif !place_tag.blank? %>
-          <%= link_to 'Submit a new Trip Report', new_route_path(type: :Route, place_tag => place.id, trip: true), rel: 'nofollow', class: 'linkButton' %>
+       <th colspan="3" class="section-header" data-turbo="false"><span class="section-title">Trip Reports</span>
+        <% unless place_tag.blank? %>
+          <%= render layout: 'all/section_actions', locals: { label: 'Related Trip Reports', menu_id: "related-trips-#{place_tag}-#{place.to_param}-actions" } do %>
+            <% if place_tag == :route_id %>
+              <%= link_to 'Submit a new Trip Report', new_trip_report_path(route_id: place.id), rel: 'nofollow', class: 'linkButton' %>
+            <% else %>
+              <%= link_to 'Submit a new Trip Report', new_route_path(type: :Route, place_tag => place.id, trip: true), rel: 'nofollow', class: 'linkButton' %>
+            <% end %>
+          <% end %>
         <% end %>
        </th>
     </tr>
