@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/legacy-photo-images/:signed_id/:style", to: "legacy_photo_images#show", as: :legacy_photo_image
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   get "up" => "rails/health#show", as: :rails_health_check
   resources :forum_photos, only: [ :index, :create ] do

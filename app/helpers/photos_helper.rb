@@ -18,7 +18,7 @@ module PhotosHelper
       if Rails.root.join("public", local_rel_path.delete_prefix("/")).exist?
         local_rel_path
       elsif ENV["AWS_ACCESS_KEY_ID"].present? && ENV["AWS_SECRET_ACCESS_KEY"].present?
-        legacy_s3_presigned_url(photo, style_name)
+        legacy_photo_image_path(signed_id: photo.signed_id(purpose: :legacy_photo_image), style: style_name)
       else
         bucket = ENV["S3_BUCKET_NAME"].presence || "summitsearch"
         "https://#{bucket}.s3.amazonaws.com/photos/photos/#{photo.id}/#{style_name}/#{photo.photo_file_name}"

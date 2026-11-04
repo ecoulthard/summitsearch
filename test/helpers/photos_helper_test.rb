@@ -1,6 +1,17 @@
 require "test_helper"
 
 class PhotosHelperTest < ActionView::TestCase
+  setup do
+    @original_aws_env = ENV.to_h.slice("AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "S3_BUCKET_NAME")
+    ENV.delete("AWS_ACCESS_KEY_ID")
+    ENV.delete("AWS_SECRET_ACCESS_KEY")
+  end
+
+  teardown do
+    %w[AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY S3_BUCKET_NAME].each { |key| ENV.delete(key) }
+    ENV.update(@original_aws_env)
+  end
+
   test "photo_variant with nil photo returns nil" do
     assert_nil photo_variant(nil)
     assert_equal "", photo_variant_url(nil)
@@ -25,21 +36,27 @@ class PhotosHelperTest < ActionView::TestCase
     assert_includes result, "Edith Cavell"
   end
 
-  test "photo_variant_url with AWS credentials generates presigned url" do
-    photo = Photo.new(photo_file_name: "edith-cavell.jpg")
-    photo.id = 1
+  test "photo_variant_url with AWS credentials stays valid in cached HTML" do
+    photo = photos(:one)
+    photo.photo_file_name = "edith-cavell.jpg"
 
+    original_env = ENV.to_h.slice("AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "S3_BUCKET_NAME")
     ENV["AWS_ACCESS_KEY_ID"] = "test_key"
     ENV["AWS_SECRET_ACCESS_KEY"] = "test_secret"
     ENV["S3_BUCKET_NAME"] = "test-bucket"
 
     url = photo_variant_url(photo, :medium)
-    assert_includes url, "test-bucket.s3"
-    assert_includes url, "X-Amz-Signature"
+    assert_includes url, "/legacy-photo-images/"
+    assert_includes url, "/medium"
+    refute_includes url, "X-Amz-Signature"
+    travel 3.hours do
+      assert_equal url, photo_variant_url(photo, :medium)
+    end
   ensure
     ENV.delete("AWS_ACCESS_KEY_ID")
     ENV.delete("AWS_SECRET_ACCESS_KEY")
     ENV.delete("S3_BUCKET_NAME")
+    ENV.update(original_env) if original_env
   end
 
   test "renders photos/thumb partial correctly" do
