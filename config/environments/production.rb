@@ -68,7 +68,7 @@ Rails.application.configure do
 
   # Specify outgoing SMTP server.
   config.action_mailer.smtp_settings = {
-    address: "://resend.com",
+    address: "smtp.resend.com",
     port: 465,
     user_name: "resend",
     password: ENV["RESEND_API_KEY"],

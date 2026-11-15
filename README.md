@@ -39,28 +39,18 @@ Alternatively, run `bin/jobs` in a dedicated worker dyno.
 
 ## Heroku email configuration
 
-Production sends email through `smtp.gmail.com:587` using STARTTLS, including
-Devise password reset instructions. Set these Heroku config vars:
+Production sends email through `smtp.resend.com:465` using TLS, including
+Devise password reset instructions. Set `RESEND_API_KEY` in the Heroku dashboard
+under Settings → Config Vars to a Resend API key with permission to send email.
+The SMTP username is `resend`.
 
-* `NOTIFIER_EMAIL`: the full Gmail or Google Workspace account email address.
-* `NOTIFIER_EMAIL_PASSWORD`: a Google app password for that account, rather than
-  its regular sign-in password. App passwords require two-step verification and
-  must be allowed by the account's security policy.
+Verify the sender domain `eric-coulthard.com` in Resend. If `NOTIFIER_EMAIL` is
+set for application notifications, its domain must also be verified in Resend.
 
-Set the values in the Heroku dashboard under Settings → Config Vars. Google app
-passwords can be managed at https://myaccount.google.com/apppasswords.
-
-If password resets fail in `Net::SMTP::AuthLogin#auth`, inspect the exception
-message immediately before the backtrace:
-
-```sh
-heroku logs --num 300 --app summitsearch-v2
-```
-
-A `535` response usually indicates rejected credentials; `534` may indicate an
-app password or another Google account security requirement. Use Google's full
-response to identify the cause. After correcting the credentials, request a new
-password reset from the application.
+If delivery fails with `Socket::ResolutionError`, check that the SMTP address is
+the hostname `smtp.resend.com`, without a URL scheme or path. Authentication
+errors indicate a separate issue with the API key. After deploying configuration
+changes or correcting credentials, request a new password reset.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
