@@ -3,7 +3,7 @@ Thredded.current_user_method = :current_user
 Thredded.user_name_column = :username
 Thredded.user_display_name_method = :display_name
 Thredded.user_path = ->(user) { main_app.user_path(user) }
-Thredded.email_from = Rails.application.config.notifier_email.presence || "notifier@summitsearch.org"
+Thredded.email_from = Rails.application.config.notifier_email.presence || "noreply@eric-coulthard.com"
 
 # Keep existing forum administration separate from the site's editor/admin roles.
 Thredded.admin_column = :forem_admin

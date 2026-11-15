@@ -42,7 +42,7 @@ class ForumUserTest < Minitest::Test
     assert_equal :current_user, Thredded.current_user_method
     assert_equal :username, Thredded.user_name_column
     assert_equal :display_name, Thredded.user_display_name_method
-    assert_equal Rails.application.config.notifier_email.presence || "notifier@summitsearch.org", Thredded.email_from
+    assert_equal Rails.application.config.notifier_email.presence || "noreply@eric-coulthard.com", Thredded.email_from
     refute Thredded.content_visible_while_pending_moderation
     context = Object.new
     context.define_singleton_method(:main_app) { Rails.application.routes.url_helpers }

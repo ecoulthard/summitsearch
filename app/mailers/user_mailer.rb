@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
   default from: -> {
-    notifier = Rails.application.config.notifier_email.presence || "notifier@summitsearch.org"
+    notifier = Rails.application.config.notifier_email.presence || "noreply@eric-coulthard.com"
     email_address_with_name(notifier, "SummitSearch Notifier")
   }
 

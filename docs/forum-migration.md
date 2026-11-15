@@ -95,7 +95,7 @@ Docker image build has not been tested.
 `current_user`, the `username` column for mentions/autocomplete, and
 `display_name` for presentation. Profile links use the application's existing
 user route, including FriendlyId slugs. The sender uses `NOTIFIER_EMAIL`, with
-the same `notifier@summitsearch.org` fallback as Devise. Pending content is
+the same `noreply@eric-coulthard.com` fallback as Devise. Pending content is
 explicitly hidden from ordinary readers.
 
 Forum administration continues to use `users.forem_admin`. A site Admin or
