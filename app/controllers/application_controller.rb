@@ -1,7 +1,4 @@
 class ApplicationController < ActionController::Base
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  allow_browser versions: :modern
-
   # ss_cache skips template digests; discard HTML containing expiring S3 URLs.
   fragment_cache_key { "mobile-panel-actions-v1-stable-photo-urls-v2" }
 
@@ -17,7 +14,6 @@ class ApplicationController < ActionController::Base
     include ActionView::Helpers::TextHelper
   end
 
-  before_action :valid_user_agents
   before_action :enable_tracking
   before_action :authenticate_user!, except: [:index, :show], unless: :devise_controller?, raise: false
   before_action :editor_required, except: [:index, :show, :expire], unless: :devise_controller?, raise: false
@@ -96,13 +92,6 @@ class ApplicationController < ActionController::Base
     !user_agent.blank? && VALID_ROBOTS.any? {|robot| user_agent.downcase.include? robot }
   end
 
-  def valid_user_agents
-    if !request.user_agent.blank? && (request.user_agent.include?("MSIE 6.") || request.user_agent.include?("MSIE 5.") || request.user_agent.include?("MSIE 4."))
-      redirect_to 'http://http://www.ie6countdown.com'
-      return false
-    end
-  end
-
   #Enable do not track for certain users or ip addresses.
   def enable_tracking
     @DoNotTrack = false
@@ -111,19 +100,6 @@ class ApplicationController < ActionController::Base
       @DoNotTrack = true
     end
     true
-  end
-
-  #Access denied to search engines
-  def browsers_only
-    if !valid_browser?(request.user_agent) or valid_robot?(request.user_agent)
-      respond_to do |format|
-        format.html { render :file => Rails.root.join("public/401.html"), :status => :unauthorized, :layout => false }
-        format.xml do
-          headers["Status"] = "Unauthorized"
-          render :plain => "You appear to be a robot. No robots are allowed to access this page.", :status => :unauthorized
-        end
-      end
-    end
   end
 
   if defined?(User) && defined?(User::ROLES)

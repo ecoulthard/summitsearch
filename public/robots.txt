@@ -1,20 +1,6 @@
 # See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
 
-User-agent: Googlebot
-Disallow:
-User-agent: googlebot-image
-Disallow:
-User-agent: googlebot-mobile
-Disallow:
-User-agent: Bingbot
-Disallow:
-User-agent: MSNBot
-Disallow:
-User-agent: Slurp
-Disallow:
-User-agent: Teoma
-Disallow:
 User-agent: *
-Disallow: /
+Disallow:
 
-Sitemap: https://www.summitsearch.org/sitemap.xml.gz
+Sitemap: https://www.eric-coulthard.com/sitemap.xml.gz

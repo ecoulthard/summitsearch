@@ -24,9 +24,9 @@ class MainControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should not get gmap for bot" do
-    get gmap_url, params: { place_id: places(:columbia).id }, headers: { "HTTP_USER_AGENT" => "msnbot" }
-    assert_response :redirect
+  test "should require sign-in for gmap" do
+    get gmap_url, params: { place_id: places(:columbia).id }
+    assert_redirected_to new_user_session_url
   end
 
   test "should get search" do
