@@ -5,7 +5,9 @@ class MainController < ApplicationController
   before_action :browsers_only, only: [:gmap, :expire_index, :expire_gmap], raise: false
 
   def index
-    @noindex = true #Don't let search engines index this page
+    @pageTitle = "Mountains, Routes and Trip Reports"
+    @metaDescription = "Explore mountains, hiking and climbing routes, trip reports, and outdoor photos from the Canadian Rockies and beyond."
+    @canonical_path = root_path
     #Put an ugrade notice for users using old IE browser.
     if !request.user_agent.nil? && (request.user_agent.include?("MSIE 7") || request.user_agent.include?("MSIE 8"))
       flash.now[:notice] = "" if flash.now[:notice].nil?

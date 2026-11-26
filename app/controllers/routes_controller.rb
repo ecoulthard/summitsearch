@@ -7,7 +7,11 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.xml
   def index
-    @noindex = true #Don't let search engines index this page
+    @noindex = request.path != routes_path || request.query_parameters.present?
+    unless @noindex
+      @pageTitle = "Routes"
+      @canonical_path = routes_path
+    end
     if params[:type].present?
       target_class = params[:type].to_s.safe_constantize
       @record_class = (target_class && target_class <= Route) ? target_class : Route
@@ -37,6 +41,7 @@ class RoutesController < ApplicationController
   def show
     @route = Route.find(params[:id])
     logVisit @route
+    @canonical_path = route_path(@route)
     @pageTitle = @route.name
     @metaDescription = @route.description.blank? ? @route.name : @route.description
     @type = @route.class.to_s.titleize

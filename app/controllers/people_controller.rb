@@ -20,6 +20,7 @@ class PeopleController < ApplicationController
   # GET /people/1.json
   def show
     @person = Person.find(params[:id])
+    @canonical_path = person_path(@person)
     @pageTitle = @person.name
     @metaDescription = @person.description.blank? ? @person.name : @person.description
 

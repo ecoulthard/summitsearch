@@ -6,7 +6,11 @@ class AlbumsController < ArticlesController
   # GET /albums
   # GET /albums.xml
   def index
-    @noindex = true #Don't let search engines index this page
+    @noindex = request.path != albums_path || request.query_parameters.present?
+    unless @noindex
+      @pageTitle = "Photo Albums"
+      @canonical_path = albums_path
+    end
     @record_class = @parent_class = Album
     @type = "Album"
     @sort = params[:sort].blank? ? Album::DEFAULT_SORT : params[:sort]
@@ -26,6 +30,8 @@ class AlbumsController < ArticlesController
 
     logVisit @album, true
 
+    @noindex = @album.deleted?
+    @canonical_path = album_path(@album)
     @pageTitle = @album.title
     @metaDescription = @album.description.blank? ? @album.title : @album.description
     @first_area_id = @album.areas.count == 0 ? nil : @album.areas.first.id

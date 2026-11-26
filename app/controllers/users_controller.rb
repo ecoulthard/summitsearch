@@ -46,6 +46,7 @@ class UsersController < ApplicationController
       return
     end
 
+    @canonical_path = user_path(@user)
     @pageTitle = @user.display_name
     @metaDescription = @user.description.blank? ? @user.display_name : @user.description
     @homepage = @user.home_page

@@ -4,7 +4,11 @@ class PlacesController < ApplicationController
   skip_before_action :admin_required, only: [:infowindow, :place_search, :expire_desc, :photos], raise: false
 
   def index
-    @noindex = true #Don't let search engines index this page
+    @noindex = request.path != places_path || request.query_parameters.present?
+    unless @noindex
+      @pageTitle = "Places"
+      @canonical_path = places_path
+    end
     begin
       if params[:type].present?
         target_class = params[:type].to_s.safe_constantize
@@ -59,6 +63,7 @@ class PlacesController < ApplicationController
 
       logVisit @place
 
+      @canonical_path = place_path(@place)
       @pageTitle = @place.name
       @metaDescription = @place.description.blank? ? @place.name : @place.description
       @title_photo = @place.title_photo #if @place.area < Place::MAX_AREA_FOR_TITLE_ARTICLES

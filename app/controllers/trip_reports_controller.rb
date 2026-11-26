@@ -5,7 +5,11 @@ class TripReportsController < ArticlesController
   # GET /trip_reports
   # GET /trip_reports.xml
   def index
-    @noindex = true #Don't let search engines index this page
+    @noindex = request.path != trip_reports_path || request.query_parameters.present?
+    unless @noindex
+      @pageTitle = "Trip Reports"
+      @canonical_path = trip_reports_path
+    end
     @record_class = @parent_class = TripReport
     @type = "Trip Report"
     @sort = params[:sort].blank? ? TripReport::DEFAULT_SORT : params[:sort]
@@ -31,6 +35,7 @@ class TripReportsController < ArticlesController
     logVisit @trip_report, true
 
     @route = @trip_report.route
+    @canonical_path = trip_report_path(@trip_report)
     @pageTitle = @trip_report.title
     @metaDescription = @trip_report.abstract.blank? ? @trip_report.title : @trip_report.abstract
     @show_edit_link = can_edit?

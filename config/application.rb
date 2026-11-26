@@ -11,6 +11,7 @@ Kaminari.configure { |config| config.page_method_name = :forum_page }
 
 module Summitsearch
   class Application < Rails::Application
+    config.x.site_origin = "https://www.eric-coulthard.com"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 

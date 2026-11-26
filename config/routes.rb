@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get "/sitemap.xml", to: "sitemaps#index", as: :sitemap, format: false
+  get "/sitemap-pages.xml", to: "sitemaps#pages", as: :sitemap_pages, format: false
+  get "/sitemap-:collection-:batch.xml", to: "sitemaps#show", as: :sitemap_batch,
+      constraints: { collection: /[a-z_]+/, batch: /0|[1-9][0-9]{0,5}/ }, format: false
+  get "/sitemap.xml.gz", to: redirect("/sitemap.xml")
+
   get "/legacy-photo-images/:signed_id/:style", to: "legacy_photo_images#show", as: :legacy_photo_image
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   get "up" => "rails/health#show", as: :rails_health_check

@@ -8,7 +8,11 @@ class PhotosController < ArticlesController
   # GET /photos
   # GET /photos.xml
   def index
-    @noindex = true #Don't let search engines index this page
+    @noindex = request.path != photos_path || request.query_parameters.present?
+    unless @noindex
+      @pageTitle = "Photos"
+      @canonical_path = photos_path
+    end
     @sort = params[:sort].blank? ? Photo::DEFAULT_SORT : params[:sort]
     @photos = Photo.list(@sort).includes(:user).includes(:title_places).paginate :page=>params[:page]
     respond_to do |format|
@@ -344,6 +348,7 @@ class PhotosController < ArticlesController
     @photo = Photo.find(params[:id])
     logVisit @photo, true
 
+    @canonical_path = photo_path(@photo)
     @pageTitle = (@photo.title.nil? ? "" : @photo.title) + " Photo"
     @metaDescription = @photo.caption.blank? ? @photo.title : @photo.caption
     if !@photo.latitude.nil? && !@photo.longitude.nil?
