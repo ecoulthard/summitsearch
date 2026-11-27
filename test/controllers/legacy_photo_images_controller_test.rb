@@ -28,6 +28,20 @@ class LegacyPhotoImagesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "redirects legacy profile photos using the record's collection" do
+    { "users" => users(:author), "people" => people(:one) }.each do |collection, record|
+      record.update_column(:photo_file_name, "profile.jpg")
+      get legacy_photo_image_path(
+        signed_id: record.signed_id(purpose: :legacy_photo_image),
+        style: :thumb,
+        collection: collection
+      )
+
+      assert_response :redirect
+      assert_includes response.location, "#{collection}/photos/#{record.id}/thumb/profile.jpg"
+    end
+  end
+
   test "rejects invalid signatures and unsupported styles" do
     get legacy_photo_image_path(signed_id: "invalid", style: :thumb)
     assert_response :not_found

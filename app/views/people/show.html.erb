@@ -10,9 +10,9 @@
     <% end %>
   </h1>
   <div class="entries">
-    <% if @person.photo.attached? %>
+    <% if @person.has_photo? %>
       <div class="titlePhotoDiv" style="padding-left:10px;float:right">
-        <%= image_tag @person.photo.variant(:medium), alt: (@person.has_caption? ? @person.photo_caption : @person.name) %>
+        <%= photo_image_tag @person, :medium, alt: (@person.has_caption? ? @person.photo_caption : @person.name) %>
         <% if @person.has_caption? %>
           <p style="max-width:400px" class="photo_caption">
             <%= @person.photo_caption %>
